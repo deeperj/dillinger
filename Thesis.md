@@ -2,7 +2,7 @@
 
 
 # Introduction
-Automatic Speech Recognition is a subset of Machine Translation that takes a sequence of raw audio information and translates or matches it against the most likely sequence of text as would be written by an expert human interpreter.  In this report, Automatic Speech Recognition will also be referred to as speech recognition for short.
+Automatic Speech Recognition is a subset of Machine Translation that takes a sequence of raw audio information and translates or matches it against the most likely sequence of text as would be written by an expert human interpreter.  In this thesis, Automatic Speech Recognition will also be referred to as speech recognition for short.
 
 It can be argued that while ASR has achieved excellent performance in specific applications, much is left to be desired for general purpose speech recognition. While commercial applications like google voice search and Apple Siri are evidence that this gap is closing by the day, there is the emergence of another ASR challenge which this work addresses.
 
