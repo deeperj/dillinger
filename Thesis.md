@@ -9,6 +9,13 @@ It can be argued that while ASR has achieved excellent performance in specific a
 It is estimated that there are close to 7000 human languages in the world and yet for only a fraction of this number have there been efforts made towards ASR.  The recognition rates that have been so far achieved are based on large quantities of speech data and other linguistic resources used to train models for ASR. These models which depend largely on pattern recognition techniques degrade tremendously  when applied to different languages other than the languages that they were trained or designed for.  In addition due to the fact that collection of sufficient amounts of linguistic resources required to create accurate models for ASR are particularly laborious and time consuming to collect often extending to decades, it is therefore wise to consider alternative approaches towards developing systems for Automatic Speech Recognition in languages lacking the resources required to build ASR systems using existing mechanisms.
 
 ## ASR as a machine learning problem
+Automatic speech recognition can be put into a class of machine learning problems described as sequence pattern recognition such that a pattern can be recognised from the seqeuence of utterances. 
+
+One immediate problem realised with this definition leads us to a statistical generative speech model that describes how to handle this problem described in the following paragraph.
+
+Speech is a complex phenomena that begins as a cognitive process and finishes as a physical process.  The process of automatic speech recognition attempts to retrace the steps back from the physical process to the cognitive process giving rise to latent variables or mismatched data or loss of information from interpreting speech from one physiological layer to the next.
+
+
 ### Generative Speech model
 ### Discriminative Speech Model
 ## Low Resource Languages
