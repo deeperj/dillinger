@@ -10,7 +10,8 @@
 \end{abstract}
 
 * TODO Introduction
-Automatic Speech Recognition is a subset of Machine Translation that takes a sequence of raw audio information and translates or matches it against the most likely sequence of text as would be written by an expert human interpreter.  In this thesis, Automatic Speech Recognition will also be referred to as speech recognition for short.
+Automatic Speech Recognition is a subset of Machine Translation that takes a sequence of raw audio information and translates or matches it against the most likely sequence of text as would be written by an expert human interpreter.  In this thesis, Automatic Speech Recognition will also be referred to as 
+ASR or speech recognition for short.
 
 It can be argued that while ASR has achieved excellent performance in specific applications, much is left to be desired for general purpose speech recognition. While commercial applications like google voice search and Apple Siri gives evidence that this gap is closing, there is still yet other areas within this research space that speech recognition task is very much an unsolved problem.
 
@@ -23,9 +24,12 @@ One immediate problem realised with this definition leads us to a statistical ge
 
 Speech is a complex phenomena that begins as a cognitive process and ends up as a physical process.  The process of automatic speech recognition attempts to retrace the steps back from the physical process to the cognitive process giving rise to latent variables or mismatched data or loss of information from interpreting speech from one physiological layer to the next.
 
+\iffalse
 ** TODO Uses of ASR ([[https://www.dropbox.com/s/ly7lwhljsxhuos1/forced_alignment_slides.pdf?dl=0][University of Oxford]]) 
 - As a toolbox
 - As a methodology
+\fi
+
 ** TODO Generative Speech Models disambiguation
 ** TODO Low Resource Languages
 *** TODO Blark Matrix
