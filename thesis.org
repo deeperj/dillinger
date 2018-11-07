@@ -20,7 +20,7 @@ It is estimated that there are close to 7000 human languages in the world and ye
 ** TODO As a Machine Learning  problem
 Automatic speech recognition can be put into a class of machine learning problems described as sequence pattern recognition such that a pattern can be recognised from the seqeuence of utterances. 
 
-One immediate problem realised with this definition leads us to a statistical generative speech model that describes how to handle this problem described in the following paragraph.
+One immediate problem realised with this definition leads us to a statistical speech model that describes how to handle this problem described in the following paragraph.
 
 Speech is a complex phenomena that begins as a cognitive process and ends up as a physical process.  The process of automatic speech recognition attempts to retrace the steps back from the physical process to the cognitive process giving rise to latent variables or mismatched data or loss of information from interpreting speech from one physiological layer to the next.
 
