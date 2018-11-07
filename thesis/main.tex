@@ -3,10 +3,15 @@
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+
+% package used by \citep and \citet
+\usepackage[sort&compress,comma,authoryear]{natbib}
+
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead{}
-\fancyhead[RO,LE]{Thesis Title}
+\fancyhead[RO,LE]{An End-to-End Low Resource Speech Recognition Model}
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
 \fancyfoot[LO,CE]{Chapter \thechapter}
@@ -15,8 +20,8 @@
 \renewcommand{\footrulewidth}{0.4pt}
 
 \title{
-    {Thesis Title}\\
-    {\large Institution Name}\\
+    {An End-to-End Low Resource Speech Recognition Model}\\
+    {\large University of Huddersfield}\\
     \[\includegraphics{university.png}]
 }
 \author{Iyalla John Alamina}
