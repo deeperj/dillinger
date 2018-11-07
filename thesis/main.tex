@@ -1,10 +1,45 @@
 \documentclass[12pt,twoside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\graphicspath{images/}
+\graphicspath{ {images/} }
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{Thesis Title}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[CO,RE]{Author Name}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 
 \title{
     {Thesis Title}\\
     {\large Institution Name}\\
-    \[\includegraphics{university.jpg}]
+    \[\includegraphics{university.png}]
 }
+\author{Iyalla John Alamina}
+\date{31 December, 2018}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{Abstract}
+
+\chapter*{Dedication}
+Glory to God
+
+\chapter*{Declaration}
+I declare that..
+
+\chapter*{Acknowledgement}
+I want to thank...
+
+\tableofcontents
+
+\chapter{Introduction}
+\input{chapters/ch01}
+
+\end{document}

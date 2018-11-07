@@ -1,0 +1,67 @@
+Automatic Speech Recognition is a subset of Machine Translation that takes a sequence of raw audio information and translates or matches it against the most likely sequence of text as would be written by an expert human interpreter.  In this thesis, Automatic Speech Recognition will also be referred to as 
+ASR or speech recognition for short.
+
+It can be argued that while ASR has achieved excellent performance in specific applications, much is left to be desired for general purpose speech recognition. While commercial applications like google voice search and Apple Siri gives evidence that this gap is closing, there is still yet other areas within this research space that speech recognition task is very much an unsolved problem.
+
+It is estimated that there are close to 7000 human languages in the world and yet for only a fraction of this number have there been efforts made towards ASR.  The recognition rates that have been so far achieved are based on large quantities of speech data and other linguistic resources used to train models for ASR. These models which depend largely on pattern recognition techniques degrade tremendously  when applied to different languages other than the languages that they were trained or designed for.  In addition due to the fact that collection of sufficient amounts of linguistic resources required to create accurate models for ASR are particularly laborious and time consuming to collect often extending to decades, it is therefore wise to considerIn addition due to the fact that collection of sufficient amounts of linguistic resources required to create accurate models for ASR are particularly laborious and time consuming to collect often extending to decades, it is therefore wise to consider alternative approaches towards developing systems for Automatic Speech Recognition in languages lacking the resources required to build ASR systems using existing mechanisms.
+
+\section{As a Machine Learning  problem}
+\pagestyle{plain}
+Automatic speech recognition can be put into a class of machine learning problems described as sequence pattern recognition because ASR attempts to discriminate a pattern from the seqeuence of speech utterances. 
+
+One immediate problem realised with this definition leads us to a statistical speech models that describes how to handle this problem described in the following paragraph.
+
+Speech is a complex phenomena that begins as a cognitive process and ends up as a physical process.  The process of automatic speech recognition attempts to retrace the steps back from the physical process to the cognitive process giving rise to latent variables or mismatched data or loss of information from interpreting speech from one physiological layer to the next.
+
+It has been acknowledged in the research community that work being done in Machine Learning has enhanced the research of automatic speech recognition.  Similarly any progress made in ASR usually constitutes a contribution to enhances made in machine learning algorithm.  This also is an attribution to the fact that speech recogntion is a sequence pattern recogntion problem.  Therefore techniques within speech recognition could be applied generally to sequence pattern recognition problems.
+
+\iffalse
+** TODO Uses of ASR ([[https://www.dropbox.com/s/ly7lwhljsxhuos1/forced_alignment_slides.pdf?dl=0][University of Oxford]]) 
+- As a toolbox
+- As a methodology
+\fi
+
+\section{Generative Speech Models disambiguation}
+\pagestyle{fancy}
+** TODO Low Resource Languages
+*** TODO Blark Matrix
+**** Spoken Resources/applications vs written modules vs spoken modules
+1. Acoustic models | Annotated Written corpus | Customisation to different 
+2. Dialect Language Identification | Audio Data with prosodic markers | Dictation
+3. Emotion Identification | High Quality audio | Embedded Speech
+4. Language models | Non vowelised corpus | Emotion identification
+5. Lexicon Adapatation | proper names | emotion/prosody output
+6. Lips movment reading | phonetic lexicon | generation lips movement
+7. phoneme alignment | telephony | speaker 2 speaker mapping
+8. pronounciation lexicon | unannotated written corpus | speaker adaptation 
+9. prosody prediction | visual data (lips, faces, etc | speaker recognition
+10. prosody recognition | vowelised corpus | telephony speech 
+11. Segmenter speech/silence | | text to speech( inc database) 
+12. Sentence boundary detection | | topic detection/segmentation/topic boundary
+13. Speaker adaptation | | Transcription of broadcast news
+14. Speaker recognition/identification | | Transcription of conversatonal speech
+15. Speech units selection 
+16. Speech/non speech music detection
+17. Word boundary identification
+
+*** Written Applicatins/resources versus written modules
+1. Alignment | ASR/Dictation | Annotated Corpora
+2. Diacritiser | Classification | Monolingual lexicon
+3. Grapheme recognition for handwritten OCR | Dialog systems | multi/bilingual lexicon
+4. Morphological comparison | document proeuction | multimodal corpora for hand-written OCR
+5. Named Entity Recognition | IE | Mulimodal corpora for typed OCR
+6. POS diambiguator/tagger | indexing | parallel multilingual corpora
+7. Semantic analysis | IR/filtering | proper names
+8. Sentence boundary detection | MAT | Thesauri, ontology, wordnets
+9. Sentence synthesis and generation | MT | Unannotated corpora
+10. Shallow parsing | Summarisation | 
+11. Syntactic analysis compunded | TTS
+12. Grapheme recognition for typed OCR
+13. Term extraction
+14. Transfer tool (software)
+15. word sense disambiguation
+
+** TODO The Wakirike Language
+
+** TODO Thesis outline
+
