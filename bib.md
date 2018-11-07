@@ -1,5 +1,16 @@
 * Bibliography 
 
+@article{gales2012structured,
+  title={Structured discriminative models for speech recognition: An overview},
+  author={Gales, Mark John Francis and Watanabe, Shinji and Fosler-Lussier, Eric},
+  journal={IEEE Signal Processing Magazine},
+  volume={29},
+  number={6},
+  pages={70--81},
+  year={2012},
+  publisher={IEEE}
+}
+
 @inproceedings{goodfellow2014generative,
   title={Generative adversarial nets},
   author={Goodfellow, Ian and Pouget-Abadie, Jean and Mirza, Mehdi and Xu, Bing and Warde-Farley, David and Ozair, Sherjil and Courville, Aaron and Bengio, Yoshua},
