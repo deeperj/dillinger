@@ -13,8 +13,7 @@ Automatic speech recognition can be put into a class of machine learning problem
 
 One immediate problem realised with this definition leads us to a statistical generative speech model that describes how to handle this problem described in the following paragraph.
 
-Speech is a complex phenomena that begins as a cognitive process and finishes as a physical process.  The process of automatic speech recognition attempts to retrace the steps back from the physical process to the cognitive process giving rise to latent variables or mismatched data or loss of information from interpreting speech from one physiological layer to the next.
-
+Speech is a complex phenomena that begins as a cognitive process and ends up as a physical process.  The process of automatic speech recognition attempts to retrace the steps back from the physical process to the cognitive process giving rise to latent variables or mismatched data or loss of information from interpreting speech from one physiological layer to the next.
 
 ### Generative Speech model
 ### Discriminative Speech Model
