@@ -1,6 +1,6 @@
 * Bibliography 
 
-@book{
+@book{2015watanabe,
 author={Watanabe,Shinji (. e. and Chien,Jen-Tzung},
 year={2015},
 title={Bayesian speech and language processing},
