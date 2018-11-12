@@ -56,15 +56,72 @@ Chapter Four explains the wavelet theorem as well as the deep scattering spectru
 
 Chapters five and six is a description of the models developed by this thesis and details the experiment setup along with the results obtained. Chapters seven is a discussioin of the result and chapter 8 are the recommendations for further study. 
 
-
 # Literature Review
+The speech recogniser developed in this thesis is based on an end-to-end discriminative deep recurrent neural network.  Two models were developed.  The first model is a Gated-Recurrent-Unit Recurrent Neural network (GRU-RNN) was used to develop a character-based language model, while the second recurrent neural network is a Bi-Directional Recurrent neural Network (BiRNN) used as an end-to-end speech model capable of generating word sequences based on learned character sequence outputs.  This chapter describes the transition from generative speech models to these discriminative end-to-end recurrent neural network models.  Low speech recognition strategies are also introduced and the contribution to knowledge gained by introducing deep scattering features as inputs to the biRNN speech model is brought to light.
+
 ## Speech Recognition Overview
+Computer speech recognition takes raw audio speech and converts it into a sequence of symbols.  
+
 ### Challenges of Speech Recognition
+This can be considered as an analog to digital conversion. The realised symbol is assumed to have a one to one mapping with the segmented raw audio speech.  However, the difficulty in computer speech recognition is the fact that there is significant amount of variation in speech that would make it practically intractable to establish a direct mapping from segmented raw speech audio to a sequence of static symbols. The phenomena known as coarticulation has it that there are several different symbols having a mapping to a single waveform of speech in addition to several other varying factors including the speaker mood, gender, age, the speech transducing medium, the room acoustics. Et cetera.
+
+Another challenge faced by automated speech recognisers is the fact that the boundaries of the words is not apparent from the raw speech waveform. A third problem that immediately arises from the second is the fact that the words from the speech may not strictly follow the words in the selected vocabulary database.  Such occurrence in speech recognition research is referred to as out of vocabulary (OOV) terms.  It is reasonable to approach these challenges using a divide and conquer strategy.  In this case, the first step in this case would be to create assumption that somehow word boundaries can be determined.  This first step in speech recognition is referred to as the isolated word recognition case.
+
 ### Challenges of low speech recognition
+Speech recognition for low resource languages poses another distinct set of challenges.  In chapter one, low resource languages were described to be languages lacking in resources required for adequate machine learning of models required for generative speech models.  These resources are described basically as a text corpus for language modelling and a phonetic dictionary and transcribed audio speech for acoustic modelling.
+
 ## Low Resource Speech Recognition
 ### Low Resource language modelling
+Within the statistical ASR paradigm  and consequently linguistic domain which it imitates, we derive the unit of structure and the unit function.  The unit of structure for both the linguistic and ASR domain is the phoneme while the unit of function within both domains are the words. In addition the ASR paradigm takes this a step further and defines the unit of operation which consists of one or more words known as the speech utterance.  Note that the unit of function defines higher order linguistic units that includes syntax and semantics and some authors add pragmatics into the mix (Juang & Furui, 2000).
+
+In acoustic model a lower level of syntax processing is realised.  In language modelling higher order syntax and low level semantics is being applied.  This report obtains that higher order semantics and pragmatics is beyond the scope of speech recognition and in the realm of speech understanding.
+
+In the framework of language modelling, Juang and Furui(2000), Young(1996) evaluate the development. Language modelling formulate rules that predict linguistic events and can be modeled in terms discrete density P(W), where  W=(w1, w2,..., wL) is a word sequence. The density function P(W) assigns a probability to a particular word sequence W.  This value is determines how likely the word is to appear in an utterance. A sentence with words appearing in a grammatically correct manner is more likely to be spoken than a sentence with words mixed up in an ungrammatical manner, and, therefore, is assigned a higher probability. The order of words therefore reflect the language structure, rules, and convention in a probabilistic way. Statistical language modeling therefore, is an estimate for P(W)￼ from a given set of sentences, or corpus.
+
+The prior probability of a word sequence $$\mathbf{w}=w_1,\dots,w_k$$ required in equation (2.2) is given by
+\begin{equation}$$P(\mathbf{w})=\prod_{k=1}^KP(w_k|w_{k-1},\dots,w_1)$$
+\label{eqn_c2_lm01}
+\end{equation}
+
+The N-gram model is formed by conditioning of the word history in equation \ref{eqn_c2_lm01}.  This therefore becomes
+\begin{equation}$$P(\mathbf{w})=\prod_{k=1}^KP(w_k|w_{k-1},w_{k-2},\dots,w_{k-N+1})$$
+\label{eqn_c2_lm02}
+\end{equation}
+
+N is typically in the range of 2-4.
+
+N-gram probabilities are estimated from training corpus by counting N-gram occurrences.  This is plugged into maximum likelihood (ML) parameter estimate. For example, Given that N=3 then the probability that three words occurred is assuming $$C(w_{k-2}w_{k-1}w_k)$$ is the number of occurrences of the three words $$C(w_{k-2}w_{k-1})$$ is the count for $$w_{k-2}w_{k-1}w_k$$ then
+\begin{equation}
+$$P(w_k|w_{k-1},w_{k-2}\approx\frac{C(w_{k-2}w_{k-1}w_k}{C(w_{k-2}w_{k-1})}$$
+\label{eqn_c2_lm03}
+\end{equation}
+
+The major problem with maximum likelihood estimation scheme is data sparsity. This can be tackled by a combination of smoothing techniques involving discounting and backing-off.  The alternative approach to robust language modelling is the so-called class based models (Brown, et al., 1992; Kuhn et al., 1998) in which data sparsity is not so much an issue. Given that for every word $$w_k$$, there is a corresponding class $$c_k$$, then,
+\begin{equation}
+$$P(\mathbf{w})\prod_{k=1}^KP(w_k|c_k)p(c_k|c_{k-1},\dots,c_{k-N+1})$$
+\label{eqn_c2_lm04}
+\end{equation}
+
+The measure of a statistical language model is the entropy or perplexity. This value measures the complexity of a language that the language model is designed to represent (Jelinek, 1997). In practice, the entropy of a language with an N-gram language model PN(W) is measured via a set of sentences and is defined as
+\begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
+\label{eqn_c2_lm05}
+\end{equation}
+
+where Ω is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
+\begin{equation}$$B=2^H$$
+\label{eqn_c2_lm06}
+\end{equation}
+
+For the neural network implementations so far seen, a largeamount of data is required due to the nature of words to havelarge vocabularies,  even for medium-scale speech recognitionapplications.   Yoon  Kim  et.   al.   [12]  on  the  other  hand  tooka  different  approach  to  language  modelling  taking  advantageof the long-term sequence memory of long-short-term memorycell recurrent neural network (LSTM-RNN) to rather model alanguage based on characters rather than on words. This greatlyreduced the number of parameters involved and therefore thecomplexity of implementation.  This method is particularly ofinterest to this article and forms the basis of the implementa-tion described in this article due to the low resource constraintsimposed when using a character-level language model.
+
+Other  low  resource  language  modelling  strategies  em-ployed for the purpose of speech recognition was demonstratedby [13]. The language model developed in that work was basedon  phrase-level  linguistic  mapping  from  a  high  resource  lan-guage to a low resource language using a probabilistic modelimplemented using a weighted finite state transducer (WFST).This method uses WFST rather than a neural network due toscarcity of training data required to develop a neural network.However, it did not gain from the high nonlinearity ability of aneural network model to discover hidden patterns in data, beinga shallower machine learning architecture.The method employed in this article uses a character-basedNeural  network  language  model  that  employs  an  LSTM  net-work similar to that of [12] on the Okrika language which isa  low  resource  language  bearing  in  mind  that  the  characterlevel network will reduce the number of parameters required fortraining just enough to develop a working language model forthe purpose of speech recognition.  The description of the dataand procedure used to develop the language model is discussedin the next section.
+
+The method employed in this article uses a character-basedNeural  network  language  model  that  employs  an  LSTM  net-work similar to that of [12] on the Okrika language which isa  low  resource  language  bearing  in  mind  that  the  characterlevel network will reduce the number of parameters required fortraining just enough to develop a working language model forthe purpose of speech recognition.  The description of the dataand procedure used to develop the language model is discussedin the next section
+
 ### Low Resource Acoustic modelling
+
 ## Groundwork for low resource end-to-end speech modelling
+
 ### Speech Recognition on a low budget
 ### Deep speech
 ### Adding a Scattering layer
@@ -104,8 +161,12 @@ references:bib.md
 # Highland Scratchpad
 
 <!--[Highland-ScratchPad-Start]
+# Chapter 1
+* Summary
+* BiRNN, GRU, Scatnet references
 
-## Dillinger
+
+# Dillinger
 Dillinger uses a number of open source projects to work properly:
 
 * [AngularJS] - HTML enhanced for web apps!
