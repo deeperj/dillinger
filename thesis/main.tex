@@ -7,6 +7,7 @@
 % package used by \citep and \citet
 \usepackage[sort&compress,comma,authoryear]{natbib}
 
+\usepackage{setspace}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -15,7 +16,7 @@
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
 \fancyfoot[LO,CE]{Chapter \thechapter}
-\fancyfoot[CO,RE]{Author Name}
+\fancyfoot[CO,RE]{I. J. Alamina}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -30,6 +31,7 @@
 \begin{document}
 
 \maketitle
+\spacing{1.5}
 
 \chapter*{Abstract}
 
@@ -46,6 +48,10 @@ I want to thank...
 
 \chapter{Introduction}
 \input{chapters/ch01}
+
+\spacing{1.0}
 \bibliographystyle{plainnat}
+
 \bibliography{bib}
+
 \end{document}
