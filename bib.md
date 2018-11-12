@@ -1,5 +1,62 @@
 * Bibliography 
 
+@misc{ethnologue,
+	author={Gary F. Simons and Charles D. Fennig},
+	year={2018},
+	title={ Ethnologue: Languages of the World, Twenty-first edition.},
+	volume={2018},
+	number={11/11/},
+	url={http://www.ethnologue.com.}
+}
+
+@book{wakirike,
+	author={Charles Ogan D. S.},
+	year={2008},
+	title={Okrika: A kingdom of the Niger Delta},
+	publisher={Onyoma Research Publications},
+	address={Port Harcourt, Rivers State, Nigeria},
+	edition={1},
+	pages={27}
+}
+
+@phdthesis{berment2004methodes,
+  title={M{\'e}thodes pour informatiser les langues et les groupes de langues {\guillemotleft}peu dot{\'e}es{\guillemotright}},
+  author={Berment, Vincent},
+  year={2004},
+  school={Universit{\'e} Joseph-Fourier-Grenoble I}
+}
+
+@article{hannun2014deep,
+  title={Deep speech: Scaling up end-to-end speech recognition},
+  author={Hannun, Awni and Case, Carl and Casper, Jared and Catanzaro, Bryan and Diamos, Greg and Elsen, Erich and Prenger, Ryan and Satheesh, Sanjeev and Sengupta, Shubho and Coates, Adam and others},
+  journal={arXiv preprint arXiv:1412.5567},
+  year={2014}
+}
+
+@article{hannun2014first,
+  title={First-pass large vocabulary continuous speech recognition using bi-directional recurrent DNNs},
+  author={Hannun, Awni Y and Maas, Andrew L and Jurafsky, Daniel and Ng, Andrew Y},
+  journal={arXiv preprint arXiv:1408.2873},
+  year={2014}
+}
+
+@article{saon2015ibm,
+  title={The IBM 2015 English conversational telephone speech recognition system},
+  author={Saon, George and Kuo, Hong-Kwang J and Rennie, Steven and Picheny, Michael},
+  journal={arXiv preprint arXiv:1505.05899},
+  year={2015}
+}
+@article{deng2014deep,
+  title={Deep learning: methods and applications},
+  author={Deng, Li and Yu, Dong and others},
+  journal={Foundations and Trends{\textregistered} in Signal Processing},
+  volume={7},
+  number={3--4},
+  pages={197--387},
+  year={2014},
+  publisher={Now Publishers, Inc.}
+}
+
 @book{2015watanabe,
 author={Watanabe,Shinji (. e. and Chien,Jen-Tzung},
 year={2015},
