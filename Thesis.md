@@ -121,9 +121,12 @@ The method employed in this article uses a character-basedNeural  network  langu
 ### Low Resource Acoustic modelling
 
 ## Groundwork for low resource end-to-end speech modelling
+The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN) as used in \cite{hannun2014first}.  However, the authors refer to BiRNNs as also being very data intensive.  The next paragraphs introduce deepspeech BiRNNs and two strategies for reducing the data intensity drawback as related to low speech resource recognition.
+
+### Deep speech
 
 ### Speech Recognition on a low budget
-### Deep speech
+
 ### Adding a Scattering layer
 
 # RNN
@@ -161,9 +164,16 @@ references:bib.md
 # Highland Scratchpad
 
 <!--[Highland-ScratchPad-Start]
-# Chapter 1
+# Thesis notes
+## Chapter 1
 * Summary
 * BiRNN, GRU, Scatnet references
+
+## Chapter 2
+* discriminative AM models
+
+## Chapter 3
+
 
 
 # Dillinger
