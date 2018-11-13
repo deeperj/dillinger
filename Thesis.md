@@ -168,6 +168,7 @@ references:bib.md
 ## Chapter 1
 * Summary
 * BiRNN, GRU, Scatnet references
+* OOV ref?
 
 ## Chapter 2
 * discriminative AM models
