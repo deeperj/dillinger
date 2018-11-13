@@ -119,15 +119,80 @@ Other  low  resource  language  modelling  strategies  em-ployed for the purpose
 The method employed in this article uses a character-basedNeural  network  language  model  that  employs  an  LSTM  net-work similar to that of [12] on the Okrika language which isa  low  resource  language  bearing  in  mind  that  the  characterlevel network will reduce the number of parameters required fortraining just enough to develop a working language model forthe purpose of speech recognition.  The description of the dataand procedure used to develop the language model is discussedin the next section
 
 ### Low Resource Acoustic modelling
+Sub-space GMM for multi-lingual purpose
+
+Sub-space Gaussian Mixture Models (SGMMs) has been shown to be suitable for cross-lingual modeling without explicit mapping between phone units in different languages.
+In an SGMM, emission densities of a hidden Markov Model (HMM) are modeled as mixtures of Gaussians, whose parameters are factorized into a globally-shared set that does not depend on the HMM states, and a state specific set.
+The global parameters may be thought of as a model for the overall acoustic space, while the state-specific parameters provide the correspondence between different regions of the acoustic space and individual speech sounds.
+The decoupling  of two aspects of speech modeling that makes SGMM suitable for different languages.
+
+
+DNN for multilingual speech recognition
+Using layer wise pretraining of stacked Restricted Boltzmann Machines (RBMs) is shown to be insensitive to the choice of languages analogous to global parameters of SGMMs.
+Using a network whose output layer corresponds to context-dependent phone states of a language, by borrowing the hidden layers and fine-tune the network to a new language.
+The new outputs are scaled likelihood estimates for states of an HMM in a DNN-HMM recognition setup.
+Used a 7-layer network without a bottleneck layer where the network outputs correspond to triphone states trained on MFCC features. Each layer contained about 2000 neurons.
 
 ## Groundwork for low resource end-to-end speech modelling
 The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN) as used in \cite{hannun2014first}.  However, the authors refer to BiRNNs as also being very data intensive.  The next paragraphs introduce deepspeech BiRNNs and two strategies for reducing the data intensity drawback as related to low speech resource recognition.
 
 ### Deep speech
+HMM free approach to SR
+CTC loss function - maximises the likelihood of an output sequence by summing over all possible input-output sequence alignments.
+CER was 10% on WSJ.
+Integrated first-pass language model addition.
+BiRNNs are less complex than LSTMs yet overcome vanishing gradient problem
 
 ### Speech Recognition on a low budget
+Transfer learning based on model adaptation for training ASR models under constrained
+GPU memory
+Throughput
+Training data
+Model introspection (freezing) revealed that small adaptation to network weights were sufficient for good performance, especially for inner layers.
+Related work
+Heterogeneous transfer learning
+Wang and Zheng, 2015
+Chen and Mak 2015
+Knill et al 2014
+Heterogeneous transfer learning requires large amount of data
+Heigold et al., 2013
+Wang and Zheng (2015) demonstrates what amount of data is required for effective retraining.  This model was adapted in this work as follows
+Train a model with one or  more languages
+Retrain all or parts of it on another language which was unseen during the first training round.
+Parameters learned from first language serve as starting point.
+This was also done by Vu & Schultz (2013 by first learning an MLP from multiple languages with relative abundant data. In this work however, compressed bottle neck features (Grezl and Fousek, 2008) weren’t used.
+In addition layer freezing was used as a low resource saving strategy in figure 1.
+
+Model Architecture
+Amodei et al (2015) CNN training using many GPUs was found to be complex having many an RNN stacked with many units
+Collobert (2016) proposed  Wav2Letter architecture which relies entirely on its loss function to handle aligning  the audio and transcriptions while the network consists only of convolutional units.  This model did not sacrifice accuracy while improving speed of training.
+Although the optimiser used in Collbert et al’s model, wasn’t specified, Adam(Kingma and Ba, 2014) achieved good convergence results in this study.
+Relus have been shown to work well for acoustic models (Maas et al., 2013)
+Weight’s were initialised Xavier uniformly Glorot and Bengio (2010).
+Decoding was via beam search based on KenLM (Heafield et al., 2013).
+Tensorflow was implemented based on (Graves, 2012) and training on LibriSpeech (Panayotov et al., 2015)
+CNN was done using Keras (Chollet, 2015) and introspection using Numpy and tensorflow (Vander walt et al., 2011 and Abadi et al., 2015).
+Loss function in Collbert et al. (2016) was using AutoSegCriterion as opposed to CTC loss function in Graves et al (2006)
+Dataset - 1000 hours of read speech sampled at 16kHz. German data was 383 hours
+Features - MFCCs
+Preprocessing
+Since the English model was trained on data with a sampling rate of 16 kHz, the German speech data needed to be brought into the same format so that the convolutional filters could operate on the same timescale. To this end, all data was resampled to 16 kHz. Preprocessing was done using librosa (McFee et al., 2015) and consisted of applying a Short-time Fourier transform (STFT) to obtain power level spectrum features from the raw audio as described in Colbert 2016.
+After that, spectrum features were mel-scaled and then directly fed into the CNN. Originally, the parameters were set to window length w = 25ms, stride s = 10ms and number of components n=257. 
+We adapted the window length to wnew = 32ms which equals a Fourier transform window of 512 samples, in order to follow the convention of using power-of-two window sizes.The stride was set to snew =8ms in order to achieve 75% overlap of successive frames. We observed that n = 257 results in many of the components being 0 due to the limited window length. We therefore decreased the parameter to nnew=128. After the generation of the spectrograms, we normalized them to mean 0 and standard deviation 1 per input sequence.
+Any individual recordings in the German corpora longer than 35 seconds were removed due to GPU memory limitations.
 
 ### Adding a Scattering layer
+Many speech and music classifiers use mel-frequency cepstral coefficients (MFCCs), which are cosine transforms of mel-frequency spectral coefficients (MFSCs).
+Over a fixed time interval, MFSCs measure the signal frequency energy over mel-frequency intervals of constant-Q bandwidth.
+ As a result, they lose information on signal structures that are non-stationary on this time interval.
+To minimize this loss, short time windows of 23 ms are used in most applications since at this resolution most signals are locally stationary.
+The characterization of audio properties on larger time scales is then done by aggregating MFSC coefficients in time, with multiple ad-hoc methods such as Delta-MFCC [5] or MFCC segments [1].
+Paper shows that the non-stationary behavior lost by MFSC coefficients is captured by a scattering transform which computes multiscale co-occurrence coefficients
+A scattering representation includes MFSC-like measurements together with higher-order co-occurrence coefficients that can characterize audio information over much longer time intervals, up to several seconds. This yields efficient representations for audio classification. 
+Paper shows information lost by spectral energy measurements can be recovered by a scattering operator introduced in [8]
+Co-occurrence coefficients can be calculated by cascading wavelet filter banks and rectifiers calculated with modulus operators.
+A scattering transform has strong similarities with auditory physiological models based on cascades of constant-Q filter banks and rectifiers [4, 10]
+It is shown that second-order co-occurrence coefficients carry an important part of the signal information
 
 # RNN
 ## Sequential models
@@ -172,194 +237,11 @@ references:bib.md
 
 ## Chapter 2
 * discriminative AM models
+### Contribution to knowledge
+1. BRNN simplifies processing
+2. Scattering network increases feature representation for discrimination
+### Methodology
 
 ## Chapter 3
 
-
-
-# Dillinger
-Dillinger uses a number of open source projects to work properly:
-
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [markdown-it] - Markdown parser done right. Fast and easy to extend.
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [Breakdance](http://breakdance.io) - HTML to Markdown converter
-* [jQuery] - duh
-
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
-### Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
-
-Install the dependencies and devDependencies and start the server.
-
-```sh
-$ cd dillinger
-$ npm install -d
-$ node app
-```
-
-For production environments...
-
-```sh
-$ npm install --production
-$ NODE_ENV=production node app
-```
-
-### Plugins
-
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| Github | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-
-### Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-```sh
-$ node app
-```
-
-Second Tab:
-```sh
-$ gulp watch
-```
-
-(optional) Third:
-```sh
-$ karma test
-```
-#### Building for source
-For production release:
-```sh
-$ gulp build --prod
-```
-Generating pre-built zip archives for distribution:
-```sh
-$ gulp build dist --prod
-```
-### Docker
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
-
-```sh
-cd dillinger
-docker build -t joemccann/dillinger:${package.json.version}
-```
-This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out `${package.json.version}` with the actual version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-```sh
-docker run -d -p 8000:8080 --restart="always" <youruser>/dillinger:${package.json.version}
-```
-
-Verify the deployment by navigating to your server address in your preferred browser.
-
-```sh
-127.0.0.1:8000
-```
-[Highland-ScratchPad-End]-->
-
-<!--[Highland-Bin-Start]
-
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
-
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
-[Highland-Bin-End]-->
-
-<!--[Highland-Bin-Start]
-  - Import a HTML file and watch it magically convert to Markdown
-  - Drag and drop images (requires your Dropbox account be linked)
-
-
-You can also:
-  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
-  - Drag and drop markdown and HTML files into Dillinger
-  - Export documents as Markdown, HTML and PDF
-
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
-
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
-[Highland-Bin-End]-->
-
-<!--[Highland-Bin-Start]
-### Tech
-
-
-
-#### Kubernetes + Google Cloud
-
-See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
-
-
-### Todos
-
- - Write MORE Tests
- - Add Night Mode
-
-License
-----
-
-MIT
-
-
-**Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
 [Highland-Bin-End]-->
