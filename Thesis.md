@@ -78,6 +78,7 @@ As we describe in the next section on speech recognition challenges, there is no
 \end{equation}
 
 That is, according to Bayes’ rule, the posterior probability is obtained by multiplying a certain likelihood probability by a prior probability.  The likelihood in this case, $$P(\mathbf{O}|w_i)$$, is obtained from a Hidden Markov Model (HMM) parametric model such that rather than estimating the observation densities in the likelihood probability, these are obtained by estimating the parameters of the HMM model.  The HMM model explained in the next section gives a statistical representation of the latent variables of speech.
+
 ### HMM-based Generative speech model
 
 ### Challenges of Speech Recognition
