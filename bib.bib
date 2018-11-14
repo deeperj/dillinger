@@ -88,12 +88,6 @@ language={English},
   publisher={IEEE}
 }
 
-@article{deng2011overview,
-  title={An overview of deep-structured learning for information processing},
-  author={Deng, Li},
-  year={2011}
-}
-
 @article{gales2012structured,
   title={Structured discriminative models for speech recognition: An overview},
   author={Gales, Mark John Francis and Watanabe, Shinji and Fosler-Lussier, Eric},
@@ -221,13 +215,6 @@ url={http://hud.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwbV25DsIwDLU4FiS
   year={2015}
 }
 
-@article{hannun2014deep,
-  title={Deep speech: Scaling up end-to-end speech recognition},
-  author={Hannun, Awni and Case, Carl and Casper, Jared and Catanzaro, Bryan and Diamos, Greg and Elsen, Erich and Prenger, Ryan and Satheesh, Sanjeev and Sengupta, Shubho and Coates, Adam and others},
-  journal={arXiv preprint arXiv:1412.5567},
-  year={2014}
-}
-
 @article{besacier2014automatic,
   title={Automatic speech recognition for under-resourced languages: A survey},
   author={Besacier, Laurent and Barnard, Etienne and Karpov, Alexey and Schultz, Tanja},
@@ -243,29 +230,6 @@ url={http://hud.summon.serialssolutions.com/2.0.0/link/0/eLvHCXMwbV25DsIwDLU4FiS
   author={Allen, James},
   year={1995},
   publisher={Pearson}
-}
-
-@article{jelinek1976continuous,
-  title={Continuous speech recognition by statistical methods},
-  author={Jelinek, Frederick},
-  journal={Proceedings of the IEEE},
-  volume={64},
-  number={4},
-  pages={532--556},
-  year={1976},
-  publisher={IEEE}
-}
-@article{gales2007,
-	author={Mark Gales and Steve Young},
-	year={2007},
-	title={The Application of Hidden Markov Models in Speech Recognition},
-	journal={Foundations and TrendsÂ® in Signal Processing},
-	volume={1},
-	number={3},
-	pages={195-304},
-	isbn={1932-8346},
-	language={English},
-	doi={10.1561/2000000004
 }
 
 @inproceedings{graves2013hybrid,
