@@ -56,14 +56,32 @@ Chapter Four explains the wavelet theorem as well as the deep scattering spectru
 
 Chapters five and six is a description of the models developed by this thesis and details the experiment setup along with the results obtained. Chapters seven is a discussioin of the result and chapter 8 are the recommendations for further study. 
 
-# Literature Review
+# Low Resource Speech Models, End-to-end models and the scattering network
 The speech recogniser developed in this thesis is based on an end-to-end discriminative deep recurrent neural network.  Two models were developed.  The first model is a Gated-Recurrent-Unit Recurrent Neural network (GRU-RNN) was used to develop a character-based language model, while the second recurrent neural network is a Bi-Directional Recurrent neural Network (BiRNN) used as an end-to-end speech model capable of generating word sequences based on learned character sequence outputs.  This chapter describes the transition from generative speech models to these discriminative end-to-end recurrent neural network models.  Low speech recognition strategies are also introduced and the contribution to knowledge gained by introducing deep scattering features as inputs to the biRNN speech model is brought to light.
 
 ## Speech Recognition Overview
-Computer speech recognition takes raw audio speech and converts it into a sequence of symbols.  
+Computer speech recognition takes raw audio speech and converts it into a sequence of symbols.  This can be considered as an analog to digital conversion.  The way this conversion is done is by breaking up the audio sequence into very small packets referred to as frames and developing discriminating parameters or features for each frame. Then using the vector of features as input to the speech recogniser.  
+
+The statistical formulation \citep{young2002htk} is as follows.  Given that each spoken word in the audio speech signal is represented as a vector sequence of observations defined in the set $$\mathbf{O}$$. Therefore
+\begin{equation}$$\mathbf{O}=\mathbf{o}_1,\mathbf{o}_2,\dots,\mathbf{o}_T$$
+\label{eqn_2_1_obseq}
+\end{equation}
+
+At each discrete time $$t$$, we have an observation $$\mathbf{o}_t$$, which in itself is a vector in $$\mathbb{R}^D$$.  From the conditional probability in mathematics and statistics it can be formulated that certain words in from a finite dictionary are most probable given a sequence of observations. That is:
+\begin{equation}$$arg\max_t\{P(w_i|\mathbf{O})\}$$
+\label{eqn_2_2_srgen}
+\end{equation}
+
+As we describe in the next section on speech recognition challenges, there is no straightforward analsysis of of $$P(w_i|\mathbf{O})$$.  The divide and conquer strategy therefore employed uses Bayes formulation to simplify the problem.  Accordingly, the argument that maximises the probability of an audio sequence given a particular word multiplied by the probability of that word is equivalent to the original posterior probability required to solve the isolated word recognition problem. This is summarised by the following equation
+\begin{equation}$$P(w_i|\mathbf{O})=\frac{P(\mathbf{O}|w_i)P(w_i)}{P(\mathbf{O}}$$
+\label{eqn_2_3_bayes_sr}
+\end{equation}
+
+That is, according to Bayes’ rule, the posterior probability is obtained by multiplying a certain likelihood probability by a prior probability.  The likelihood in this case, $$P(\mathbf{O}|w_i)$$, is obtained from a Hidden Markov Model (HMM) parametric model such that rather than estimating the observation densities in the likelihood probability, these are obtained by estimating the parameters of the HMM model.  The HMM model explained in the next section gives a statistical representation of the latent variables of speech.
+### HMM-based Generative speech model
 
 ### Challenges of Speech Recognition
-This can be considered as an analog to digital conversion. The realised symbol is assumed to have a one to one mapping with the segmented raw audio speech.  However, the difficulty in computer speech recognition is the fact that there is significant amount of variation in speech that would make it practically intractable to establish a direct mapping from segmented raw speech audio to a sequence of static symbols. The phenomena known as coarticulation has it that there are several different symbols having a mapping to a single waveform of speech in addition to several other varying factors including the speaker mood, gender, age, the speech transducing medium, the room acoustics. Et cetera.
+   The realised symbol is assumed to have a one to one mapping with the segmented raw audio speech. However, the difficulty in computer speech recognition is the fact that there is significant amount of variation in speech that would make it practically intractable to establish a direct mapping from segmented raw speech audio to a sequence of static symbols. The phenomena known as coarticulation has it that there are several different symbols having a mapping to a single waveform of speech in addition to several other varying factors including the speaker mood, gender, age, the speech transducing medium, the room acoustics. Et cetera.
 
 Another challenge faced by automated speech recognisers is the fact that the boundaries of the words is not apparent from the raw speech waveform. A third problem that immediately arises from the second is the fact that the words from the speech may not strictly follow the words in the selected vocabulary database.  Such occurrence in speech recognition research is referred to as out of vocabulary (OOV) terms.  It is reasonable to approach these challenges using a divide and conquer strategy.  In this case, the first step in this case would be to create assumption that somehow word boundaries can be determined.  This first step in speech recognition is referred to as the isolated word recognition case.
 
