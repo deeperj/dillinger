@@ -80,6 +80,13 @@ As we describe in the next section on speech recognition challenges, there is no
 That is, according to Bayes’ rule, the posterior probability is obtained by multiplying a certain likelihood probability by a prior probability.  The likelihood in this case, $$P(\mathbf{O}|w_i)$$, is obtained from a Hidden Markov Model (HMM) parametric model such that rather than estimating the observation densities in the likelihood probability, these are obtained by estimating the parameters of the HMM model.  The HMM model explained in the next section gives a statistical representation of the latent variables of speech.
 
 ### HMM-based Generative speech model
+A HMM represents a finite state machine where a process transits a sequence of states from a set of fixed states. The overall sequence of transitions will have a start state, an end state and a finite number of intermediate states all within the set of finite states.  For each state transition emits an output observation that represents the current internal state of the system.
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Generative HMM model")
+In an HMM represented in figure \ref{fig_2_1_hmm}
+ there are two important probabilities.  The first is the state transition probability given by aij this is the probability to move from state i to state j.  The second probability bj is the probability that an output probability when a state emits an observation.
+
+Given that X represents the sequence of states transitioned by a process a HMM the joint probability of X and the output probabilities given the HMM is given as the following representation:
+
 
 ### Challenges of Speech Recognition
    The realised symbol is assumed to have a one to one mapping with the segmented raw audio speech. However, the difficulty in computer speech recognition is the fact that there is significant amount of variation in speech that would make it practically intractable to establish a direct mapping from segmented raw speech audio to a sequence of static symbols. The phenomena known as coarticulation has it that there are several different symbols having a mapping to a single waveform of speech in addition to several other varying factors including the speaker mood, gender, age, the speech transducing medium, the room acoustics. Et cetera.
