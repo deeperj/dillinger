@@ -1,5 +1,22 @@
 * Bibliography 
 
+@inproceedings{ghoshal2013multilingual,
+  title={Multilingual training of deep neural networks},
+  author={Ghoshal, Arnab and Swietojanski, Pawel and Renals, Steve},
+  booktitle={Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE International Conference on},
+  pages={7319--7323},
+  year={2013},
+  organization={IEEE}
+}
+
+@inproceedings{vu2013multilingual,
+  title={Multilingual multilayer perceptron for rapid language adaptation between and across language families.},
+  author={Vu, Ngoc Thang and Schultz, Tanja},
+  booktitle={Interspeech},
+  pages={515--519},
+  year={2013}
+}
+
 @article{young2002htk,
   title={The HTK book},
   author={Young, Steve and Evermann, Gunnar and Gales, Mark and Hain, Thomas and Kershaw, Dan and Liu, Xunying and Moore, Gareth and Odell, Julian and Ollason, Dave and Povey, Dan and others},
