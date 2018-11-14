@@ -6,7 +6,7 @@ Automatic Speech Recognition is a subset of Machine Translation that takes a seq
 
 It can be argued that while ASR has achieved excellent performance in specific applications, much is left to be desired for general purpose speech recognition. While commercial applications like google voice search and Apple Siri gives evidence that this gap is closing, there is still yet other areas within this research space that speech recognition task is very much an unsolved problem.
 
-It is estimated that there are close to 7000 human languages in the world and yet for only a fraction of this number have there been efforts made towards ASR.  The recognition rates that have been so far achieved are based on large quantities of speech data and other linguistic resources used to train models for ASR. These models which depend largely on pattern recognition techniques degrade tremendously  when applied to different languages other than the languages that they were trained or designed for.  In addition due to the fact that collection of sufficient amounts of linguistic resources required to create accurate models for ASR are particularly laborious and time consuming to collect often extending to decades, it is therefore wise to consider alternative approaches towards developing systems for Automatic Speech Recognition in languages lacking the resources required to build ASR systems using existing mechanisms.
+It is estimated that there are close to 7000 human languages in the world \citep{besacier2014automatic} and yet for only a fraction of this number have there been efforts made towards ASR.  The recognition rates that have been so far achieved are based on large quantities of speech data and other linguistic resources used to train models for ASR. These models which depend largely on pattern recognition techniques degrade tremendously  when applied to different languages other than the languages that they were trained or designed for.  In addition due to the fact that collection of sufficient amounts of linguistic resources required to create accurate models for ASR are particularly laborious and time consuming to collect often extending to decades, it is therefore wise to consider alternative approaches towards developing systems for Automatic Speech Recognition in languages lacking the resources required to build ASR systems using existing mechanisms.
 
 ## ASR as a machine learning problem \label{ASRMLP}
 Automatic speech recognition can be put into a class of machine learning problems described as sequence pattern recognition because ASR attempts to discriminate a pattern from the seqeuence of speech utterances. 
@@ -81,12 +81,24 @@ That is, according to Bayes’ rule, the posterior probability is obtained by mu
 
 ### HMM-based Generative speech model
 A HMM represents a finite state machine where a process transits a sequence of states from a set of fixed states. The overall sequence of transitions will have a start state, an end state and a finite number of intermediate states all within the set of finite states.  For each state transition emits an output observation that represents the current internal state of the system.
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Generative HMM model")
-In an HMM represented in figure \ref{fig_2_1_hmm}
- there are two important probabilities.  The first is the state transition probability given by aij this is the probability to move from state i to state j.  The second probability bj is the probability that an output probability when a state emits an observation.
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/hmm.png "Generative HMM model")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/hmm}\\
+  \caption{HMM Generative Model\cite{young2002htk}}\label{fig_2_1_hmm}
+\end{figure}
 
-Given that X represents the sequence of states transitioned by a process a HMM the joint probability of X and the output probabilities given the HMM is given as the following representation:
+In an HMM represented in figure \ref{fig_2_1_hmm} there are two important probabilities.  The first is the state transition probability given by $$a_{ij}$$ this is the probability to move from state $$i$$ to state $$j$$.  The second probability $$b_j$$ is the probability that an output probability when a state emits an observation.
 
+Given that $$X$$ represents the sequence of states transitioned by a process a HMM the joint probability of $$X$$ and the output probabilities given the HMM is given as the following representation:
+\begin{equation}$$P(\mathbf{O}|M)=\sum_Xa_{x(0)x(1)}\prod_{t=1}^Tb_{x(t)}(\mathbf{o}_t)a_{x(t)x(t+1)}$$
+\label{eqn_2_4_hmm}
+\end{equation}
+
+Generally speaking, the HMM formulation presents 3 distinct challenges.  The first is that likelihood of a sequence of observations given in equation \ref{eqn_2_4_hmm} above.  The next two which we describe later is the inference and the learning problem.  While the inference problem determines the sequence of steps given the emission probabilities, the learning problem determines the HMM parameters, that is the initial transition and emission probabilities of the HMM model.
+
+For the case of the inference problem, the sequence of states can be obtained by determining the sequence of states that maximises the probability of the output sequences.
 
 ### Challenges of Speech Recognition
    The realised symbol is assumed to have a one to one mapping with the segmented raw audio speech. However, the difficulty in computer speech recognition is the fact that there is significant amount of variation in speech that would make it practically intractable to establish a direct mapping from segmented raw speech audio to a sequence of static symbols. The phenomena known as coarticulation has it that there are several different symbols having a mapping to a single waveform of speech in addition to several other varying factors including the speaker mood, gender, age, the speech transducing medium, the room acoustics. Et cetera.
@@ -96,13 +108,21 @@ Another challenge faced by automated speech recognisers is the fact that the bou
 ### Challenges of low speech recognition
 Speech recognition for low resource languages poses another distinct set of challenges.  In chapter one, low resource languages were described to be languages lacking in resources required for adequate machine learning of models required for generative speech models.  These resources are described basically as a text corpus for language modelling and a phonetic dictionary and transcribed audio speech for acoustic modelling.
 
+In the area of data processing \cite{besacier2014automatic} enumerates the  challenges for developing ASR systems to include the fact that phonologies differ across languages, word segmentation problems, fuzzy grammatical structures, unwritten languages, lack of native speakers having technical skills and the multidisciplinary nature of ASR constitute impedance to ASR system building.
+
 ## Low Resource Speech Recognition
+In this system building speech recognition research, the focus was on the development of a language model and and an end-to-end speech model comparable in performance to state of the art speech recognition system consisting of an acoustic model and a language model.
+
+We therefore review low resource language and acoustic modelling as very little work has been done on low-resource end-to-end speech modelling as opposed to general end-to-end speech modelling.  
+
+From an engineering perspective, a practical means of achieving low resource speech modeling from a language rich in resources is through various strategies of the machine learning subfield of transfer learning.  
+
+Transfer learning takes the inner representation of knowledge derived from a training an algorithm used from one domain and applying this knowledge in a similar domain having different set of parameters. Early work of this nature was for speech recognition was demonstrated in \citep{vu2013multilingual} using multi-layer perceptrons to train multiple languages rich in linguistic resources. In a later section titled speech recognition on a budget, a transfer learning work involving recurrent neural networks from \citep{} is described.
+
+
 ### Low Resource language modelling
-Within the statistical ASR paradigm  and consequently linguistic domain which it imitates, we derive the unit of structure and the unit function.  The unit of structure for both the linguistic and ASR domain is the phoneme while the unit of function within both domains are the words. In addition the ASR paradigm takes this a step further and defines the unit of operation which consists of one or more words known as the speech utterance.  Note that the unit of function defines higher order linguistic units that includes syntax and semantics and some authors add pragmatics into the mix (Juang & Furui, 2000).
 
-In acoustic model a lower level of syntax processing is realised.  In language modelling higher order syntax and low level semantics is being applied.  This report obtains that higher order semantics and pragmatics is beyond the scope of speech recognition and in the realm of speech understanding.
-
-In the framework of language modelling, Juang and Furui(2000), Young(1996) evaluate the development. Language modelling formulate rules that predict linguistic events and can be modeled in terms discrete density P(W), where  W=(w1, w2,..., wL) is a word sequence. The density function P(W) assigns a probability to a particular word sequence W.  This value is determines how likely the word is to appear in an utterance. A sentence with words appearing in a grammatically correct manner is more likely to be spoken than a sentence with words mixed up in an ungrammatical manner, and, therefore, is assigned a higher probability. The order of words therefore reflect the language structure, rules, and convention in a probabilistic way. Statistical language modeling therefore, is an estimate for P(W)￼ from a given set of sentences, or corpus.
+In the framework of language modelling, Juang and Furui(2000), Young(1996) evaluate the development. Language modelling formulate rules that predict linguistic events and can be modeled in terms discrete density $$P(W)$$, where  $$W=(w_1, w_2,..., w_L)$$ is a word sequence. The density function $$P(W)$$ assigns a probability to a particular word sequence $$W$$.  This value is determines how likely the word is to appear in an utterance. A sentence with words appearing in a grammatically correct manner is more likely to be spoken than a sentence with words mixed up in an ungrammatical manner, and, therefore, is assigned a higher probability. The order of words therefore reflect the language structure, rules, and convention in a probabilistic way. Statistical language modeling therefore, is an estimate for $$P(W)$$ from a given set of sentences, or corpus.
 
 The prior probability of a word sequence $$\mathbf{w}=w_1,\dots,w_k$$ required in equation (2.2) is given by
 \begin{equation}$$P(\mathbf{w})=\prod_{k=1}^KP(w_k|w_{k-1},\dots,w_1)$$
@@ -128,24 +148,19 @@ $$P(\mathbf{w})\prod_{k=1}^KP(w_k|c_k)p(c_k|c_{k-1},\dots,c_{k-N+1})$$
 \label{eqn_c2_lm04}
 \end{equation}
 
-The measure of a statistical language model is the entropy or perplexity. This value measures the complexity of a language that the language model is designed to represent (Jelinek, 1997). In practice, the entropy of a language with an N-gram language model PN(W) is measured via a set of sentences and is defined as
-\begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
-\label{eqn_c2_lm05}
-\end{equation}
+In 2003, Bengio et.al. \cite{bengio2003neural} proposed a language model based on neural multi-layer perceptrons (MLPs). These MLP language models resort to a distributed representation of all the words in the vocabulary such that the probability function of the word sequences is expressed in terms of these word-level vector representations. The result of the MLP-based language models was found to be, in cases for models with large parameters, performing better than the traditional n-gram models.
 
-where Ω is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
-\begin{equation}$$B=2^H$$
-\label{eqn_c2_lm06}
-\end{equation}
+Improvements over the MLPs still using neural networks over the next decade include works of \cite{mikolov2011empirical,sutskever2014sequence,luong2013better}, involved the utilisation of deep neural networks for estimating word probabilities in a language model.  While a Multi-Layer Perceptron consists of a single hidden layer in addition to the input and output layers, a deep network in addition to having several hidden layers are characterised by complex structures that render the architecture beyond the basic feed forward nature where data flows from input to output hence in the RNN architecture we have some feedback neurons as well.  Furthermore, the probability distributions in these deep neural networks were either based upon word or sub-word models this time having representations which also conveyed some level of syntactic or morphological weights to aid in establishing word relationships.  These learned weights are referred to as token or unit embeddings.
 
-For the neural network implementations so far seen, a largeamount of data is required due to the nature of words to havelarge vocabularies,  even for medium-scale speech recognitionapplications.   Yoon  Kim  et.   al.   [12]  on  the  other  hand  tooka  different  approach  to  language  modelling  taking  advantageof the long-term sequence memory of long-short-term memorycell recurrent neural network (LSTM-RNN) to rather model alanguage based on characters rather than on words. This greatlyreduced the number of parameters involved and therefore thecomplexity of implementation.  This method is particularly ofinterest to this article and forms the basis of the implementa-tion described in this article due to the low resource constraintsimposed when using a character-level language model.
+For the neural network implementations so far seen, a large amount of data is required due to the nature of words to have large vocabularies, even for medium-scale speech recognition applications.  Yoon Kim et. al. \cite{kim2016character} on the other hand took a different approach to language modelling taking advantage of the long-term sequence memory of long-short-term memory cell recurrent neural network (LSTM-RNN) to rather model a language based on characters rather than on words.  This greatly reduced the number of parameters involved and therefore the complexity of implementation.  This method is particularly of interest to this article and forms the basis of the implementation described in this article due to the low resource constraints imposed when using a character-level language model.
 
-Other  low  resource  language  modelling  strategies  em-ployed for the purpose of speech recognition was demonstratedby [13]. The language model developed in that work was basedon  phrase-level  linguistic  mapping  from  a  high  resource  lan-guage to a low resource language using a probabilistic modelimplemented using a weighted finite state transducer (WFST).This method uses WFST rather than a neural network due toscarcity of training data required to develop a neural network.However, it did not gain from the high nonlinearity ability of aneural network model to discover hidden patterns in data, beinga shallower machine learning architecture.The method employed in this article uses a character-basedNeural  network  language  model  that  employs  an  LSTM  net-work similar to that of [12] on the Okrika language which isa  low  resource  language  bearing  in  mind  that  the  characterlevel network will reduce the number of parameters required fortraining just enough to develop a working language model forthe purpose of speech recognition.  The description of the dataand procedure used to develop the language model is discussedin the next section.
+Other low resource language modelling strategies employed for the purpose of speech recognition was demonstrated by \cite{xu2013cross}.  The language model developed in that work was based on phrase-level linguistic mapping from a high resource language to a low resource language using a probabilistic model implemented using a weighted finite state transducer (WFST). This method uses WFST rather than a neural network due to scarcity of training data required to develop a neural network. However, it did not gain from the high nonlinearity ability of a neural network model to discover hidden patterns in data, being a shallower machine learning architecture.
 
-The method employed in this article uses a character-basedNeural  network  language  model  that  employs  an  LSTM  net-work similar to that of [12] on the Okrika language which isa  low  resource  language  bearing  in  mind  that  the  characterlevel network will reduce the number of parameters required fortraining just enough to develop a working language model forthe purpose of speech recognition.  The description of the dataand procedure used to develop the language model is discussedin the next section
+The method employed in this report uses a character-based Neural network language model that employs an LSTM network similar to that of \cite{kim2016character} on the Okrika language which is a low resource language bearing in mind that the character level network will reduce the number of parameters required for training just enough to develop a working language model for the purpose of speech recognition.  
 
 ### Low Resource Acoustic modelling
-Sub-space GMM for multi-lingual purpose
+
+Two transfer learning techniques for acoustic modelling investigated by \cite{ghoshal2013multilingual} include the sub-space Gaussian mixture models (SGMMs) and the use of pretrained hidden layers of a deep neural network trained multilingually as a means to initialise weights for an unknown language.  This method has been informally referred to as the swap-hat method.
 
 Sub-space Gaussian Mixture Models (SGMMs) has been shown to be suitable for cross-lingual modeling without explicit mapping between phone units in different languages.
 In an SGMM, emission densities of a hidden Markov Model (HMM) are modeled as mixtures of Gaussians, whose parameters are factorized into a globally-shared set that does not depend on the HMM states, and a state specific set.
@@ -263,11 +278,23 @@ references:bib.md
 
 ## Chapter 2
 * discriminative AM models
+## Low resource speech recognition
+explanation of bottleneck features
+### Low resource LM - Perplexity
+The measure of a statistical language model is the entropy or perplexity. This value measures the complexity of a language that the language model is designed to represent (Jelinek, 1997). In practice, the entropy of a language with an N-gram language model PN(W) is measured via a set of sentences and is defined as
+\begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
+\label{eqn_c2_lm05}
+\end{equation}
+
+where Ω is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
+\begin{equation}$$B=2^H$$
+\label{eqn_c2_lm06}
+\end{equation}
+### Low resource AM
 ### Contribution to knowledge
 1. BRNN simplifies processing
 2. Scattering network increases feature representation for discrimination
 ### Methodology
-
 ## Chapter 3
 
 [Highland-Bin-End]-->
