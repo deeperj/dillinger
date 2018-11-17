@@ -57,27 +57,28 @@ Chapter Four explains the wavelet theorem as well as the deep scattering spectru
 Chapters five and six is a description of the models developed by this thesis and details the experiment setup along with the results obtained. Chapters seven is a discussioin of the result and chapter 8 are the recommendations for further study. 
 
 # Low Resource Speech Models, End-to-end models and the scattering network
-The speech recogniser developed in this thesis is based on an end-to-end discriminative deep recurrent neural network.  Two models were developed.  The first model is a Gated-Recurrent-Unit Recurrent Neural network (GRU-RNN) was used to develop a character-based language model, while the second recurrent neural network is a Bi-Directional Recurrent neural Network (BiRNN) used as an end-to-end speech model capable of generating word sequences based on learned character sequence outputs.  This chapter describes the transition from generative speech models to these discriminative end-to-end recurrent neural network models.  Low speech recognition strategies are also introduced and the contribution to knowledge gained by introducing deep scattering features as inputs to the biRNN speech model is brought to light.
+The speech recogniser developed in this thesis is based on an end-to-end discriminative deep recurrent neural network.  Two models were developed.  The first model is a Gated-Recurrent-Unit Recurrent Neural network (GRU-RNN) was used to develop a character-based language model, while the second recurrent neural network is a Bi-Directional Recurrent neural Network (BiRNN) used as an end-to-end speech model capable of generating word sequences based on learned character sequence outputs.  This chapter describes the transition from generative speech models to these discriminative end-to-end recurrent neural network models.  Low speech recognition strategies are also discussed and the contribution to knowledge gained by using character-based discrimination as well as introducing deep scattering features to the biRNN speech model is brought to light.
 
 ## Speech Recognition Overview
-Computer speech recognition takes raw audio speech and converts it into a sequence of symbols.  This can be considered as an analog to digital conversion.  The way this conversion is done is by breaking up the audio sequence into very small packets referred to as frames and developing discriminating parameters or features for each frame. Then using the vector of features as input to the speech recogniser.  
+Computer speech recognition takes raw audio speech and converts it into a sequence of symbols.  This can be considered as an analog to digital conversion as a continuous signal becomes discretised.  The way this conversion is done is by breaking up the audio sequence into very small packets referred to as frames and developing discriminating parameters or features for each frame. Then using the vector of features as input to the speech recogniser.  
 
-The statistical formulation \citep{young2002htk} is as follows.  Given that each spoken word in the audio speech signal is represented as a vector sequence of observations defined in the set $$\mathbf{O}$$. Therefore
-\begin{equation}$$\mathbf{O}=\mathbf{o}_1,\mathbf{o}_2,\dots,\mathbf{o}_T$$
-\label{eqn_2_1_obseq}
-\end{equation}
+A statistical formulation \citep{young2002htk} for the speech recogniser follows given that each discretised output word in the audio speech signal is represented as a vector sequence of frame observations defined in the set $$\mathbf{O}$$ such that 
+\begin{equation}$$\mathbf{O}=\mathbf{o}_1,\mathbf{o}_2,\dots,\mathbf{o}_T$$.
+\label{eqn_1_1_sr_inputs}\end{equation}
 
-At each discrete time $$t$$, we have an observation $$\mathbf{o}_t$$, which in itself is a vector in $$\mathbb{R}^D$$.  From the conditional probability in mathematics and statistics it can be formulated that certain words in from a finite dictionary are most probable given a sequence of observations. That is:
+At each discrete time $$t$$, we have an observation $$\mathbf{o}_t$$, which is, in itself is a vector in $$\mathbb{R}^D$$.  From the conditional probability, it can be formulated that certain word sequences from a finite dictionary are most probable given a sequence of observations. That is:
 \begin{equation}$$arg\max_t\{P(w_i|\mathbf{O})\}$$
 \label{eqn_2_2_srgen}
 \end{equation}
 
 As we describe in the next section on speech recognition challenges, there is no straightforward analsysis of of $$P(w_i|\mathbf{O})$$.  The divide and conquer strategy therefore employed uses Bayes formulation to simplify the problem.  Accordingly, the argument that maximises the probability of an audio sequence given a particular word multiplied by the probability of that word is equivalent to the original posterior probability required to solve the isolated word recognition problem. This is summarised by the following equation
-\begin{equation}$$P(w_i|\mathbf{O})=\frac{P(\mathbf{O}|w_i)P(w_i)}{P(\mathbf{O}}$$
+\begin{equation}$$P(w_i|\mathbf{O})=\frac{P(\mathbf{O}|w_i)P(w_i)}{P(\mathbf{O})}$$
 \label{eqn_2_3_bayes_sr}
 \end{equation}
 
-That is, according to Bayes’ rule, the posterior probability is obtained by multiplying a certain likelihood probability by a prior probability.  The likelihood in this case, $$P(\mathbf{O}|w_i)$$, is obtained from a Hidden Markov Model (HMM) parametric model such that rather than estimating the observation densities in the likelihood probability, these are obtained by estimating the parameters of the HMM model.  The HMM model explained in the next section gives a statistical representation of the latent variables of speech.
+That is, according to Bayes’ rule, the posterior probability is obtained by multiplying a certain likelihood probability by a prior probability.  The likelihood in this case, $P(\mathbf{O}|w_i)$, is obtained from a Hidden Markov Model (HMM) parametric model such that rather than estimating the observation densities in the likelihood probability, these are obtained by estimating the parameters of the HMM model.  The HMM model explained in the next section gives a statistical representation of the latent variables of speech.
+
+The second parameter in the speech model interpreted from Bayes' formula is prior is the probability a given word.  This aspect of the model is the language model which we review in section \ref{sec_lrlm}.
 
 ### HMM-based Generative speech model
 A HMM represents a finite state machine where a process transits a sequence of states from a set of fixed states. The overall sequence of transitions will have a start state, an end state and a finite number of intermediate states all within the set of finite states.  For each state transition emits an output observation that represents the current internal state of the system.
@@ -113,16 +114,18 @@ In the area of data processing \cite{besacier2014automatic} enumerates the  chal
 ## Low Resource Speech Recognition
 In this system building speech recognition research, the focus was on the development of a language model and and an end-to-end speech model comparable in performance to state of the art speech recognition system consisting of an acoustic model and a language model.
 
-We therefore review low resource language and acoustic modelling as very little work has been done on low-resource end-to-end speech modelling as opposed to general end-to-end speech modelling.  
+We therefore review low resource language and acoustic modelling as very little work has been done on low-resource end-to-end speech modelling as opposed to general end-to-end speech modelling and general speech recognition as a whole.  
 
 From an engineering perspective, a practical means of achieving low resource speech modeling from a language rich in resources is through various strategies of the machine learning subfield of transfer learning.  
 
-Transfer learning takes the inner representation of knowledge derived from a training an algorithm used from one domain and applying this knowledge in a similar domain having different set of parameters. Early work of this nature was for speech recognition was demonstrated in \citep{vu2013multilingual} using multi-layer perceptrons to train multiple languages rich in linguistic resources. In a later section titled speech recognition on a budget, a transfer learning work involving recurrent neural networks from \citep{} is described.
+Transfer learning takes the inner representation of knowledge derived from a training an algorithm used from one domain and applying this knowledge in a similar domain having different set of system parameters. Early work of this nature was for speech recognition is demonstrated in \citep{vu2013multilingual} where multi-layer perceptrons were used to train multiple languages rich in linguistic resources. In a later section titled speech recognition on a budget, a transfer learning mechanism involving recurrent neural networks from \citep{} is described.
 
 
-### Low Resource language modelling
+### Low Resource language modelling \label{sec_lrlm}
 
-In the framework of language modelling, Juang and Furui(2000), Young(1996) evaluate the development. Language modelling formulate rules that predict linguistic events and can be modeled in terms discrete density $$P(W)$$, where  $$W=(w_1, w_2,..., w_L)$$ is a word sequence. The density function $$P(W)$$ assigns a probability to a particular word sequence $$W$$.  This value is determines how likely the word is to appear in an utterance. A sentence with words appearing in a grammatically correct manner is more likely to be spoken than a sentence with words mixed up in an ungrammatical manner, and, therefore, is assigned a higher probability. The order of words therefore reflect the language structure, rules, and convention in a probabilistic way. Statistical language modeling therefore, is an estimate for $$P(W)$$ from a given set of sentences, or corpus.
+General language modelling is reviewed and then Low resource language modelling is discussed in this section. Recall from the general speech model influenced by Bayes' theorem.  The speech recognition model is a product of an acoustic model (likelihood probability) and the language model (prior probability).  The development of  language models for speech recognition is discussed in \cite{juang2000} and \cite{young1996}. 
+
+Language modelling formulate rules that predict linguistic events and can be modeled in terms discrete density $$P(W)$$, where  $$W=(w_1, w_2,..., w_L)$$ is a word sequence. The density function $$P(W)$$ assigns a probability to a particular word sequence $$W$$.  This value is determines how likely the word is to appear in an utterance. A sentence with words appearing in a grammatically correct manner is more likely to be spoken than a sentence with words mixed up in an ungrammatical manner, and, therefore, is assigned a higher probability. The order of words therefore reflect the language structure, rules, and convention in a probabilistic way. Statistical language modeling therefore, is an estimate for $$P(W)$$ from a given set of sentences, or corpus.
 
 The prior probability of a word sequence $$\mathbf{w}=w_1,\dots,w_k$$ required in equation (2.2) is given by
 \begin{equation}$$P(\mathbf{w})=\prod_{k=1}^KP(w_k|w_{k-1},\dots,w_1)$$
@@ -160,25 +163,23 @@ The method employed in this report uses a character-based Neural network languag
 
 ### Low Resource Acoustic modelling
 
-Two transfer learning techniques for acoustic modelling investigated by \cite{ghoshal2013multilingual} include the sub-space Gaussian mixture models (SGMMs) and the use of pretrained hidden layers of a deep neural network trained multilingually as a means to initialise weights for an unknown language.  This method has been informally referred to as the swap-hat method.
+Two transfer learning techniques for acoustic modelling investigated by \cite{povey2011subspace} and \cite{ghoshal2013multilingual} respectively include the sub-space Gaussian mixture models (SGMMs) and the use of pretrained hidden layers of a deep neural network trained multilingually as a means to initialise weights for an unknown language.  This second method has been informally referred to as the swap-hat method.
 
-Sub-space Gaussian Mixture Models (SGMMs) has been shown to be suitable for cross-lingual modeling without explicit mapping between phone units in different languages.
 In an SGMM, emission densities of a hidden Markov Model (HMM) are modeled as mixtures of Gaussians, whose parameters are factorized into a globally-shared set that does not depend on the HMM states, and a state specific set.
 The global parameters may be thought of as a model for the overall acoustic space, while the state-specific parameters provide the correspondence between different regions of the acoustic space and individual speech sounds.
 The decoupling  of two aspects of speech modeling that makes SGMM suitable for different languages.
 
+Sub-space Gaussian Mixture Models (SGMMs) has been shown to be suitable for cross-lingual modeling without explicit mapping between phone units in different languages.
 
-DNN for multilingual speech recognition
-Using layer wise pretraining of stacked Restricted Boltzmann Machines (RBMs) is shown to be insensitive to the choice of languages analogous to global parameters of SGMMs.
-Using a network whose output layer corresponds to context-dependent phone states of a language, by borrowing the hidden layers and fine-tune the network to a new language.
-The new outputs are scaled likelihood estimates for states of an HMM in a DNN-HMM recognition setup.
+Using layer wise pretraining of stacked Restricted Boltzmann Machines (RBMs) is shown to be insensitive to the choice of languages analogous to global parameters of SGMMs. Using a network whose output layer corresponds to context-dependent phone states of a language, by borrowing the hidden layers and fine-tune the network to a new language. The new outputs are scaled likelihood estimates for states of an HMM in a DNN-HMM recognition setup.
 Used a 7-layer network without a bottleneck layer where the network outputs correspond to triphone states trained on MFCC features. Each layer contained about 2000 neurons.
 
 ## Groundwork for low resource end-to-end speech modelling
-The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN) as used in \cite{hannun2014first}.  However, the authors refer to BiRNNs as also being very data intensive.  The next paragraphs introduce deepspeech BiRNNs and two strategies for reducing the data intensity drawback as related to low speech resource recognition.
+The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN).  However, BiRNNs researchers have found them as other deep learning algorithms, as being very data intensive\cite{hannun2014deep}.  The next paragraphs introduce deepspeech BiRNNs and the two strategies for tackling the data intensity drawback as related with low resource speech recognition.
 
 ### Deep speech
-HMM free approach to SR
+Up until recently speech recognition research has been centred around improvements of the HMM-based acoustic models.  This has included a departure from generative training of HMM to discriminative training \cite{} and the use of neural network precursors to initialise the HMM.  Though these  discriminive models brought improvements over generative models, being dependent HMM speech models they lacked the end-to-end nature this means that they were subject training of acoustic, language and phonetic models.  With the introduction of the CTC loss function 
+free approach to SR
 CTC loss function - maximises the likelihood of an output sequence by summing over all possible input-output sequence alignments.
 CER was 10% on WSJ.
 Integrated first-pass language model addition.
@@ -277,9 +278,10 @@ references:bib.md
 * OOV ref?
 
 ## Chapter 2
-* discriminative AM models
+* discriminative AM models -- done!
 ## Low resource speech recognition
-explanation of bottleneck features
+* explanation of bottleneck features
+* HMM recognition weakness
 ### Low resource LM - Perplexity
 The measure of a statistical language model is the entropy or perplexity. This value measures the complexity of a language that the language model is designed to represent (Jelinek, 1997). In practice, the entropy of a language with an N-gram language model PN(W) is measured via a set of sentences and is defined as
 \begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
