@@ -178,50 +178,15 @@ Used a 7-layer network without a bottleneck layer where the network outputs corr
 The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN).  However, BiRNNs researchers have found them as other deep learning algorithms, as being very data intensive\cite{hannun2014deep}.  The next paragraphs introduce deepspeech BiRNNs and the two strategies for tackling the data intensity drawback as related with low resource speech recognition.
 
 ### Deep speech
-Up until recently speech recognition research has been centred around improvements of the HMM-based acoustic models.  This has included a departure from generative training of HMM to discriminative training \cite{} and the use of neural network precursors to initialise the HMM.  Though these  discriminive models brought improvements over generative models, being dependent HMM speech models they lacked the end-to-end nature this means that they were subject training of acoustic, language and phonetic models.  With the introduction of the CTC loss function 
-free approach to SR
-CTC loss function - maximises the likelihood of an output sequence by summing over all possible input-output sequence alignments.
-CER was 10% on WSJ.
-Integrated first-pass language model addition.
-BiRNNs are less complex than LSTMs yet overcome vanishing gradient problem
+Up until recently speech recognition research has been centred around improvements of the HMM-based acoustic models.  This has included a departure from generative training of HMM to discriminative training \citep{woodland2000large} and the use of neural network precursors to initialise the HMM parameters citep{mohamed2012acoustic}.  Although these  discriminive models brought improvements over generative models, being HMM dependent speech models they lacked the end-to-end nature.  This means that they were subject to training of acoustic, language and phonetic models.  With the introduction of the Connectionist Temporal Classification (CTC) loss  function, \cite{graves2014towards} finally find a means to end-to-end speech recognition departing from HMM based speech recognition. 
+
+The architecture of the deepspeech end-to-end speech recognition model \cite{hannun2014first} follows an end-to-end Bi-directional Recurrent Neural Network (BiRNN) and CTC loss function \citep{graves2006connectionist}.  The CTC loss function uses a modified beam search to sum over all possible input-output sequence alignments thereby maximising the likelihood of an output sequence character.
 
 ### Speech Recognition on a low budget
-Transfer learning based on model adaptation for training ASR models under constrained
-GPU memory
-Throughput
-Training data
-Model introspection (freezing) revealed that small adaptation to network weights were sufficient for good performance, especially for inner layers.
-Related work
-Heterogeneous transfer learning
-Wang and Zheng, 2015
-Chen and Mak 2015
-Knill et al 2014
-Heterogeneous transfer learning requires large amount of data
-Heigold et al., 2013
-Wang and Zheng (2015) demonstrates what amount of data is required for effective retraining.  This model was adapted in this work as follows
-Train a model with one or  more languages
-Retrain all or parts of it on another language which was unseen during the first training round.
-Parameters learned from first language serve as starting point.
-This was also done by Vu & Schultz (2013 by first learning an MLP from multiple languages with relative abundant data. In this work however, compressed bottle neck features (Grezl and Fousek, 2008) weren’t used.
-In addition layer freezing was used as a low resource saving strategy in figure 1.
 
-Model Architecture
-Amodei et al (2015) CNN training using many GPUs was found to be complex having many an RNN stacked with many units
-Collobert (2016) proposed  Wav2Letter architecture which relies entirely on its loss function to handle aligning  the audio and transcriptions while the network consists only of convolutional units.  This model did not sacrifice accuracy while improving speed of training.
-Although the optimiser used in Collbert et al’s model, wasn’t specified, Adam(Kingma and Ba, 2014) achieved good convergence results in this study.
-Relus have been shown to work well for acoustic models (Maas et al., 2013)
-Weight’s were initialised Xavier uniformly Glorot and Bengio (2010).
-Decoding was via beam search based on KenLM (Heafield et al., 2013).
-Tensorflow was implemented based on (Graves, 2012) and training on LibriSpeech (Panayotov et al., 2015)
-CNN was done using Keras (Chollet, 2015) and introspection using Numpy and tensorflow (Vander walt et al., 2011 and Abadi et al., 2015).
-Loss function in Collbert et al. (2016) was using AutoSegCriterion as opposed to CTC loss function in Graves et al (2006)
-Dataset - 1000 hours of read speech sampled at 16kHz. German data was 383 hours
-Features - MFCCs
-Preprocessing
-Since the English model was trained on data with a sampling rate of 16 kHz, the German speech data needed to be brought into the same format so that the convolutional filters could operate on the same timescale. To this end, all data was resampled to 16 kHz. Preprocessing was done using librosa (McFee et al., 2015) and consisted of applying a Short-time Fourier transform (STFT) to obtain power level spectrum features from the raw audio as described in Colbert 2016.
-After that, spectrum features were mel-scaled and then directly fed into the CNN. Originally, the parameters were set to window length w = 25ms, stride s = 10ms and number of components n=257. 
-We adapted the window length to wnew = 32ms which equals a Fourier transform window of 512 samples, in order to follow the convention of using power-of-two window sizes.The stride was set to snew =8ms in order to achieve 75% overlap of successive frames. We observed that n = 257 results in many of the components being 0 due to the limited window length. We therefore decreased the parameter to nnew=128. After the generation of the spectrograms, we normalized them to mean 0 and standard deviation 1 per input sequence.
-Any individual recordings in the German corpora longer than 35 seconds were removed due to GPU memory limitations.
+In this section, a recent transfer learning speech model model \citep{kunze2017transfer} that has some characteristics similar to the speech model developed in this thesis is reviewed.  This end-to-end speech model is based on that developed by \cite{collobert2016wav2letter} and is based on deep convolutional neural networks rather than the Bi-RNN structure proposed by this work.  In addition it uses a loss function based on the AutoSegCriterion which is claimed to work competitively with raw audio waveform without any preprocessing.  The main strategy for low resource management in their system was the freezing of some layers within the convolutional network layer.  The low resource mechanisms used in this work includes the use of a unique scattering network being used as input features for the BiRNN model.
+
+An intruiging feature of the BiRNN being developed in this work and that of \citep{kunze2017transfer} system is the fact that GMM listening
 
 ### Adding a Scattering layer
 Many speech and music classifiers use mel-frequency cepstral coefficients (MFCCs), which are cosine transforms of mel-frequency spectral coefficients (MFSCs).
