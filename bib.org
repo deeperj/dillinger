@@ -1,5 +1,52 @@
 * Bibliography 
 
+@article{kunze2017transfer,
+  title={Transfer learning for speech recognition on a budget},
+  author={Kunze, Julius and Kirsch, Louis and Kurenkov, Ilia and Krug, Andreas and Johannsmeier, Jens and Stober, Sebastian},
+  journal={arXiv preprint arXiv:1706.00290},
+  year={2017}
+}
+
+@article{collobert2016wav2letter,
+  title={Wav2letter: an end-to-end convnet-based speech recognition system},
+  author={Collobert, Ronan and Puhrsch, Christian and Synnaeve, Gabriel},
+  journal={arXiv preprint arXiv:1609.03193},
+  year={2016}
+}
+
+@inproceedings{graves2006connectionist,
+  title={Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks},
+  author={Graves, Alex and Fern{\'a}ndez, Santiago and Gomez, Faustino and Schmidhuber, J{\"u}rgen},
+  booktitle={Proceedings of the 23rd international conference on Machine learning},
+  pages={369--376},
+  year={2006},
+  organization={ACM}
+}
+
+@inproceedings{graves2014towards,
+  title={Towards end-to-end speech recognition with recurrent neural networks},
+  author={Graves, Alex and Jaitly, Navdeep},
+  booktitle={International Conference on Machine Learning},
+  pages={1764--1772},
+  year={2014}
+}
+@article{mohamed2012acoustic,
+  title={Acoustic modeling using deep belief networks},
+  author={Mohamed, Abdel-rahman and Dahl, George E and Hinton, Geoffrey and others},
+  journal={IEEE Trans. Audio, Speech \& Language Processing},
+  volume={20},
+  number={1},
+  pages={14--22},
+  year={2012}
+}
+
+@inproceedings{woodland2000large,
+  title={Large scale discriminative training for speech recognition},
+  author={Woodland, PC and Povey, Daniel},
+  booktitle={ASR2000-Automatic Speech Recognition: Challenges for the new Millenium ISCA Tutorial and Research Workshop (ITRW)},
+  year={2000}
+}
+
 @article{povey2011subspace,
   title={The subspace Gaussian mixture model—A structured model for speech recognition},
   author={Povey, Daniel and Burget, Luk{\'a}{\v{s}} and Agarwal, Mohit and Akyazi, Pinar and Kai, Feng and Ghoshal, Arnab and Glembek, Ond{\v{r}}ej and Goel, Nagendra and Karafi{\'a}t, Martin and Rastrow, Ariya and others},
