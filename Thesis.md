@@ -186,7 +186,7 @@ The architecture of the deepspeech end-to-end speech recognition model \cite{han
 
 In this section, a recent transfer learning speech model model \citep{kunze2017transfer} that has some characteristics similar to the speech model developed in this thesis is reviewed.  This end-to-end speech model is based on that developed by \cite{collobert2016wav2letter} and is based on deep convolutional neural networks rather than the Bi-RNN structure proposed by this work.  In addition it uses a loss function based on the AutoSegCriterion which is claimed to work competitively with raw audio waveform without any preprocessing.  The main strategy for low resource management in their system was the freezing of some layers within the convolutional network layer.  The low resource mechanisms used in this work includes the use of a unique scattering network being used as input features for the BiRNN model.
 
-An intruiging feature of the BiRNN being developed in this work and that of \citep{kunze2017transfer} system is the fact that GMM listening
+An intruiging feature of the BiRNN being developed in this work and that of \citep{kunze2017transfer} system is the fact that the scattering network input are equivalent to the output of a light-weight convolutional neural network \cite{hannun2014first}.  Therefore the propose system then approximates a combination of a recurrrent neural netowrk as well as a convolution neural network.  
 
 ### Adding a Scattering layer
 Many speech and music classifiers use mel-frequency cepstral coefficients (MFCCs), which are cosine transforms of mel-frequency spectral coefficients (MFSCs).
