@@ -1,5 +1,14 @@
 * Bibliography 
 
+@inproceedings{peddinti2014deep,
+  title={Deep scattering spectrum with deep neural networks},
+  author={Peddinti, Vijayaditya and Sainath, TaraN and Maymon, Shay and Ramabhadran, Bhuvana and Nahamoo, David and Goel, Vaibhava},
+  booktitle={Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on},
+  pages={210--214},
+  year={2014},
+  organization={IEEE}
+}
+
 @article{kunze2017transfer,
   title={Transfer learning for speech recognition on a budget},
   author={Kunze, Julius and Kirsch, Louis and Kurenkov, Ilia and Krug, Andreas and Johannsmeier, Jens and Stober, Sebastian},
