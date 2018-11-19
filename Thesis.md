@@ -212,7 +212,14 @@ By computing multi-scale co-occurrence coefficients from a wavelet-modulus opera
 The premise for this work is that low speech recognition can be achieved by having higher resolution features for discrimination as well as using an end-to-end framework to replace some of the cumbersome and time-consuming hand-engineered domain knowledge required in the standard ASR pipeline.  In additio,n this research work makes contributions to the requirements for the two tracks specified in the [Zero Resource](http://www.clsp.jhu.edu/~ajansen/papers/IS2015d.pdf) challenge of 2015 \citep{versteegh2015zero}.  The first requirement is sub-word modelling satisfied with using deep scattering network and the second that of spoken term discovery criteria being satisfied with the end-to-end speech model supplemented with a language model.
 
 ## Methodology
+System building methodology \cite{nunamaker1990systems} for speech recognition systems require models to be evaluated against machine learning metrics for speech recognition.  For language models, perplexity metric was used for evaluation.  Bleu has also been used as a metric for evaluating language models.
 
+Full speech recognition pipelines are usually evaluated against the Word Error Rate (WER).  WER is computed as follows:
+\begin{equation}\label{eqn_2_3_wer}
+$$WER=\frac{I+D+R}{WC}\times 100$$
+\end{equation}
+
+Metrics used for low speech recognition includes the ABX metric.
 
 # RNN
 ## Sequential models
@@ -230,7 +237,7 @@ The Fourier transform discussed in the previous section constitutes a valuable t
 ## Wakirike Language model
 ## Grapheme to phoneme model
 
-# LSTM Speech Models
+# RNN Speech Models
 ## Deep speech model
 ## CTC decoder
 ## DSS model
