@@ -87,7 +87,7 @@ A HMM represents a finite state machine where a process transits a sequence of s
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/hmm}\\
-  \caption{HMM Generative Model\cite{young2002htk}}\label{fig_2_1_hmm}
+  \caption{HMM Generative Model}\cite{young2002htk}}\label{fig_2_1_hmm}
 \end{figure}
 
 In an HMM represented in figure \ref{fig_2_1_hmm} there are two important probabilities.  The first is the state transition probability given by $$a_{ij}$$ this is the probability to move from state $$i$$ to state $$j$$.  The second probability $$b_j$$ is the probability that an output probability when a state emits an observation.
@@ -107,18 +107,25 @@ For the case of the inference problem, the sequence of states can be obtained by
 Another challenge faced by automated speech recognisers is the fact that the boundaries of the words is not apparent from the raw speech waveform. A third problem that immediately arises from the second is the fact that the words from the speech may not strictly follow the words in the selected vocabulary database.  Such occurrence in speech recognition research is referred to as out of vocabulary (OOV) terms.  It is reasonable to approach these challenges using a divide and conquer strategy.  In this case, the first step in this case would be to create assumption that somehow word boundaries can be determined.  This first step in speech recognition is referred to as the isolated word recognition case.
 
 ### Challenges of low speech recognition
-Speech recognition for low resource languages poses another distinct set of challenges.  In chapter one, low resource languages were described to be languages lacking in resources required for adequate machine learning of models required for generative speech models.  These resources are described basically as a text corpus for language modelling and a phonetic dictionary and transcribed audio speech for acoustic modelling.
+Speech recognition for low resource languages poses another distinct set of challenges.  In chapter one, low resource languages were described to be languages lacking in resources required for adequate machine learning of models required for generative speech models.  These resources are described basically as a text corpus for language modelling, a phonetic dictionary and transcribed audio speech for acoustic modelling. In figure \ref{fig_2_2_asr_pipeline},  how resources of required for speech recognition are used is illustrated.  It can be seen here that in addition to the three resources identified other processes are required for the speech decoder to function normally.  For example, aligned speech would also need to be segmented into speech utterances to ensure that the computer resources are used conservatively.
 
-In the area of data processing \cite{besacier2014automatic} enumerates the  challenges for developing ASR systems to include the fact that phonologies differ across languages, word segmentation problems, fuzzy grammatical structures, unwritten languages, lack of native speakers having technical skills and the multidisciplinary nature of ASR constitute impedance to ASR system building.
+In terms of data collection processing \cite{besacier2014automatic} enumerates the  challenges for developing low resource ASR systems to include the fact that phonologies differ across languages, word segmentation problems, fuzzy grammatical structures, unwritten languages, lack of native speakers having technical skills and the multidisciplinary nature of ASR constitute impedance to ASR system building.
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/asr_pipeline.jpg "Generative HMM model")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/asr_pipeline}\\
+  \caption{Automatic Speech Recognition Pipeline} \cite{besacier2014automatic}}\label{fig_2_2_asr_pipeline}
+\end{figure}
+
 
 ## Low Resource Speech Recognition
-In this system building speech recognition research, the focus was on the development of a language model and and an end-to-end speech model comparable in performance to state of the art speech recognition system consisting of an acoustic model and a language model.
-
-We therefore review low resource language and acoustic modelling as very little work has been done on low-resource end-to-end speech modelling as opposed to general end-to-end speech modelling and general speech recognition as a whole.  
+In this system building speech recognition research, the focus was on the development of a language model and and an end-to-end speech model comparable in performance to state of the art speech recognition system consisting of an acoustic model and a language model.  Low resource language and acoustic modelling is now reviewed keeping in mind that little work has been done on low-resource end-to-end speech modelling when compared to general end-to-end speech modelling and general speech recognition as a whole.  
 
 From an engineering perspective, a practical means of achieving low resource speech modeling from a language rich in resources is through various strategies of the machine learning subfield of transfer learning.  
 
-Transfer learning takes the inner representation of knowledge derived from a training an algorithm used from one domain and applying this knowledge in a similar domain having different set of system parameters. Early work of this nature was for speech recognition is demonstrated in \citep{vu2013multilingual} where multi-layer perceptrons were used to train multiple languages rich in linguistic resources. In a later section titled speech recognition on a budget, a transfer learning mechanism involving recurrent neural networks from \citep{} is described.
+Transfer learning takes the inner representation of knowledge derived from a training an algorithm used from one domain and applying this knowledge in a similar domain having different set of system parameters. Early work of this nature was for speech recognition is demonstrated in \citep{vu2013multilingual} where multi-layer perceptrons were used to train multiple languages rich in linguistic resources. In a later section titled speech recognition on a budget, a transfer learning mechanism involving deep neural networks from \citep{kunze2017transfer} is described.
+
 
 
 ### Low Resource language modelling \label{sec_lrlm}
@@ -189,19 +196,23 @@ In this section, a recent transfer learning speech model model \citep{kunze2017t
 Introduction of the unique scattering network is discussed in the next section.  It is worthy to note however that \cite{kunze2017transfer} uses a CNN network only while \citep{amodei2016deep} uses both RNN and CNN network.  The speech model in this thesis uses a BiRNN model in this work combines an RNN model with the scattering layer which represents a light-weight low resource friendly pseudo enhanced CNN backing.  What is meant by pseudo enhanced CNN backing is reserved for the next section, however, therefore, the proposed speech model in this speech model stands to gain from an enhanced but lightweight CNN combined with RNN learning.
 
 ### Adding a Scattering layer
-A key step for representing speech in a stable fashion is to focus on elements of the signal that are important for speech recognition. This helps reduce the variance in the representation, due to non-informative elements and channel distortions [3]. Conventional feature extraction techniques like MFCC [4], PLP [5] and RASTA [6] operate on this principle. However, these features are often designed with an invariance in mind, and without explicit knowledge of the classifier objective. This might remove potentially important information.
 
-Many speech and music classifiers use mel-frequency cepstral coefficients (MFCCs), which are cosine transforms of mel-frequency spectral coefficients (MFSCs).
-Over a fixed time interval, MFSCs measure the signal frequency energy over mel-frequency intervals of constant-Q bandwidth.
- As a result, they lose information on signal structures that are non-stationary on this time interval.
-To minimize this loss, short time windows of 23 ms are used in most applications since at this resolution most signals are locally stationary.
-The characterization of audio properties on larger time scales is then done by aggregating MFSC coefficients in time, with multiple ad-hoc methods such as Delta-MFCC [5] or MFCC segments [1].
-Paper shows that the non-stationary behavior lost by MFSC coefficients is captured by a scattering transform which computes multi scale co-occurrence coefficients
-A scattering representation includes MFSC-like measurements together with higher-order co-occurrence coefficients that can characterize audio information over much longer time intervals, up to several seconds. This yields efficient representations for audio classification. 
-Paper shows information lost by spectral energy measurements can be recovered by a scattering operator introduced in [8]
-Co-occurrence coefficients can be calculated by cascading wavelet filter banks and rectifiers calculated with modulus operators.
-A scattering transform has strong similarities with auditory physiological models based on cascades of constant-Q filter banks and rectifiers [4, 10]
-It is shown that second-order co-occurrence coefficients carry an important part of the signal information
+In machine learning, training accuracy is greatly improved through a process described as feature engineering.  In feature engineering, discriminating characteristics of the data is enhanced at the same time non-distinguishing features constituting noise is removed or attenuated to a barest minimum.  A lot of the components signal speech signal are due to noise in the environment as well as signal channel distortions such as losses due to conversion from audio signals to electrical signal in the recording system.
+
+In figure \ref{fig_2_2_asr_pipeline}, feature engineering is done at the feature extraction stage of the ASR pipe line. It has be shown that a common technique using mel-frequency cepstral coefficients (MFCCs) \citep{davis1990comparison} can represent speech in a stable fashion that approximate how the working of the human auditory speech processing and is able to filter useful components in the speech signal required for human speech hearing. Similar feature processing schemes have been developed include Perceptual Linear Prediction (PLP) \citep{hermansky1990perceptual} and RASTA \citep{hermansky1994rasta}. 
+
+The scattering spectrum defines a locally translation invariant reprepresentation of a signal resistant to signal deformation over extended periods of time spanning seconds of the signal \citep{anden2014deep}. While mel-frequency cepstral coefficients (MFCCs) are cosine transforms of mel-frequency spectral coefficients (MFSCs), the scattering operator consists of a composite wavelet and modulus operation on input signals. 
+
+Over a fixed time, MFSCs measure signal energy having constant Q bandwidth mel-frequency intervals.  This procedure is susceptible to time-warping signal distortions since these information often reside in the high frequency regions discarded by mel-frequency intervals.  As time-warping distortions isn't explicit classifier objective when developing these filters, there is no way to recover such information using current teqchniqes. 
+
+In addition, short time windows of about 20 ms are used in these feature extraction techniques since at this resolution speech signal is mostly locally stationary.  Again, this resolution adds to the loss of dynamic speech discriminating information on signal structures that are non-stationary at this time interval. To minimize this loss Delta-MFCC and Delta-Delta-MFCCs \citep{furui1986speaker} are some of the means developed to capture dynamic audio signal characterisation over  larger time scales.
+
+By computing multi-scale co-occurrence coefficients from a wavelet-modulus operation \cite{anden2011multiscale} shows that non-stationary behavior lost by MFSC coefficients is captured by the scattering transform multi scale co-occurrence coefficients and the scattering representation includes MFSC-like measurements.  Together with higher-order co-occurrence coefficients, deep scattering spectrum coefficients represents audio signals similar to  models based on cascades of constant-Q filter banks and rectifiers.  In particular, second-order co-occurrence coefficients carry important  signal information capable of discriminating dynamic information lost to the mfcc analog over several seconds and therefore a more efficient discrimant than the mfcc representation. Second-order co-occurrence coefficients calculated by cascading wavelet filter banks and rectified using modulus operators have been evaluated as equivalent to a light-weight convolutional neural networks whose output posteriors are computed at each layer instead of only at the output layer \cite{mallat2016understanding}.
+
+The premise for this work is that low speech recognition can be achieved by having higher resolution features for discrimination as well as using an end-to-end framework to replace some of the cumbersome and time-consuming hand-engineered domain knowledge required in the standard ASR pipeline.  In additio,n this research work makes contributions to the requirements for the two tracks specified in the [Zero Resource](http://www.clsp.jhu.edu/~ajansen/papers/IS2015d.pdf) challenge of 2015 \citep{versteegh2015zero}.  The first requirement is sub-word modelling satisfied with using deep scattering network and the second that of spoken term discovery criteria being satisfied with the end-to-end speech model supplemented with a language model.
+
+## Methodology
+
 
 # RNN
 ## Sequential models
