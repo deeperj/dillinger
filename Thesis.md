@@ -256,18 +256,20 @@ references:bib.md
 # Highland Scratchpad
 
 <!--[Highland-ScratchPad-Start]
-# Thesis notes
-## Chapter 1
+## Thesis notes
+### Chapter 1
 * Summary
 * BiRNN, GRU, Scatnet references
 * OOV ref?
 
-## Chapter 2
+### Chapter 2
 * discriminative AM models -- done!
-## Low resource speech recognition
+* Low resource Language models - attention models
+* Low resource AM - RNN speech models
+### Low resource speech recognition
 * explanation of bottleneck features
 * HMM recognition weakness
-### Low resource LM - Perplexity
+#### Low resource LM - Perplexity
 The measure of a statistical language model is the entropy or perplexity. This value measures the complexity of a language that the language model is designed to represent (Jelinek, 1997). In practice, the entropy of a language with an N-gram language model PN(W) is measured via a set of sentences and is defined as
 \begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
 \label{eqn_c2_lm05}
@@ -277,11 +279,11 @@ where Ω is a set of sentences of the language. The perplexity, which is interpr
 \begin{equation}$$B=2^H$$
 \label{eqn_c2_lm06}
 \end{equation}
-### Low resource AM
-### Contribution to knowledge
+#### Low resource AM - done!
+#### Contribution to knowledge
 1. BRNN simplifies processing
 2. Scattering network increases feature representation for discrimination
-### Methodology
-## Chapter 3
+#### Methodology - done!
+### Chapter 3
 
 [Highland-Bin-End]-->
