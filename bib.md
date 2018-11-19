@@ -1,5 +1,77 @@
 * Bibliography 
 
+@article{mallat2016understanding,
+  title={Understanding deep convolutional networks},
+  author={Mallat, St{\'e}phane},
+  journal={Phil. Trans. R. Soc. A},
+  volume={374},
+  number={2065},
+  pages={20150203},
+  year={2016},
+  publisher={The Royal Society}
+}
+
+@inproceedings{anden2011multiscale,
+  title={Multiscale Scattering for Audio Classification.},
+  author={And{\'e}n, Joakim and Mallat, St{\'e}phane},
+  booktitle={ISMIR},
+  pages={657--662},
+  year={2011},
+  organization={Miami, FL}
+}
+
+@article{furui1986speaker,
+  title={Speaker-independent isolated word recognition using dynamic features of speech spectrum},
+  author={Furui, Sadaoki},
+  journal={IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  volume={34},
+  number={1},
+  pages={52--59},
+  year={1986},
+  publisher={IEEE}
+}
+
+@article{hermansky1994rasta,
+  title={RASTA processing of speech},
+  author={Hermansky, Hynek and Morgan, Nelson},
+  journal={IEEE transactions on speech and audio processing},
+  volume={2},
+  number={4},
+  pages={578--589},
+  year={1994},
+  publisher={IEEE}
+}
+
+@article{hermansky1990perceptual,
+	author={Hynek Hermansky},
+	year={1990},
+	title={Perceptual linear predictive (PLP) analysis of speech},
+	journal={The Journal of the Acoustical Society of America},
+	volume={87},
+	number={4},
+	pages={1738-1752}
+}
+
+@incollection{davis1990comparison,
+  title={Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences},
+  author={Davis, Steven B and Mermelstein, Paul},
+  booktitle={Readings in speech recognition},
+  pages={65--74},
+  year={1990},
+  publisher={Elsevier}
+}
+
+@article{anden2014deep,
+  title={Deep scattering spectrum},
+  author={And{\'e}n, Joakim and Mallat, St{\'e}phane},
+  journal={IEEE Transactions on Signal Processing},
+  volume={62},
+  number={16},
+  pages={4114--4128},
+  year={2014},
+  publisher={IEEE}
+}
+
 @INPROCEEDINGS{7953164, 
 author={A. Rosenberg and K. Audhkhasi and A. Sethy and B. Ramabhadran and M. Picheny}, 
 booktitle={2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
