@@ -214,12 +214,30 @@ The premise for this work is that low speech recognition can be achieved by havi
 ## Methodology
 System building methodology \cite{nunamaker1990systems} for speech recognition systems require models to be evaluated against machine learning metrics for speech recognition.  For language models, perplexity metric was used for evaluation.  Bleu has also been used as a metric for evaluating language models.
 
+Perplexity measures the complexity of a language that the language model is designed to represent \cite{1976jelinekcontinuous}. In practice, the entropy of a language with an N-gram language model $$P_N(W)$$ is measured from a set of sentences and is defined as
+\begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
+\label{eqn_c2_lm05}
+\end{equation}
+
+where $$\Omega$$ is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
+\begin{equation}$$B=2^H$$
+\label{eqn_c2_lm06}
+\end{equation}
+\begin{equation}
+$$PP(W)=P(w_1,w_2\dots w_N)^\frac{1}{N}$$
+\label{eq6}
+\end{equation}
+\begin{equation}
+$$PP(W)=\sqrt[N]{\prod_{i=1}^N\frac{1}{P(w_i|w_{i-1})}}$$
+\label{eq7}
+\end{equation}
+
 Full speech recognition pipelines are usually evaluated against the Word Error Rate (WER).  WER is computed as follows:
 \begin{equation}\label{eqn_2_3_wer}
 $$WER=\frac{I+D+R}{WC}\times 100$$
 \end{equation}
 
-Metrics used for low speech recognition includes the ABX metric.
+Metrics used for low speech recognition includes the ABX metric  \citep{versteegh2015zero}. Other common errors following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 
 # RNN
 ## Sequential models
@@ -269,16 +287,6 @@ references:bib.md
 ### Low resource speech recognition
 * explanation of bottleneck features
 * HMM recognition weakness
-#### Low resource LM - Perplexity
-The measure of a statistical language model is the entropy or perplexity. This value measures the complexity of a language that the language model is designed to represent (Jelinek, 1997). In practice, the entropy of a language with an N-gram language model PN(W) is measured via a set of sentences and is defined as
-\begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
-\label{eqn_c2_lm05}
-\end{equation}
-
-where Ω is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
-\begin{equation}$$B=2^H$$
-\label{eqn_c2_lm06}
-\end{equation}
 #### Low resource AM - done!
 #### Contribution to knowledge
 1. BRNN simplifies processing
