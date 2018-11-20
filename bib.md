@@ -1,5 +1,19 @@
 * Bibliography 
 
+@article{1976jelinekcontinuous,
+	author={F. Jelinek},
+	year={1976},
+	title={Continuous speech recognition by statistical methods},
+	journal={Proceedings of the IEEE},
+	volume={64},
+	number={4},
+	pages={532-556},
+	abstract={Statistical methods useful in automatic recognition of continuous speech are described. They concern modeling of a speaker and of an acoustic processor, extraction of the models' statistical parameters and hypothesis search procedures and likelihood computations of linguistic decoding. Experimental results are presented that indicate the power of the methods.},
+	isbn={0018-9219},
+	language={English},
+	doi={10.1109/PROC.1976.10159}
+}
+
 @article{nunamaker1990systems,
   title={Systems development in information systems research},
   author={Nunamaker Jr, Jay F and Chen, Minder and Purdin, Titus DM},
