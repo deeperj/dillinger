@@ -196,7 +196,7 @@ Using layer wise pretraining of stacked Restricted Boltzmann Machines (RBMs) is 
 Used a 7-layer network without a bottleneck layer where the network outputs correspond to triphone states trained on MFCC features. Each layer contained about 2000 neurons.
 
 **** TODO RNN Speech models
-** TODO Groundwork for low resource end-to-end speech modelling
+** DONE Groundwork for low resource end-to-end speech modelling
 The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN).  However, BiRNNs researchers have found them as other deep learning algorithms, as being very data intensive\cite{hannun2014deep}.  The next paragraphs introduce deepspeech BiRNNs and the two strategies for tackling the data intensity drawback as related with low resource speech recognition.
 
 *** Deep speech
@@ -224,15 +224,25 @@ By computing multi-scale co-occurrence coefficients from a wavelet-modulus opera
 
 The premise for this work is that low speech recognition can be achieved by having higher resolution features for discrimination as well as using an end-to-end framework to replace some of the cumbersome and time-consuming hand-engineered domain knowledge required in the standard ASR pipeline.  In additio,n this research work makes contributions to the requirements for the two tracks specified in the [Zero Resource](http://www.clsp.jhu.edu/~ajansen/papers/IS2015d.pdf) challenge of 2015 \citep{versteegh2015zero}.  The first requirement is sub-word modelling satisfied with using deep scattering network and the second that of spoken term discovery criteria being satisfied with the end-to-end speech model supplemented with a language model.
 
-** Methodology
+** DONE Methodology
 System building methodology \cite{nunamaker1990systems} for speech recognition systems require models to be evaluated against machine learning metrics for speech recognition.  For language models, perplexity metric was used for evaluation.  Bleu has also been used as a metric for evaluating language models.
+
+Perplexity measures the complexity of a language that the language model is designed to represent \cite{1976jelinekcontinuous}. In practice, the entropy of a language with an N-gram language model $$P_N(W)$$ is measured from a set of sentences and is defined as
+\begin{equation}$$H=\sum_{\mathbf{W}\in\Omega}P_N(\mathbf{W})$$
+\label{eqn_c2_lm05}
+\end{equation}
+
+where $$\Omega$$ is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
+\begin{equation}$$B=2^H$$
+\label{eqn_c2_lm06}
+\end{equation}
 
 Full speech recognition pipelines are usually evaluated against the Word Error Rate (WER).  WER is computed as follows:
 \begin{equation}\label{eqn_2_3_wer}
 $$WER=\frac{I+D+R}{WC}\times 100$$
 \end{equation}
 
-Metrics used for low speech recognition includes the ABX metric.
+Metrics used for low speech recognition includes the ABX metric  \citep{versteegh2015zero}. Other common errors following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 * TODO RNN
 ** TODO Sequential Models
 ** TODO Neural Networks
