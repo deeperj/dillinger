@@ -223,6 +223,14 @@ where $$\Omega$$ is a set of sentences of the language. The perplexity, which is
 \begin{equation}$$B=2^H$$
 \label{eqn_c2_lm06}
 \end{equation}
+\begin{equation}
+$$PP(W)=P(w_1,w_2\dots w_N)^\frac{1}{N}$$
+\label{eq6}
+\end{equation}
+\begin{equation}
+$$PP(W)=\sqrt[N]{\prod_{i=1}^N\frac{1}{P(w_i|w_{i-1})}}$$
+\label{eq7}
+\end{equation}
 
 Full speech recognition pipelines are usually evaluated against the Word Error Rate (WER).  WER is computed as follows:
 \begin{equation}\label{eqn_2_3_wer}
