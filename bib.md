@@ -1,4 +1,58 @@
-* Bibliography 
+* Bibliography
+
+@article{Kuhn1990cache,
+	author={R. Kuhn and R. De Mori},
+	year={1990},
+	title={A cache-based natural language model for speech recognition},
+	journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+	volume={12},
+	number={6},
+	pages={570-583},
+	abstract={Speech-recognition systems must often decide between competing ways of breaking up the acoustic input into strings of words. Since the possible strings may be acoustically similar, a language model is required; given a word string, the model returns its linguistic probability. Several Markov language models are discussed. A novel kind of language model which reflects short-term patterns of word use by means of a cache component (analogous to cache memory in hardware terminology) is presented. The model also contains a 3g-gram component of the traditional type. The combined model and a pure 3g-gram model were tested on samples drawn from the Lancaster-Oslo/Bergen (LOB) corpus of English text. The relative performance of the two models is examined, and suggestions for the future improvements are made.},
+	isbn={0162-8828},
+	language={English},
+	doi={10.1109/34.56193}
+}
+
+@article{Brown1992class,
+	author={Peter F. Brown and Peter V. Desouza and Robert L. Mercer and Vincent J. Della Pietra and Jenifer C. Lai},
+	year={1992},
+	title={Class-based n-gram models of natural language},
+	journal={Computational linguistics},
+	volume={18},
+	number={4},
+	pages={467-479},
+	url={http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.13.9919&rep=rep1&type=pdf}
+}
+ 
+@article{juang2000automatic,
+	author={Bing-Hwang Juang and S. Furui},
+	year={2000},
+	title={Automatic recognition and understanding of spoken language - a first step toward natural human-machine communication},
+	journal={Proceedings of the IEEE},
+	volume={88},
+	number={8},
+	pages={1142-1165},
+	abstract={The promise of a powerful computing device to help people in productivity as well as in recreation can only be realized with proper human-machine communication. Automatic recognition and understanding of spoken language is the first step toward natural human-machine interaction. Research in this field has produced remarkable results, leading to many exciting expectations and new challenges. We summarize the development of the spoken language technology from both a vertical (chronology) and a horizontal (spectrum of technical approaches) perspective. We highlight the introduction of statistical methods in dealing with language-related problems, as this represents a paradigm shift in the research field of spoken language processing. Statistical methods are designed to allow the machine to learn structural regularities in the speech signal, directly from data, for the purpose of automatic speech recognition and understanding. Research results in spoken language processing have led to a number of successful applications, ranging from dictation software for personal computers and telephone-call processing systems for automatic call routing, to automatic sub-captioning for television broadcasts. We analyze the technical successes that support these applications. Along with an assessment of the state of the art in this broad technical field, we also discuss the limitations of the current technology, and point out the challenges that are ahead. This paper presents an accurate overview of spoken language technology as a basis to inspire future advances.},
+	isbn={0018-9219},
+	language={English},
+	url={http://ieeexplore.ieee.org/document/880077},
+	doi={10.1109/5.880077}
+}
+
+@article{1996YoungA,
+	author={Steve Young},
+	year={1996},
+	title={A review of large-vocabulary continuous-speech},
+	journal={IEEE Signal Processing Magazine},
+	volume={13},
+	number={5},
+	pages={45},
+	abstract={Considerable progress has been made in speech-recognition technology over the last few years and nowhere has this progress been more evident than in the area of large-vocabulary recognition (LVR). Current laboratory systems are capable of transcribing continuous speech from any speaker with average word-error rates between 5% and 10%. If speaker adaptation is allowed, then after 2 or 3 minutes of speech, the error rate will drop well below 5% for most speakers. LVR systems had been limited to dictation applications since the systems were speaker dependent and required words to be spoken with a short pause between them. However, the capability to recognize natural continuous-speech input from any speaker opens up many more applications. As a result, LVR technology appears to be on the brink of widespread deployment across a range of information technology (IT) systems. This article discusses the principles and architecture of current LVR systems and identifies the key issues affecting their future deployment. To illustrate the various points raised, the Cambridge University HTK system is described. This system is a modem design that gives state-of-the-art performance, and it is typical of the current generation of recognition systems.},
+	isbn={1053-5888},
+	language={English},
+	doi={10.1109/79.536824}
+}
 
 @article{1976jelinekcontinuous,
 	author={F. Jelinek},
@@ -97,7 +151,7 @@
   publisher={IEEE}
 }
 
-@INPROCEEDINGS{7953164, 
+@INPROCEEDINGS{Rosenberg2017end, 
 author={A. Rosenberg and K. Audhkhasi and A. Sethy and B. Ramabhadran and M. Picheny}, 
 booktitle={2017 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
 title={End-to-end speech recognition and keyword search on low-resource languages}, 
