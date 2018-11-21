@@ -186,7 +186,14 @@ The method employed in this report uses a character-based Neural network languag
 
 **** TODO Attention models
 *** DONE Low Resource Acoustic Modelling
+
 Two transfer learning techniques for acoustic modelling investigated by \cite{povey2011subspace} and \cite{ghoshal2013multilingual} respectively include the sub-space Gaussian mixture models (SGMMs) and the use of pretrained hidden layers of a deep neural network trained multilingually as a means to initialise weights for an unknown language.  This second method has been informally referred to as the swap-hat method.
+
+Recall that one of the challenges associated with new languages is that phonetic systems differ from one language to another.  Transfer learning approaches attempt however to recover patterns common to seemingly disparate systems and model these patterns.  
+
+For phonetic systems, based on the premise that sounds are produced by approximate movements and positions of articulators comprising the human speech sound system which is common for all humans.  It is possible to model dynamic movement from between various phones as tied state mixture of Gaussians. These dynamic states are modeled using Gaussian mixture models or GMM are also known as senones. \cite{povey2011subspace} postulated a method to factorize these Gaussian mixtures into a globally shared set of parameters that are not dependent individual HMM states.  These factorisations model senones that are not represented in original data and thought to be a representation of the overall acoustic space.  While preserving individual HMM states, the decoupling of the shared space and its reuse makes SGMMs a viable candidate for transfer learning of acoustic models for new languages.
+
+The transfer learning procedure proposed in \cite{ghoshal2013multilingual} employed the use of deep neural networks in particular deep belief networks \citep{bengio2007greedy}.  Deep Belief Networks are pretrained, layer-wise  stacked Restricted Boltzmann Machines (RBMs)\citep{smolensky1986information}.  The output of this network trained on senones correspond to HMM context dependent states.  However, by decoupling hidden layers from outer and output layers and fine-tuned to a new language, the network is shown to be insensitive to the choice of languages analogous to global parameters of SGMMs. The 7-layer, 2000 neuron per layer network used did not utilise a bottleneck layer corresponding to triphone states trained on MFCC features \citep{grezl2008optimizing}.
 
 **** DONE SubSpace Gaussian Mixture Modelling
 In an SGMM, emission densities of a hidden Markov Model (HMM) are modeled as mixtures of Gaussians, whose parameters are factorized into a globally-shared set that does not depend on the HMM states, and a state specific set.
