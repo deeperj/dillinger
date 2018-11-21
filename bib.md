@@ -1,5 +1,29 @@
 * Bibliography
 
+@techreport{smolensky1986information,
+  title={Information processing in dynamical systems: Foundations of harmony theory},
+  author={Smolensky, Paul},
+  year={1986},
+  institution={COLORADO UNIV AT BOULDER DEPT OF COMPUTER SCIENCE}
+}
+
+@inproceedings{grezl2008optimizing,
+  title={Optimizing bottle-neck features for lvcsr.},
+  author={Grezl, Frantisek and Fousek, Petr},
+  booktitle={ICASSP},
+  volume={8},
+  pages={4729--4732},
+  year={2008}
+}
+
+@inproceedings{bengio2007greedy,
+  title={Greedy layer-wise training of deep networks},
+  author={Bengio, Yoshua and Lamblin, Pascal and Popovici, Dan and Larochelle, Hugo},
+  booktitle={Advances in neural information processing systems},
+  pages={153--160},
+  year={2007}
+}
+
 @article{Kuhn1990cache,
 	author={R. Kuhn and R. De Mori},
 	year={1990},
