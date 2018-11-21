@@ -246,7 +246,9 @@ Full speech recognition pipelines are usually evaluated against the Word Error R
 $$WER=\frac{I+D+R}{WC}\times 100$$
 \end{equation}
 
-Metrics used for low speech recognition includes the ABX metric  \citep{versteegh2015zero}. Other common errors following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
+Here $I,D$ and $R$ are wrong insertions, deletions and replacements respectively and $$WC$$ is the word count.
+
+Metrics used for low speech recognition in the zero speech challenge \citep{versteegh2015zero} includes the ABX metric. Other common speech recognition error metrics following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 * TODO RNN
 ** TODO Sequential Models
 ** TODO Neural Networks
