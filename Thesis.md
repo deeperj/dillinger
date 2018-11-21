@@ -303,6 +303,8 @@ references:bib.md
 ### Chap 2
 1. Why is Bleu not explained or used?
 2. Why is ABX not explained
+
+## Other
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
