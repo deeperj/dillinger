@@ -284,7 +284,9 @@ references:bib.md
 * GRU ref
 * Scatnet references - done
 * OOV ref?
-
+* enhances - enhancement or advances
+* emission, glossary beginning
+* larger image - p18
 ### Chapter 2
 * discriminative AM models -- done!
 * Low resource Language models - attention models
