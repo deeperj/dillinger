@@ -289,10 +289,11 @@ references:bib.md
 * discriminative AM models -- done!
 * Low resource Language models - attention models
 * Low resource AM - RNN speech models
+* check young 2008 for OOV term
 ### Low resource speech recognition
 * explanation of bottleneck features
 * HMM recognition weakness
-#### Low resource AM - done!
+#### Low resource AM 
 #### Contribution to knowledge
 1. BRNN simplifies processing
 2. Scattering network increases feature representation for discrimination
