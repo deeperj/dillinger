@@ -296,7 +296,10 @@ references:bib.md
 #### Contribution to knowledge
 1. BRNN simplifies processing
 2. Scattering network increases feature representation for discrimination
-#### Methodology - done!
+3. Light weight CNN reduces training time
+#### Methodology
+1. Bleu ref 
+
 ### Chapter 3
 
 ## Questions
