@@ -237,8 +237,9 @@ Full speech recognition pipelines are usually evaluated against the Word Error R
 \begin{equation}\label{eqn_2_3_wer}
 $$WER=\frac{I+D+R}{WC}\times 100$$
 \end{equation}
+Here $$I,D$$ and $$R$$ are wrong insertions, deletions and replacements respectively and $$WC$$ is the word count.
 
-Metrics used for low speech recognition includes the ABX metric  \citep{versteegh2015zero}. Other common errors following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
+Metrics used for low speech recognition in the zero speech challenge \citep{versteegh2015zero} includes the ABX metric. Other common speech recognition error metrics following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 
 # RNN
 ## Sequential models
@@ -275,10 +276,13 @@ references:bib.md
 # Highland Scratchpad
 
 <!--[Highland-ScratchPad-Start]
+
 ## Thesis notes
 ### Chapter 1
 * Summary
-* BiRNN, GRU, Scatnet references
+* BiRNN - done
+* GRU ref
+* Scatnet references - done
 * OOV ref?
 
 ### Chapter 2
@@ -294,5 +298,14 @@ references:bib.md
 2. Scattering network increases feature representation for discrimination
 #### Methodology - done!
 ### Chapter 3
+
+## Questions
+### Chap 2
+1. Why is Bleu not explained or used?
+2. Why is ABX not explained
+[Highland-ScratchPad-End]-->
+
+<!--[Highland-Bin-Start]
+
 
 [Highland-Bin-End]-->
