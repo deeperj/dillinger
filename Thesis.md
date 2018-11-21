@@ -173,14 +173,11 @@ The method employed in this report uses a character-based Neural network languag
 
 Two transfer learning techniques for acoustic modelling investigated by \cite{povey2011subspace} and \cite{ghoshal2013multilingual} respectively include the sub-space Gaussian mixture models (SGMMs) and the use of pretrained hidden layers of a deep neural network trained multilingually as a means to initialise weights for an unknown language.  This second method has been informally referred to as the swap-hat method.
 
-In an SGMM, emission densities of a hidden Markov Model (HMM) are modeled as mixtures of Gaussians, whose parameters are factorized into a globally-shared set that does not depend on the HMM states, and a state specific set.
-The global parameters may be thought of as a model for the overall acoustic space, while the state-specific parameters provide the correspondence between different regions of the acoustic space and individual speech sounds.
-The decoupling  of two aspects of speech modeling that makes SGMM suitable for different languages.
+Recall that one of the challenges associated with new languages is that phonetic systems differ from one language to another.  Transfer learning approaches attempt however to recover patterns common to seemingly disparate systems and model these patterns.  
 
-Sub-space Gaussian Mixture Models (SGMMs) has been shown to be suitable for cross-lingual modeling without explicit mapping between phone units in different languages.
+For phonetic systems, based on the premise that sounds are produced by approximate movements and positions of articulators comprising the human speech sound system which is common for all humans.  It is possible to model dynamic movement from between various phones as tied state mixture of Gaussians. These dynamic states are modeled using Gaussian mixture models or GMM are also known as senones. \cite{povey2011subspace} postulated a method to factorize these Gaussian mixtures into a globally shared set of parameters that are not dependent individual HMM states.  These factorisations model senones that are not represented in original data and thought to be a representation of the overall acoustic space.  While preserving individual HMM states, the decoupling of the shared space and its reuse makes SGMMs a viable candidate for transfer learning of acoustic models for new languages.
 
-Using layer wise pretraining of stacked Restricted Boltzmann Machines (RBMs) is shown to be insensitive to the choice of languages analogous to global parameters of SGMMs. Using a network whose output layer corresponds to context-dependent phone states of a language, by borrowing the hidden layers and fine-tune the network to a new language. The new outputs are scaled likelihood estimates for states of an HMM in a DNN-HMM recognition setup.
-Used a 7-layer network without a bottleneck layer where the network outputs correspond to triphone states trained on MFCC features. Each layer contained about 2000 neurons.
+The transfer learning procedure proposed in \cite{ghoshal2013multilingual} employed the use of deep neural networks in particular deep belief networks \citep{bengio2007greedy}.  Deep Belief Networks are pretrained, layer-wise  stacked Restricted Boltzmann Machines (RBMs)\citep{smolensky1986information}.  The output of this network trained on senones correspond to HMM context dependent states.  However, by decoupling hidden layers from outer and output layers and fine-tuned to a new language, the network is shown to be insensitive to the choice of languages analogous to global parameters of SGMMs. The 7-layer, 2000 neuron per layer network used did not utilise a bottleneck layer corresponding to triphone states trained on MFCC features \citep{grezl2008optimizing}.
 
 ## Groundwork for low resource end-to-end speech modelling
 The underpinning notion of this work is firstly a departure from the bottom-to-top baggage that comes as a bye-product of the generative process sponsored by the HMM-based speech models so that we can gain from simplifying the speech pipeline from acoustic, language and phonetic model to just a speech model that approximates the same process.  Secondly, the model developed seeks to overcome the data intensity barrier and was seen to achieve measurable results for GRU RNN language models.  Therefore adopting the same character-based strategy, this research performed experiments using the character-based bi-directional recurrent neural networks (BiRNN).  However, BiRNNs researchers have found them as other deep learning algorithms, as being very data intensive\cite{hannun2014deep}.  The next paragraphs introduce Deep-speech BiRNNs and the two strategies for tackling the data intensity drawback as related with low resource speech recognition.
@@ -287,15 +284,20 @@ references:bib.md
 * enhances - enhancement or advances
 * emission, glossary beginning
 * larger image - p18
+
 ### Chapter 2
 * discriminative AM models -- done!
 * Low resource Language models - attention models
 * Low resource AM - RNN speech models
 * check young 2008 for OOV term
+* HMM problems expanded -> ch3 possibly.
+
 ### Low resource speech recognition
 * explanation of bottleneck features
 * HMM recognition weakness
 #### Low resource AM 
+* MLLR/MAP adaptation of SGMM models
+
 #### Contribution to knowledge
 1. BRNN simplifies processing
 2. Scattering network increases feature representation for discrimination
@@ -310,7 +312,9 @@ references:bib.md
 1. Why is Bleu not explained or used?
 2. Why is ABX not explained
 
-## Other
+## Other Questions
+1. What about chapter summaries
+
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
