@@ -87,7 +87,7 @@ N is typically in the range of 2-4.
 
 N-gram probabilities are estimated from training corpus by counting N-gram occurrences.  This is plugged into maximum likelihood (ML) parameter estimate. For example, Given that N=3 then the probability that three words occurred is assuming $C(w_{k-2}w_{k-1}w_k)$ is the number of occurrences of the three words $C(w_{k-2}w_{k-1})$ is the count for $w_{k-2}w_{k-1}w_k$ then
 \begin{equation}
-P(w_k|w_{k-1},w_{k-2}\approx\frac{C(w_{k-2}w_{k-1}w_k}{C(w_{k-2}w_{k-1})}
+P(w_k|w_{k-1},w_{k-2})\approx\frac{C(w_{k-2}w_{k-1}w_k)}{C(w_{k-2}w_{k-1})}
 \label{eqn_c2_lm03}
 \end{equation}
 
