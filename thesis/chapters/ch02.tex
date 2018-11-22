@@ -155,17 +155,25 @@ Perplexity measures the complexity of a language that the language model is desi
 \end{equation}
 
 where $\Omega$ is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
-\begin{equation}B=2^H
+\begin{equation}PP(W)=2^H
 \label{eqn_c2_lm06}
 \end{equation}
+where H is the average entropy of the system or the average log probability defined as
 \begin{equation}
-PP(W)=P(w_1,w_2\dots w_N)^\frac{1}{N}
-\label{eq6}
+H=-\frac{1}{N}\sum_{i=1}^N[log_2P(w_1,w_2\dots w_N)]
+\label{eqn_c2_lm07}
 \end{equation}
+For a bi gram model therefore, equation (\ref{eqn_c2_lm07}) becomes
+\begin{equation}
+PP(W)=2^H=2^{-\frac{1}{N}\sum_{i=1}^N[log_2P(w_1,w_2\dots w_N)]}
+\label{eqn_c2_lm08}
+\end{equation}
+After simplifying we have
 \begin{equation}
 PP(W)=\sqrt[N]{\prod_{i=1}^N\frac{1}{P(w_i|w_{i-1})}}
-\label{eq7}
+\label{eqn_c2_lm09}
 \end{equation}
+
 
 Full speech recognition pipelines are usually evaluated against the Word Error Rate (WER).  WER is computed as follows:
 \begin{equation}\label{eqn_2_3_wer}
