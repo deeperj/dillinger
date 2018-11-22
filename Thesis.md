@@ -149,7 +149,7 @@ N is typically in the range of 2-4.
 
 N-gram probabilities are estimated from training corpus by counting N-gram occurrences.  This is plugged into maximum likelihood (ML) parameter estimate. For example, Given that N=3 then the probability that three words occurred is assuming $$C(w_{k-2}w_{k-1}w_k)$$ is the number of occurrences of the three words $$C(w_{k-2}w_{k-1})$$ is the count for $$w_{k-2}w_{k-1}w_k$$ then
 \begin{equation}
-$$P(w_k|w_{k-1},w_{k-2}\approx\frac{C(w_{k-2}w_{k-1}w_k}{C(w_{k-2}w_{k-1})}$$
+$$P(w_k|w_{k-1},w_{k-2})\approx\frac{C(w_{k-2}w_{k-1}w_k)}{C(w_{k-2}w_{k-1})}$$
 \label{eqn_c2_lm03}
 \end{equation}
 
@@ -217,17 +217,24 @@ Perplexity measures the complexity of a language that the language model is desi
 \label{eqn_c2_lm05}
 \end{equation}
 
-where $$\Omega$$ is a set of sentences of the language. The perplexity, which is interpreted as the average word-branching factor, is defined as
-\begin{equation}$$B=2^H$$
+where $$\Omega$$ is a set of sentences of the language. The perplexity PP, which is interpreted as the average word-branching factor, is defined as
+\begin{equation}$$PP(W)=2^H$$
 \label{eqn_c2_lm06}
 \end{equation}
+where H is the average entropy of the system or the average log probability defined as
 \begin{equation}
-$$PP(W)=P(w_1,w_2\dots w_N)^\frac{1}{N}$$
-\label{eq6}
+$$H=-\frac{1}{N}\sum_{i=1}^N[log_2P(w_1,w_2\dots w_N)]$$
+\label{eqn_c2_lm07}
 \end{equation}
+For a bigram model therefore, equation (ref{eqn_c2_lm07}) becomes
+\begin{equation}
+$$PP(W)=2^H=2^{-\frac{1}{N}\sum_{i=1}^N[log_2P(w_1,w_2\dots w_N)]}$$
+\label{eqn_c2_lm08}
+\end{equation}
+After simplifying we have
 \begin{equation}
 $$PP(W)=\sqrt[N]{\prod_{i=1}^N\frac{1}{P(w_i|w_{i-1})}}$$
-\label{eq7}
+\label{eqn_c2_lm09}
 \end{equation}
 
 Full speech recognition pipelines are usually evaluated against the Word Error Rate (WER).  WER is computed as follows:
@@ -321,6 +328,7 @@ references:bib.md
 
 ## Other Questions
 1. What about chapter summaries
+2. Should equation references be big or small caps
 
 [Highland-ScratchPad-End]-->
 
