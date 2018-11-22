@@ -306,7 +306,14 @@ references:bib.md
 1. Bleu ref 
 
 ### Chapter 3
-
+### Chapter 4
+* Invariance introduction
+* Fourier analysis
+* Continuous wavelets
+* wavelet types
+* Multiresolution analysis
+* Fast wavelet transform
+* 
 ## Questions
 ### Chap 2
 1. Why is Bleu not explained or used?
