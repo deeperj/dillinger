@@ -257,13 +257,30 @@ This chapter iterates the use of the Fourier transform as the starting analysis 
 
 ## Fourier transform
 The Fourier transform often referred to as the power spectrum, allows us to discover frequencies contained within a function.  The Fourier transform is a convolution between a signal and a complex sinusoid from $$-\infty$$ to $$+\infty$$ (Figure \ref{fig_4_1_fourier_eqn}). 
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/asr_pipeline.jpg "Fourier Equation")
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/fourier.png "Fourier Equation")
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/fourier.png}\\
   \caption{Fourier Equation} \cite{xxx}}\label{fig_4_1_fourier_eqn}
 \end{figure}
+From the orthorgonal property of complex exponential function, two functions are orthogonal if $$\int f(x)g(x)=0$$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
+
+If the discrete form of the Fourier transform analysis equation is given by
+\begin{equation}
+$$a_k=\frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{\left(-j\frac{2\pi kt}{T}\right)}$$
+\label{eqn_c4_fourier01}
+\end{equation}
+
+Then, the corresponding synthesis equation is given by
+\begin{equation}
+$$x(t)=\sum_{k=-\infty}^{\infty}a_ke^{\left(j\frac{2\pi kt}{T}\right)}$$
+\label{eqn_c4_fourier02}
+\end{equation}
+
+Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $$k$$ such that higher values of k correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral})
+
+
 
 ## Mel filter banks
 The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.
