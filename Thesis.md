@@ -251,17 +251,29 @@ Metrics used for low speech recognition in the zero speech challenge \citep{vers
 ## LSTM network
 
 # Deep Scattering Network
-The concept of invariant functions 
-* Invariance introduction
-* Fourier analysis
+Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
+
+This chapter iterates the use of the Fourier transform as the starting analysis function for buildng invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
+
+## Fourier transform
+The Fourier transform often referred to as the power spectrum, allows us to discover frequencies contained within a function.  The Fourier transform is a convolution between a signal and a complex sinusoid from $$-\infty$$ to $$+\infty$$ (Figure \ref{fig_4_1_fourier_eqn}). 
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/asr_pipeline.jpg "Fourier Equation")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/fourier.png}\\
+  \caption{Fourier Equation} \cite{xxx}}\label{fig_4_1_fourier_eqn}
+\end{figure}
+
+## Mel filter banks
+The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.
+
+## Wavelet transform
+
 * wavelet types
 * Multiresolution analysis
 * Fast wavelet transform
 
-## Fourier transform
-## Mel filter banks
-## Wavelet transform
-The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.
 ## Deep scattering spectrum
 
 # Wakirike Language Models
