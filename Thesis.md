@@ -226,7 +226,7 @@ where H is the average entropy of the system or the average log probability defi
 $$H=-\frac{1}{N}\sum_{i=1}^N[log_2P(w_1,w_2\dots w_N)]$$
 \label{eqn_c2_lm07}
 \end{equation}
-For a bigram model therefore, equation (ref{eqn_c2_lm07}) becomes
+For a bigram model therefore, equation (\ref{eqn_c2_lm07}) becomes
 \begin{equation}
 $$PP(W)=2^H=2^{-\frac{1}{N}\sum_{i=1}^N[log_2P(w_1,w_2\dots w_N)]}$$
 \label{eqn_c2_lm08}
@@ -251,6 +251,13 @@ Metrics used for low speech recognition in the zero speech challenge \citep{vers
 ## LSTM network
 
 # Deep Scattering Network
+The concept of invariant functions 
+* Invariance introduction
+* Fourier analysis
+* wavelet types
+* Multiresolution analysis
+* Fast wavelet transform
+
 ## Fourier transform
 ## Mel filter banks
 ## Wavelet transform
@@ -291,6 +298,7 @@ references:bib.md
 * enhances - enhancement or advances
 * emission, glossary beginning
 * larger image - p18
+* CNN are restricted DSS (Mallat, 2016)
 
 ### Chapter 2
 * discriminative AM models -- done!
