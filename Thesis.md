@@ -245,10 +245,55 @@ Here $$I,D$$ and $$R$$ are wrong insertions, deletions and replacements respecti
 
 Metrics used for low speech recognition in the zero speech challenge \citep{versteegh2015zero} includes the ABX metric. Other common speech recognition error metrics following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 
-# RNN
+# Recurrent Neural Networks in Speech Recognition
+\cite{deng2015**}
 ## Sequential models
 ## Neural networks
 ## LSTM network
+## Deep speech architecture
+## CTC Loss Algorithm
+In accord with [Deep Speech: Scaling up end-to-end speech recognition](http://arxiv.org/abs/1412.5567), the loss function used by our network should be the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf). Unfortunately, as of this writing, the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) is not implemented within TensorFlow[[5]](https://github.com/tensorflow/tensorflow/issues/32). Thus we will have to implement it ourselves. The next few sections are dedicated to this implementation.
+
+The CTC algorithm was specifically designed for temporal classification tasks; that is, for sequence labelling problems where the alignment between the inputs and the target labels is unknown. Unlike hybrid approaches combining HMM and DNN, CTC models all aspects of the sequence with a single neural network, and does not require the network to be combined with a HMM. It also does not require pre-segmented training data, or external post-processing to extract the label sequence from the network outputs.
+
+Generally, neural networks require separate training targets for every timeslice in the input sequence. This has two important consequences. First, it means that the training data must be pre-segmented to provide targets for every timeslice. Second, as the network only outputs local classifications, global aspects of the sequence, such as the likelihood of two labels appearing consecutively, must be modelled externally. Indeed, without some form of post-processing the final label sequence cannot reliably be inferred at all.
+
+CTC avoids this problem by allowing the network to make label predictions at any point in the input sequence, so long as the overall sequence of labels is correct. This removes the need for pre-segmented data, since the alignment of the labels with the input is no longer important. Moreover, CTC directly outputs the probabilities of the complete label sequences, which means that no external post-processing is required to use the network as a temporal classifier.
+
+For a sequence labelling task where the labels are drawn from an alphabet $A$, CTC consists of a softmax output layer, our `layer_6`,  with one more unit than there are labels in `A`. The activations of the first `|A|` units are the probabilities of outputting the corresponding labels at particular times, given the input sequence and the network weights. The activation of the extra unit gives the probability of outputting a $blank$, or no label. The complete sequence of network outputs is then used to define a distribution over all possible label sequences of length up to that of the input sequence.
+
+Defining the extended alphabet $A′ = A \cup \{blank\}$, the activation $y_{t,p}$ of network output $p$ at time $t$ is interpreted as the probability that the network will output element $p$ of $A′$ at time $t$, given the length $T$ input sequence $x$. Let $A′^T$ denote the set of length $T$ sequences over $A′$. Then, if we assume the output probabilities at each timestep to be independent of those at other timesteps (or rather, conditionally independent given $x$), we get the following conditional distribution over $\pi \in A′^T$:
+
+$$\Pr( \pi \, | \, x ) = \prod_{t=1}^{T} y_{t,\pi_t}$$
+
+From now on we refer to the sequences $\pi$ over $A′$ as *paths*, to distinguish them from the *label sequences* or *labellings* $l$ over $A$. The next step is to define a many-to-one function $\mathcal{B} : A′^T \rightarrow A^{\le T}$, from the set of paths onto the set $A^{\le T}$ of possible labellings of $x$ (i.e. the set of sequences of length less than or equal to $T$ over $A$). We do this by removing first the repeated labels and then the blanks from the paths. For example,
+$$
+\begin{align}
+\mathcal{B}(a − ab−) &= aab \\
+\mathcal{B}(−aa − −abb) &= aab.
+\end{align}
+$$
+
+
+Intuitively, this corresponds to outputting a new label when the network either switches from predicting no label to predicting a label, or from predicting one label to another. As $\mathcal{B}$ is many-to-one, the probability of some labelling $l \in A^{\le T}$ can be calculated by summing the probabilities of all the paths mapped onto it by $\mathcal{B}$:
+
+$$\Pr( l \, | \, x) = \sum_{\pi \in \mathcal{B}^{-1}(l)} \Pr( \pi \, | \, x)$$
+
+This 'collapsing together' of different paths onto the same labelling is what makes it possible for CTC to use unsegmented data, because it allows the network to predict the labels without knowing in advance where they occur. In theory, it also makes CTC networks unsuitable for tasks where the location of the labels must be determined. However in practice CTC tends to output labels close to where they occur in the input sequence.
+
+In the original formulation of CTC there were no blank labels, and $\mathcal{B}(\pi)$ was simply $\pi$ with repeated labels removed. This led to two problems. First, the same label could not appear twice in a row, since transitions only occurred when $\pi$ passed between different labels. Second, the network was required to continue predicting one label until the next began, which is a burden in tasks where the input segments corresponding to consecutive labels are widely separated by unlabelled data (for example, in speech recognition there are often pauses or non-speech noises between the words in an utterance).
+
+### Forward-backward algorithm
+So far we have defined the conditional probabilities $\Pr(l \, | \, x)$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $T$ input sequence and a length $U$ labelling there are $$2^{T−U^2+U(T−3)}3^{(U−1)(T−U)−2}$$ paths.
+
+Fortunately the problem can be solved with a dynamic-programming algorithm similar to the forward-backward algorithm for HMM's[[6]](http://www.ee.columbia.edu/~dpwe/e6820/papers/Rabiner89-hmm.pdf). The key idea is that the sum over paths corresponding to a labelling l can be broken down into an iterative sum over paths corresponding to prefixes of that labelling.
+
+To allow for blanks in the output paths, we consider a modified "label sequence" $l′$, with blanks added to the beginning and the end of $l$, and inserted between every pair of consecutive labels. If the length of $l$ is $U$, the length of $l′$ is $U′ = 2U + 1$. In calculating the probabilities of prefixes of $l′$ we allow all transitions between blank and non-blank labels, and also those between any pair of distinct non-blank labels.
+
+For a labelling $l$, the forward variable $\alpha(t,u)$ is defined as the summed probability of all length $t$ paths that are mapped by $\mathcal{B}$ onto the length $\left \lfloor{u/2}\right \rfloor$ prefix of $l$. (Note, $\left \lfloor{u/2}\right \rfloor$ is the *floor* of $u/2$, the greatest integer less than or equal to $u/2$.) For some sequence $s$, let $s_{p:q}$ denote the subsequence $s_p$, $s_{p+1}$, ..., $s_{q−1}$, $s_q$, and define the set $V(t,u) \equiv \{ \pi \in A′^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$. We can then define $\alpha(t,u)$ as
+
+$$\alpha(t,u) \equiv \sum_{\pi \in V(t,u)} \prod_{i=1}^{t} y_{i,\pi_i}$$ 
+
 
 # Deep Scattering Network
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
@@ -486,10 +531,45 @@ In this work, the output language generated was used to generate a corpus that m
 Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.  In this chapter, the end-to-end Bi-directional Recurrent Neural Network model is described. Here, the development of the features using the deep scattering convolution network is first elaborated on.   The model parameters and architecture is described and the decoding algorithm explained.
 
 ## Deep speech model
+The core of the system is a bidirectional recurrent neural network (BRNN) trained to ingest speech spectrograms and generate English text transcriptions.
 
+ Let a single utterance $x$ and label $y$ be sampled from a training set $S = \{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), . . .\}$. Each utterance, $x^{(i)}$ is a time-series of length $T^{(i)}$ where every time-slice is a vector of audio features, $x^{(i)}_t$ where $t=1,\ldots,T^{(i)}$. We use spectrograms as our features; so $x^{(i)}_{t,p}$ denotes the power of the $p$-th frequency bin in the audio frame at time $t$. The goal of our BRNN is to convert an input sequence $x$ into a sequence of character probabilities for the transcription $y$, with $\hat{y}_t =\mathbb{P}(c_t \mid x)$, where $c_t \in \{a,b,c, . . . , z, space, apostrophe, blank\}$. (The significance of $blank$ will be explained below.)
+ 
 ### Deep Scattering Layer
+
 ### Model Architecture
+
+Our BRNN model is composed of $5$ layers of hidden units. For an input $x$, the hidden units at layer $l$ are denoted $h^{(l)}$ with the convention that $h^{(0)}$ is the input. The first three layers are not recurrent. For the first layer, at each time $t$, the output depends on the spectrogram frame $x_t$ along with a context of $C$ frames on each side. (We typically use $C \in \{5, 7, 9\}$ for our experiments.) The remaining non-recurrent layers operate on independent data for each time step. Thus, for each time $t$, the first $3$ layers are computed by:
+
+$$h^{(l)}_t = g(W^{(l)} h^{(l-1)}_t + b^{(l)})$$
+
+where $g(z) = \min\{\max\{0, z\}, 20\}$ is the clipped rectified-linear (ReLu) activation function and $W^{(l)}$, $b^{(l)}$ are the weight matrix and bias parameters for layer $l$. The fourth layer is a bidirectional recurrent layer[[1](http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf)]. This layer includes two sets of hidden units: a set with forward recurrence, $h^{(f)}$, and a set with backward recurrence $h^{(b)}$:
+
+$$h^{(f)}_t = g(W^{(4)} h^{(3)}_t + W^{(f)}_r h^{(f)}_{t-1} + b^{(4)})$$
+$$h^{(b)}_t = g(W^{(4)} h^{(3)}_t + W^{(b)}_r h^{(b)}_{t+1} + b^{(4)})$$
+
+Note that $h^{(f)}$ must be computed sequentially from $t = 1$ to $t = T^{(i)}$ for the $i$-th utterance, while
+the units $h^{(b)}$ must be computed sequentially in reverse from $t = T^{(i)}$ to $t = 1$.
+
+The fifth (non-recurrent) layer takes both the forward and backward units as inputs
+
+$$h^{(5)} = g(W^{(5)} h^{(4)} + b^{(5)})$$
+
+where $h^{(4)} = h^{(f)} + h^{(b)}$. The output layer is a standard softmax function that yields the predicted character probabilities for each time slice $t$ and character $k$ in the alphabet:
+
+$$h^{(6)}_{t,k} = \hat{y}_{t,k} \equiv \mathbb{P}(c_t = k \mid x) = \frac{\exp{ \left( (W^{(6)} h^{(5)}_t)_k + b^{(6)}_k \right)}}{\sum_j \exp{\left( (W^{(6)} h^{(5)}_t)_j + b^{(6)}_j \right)}}$$
+
+Here $b^{(6)}_k$ denotes the $k$-th bias and $(W^{(6)} h^{(5)}_t)_k$ the $k$-th element of the matrix product.
+
+Once we have computed a prediction for $\mathbb{P}(c_t = k \mid x)$, we compute the CTC loss[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) $\cal{L}(\hat{y}, y)$ to measure the error in prediction. During training, we can evaluate the gradient $\nabla \cal{L}(\hat{y}, y)$ with respect to the network outputs given the ground-truth character sequence $y$. From this point, computing the gradient with respect to all of the model parameters may be done via back-propagation through the rest of the network. We use the Adam method for training[[3](http://arxiv.org/abs/1412.6980)].
+
+The complete BRNN model is illustrated in the figure below.
+
+![DeepSpeech BRNN](images/rnn_fig-624x548.png)
+
 ## CTC decoder
+Once the network is trained, we would ideally label some unknown input sequence $x$ by choosing the most probable labelling $l^∗$:
+
 ## DSS model
 
 # Conclusion and Discussion of Results
@@ -550,11 +630,16 @@ references:bib.bib
 * Multiresolution analysis - not done
 * Fast wavelet transform - not done
 ### Chapter 5
-### Chapter 6 conclusion/discussion
+### Chapter 6
+* hannun2014deep training data
+* hannun2014deep results
+### Chapter 7 conclusion/discussion
+* hannun2014deep results/conclusion
 * Various strategies for speech recog
 ** Kernel based methods
+* h
 
-### Chapter 7 Future
+### Chapter 8 Future
 * Various strategies for speech recog
 * Kernel based methods
 
