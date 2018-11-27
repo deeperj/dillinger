@@ -489,11 +489,14 @@ references:bib.bib
 
 ### Chap 4
 1. How does this chapter relate to your work?
+2. Where is the Fast Scattering algorithm? Is it in a later chapter?
+
 ## Other Questions
 1. What about chapter summaries
 2. Should equation references be big or small caps
 3. To read and summarise \cite{maas2017building}
 4. Publication rejection notes to be considered
+5. Fast
 
 [Highland-ScratchPad-End]-->
 
