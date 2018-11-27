@@ -290,11 +290,77 @@ Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series 
 The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.  However is not able to determine when in time a frequency occurs hence is not able to analyse time related signal deformations.  The Short-time Fourier Transform (STFT) attempts to salvage this by windowing the signal in time signal and performing fourier transforms over sliding windows sections of the original signal rather than the whole signal.  There is however, a resolution trade off that ensues from this operation such that, the higher the resolution in time accuracy, the lower the freqeuncy accuracy and vice versa.  In the next section on the continuous wavelet transform, how the wavelet transform improves on the weakneses of the Fourer Transform and the STFT is reviewed.
 
 ## Wavelet transform
-The time-frequency tile-allocation of the three basic transforms examined in the first part of this chapter is illustrated in figure \ref{fig_4_3_tftile}
+The continuous wavelet transform can be defined as a signal multiplied by scaled and shifted version of a wavelet function $$\psi(t)$$ referred to as the mother wavelet. The time-frequency tile-allocation of the three basic transforms examined in the first part of this chapter is illustrated in figure \ref{fig_4_3_tftile}
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/tftile.png "Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/spectral.png}\\
+  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform} \cite{xxx}}\label{fig_4_2_tftile}
+\end{figure}
 
-* Multiresolution analysis
-* Fast wavelet transform
-* wavelet types
+It can be seen here that for the Fourier transform there is no time information obtained.  In the STFT, as there is no way of telling where in time the frequencies are contained, the STFT makes a blanket range of the resolution of the window and is therefore equally tiled potentially losing information based on this setup.  For the case of the wavelet, because it is a scaled and shifted convolution, it takes care of the this problem providing a good resolution in both time and frequency.  The representation of the continuous wavelet function is given as:
+\begin{equation}
+$$C(a,b)=\int f(t)\frac{1}{\sqrt{a}}\psi\left(\frac{t-b}{a}\right)dt$$
+\label{eqn_c4_wavelet01}
+\end{equation}
+
+There are a few mother wavelet functions discussed later in this chapter. Generally a wavelet can be identified as being an energy spike in an infinite signal of zero energy whose total energy within the spiking regions also sum to zero.
+
+### Discrete and Fast wavelet transform
+Suppose the scaling function and wavelet function and bases of the following wavelets (Haar, Daubechies) are known.  We can approximate discrete signal $$l^2(\mathbb{Z})^1$$ by
+\begin{equation}
+$$f[n]=\frac{1}{\sqrt{M}}\sum_kW_\phi[j_0,k]\phi_{j_0,k}[n]+\frac{1}{\sqrt{M}}\sum_{j=j_0}^\infty\sum_kW_\psi[j,k]\psi_{j,k}[n]$$
+\label{eqn_c4_wavelet02}
+\end{equation}
+Here $$f[n],\phi_{j_0,k}[n]$$ and $$\psi_{j,k}[n]$$ are discrete functions defined in [0,M - 1], totally M points.  Because the sets $$\{\phi_{j_0,k}[n]\}_{k\in\mathbf{Z}}$$ and $$\{\phi_{(j,k)\in\mathbf{Z}^2,j\ge j_0}\}$$ are orthogonal to each other.  We can simply take the inner product to obtain the wavelet coefficients.
+\begin{equation}
+$$\frac{1}{\sqrt{M}}\sum_kW_\phi[j_0,k]\phi_{j_0,k}[n]$$
+\label{eqn_c4_wavelet03}
+\end{equation}
+\begin{equation}
+$$\frac{1}{\sqrt{M}}\sum_{j=j_0}^\infty\sum_kW_\psi[j,k]\psi_{j,k}[n] \quad j\ge j_0$$
+\label{eqn_c4_wavelet04}
+\end{equation}
+Equation (\ref{eqn_c4_wavelet03}) are called approximation coefficient while  (\ref{eqn_c4_wavelet04}) are called detailed coefficients.
+
+### Wavelet types
+#### Daubechies
+Based on these equations, Daubechies [9], designed a type of wavelet for a given vanishing moment p and found the minimum size discrete filter.  The conclusion is that if we want the wavelet function with p vanishing moments, the minimum filter is 2p.  The derivation starts from (5.17), rewrite as
+ - - - (5.19)
+The  absolute-square  of  this  function  is
+ - - - (5.20)
+The last step makes $$P\left(sin^2\frac{\omega}{2}\right)=|R(e^{j\omega})|^2$$.  Recall (5.6), we can determine the form of P(x). Let $$y=sin^2\frac{\omega}{2}$$, we have
+ - - - (5.21)
+A theorem in algebra, called Bezout theorem, can solve this equation.  The unique solution is
+ - -- (5.22)
+The polynomial P(y) is the minimum degree polynomial satisfying equation (5.21).  Once we have P(y), the polynomial $$R(e^{j\omega})$$ can be derived.  First we decompose $$R(e^{j\omega})$$ according to its roots
+ - - - (5.23)
+Let , the relation between P and R is 
+ - - - (5.24)
+By solving the roots of $$P\left(\frac{2−z−z^{−1}}{4}\right)=0$$, we have the roots of $$R, \{a_k,1/a_k\}_{k=0,1,\dots,m}$$ and $$r_0=2^{p-1}$$   Usually, we choose $$a_k$$ lies in the unit circle to have minimum phase filter.
+
+Taking p=2 for an example, the obtained polynomial P(y) is
+ - - - (5.25)
+
+ - - - (5.26)
+
+The roots are $$2+\sqrt{3}$$ and $$2−\sqrt{3}$$.  After factorisation, we have the lowpass filter to be
+
+(5.27)
+The discrete-time domain representation is 
+
+(5.28)
+The  result  is  the  minimum  size  filter  with  2  vanishing  moments  and  the corresponding  filter  size  is  4.  Recall  the  conclusion  mentioned  above,  the  filter size  is  two  times  the  vanishing  moment.  Higher  order  Daubechies  wavelets are  derived  at  similar  way.
+
+#### Symlets
+Take  a  look  at  the  discrete  filters  and  the  scaling/wavelet  functions  of  Daubechies wavelets.  These  functions  are  far  from  symmetry.  That’s  because  Daubechies wavelets  select  the  minimum  phase  square  root  such  that  the  energy  concentrates  near  the  starting  point  of  their  support.  Symmlets  select  other  set  of roots  to  have  closer  symmetry  but  with  linear  complex  phase. 
+
+#### Coiflets
+For  an  application  in  numerical  analysis,  Coifman  asked  Daubechies  [9]  to construct  a  family  of  waveletsψthat  have p vanishing  moments,  minimum-size  support  and
+ - - - (5.29)
+ - - - (5.30)
+The  equation  above  can  be  taken  as  some  requirement  about  vanishing  moments  of  the  scaling  function.  The  resulting  coiflets  has  a  support  of  size3 p−1.
 
 ## Mel filter banks
 The first step in any automatic speech recognition system is to extract features i.e. identify the components of the audio signal that are good for identifying the linguistic content and discarding all the other stuff which carries information like background noise, emotion etc.
@@ -324,6 +390,28 @@ Once we have the filterbank energies, we take the logarithm of them. This is als
 The final step is to compute the DCT of the log filterbank energies. There are 2 main reasons this is performed. Because our filterbanks are all overlapping, the filterbank energies are quite correlated with each other. The DCT decorrelates the energies which means diagonal covariance matrices can be used to model the features in e.g. a HMM classifier. But notice that only 12 of the 26 DCT coefficients are kept. This is because the higher DCT coefficients represent fast changes in the filterbank energies and it turns out that these fast changes actually degrade ASR performance, so we get a small improvement by dropping them.
 
 ## Deep scattering spectrum
+In this section reference is made to \citep{anden2011multiscale, anden2014deep, zeghidour2016deep}. For a signal $$x$$ we define the following transform $$W_x$$ as a convolution with a low-pass filter $$\phi$$ and higher frequency complex analytic wavelets $$\psi_{\lambda_1}$$:
+$$Wx=(x\star\phi(t),x\star\psi_{\lambda_1}(t))_{t\in\mathbb{R},\lambda_1\in\Lambda_1}$$ - - - (1)
+
+We apply a modulus operator to the wavelet coefficients to remove complex phase and extract envelopes at different resolutions
+$$|W|x=\left(x\star\phi(t),|x\star\psi_{\lambda_1}(t)|\right)_{t\in\mathbb{R},\lambda_1\in\Lambda_1}$$ - - - (2)
+$$S_0x=x\star\phi(t)$$ is locally invariant to translation thanks to the time averaging $$\phi$$.  This time-averaging loses the high frequency information, which is retrieved in the wavelet modulus coefficients $$|x\star\psi_{\lambda_1}|$$.  However, these wavelet modulus coefficients are not invariant to translation, and as for $$S_0$$, a local translation invariance is obtained by a time averaging which defines the first layer of scattering coefficients
+$$S_1x(t,\psi_{\lambda_1})=|x\star\psi_{\labmda_1}|\star \phi(t)$$ - - - (3)
+
+It is shown in [6] that if the wavelets $$\psi_{\lambda_1}$$ have the same frequency resolution as the standard mel-filters, then the S1x coefficients approximate the mel-filter coefficients.  Unlike the mel-filter banks however, there is a strategy to recover the lost information, by passing the wavelet modulus coefficients  $$|x\star\phi_{\lambda_1}|$$ through a bank of higher frequency wavelets $$\psi_{\lambda_2}$$:
+$$|W_2||x\star\phi_{\lambda_1}|=\left(|x\star\psi_{\lambda_1}|\star\phi,||x\star\psi_{\lambda1}|\star\psi{\lambda_2}|\right)_{\lambda_2\in\Lambda_2}$$ - - - (4)
+
+This second layer of wavelet modulus coefficients is still not invariant to translation, hence we average these coefficients with a low-pass filter $$\phi$$ to derive a second layer of of scattering coefficients.
+ - - - (5)
+Repeating these successive steps of computing invariant features and retrieving lost information leads to the scattering spectrum, as seen in Fig. 1, however speech signals are almost entirely characterized by the first two layers of the spectrum, that is why a two layers spectrum is typically used for speech representation. It is shown in [6] that this representation is invariant to translations and stable to deformations, while keeping more information than the mel-filter banks coefficients
+
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/spectral.png "Sample Spectrogram")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/spectral.png}\\
+  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform} \cite{xxx}}\label{fig_4_2_tftile}
+\end{figure}
 
 # Wakirike Language Models
 ## Wakirike Language model
@@ -398,6 +486,8 @@ references:bib.md
 ## Other Questions
 1. What about chapter summaries
 2. Should equation references be big or small caps
+3. To read and summarise \cite{maas2017building}
+4. Publication rejection notes to be considered
 
 [Highland-ScratchPad-End]-->
 
