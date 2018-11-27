@@ -1,5 +1,12 @@
 * Bibliography
 
+@inproceedings{sainath2014deep,
+  title={Deep scattering spectra with deep neural networks for LVCSR tasks},
+  author={Sainath, Tara N and Peddinti, Vijayaditya and Kingsbury, Brian and Fousek, Petr and Ramabhadran, Bhuvana and Nahamoo, David},
+  booktitle={Fifteenth Annual Conference of the International Speech Communication Association},
+  year={2014}
+}
+
 @article{lecun1998gradient,
   title={Gradient-based learning applied to document recognition},
   author={LeCun, Yann and Bottou, L{\'e}on and Bengio, Yoshua and Haffner, Patrick},
