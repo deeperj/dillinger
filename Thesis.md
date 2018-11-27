@@ -483,14 +483,14 @@ In this work, the output language generated was used to generate a corpus that m
 ## Grapheme to phoneme model
 
 # Deep Learning Speech Models
-Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.
+Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.  In this chapter, the end-to-end Bi-directional Recurrent Neural Network model is described. Here, the development of the features using the deep scattering convolution network is first elaborated on.   The model parameters and architecture is described and the decoding algorithm explained.
 
 ## Deep speech model
-
+### 
 ## CTC decoder
 ## DSS model
 
-# Conclusion and Discussion
+# Conclusion and Discussion of Results
 
 # Future Direction
 ## Pidgin English models
@@ -507,7 +507,6 @@ references:bib.bib
 
 ## Thesis notes
 ### Chapter 1
-* Summary
 * BiRNN - done
 * GRU ref
 * Scatnet references - done
@@ -545,6 +544,14 @@ references:bib.bib
 * wavelet types - done
 * Multiresolution analysis - not done
 * Fast wavelet transform - not done
+### Chapter 5
+### Chapter 6 conclusion/discussion
+* Various strategies for speech recog
+** Kernel based methods
+
+### Chapter 7 Future
+* Various strategies for speech recog
+* Kernel based methods
 
 ## Questions
 ### Chap 1
@@ -565,6 +572,8 @@ references:bib.bib
 3. To read and summarise \cite{maas2017building}
 4. Publication rejection notes to be considered
 5. Fast Fourier transform?
+6. Chapter summaries
+
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
