@@ -486,7 +486,9 @@ In this work, the output language generated was used to generate a corpus that m
 Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.  In this chapter, the end-to-end Bi-directional Recurrent Neural Network model is described. Here, the development of the features using the deep scattering convolution network is first elaborated on.   The model parameters and architecture is described and the decoding algorithm explained.
 
 ## Deep speech model
-### 
+
+### Deep Scattering Layer
+### Model Architecture
 ## CTC decoder
 ## DSS model
 
@@ -515,6 +517,9 @@ references:bib.bib
 * emission, glossary beginning
 * larger image - p18
 * CNN are restricted DSS (Mallat, 2016)
+* Deng2003 Language models
+* Sample HMM-DNN system pipeline to show simplicity
+* Deepspeech refs
 
 ### Chapter 2
 * discriminative AM models -- done!
