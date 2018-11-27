@@ -405,12 +405,12 @@ This second layer of wavelet modulus coefficients is still not invariant to tran
  - - - (5)
 Repeating these successive steps of computing invariant features and retrieving lost information leads to the scattering spectrum, as seen in Fig. 1, however speech signals are almost entirely characterized by the first two layers of the spectrum, that is why a two layers spectrum is typically used for speech representation. It is shown in [6] that this representation is invariant to translations and stable to deformations, while keeping more information than the mel-filter banks coefficients
 
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/spectral.png "Sample Spectrogram")
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/scatter.png "Scattering network - 2 layers deep")
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/spectral.png}\\
-  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform} \cite{xxx}}\label{fig_4_2_tftile}
+  \caption{Scattering network - 2 layers deep} \cite{zeghidour2016deep}}\label{fig_4_3_scatter}
 \end{figure}
 
 # Wakirike Language Models
@@ -431,11 +431,11 @@ Repeating these successive steps of computing invariant features and retrieving 
 
 # Appendices
 # References
-references:bib.md
-
-# Highland Scratchpad
+references:bib.bib
 
 <!--[Highland-ScratchPad-Start]
+
+# Highland Scratchpad
 
 ## Thesis notes
 ### Chapter 1
@@ -471,18 +471,24 @@ references:bib.md
 
 ### Chapter 3
 ### Chapter 4
-* Invariance introduction
-* Fourier analysis
-* Continuous wavelets
-* wavelet types
-* Multiresolution analysis
-* Fast wavelet transform
-* 
+* Invariance introduction - done
+* Fourier analysis - done
+* Continuous wavelets - done
+* wavelet types - done
+* Multiresolution analysis - not done
+* Fast wavelet transform - not done
+
 ## Questions
+### Chap 1
+1. What is the aims and objectives
+2. What is the contribution to knowledge
+
 ### Chap 2
 1. Why is Bleu not explained or used?
 2. Why is ABX not explained
 
+### Chap 4
+1. How does this chapter relate to your work?
 ## Other Questions
 1. What about chapter summaries
 2. Should equation references be big or small caps
