@@ -1,10 +1,40 @@
 * Bibliography
 
+@article{maas2017building,
+  title={Building DNN acoustic models for large vocabulary speech recognition},
+  author={Maas, Andrew L and Qi, Peng and Xie, Ziang and Hannun, Awni Y and Lengerich, Christopher T and Jurafsky, Daniel and Ng, Andrew Y},
+  journal={Computer Speech \& Language},
+  volume={41},
+  pages={195--213},
+  year={2017},
+  publisher={Elsevier}
+}
+
 @inproceedings{sainath2014deep,
   title={Deep scattering spectra with deep neural networks for LVCSR tasks},
   author={Sainath, Tara N and Peddinti, Vijayaditya and Kingsbury, Brian and Fousek, Petr and Ramabhadran, Bhuvana and Nahamoo, David},
   booktitle={Fifteenth Annual Conference of the International Speech Communication Association},
   year={2014}
+}
+
+@inproceedings{zeghidour2016deep,
+  title={A deep scattering spectrum—deep siamese network pipeline for unsupervised acoustic modeling},
+  author={Zeghidour, Neil and Synnaeve, Gabriel and Versteegh, Maarten and Dupoux, Emmanuel},
+  booktitle={Acoustics, Speech and Signal Processing (ICASSP), 2016 IEEE International Conference on},
+  pages={4965--4969},
+  year={2016},
+  organization={IEEE}
+}
+
+@article{mallat2016understanding,
+  title={Understanding deep convolutional networks},
+  author={Mallat, St{\'e}phane},
+  journal={Phil. Trans. R. Soc. A},
+  volume={374},
+  number={2065},
+  pages={20150203},
+  year={2016},
+  publisher={The Royal Society}
 }
 
 @article{lecun1998gradient,
