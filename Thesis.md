@@ -278,18 +278,26 @@ $$x(t)=\sum_{k=-\infty}^{\infty}a_ke^{\left(j\frac{2\pi kt}{T}\right)}$$
 \label{eqn_c4_fourier02}
 \end{equation}
 
-Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $$k$$ such that higher values of k correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral})
+Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $$k$$ such that higher values of k correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral}) it is observed that the energy of the signal is concentrated in the low frequency region.
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/spectral.png "Sample Spectrogram")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/spectral.png}\\
+  \caption{Sample Spectrogram} \cite{xxx}}\label{fig_4_2_spectral}
+\end{figure}
 
-
-
-## Mel filter banks
-The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.
+The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.  However is not able to determine when in time a frequency occurs hence is not able to analyse time related signal deformations.  The Short-time Fourier Transform (STFT) attempts to salvage this by windowing the signal in time signal and performing fourier transforms over sliding windows sections of the original signal rather than the whole signal.  There is however, a resolution trade off that ensues from this operation such that, the higher the resolution in time accuracy, the lower the freqeuncy accuracy and vice versa.  In the next section on the continuous wavelet transform, how the wavelet transform improves on the weakneses of the Fourer Transform and the STFT is reviewed.
 
 ## Wavelet transform
+The time-frequency tile-allocation of the three basic transforms examined in the first part of this chapter is illustrated in figure \ref{fig_4_3_tftile}
 
-* wavelet types
 * Multiresolution analysis
 * Fast wavelet transform
+* wavelet types
+
+## Mel filter banks
+
 
 ## Deep scattering spectrum
 
