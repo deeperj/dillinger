@@ -249,6 +249,54 @@ Metrics used for low speech recognition in the zero speech challenge \citep{vers
 The HMM method mentioned in the previous section is based on the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As earlier mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
 
 ### Neural network architecture
+The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) (ref) as the perceptron in fig (ref) below
+
+
+The linear operation is the sum of the inputs multiplied by a weight vector.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure below (ref):
+
+
+In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as M-number of neurons in the layer.
+Multilayer Perceptron (MLP)
+The multilayer perceptron or MLP extends the basic perceptron structure by adding one or more hidden layers.  These hidden layers comprise the outputs of one layer becoming the input of the next layer. In the simplest case having one hidden layer, the output of layer 1 becomes the input of the final output layer.  In comparison, the perceptron is a one dimensional structure having one or more linear and non linear combination outputs, while the multilayer perceptron is a 2-dimensional structure having one or more hidden layers of N linear and non-linear combination outputs.  Mathematically speaking the output of each layer of an MLP having N inputs and M neurons is given by
+$$z_j=h(b_j)=\frac{1}{1+e^{−b_j}}$$ - - - (1)
+ is the non-linear function while  is the linear function given by:
+$$b_j=\sum_{i=0}^Nw_{ji}^{(1)}\qquad j=1,2,\dots,M$$ - - - (2)
+
+For each layer in the MLP, the zeroth input value $$x_0$$ is 1 indicating a bias term.  This bias term is used in the neural network to ensure regularised and expected behaviour of the neural network.  In this example the non-linear step function is given by a more complex exponential.  In the next section the nonlinear functions for a multilayer perceptron is derived.
+Sigmoid and softmax Activation Function
+The combination of the linear function and the non linear function in the neural network could be said to be transformation of an algebraic problem to a probabilistic function.  In essence the step function is a squashing function that converts the inputs into a Naive Bayes function asking what is the probability that the output belongs to one of the input classes $$(C_y)$$ given the data $$(\mathbf{x})$$.
+$$p(C_1|\mathbf{x})=f(a)=f(\mathbf{w^\top x}+w_0)$$ - - - (3)
+In a two class problem with classes  and , then we can express the posterior probability of $$C_1$$ using Bayes’s theorem
+$$p(C_1|\mathbf{x})=\frac{p(\mathbf{x}|C_1)p(C_1)}{p(x|C_1)p(C_1)+p(\mathbf{x}|C_2)p(C_2)}$$ - - - (4)
+Dividing through by $$p(\mathbf{x}|C_1)p(C_1)$$ gives us
+$$p(C_1|\mathbf(x)=\frac{1}{1+\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}}$$ - - (5)
+If we define the ratio of the log posterior probabilities as
+$$a=\ln\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}$$ - - - (6)
+If we substitute back into (4) we have:
+$$p(C_1|\mathbf{x})=f(a)=\frac{1}{1+e^{−a}}$$ - - - (7)
+Here $$a=\mathbf{w^\top x}=w_0$$.  Thus the activation for the non-linear function is driven by the probability of the data to give the output class.  The probabilistic function here is called a sigmoid function due to the s-shaped graph that is plotted by the function.
+
+Rather than using the sigmoid function for multi-class classification a similar softmax function is derived by using the log probability of classes. If $$a_k=ln(p(\mathbf{x}|C_k)p(C_k))$$ then:
+$$y_k=p(C_k|\mathbf{x})=\frac{e^{a_k}}{\Sigma_{\ell=1}^K e^{a_\ell}}$$ - - - (8)
+$$a_k=\sum_{i=0}^dw_{ki}x_i$$ - - - (9)
+
+Recall that in the generative classification method the problem is divided into sub problems by using the conditional probability, while in the discriminative approach the joint probability is determined by looking at the data directly.  This is what $$p(C_k|\mathbf{x})$$ represents.  However, recall that we still need to determine the correct probability distribution represented by the data.  This is achieved by determining the values of the weights of the linear operation.  In the next section a method known as back propagation is discussed.  Back propagation is the training algorithm used to determine the weight vector of all the layers in the neural network.  Back propagation is an extension of the Gradient descent algorithm.
+Back propagation algorithm
+In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises M neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and acceptable value.  This is often referred to in machine learning as convergence (ref).
+Gradient Descent
+The last section ended stating that the back-propagation algorithm is an extension of the gradient descent algorithm.  It has also been seen that back propagation works by propagating the error and making adjustments on the weights.  In this section, the Gradient Descent algorithm is reviewed and how it is used in back propagation is examined.  
+
+The concept behind the Gradient descent algorithm is the fact that a function is optimized when the gradient of the function is equal to $$0$$.  Gradient descent algorithm is significant in machine learning applications because a cost function is easily defined for a particular machine learning application that is able to determine the error between the predicted value and the actual value.  Then, the parameters of the problem can be adjusted until the derivative of the cost function using gradient descent is zero.  Therefore the machine learning algorithm adjusts its parameters until the error is minimised or removed.
+
+A common error function or cost function for neural networks is the sum-of-squares error cost function.  This is obtained by summing the difference between the actual value and the machine learning model value over the training set $$N$$. 
+ $$E^n=\frac{1}{2}\sum_{k=1}^K(y_k^n−t_k^n)^2$$ - - - (ref)
+
+In a neural network having a weight matrix $$\mathbf{W}$$ of $$M$$ neurons times $$N$$ inputs, the resulting gradient is a vector of partial derivatives of $$E$$ with respect to each element.  
+$$\nabla_{\mathbf{W}}E=\left(\frac{\partial E}{\partial w_{10}},\dots,\frac{\partial E}{\partial w_{ki}},\dots,\frac{\partial E}{\partial w_{Kd}}\right)$$ - - - (ref)
+
+The adjustment on each weight therefore on each iteration is:
+$$w_{kj}^{\tau+1}=w_{kj}^{\tau}−\eta\frac{\partial E}{\partial w_{kj}}$$ - - - (ref)
+Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which is a factor to speed up or slow down the rate rate of learning of the machine learning algorithm which in this case is the neural network.
 
 ## LSTM network
 ### Recurrent Neural Network
