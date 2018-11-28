@@ -294,6 +294,27 @@ For a labelling $l$, the forward variable $\alpha(t,u)$ is defined as the summed
 
 $$\alpha(t,u) \equiv \sum_{\pi \in V(t,u)} \prod_{i=1}^{t} y_{i,\pi_i}$$ 
 
+As we will see, the forward variables at time $t$ can be calculated recursively from those at time $t − 1$.
+
+Given the above formulation, the probability of $l$ can be expressed as the sum of the forward variables with and without the final blank at time $T$.
+
+$$\Pr( l \, | \, x) = \alpha(T, U') + \alpha(T, U' - 1)$$
+
+All correct paths must start with either a blank $(b)$ or the first symbol in $l$ $(l_1)$, yielding the following initial conditions:
+
+$$\begin{aligned}\alpha(1, 1) &= y_{1,b} \\ \alpha(1, 2) &= y_{1,l_1} \\ \alpha(1, u) &= 0, \, \forall u > 2 \end{aligned}$$
+
+Thereafter the variables can be calculated recursively:
+
+$$\alpha(t,u) = y_{t, l'_u} \sum_{i = f(u)}^{u} \alpha(t-1, i)$$
+
+where
+
+$$f(u) =\begin{cases}u - 1, & \text{ if } l'_u = blank \text{ or } l'_{u−2} = l'_{u} \\ u - 2, & \text{otherwise}\end{cases}$$
+
+Graphically we can express the recurrence relation for $\alpha(t, u)$ as follows.
+
+where $$t$$ runs along the $x$ axis and $u$ runs along the $y$ axis. The black circles of the diagram represent $blank$ elements of $l'$ while the white circles represent non-$blank$ elements of $l'$. The arrows represent computational dependencies derived from our recursion relation for $\alpha(t,u)$. So, for example, the value of $\alpha(2,3)$, corresponding to the $blank$ at $t=2$ and $u=3$, is derived from $\alpha(1,2)$. Similarly, the value of $\alpha(2,2)$, corresponding to the letter $c$ at $t=2$ and $u=2$, is derived from $\alpha(1,2)$ and $\alpha(1,1)$.
 
 # Deep Scattering Network
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
