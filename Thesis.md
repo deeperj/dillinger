@@ -250,7 +250,70 @@ Metrics used for low speech recognition in the zero speech challenge \citep{vers
 ## Sequential models
 ## Neural networks
 ## LSTM network
+### Recurrent Neural Network
+Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
+
+### Gated Recurrent Units
+  A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
+
+The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
+
+% 
+\begin{equation}
+\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})
+  \label{eq1}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{f}_t=\sigma(\mathbf{W}^{(xf)}\mathbf{x}_t+\mathbf{W}^{(hf)}\mathbf{h}_{t-1}+\mathbf{W}^{(cf)}\mathbf{c}_{t-1}+\mathbf{b}^{(f)})
+\label{eq2}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{c}_t=\mathbf{f}_t\bullet\mathbf{c}_{t- 1}+\mathbf{i}_t\bullet\tanh(\mathbf{W}^{(xc)}\mathbf{x}_t+\mathbf{W}^{(hc)}\mathbf{h}_{t-1}+\mathbf{b}^{(c)})
+\label{eq3}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_{t-1}+\mathbf{W}^{(co)}\mathbf{c}_{t-1}+\mathbf{b}^{(o)})
+\label{eq4}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)} 
+\label{eq5}
+\end{equation}
+%
+
+
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{lstmcell}\\
+  \caption{LSTM Cell \cite{graves2013hybrid}}\label{fig1:lstmcell}
+\end{figure}
+
+The gates in the above formula are illustrated in Figure ~\ref{fig1:lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not. In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
+
 ## Deep speech architecture
+A transcription W has many temporal dependencies which a DNN may not sufficiently capture. At each timestep t the DNN computes its output using only the input features $$x_t$$, ignoring previous hidden representations and output distributions. To enable better modeling of the temporal dependencies present in a problem, we use a RDNN. In a RDNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
+ - - - (4)
+Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t − 1$$. 
+
+When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases. 
+
+Aside from these changes, computations for a RDNN are the same as those in a DNN as described in DNN section above. Like the DNN, we can compute a subgradient for a RDNN using a method sometimes called backpropagation through time. In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient. 
+BiRNN
+While forward recurrent connections reflect the temporal nature of the audio input, a perhaps more powerful sequence transduction model is a BRDNN, which maintains state both forwards and backwards in time. Such a model can integrate information from the entire temporal extent of the input features when making each prediction. We extend the RDNN to form a BRDNN by again choosing a temporally recurrent layer $$j$$. The BRDNN creates both a forward and backward intermediate hidden representation which we call $$h^{(f)}_t$$ and $$h^{(b)}_t$$ respectively. We use the temporal weight matrices $$W^{(f)}$$ and $$W^{(b)}$$ to propagate $$h^{(f)}_t$$ forward in time and $$h^{(b)}_t$$ backward in time respectively. We update the forward and backward components via the equations,
+ - - - (5)
+Note that the recurrent forward and backward hidden representations are computed entirely independently of each other.  As with the RDNN we use the modified nonlinearity function $$\sigma(z) = min(max(z, 0), 20)$$. To obtain the final representation $$h^{(j)}_t$$ for the layer we sum the two temporally recurrent components,
+ - - - (6)
+Aside from this change to the recurrent layer the BRDNN computes its output using the same equations as the RDNN. As for other models, we can compute a subgradient for the BRDNN directly to perform gradient-based optimization.
+
 ## CTC Loss Algorithm
 In accord with [Deep Speech: Scaling up end-to-end speech recognition](http://arxiv.org/abs/1412.5567), the loss function used by our network should be the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf). Unfortunately, as of this writing, the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) is not implemented within TensorFlow[[5]](https://github.com/tensorflow/tensorflow/issues/32). Thus we will have to implement it ourselves. The next few sections are dedicated to this implementation.
 
@@ -545,59 +608,9 @@ Repeating these successive steps of computing invariant features and retrieving 
 \end{figure}
 
 # Wakirike Language Models
+This work draws upon the premise that the grammar of a language is expressed in the character sequence pattern which is ultimately expressed in words and therefore the abstract grammar rules can be extracted and learned by a character-based RNN neural network.
 
-## Wakirike Language model
-\section{The LSTM Cell Recurrent Neural Network}
-
-
-Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
-
-This work draws upon the premise that the grammar of a language is expressed in the character sequence pattern which is ultimately expressed in words and therefore the abstract grammar rules can be extracted and learned by a character-based RNN neural network.  A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
-
-The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
-
-% 
-\begin{equation}
-\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})
-  \label{eq1}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{f}_t=\sigma(\mathbf{W}^{(xf)}\mathbf{x}_t+\mathbf{W}^{(hf)}\mathbf{h}_{t-1}+\mathbf{W}^{(cf)}\mathbf{c}_{t-1}+\mathbf{b}^{(f)})
-\label{eq2}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{c}_t=\mathbf{f}_t\bullet\mathbf{c}_{t- 1}+\mathbf{i}_t\bullet\tanh(\mathbf{W}^{(xc)}\mathbf{x}_t+\mathbf{W}^{(hc)}\mathbf{h}_{t-1}+\mathbf{b}^{(c)})
-\label{eq3}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_{t-1}+\mathbf{W}^{(co)}\mathbf{c}_{t-1}+\mathbf{b}^{(o)})
-\label{eq4}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)} 
-\label{eq5}
-\end{equation}
-%
-
-
-\begin{figure}
-\centering
-  % Requires \usepackage{graphicx}
-  \includegraphics[width=7cm]{lstmcell}\\
-  \caption{LSTM Cell \cite{graves2013hybrid}}\label{fig1:lstmcell}
-\end{figure}
-
-The gates in the above formula are illustrated in Figure ~\ref{fig1:lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not. In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
-
-\subsection{Dataset Preparation}
+## Dataset Preparation
 The Wakirike new testament bible served as the source of data for the deep neural network training.  As there wasn’t a soft or on-line copy of the Wakirike new testament bible readily available for use, the four gospels of the Wakirike new testament bible were quickly typed and duplicated once giving a complete corpus word size of about 165,180 words.  This gracefully yielded a character count of about 1,113,820 characters void of punctuation characters. The dataset was then divided 1 in 10 parts for testing and the remaining 9 parts were used for training.
 
 During data preparation, the dataset was first striped off all punctuation marks such that only characters and spaces are selected.  Next, each character in the dataset was substituted with its equivalent Unicode numeric representation. Finally the numeric values were one-hot encoded deriving a sparse array of values having unique indexes set to one for each unique Unicode value and zero every where else. One-hot encoded array therefore, for each character input.
@@ -622,6 +635,10 @@ The core of the system is a bidirectional recurrent neural network (BRNN) traine
  Let a single utterance $x$ and label $y$ be sampled from a training set $S = \{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), . . .\}$. Each utterance, $x^{(i)}$ is a time-series of length $T^{(i)}$ where every time-slice is a vector of audio features, $x^{(i)}_t$ where $t=1,\ldots,T^{(i)}$. We use spectrograms as our features; so $x^{(i)}_{t,p}$ denotes the power of the $p$-th frequency bin in the audio frame at time $t$. The goal of our BRNN is to convert an input sequence $x$ into a sequence of character probabilities for the transcription $y$, with $\hat{y}_t =\mathbb{P}(c_t \mid x)$, where $c_t \in \{a,b,c, . . . , z, space, apostrophe, blank\}$. (The significance of $blank$ will be explained below.)
  
 ### Deep Scattering Layer
+Log Mel filter banks with 23 frequency bins
+Context window of +/- 10 frames concatenated to form a final vector size of 483
+No speaker adaptation
+Output classes 26 letters, 3 punctuation marks and blank ‘_’.
 
 ### Model Architecture
 
@@ -651,12 +668,34 @@ Once we have computed a prediction for $\mathbb{P}(c_t = k \mid x)$, we compute 
 
 The complete BRNN model is illustrated in the figure below.
 
-![DeepSpeech BRNN](images/rnn_fig-624x548.png)
+![DeepSpeech BRNN](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/rnn_fig-624x548.png)
+
+5 hidden layers 1824 hidden units, 20.9M free parameters
+Weights are initialised from a uniform random distribution scaled by the weight matrix input and output layer size (Glorot et al 2011)
+Nesterov accelerated gradient optimisation algorithm as described in Sutskever et al. (2013) with initial learning rate 10-5, and maximum momentum 0.95.
+After each full pass through the training set we divide the learning rate by 1.2 to ensure the overall learning rate decreases over time. We train the network for a total of 20 passes over the training set, which takes about 96 hours using our Python GPU implementation. For decoding with prefix search we use a beam size of 200 and cross-validate with a held-out set to find a good setting of the parameters α and β. Table 1 shows word and character error rates for multiple approaches to decoding with this trained BRDNN
 
 ## CTC decoder
-Once the network is trained, we would ideally label some unknown input sequence $x$ by choosing the most probable labelling $l^∗$:
+Assuming an input of length T, the output of the neural network will be $$p(c;x_t)$$ for $$t=1, \dots , T$$.  Again $$p(c;x_t)$$ is a distribution over possible characters in alphabet $$\Sigma$$, which includes the blank symbol, given audio input $$x_t$$.  In order to recover a character string from the output of the neural network, as a first approximation, we take the argmax at each time step.  Let $$S=(s_1, \dots, s_T)$$ be the character sequence where $$s_t=arg\max_{c\in\Sigma}p(c;x_t)$$.  The sequence S is mapped to a transcription by collapsing repeat characters and removing blanks.  This gives a sequence which can be scored against reference transcription using both CER and WER.
 
-## DSS model
+The first approximation lacks the ability to include the constraint of either a lexicon or language model.  We propose a generic algorithm which is capable of incorporating such constraints.  Taking X to be acoustic input of time T, we seek a transcription W which maximises the probability.
+$$p_{net}(W;X)p_{lm}(W)$$ - - - (7)
+
+Here the overall  probability of the transcription is modeled as the product of two factors: pnet given by the network and plm given by the language model prior.  In practice the prior plm(W), when given by an n-gram language model, is too constraining and thus we down-weight it and include a word insertion penalty or bonus as 
+- - - (8)
+
+Algorithm 1 attempts to find a word string W which maximises equation 8.  The algorithm maintains two separate probabilities for each prefix, $$p_b(\ell;x_{1:t})$$ and $$p_{nb}(\ell;x_{1:t})$$.  Respectively, these are the probability of the prefix  ending in blank or not ending in blank given the first t time steps of the audio input X.
+
+Algorithm 1 Prefix Beam Search: The algorithm initializes the previous set of prefixes $$A_{prev}$$ to the empty string. For each time step and every prefix $$\ell$$ currently in $$A_{prev}$$, we propose adding a character from the alphabet $$\Sigma$$ to the prefix. If the character is a blank, we do not extend the prefix. If the character is a space, we incorporate the language model constraint. Otherwise we extend the prefix and incorporate the output of the network. All new active prefixes are added to $$A_{next}$$. We then set $$A_{prev}$$ to include only the $$k$$ most probable prefixes of $$A_{next}$$. The output is the 1 most probable transcript, although the this can easily be extended to return an n-best list.
+
+
+The sets $$A_prev$$ and $$A_next$$ maintain a list of active prefixes at the previous time step and a proposed prefixes at the next time step respectively.  Note that the size of $$A_prev$$ is never larger than the beam width $$k$$.  The overall probability of a prefix is the product of a word insertion term and the sum of the blank and non-black ending probabilities.
+  - - - (9)
+Where $$W(\ell)$$ is a set of words in the sequence .  When taking the k most probable prefixes of $$A_next$$, we sort each prefix using the probability given in equation (9).
+
+The variable $$\ell_{end}$$ is the last character in the label sequence $$\ell$$.  The function $$W(\cdot)$$, which converts $$\ell$$ into a string of words, segments the sequence $$\ell$$ at each space character and truncates any characters trailing the last space.
+
+We incorporate a lexicon or language model constraint by including the probability $$p(W(\ell^+)|W(\ell))$$ whenever the algorithm proposes appending a space character to $$\ell$$.  By setting $$p(W(\ell^+)|W(\ell))$$ to 1 if the last word of $$W(\ell^+)$$ is in the lexicon and 0 otherwise, the probability acts a a constraint forcing all character strings  to consists of words only in the lexicon.  Furthermore, $$p(W(\ell^+)|W(\ell))$$ can represent an n-gram language model by considering only the last n-1 words in $$W(\ell)$$.
 
 # Conclusion and Discussion of Results
 
