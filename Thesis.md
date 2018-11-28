@@ -486,7 +486,7 @@ In this work, the output language generated was used to generate a corpus that m
 Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.
 
 ## Deep speech model
-
+ 
 ## CTC decoder
 ## DSS model
 
