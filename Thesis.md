@@ -119,15 +119,12 @@ In terms of data collection processing \cite{besacier2014automatic} enumerates t
   \caption{Automatic Speech Recognition Pipeline} \cite{besacier2014automatic}}\label{fig_2_2_asr_pipeline}
 \end{figure}
 
-
 ## Low Resource Speech Recognition
 In this system building speech recognition research, the focus was on the development of a language model and and an end-to-end speech model comparable in performance to state of the art speech recognition system consisting of an acoustic model and a language model.  Low resource language and acoustic modelling is now reviewed keeping in mind that little work has been done on low-resource end-to-end speech modelling when compared to general end-to-end speech modelling and general speech recognition as a whole.  
 
 From an engineering perspective, a practical means of achieving low resource speech modeling from a language rich in resources is through various strategies of the machine learning sub-field of transfer learning.  
 
 Transfer learning takes the inner representation of knowledge derived from a training an algorithm used from one domain and applying this knowledge in a similar domain having different set of system parameters. Early work of this nature was for speech recognition is demonstrated in \citep{vu2013multilingual} where multi-layer perceptrons were used to train multiple languages rich in linguistic resources. In a later section titled speech recognition on a budget, a transfer learning mechanism involving deep neural networks from \citep{kunze2017transfer} is described.
-
-
 
 ### Low Resource language modelling \label{sec_lrlm}
 
@@ -145,7 +142,7 @@ The N-gram model is formed by conditioning of the word history in equation \ref{
 \label{eqn_c2_lm02}
 \end{equation}
 
-N is typically in the range of 2-4.
+$$N$$ is typically in the range of 2-4.
 
 N-gram probabilities are estimated from training corpus by counting N-gram occurrences.  This is plugged into maximum likelihood (ML) parameter estimate. For example, Given that N=3 then the probability that three words occurred is assuming $$C(w_{k-2}w_{k-1}w_k)$$ is the number of occurrences of the three words $$C(w_{k-2}w_{k-1})$$ is the count for $$w_{k-2}w_{k-1}w_k$$ then
 \begin{equation}
@@ -245,10 +242,306 @@ Here $$I,D$$ and $$R$$ are wrong insertions, deletions and replacements respecti
 
 Metrics used for low speech recognition in the zero speech challenge \citep{versteegh2015zero} includes the ABX metric. Other common speech recognition error metrics following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 
-# RNN
+# Recurrent Neural Networks in Speech Recognition
+\cite{deng2015**}
 ## Sequential models
+Classifiers predict only a single class variable, but the true power of graphical models lies in their ability to model many variables that are interdependent. In this section, we discuss perhaps the simplest form of dependency, in which the output variables are arranged in a sequence. To motivate this kind of model, we discuss an application from natural language processing, the task of named-entity recognition (NER). NER is the problem of identifying and classifying proper names in text, including locations, such as China; people, such as George Bush; and organizations, such as the United Nations. The named-entity recognition task is, given a sentence, to segment which words are part of entities, and to classify each entity by type (person, organization, location, and so on). The challenge of this problem is that many named entities are too rare to appear even in a large training set, and therefore the system must identify them based only on context. 
+
+One approach to NER is to classify each word independently as one of either Person, Location, Organization, or Other (meaning not an entity). The problem with this approach is that it assumes that given the input, all of the named-entity labels are independent. In fact, the named-entity labels of neighboring words are dependent; for example, while New York is a location, New York Times is an organization. One way to relax this independence assumption is to arrange the output variables in a linear chain. This is the approach taken by the hidden  Markov model (HMM) [96]. An HMM models a sequence of observations $$X = \{x_t\}_{t=1}^\top$$ by assuming that there is an underlying sequence of states $$Y =\{y\}_{t=1}^\top$$ drawn from a nite state set $$S$$. In the named-entity example, each observation $$x_t$$ is the identity of the word at position $$t$$, and each state $$y_t$$ is the named-entity label, that is, one of the entity types Person, Location, Organization, and Other.
+
+To model the joint distribution $$p(\mathbf{y, x})$$ tractably, an HMM makes two independence assumptions. First, it assumes that each state depends only on its immediate predecessor, that is, each state $$y_t$$ is independent of all its ancestors $$y_1; y_2, y_{t−2}$$ given the preceding state $$y_{t-1}$$.  Second, it also assumes that each observation variable $$x_t$$ depends only on the current state $$y_t$$. With these assumptions, we can specify an HMM using three probability distributions: first, the distribution $$p(y_1)$$ over initial states; second, the transition distribution $$p(y_t|y_{t−1})$$; and finally, the observation distribution $$p(x_t|y_t)$$. That is, the joint probability of a state sequence $$\mathbf{y}$$ and an observation sequence $$\mathbf{x}$$ factorizes as
+\begin{equation}
+$$p(\mathbf{y,x})=\prod_{t=1}^Tp(y_t|y_{t-1})$$
+\label{eqn_c3_seqmod01}
+\end{equation}
+
+where, to simplify notation, we write the initial state distribution $$p(y_1)$$ as $$p(y_1|y_0)$$. In natural language processing, HMMs have been used for sequence labeling tasks such as part-of-speech tagging, named-entity recognition, and information extraction.
+
+### Comparison
+Of the models described in this section, two are generative (the naive Bayes and hidden Markov models) and one is discriminative (the logistic regression model). In a general, generative models are models of the joint distribution $$p(y, \mathbf{x})$$, and like naive Bayes have the form $$p(y)p(x|y)$$. In other words, they describe how the output is probabilistically generated as a function of the input. Discriminative models, on the other hand, focus solely on the conditional distribution $$p(y|x)$$. In this section, we discuss the differences between generative and discriminative modeling, and the potential advantages of discriminative modeling.  For concreteness, we focus on the examples of naive Bayes and logistic regression, but the discussion in this section applies equally as well to the differences between arbitrarily structured generative models and conditional random fields.
+
+The main difference is that a conditional distribution $$p(yjx)$$ does not include a model of $$p(x)$$, which is not needed for classification anyway.  The difficulty in modeling $$p(x)$$ is that it often contains many highly dependent features that are difficult to model. For example, in named-entity recognition, an HMM relies on only one feature, the word's identity. But many words, especially proper names, will not have occurred in the training set, so the word-identity feature is uninformative. To label unseen words, we would like to exploit other features of a word, such as its capitalization, its neighboring words, its prefixes and suffixes, its membership in predetermined lists of people and locations, and so on.
+
+The principal advantage of discriminative modeling is that it is better suited to including rich, overlapping features. To understand this, consider the family of naive Bayes distributions (2.5). This is a family of joint distributions whose conditionals all take the “logistic regression form" (2.7). But there are many other joint models, some with complex dependencies among x, whose conditional distributions also have the form (2.7). By modeling the conditional distribution directly, we can remain agnostic about the form of $$p(x)$$. CRFs make independence assumptions among y, and assumptions about how the $$y$$ can depend on $$x$$, but not among $$x$$. This point can also be understood graphically:  Suppose that we have a factor graph representation for the joint distribution $$p(y, x)$$. If we then construct a graph for the conditional distribution $$p(y|x)$$, any factors that depend only on $$x$$ vanish from the graphical structure for the conditional distribution. They are irrelevant to the conditional because they are constant with respect to $$y$$.
+
+To include interdependent features in a generative model, we have two choices: enhance the model to represent dependencies among the inputs, or make simplifying independence assumptions, such as the naive Bayes assumption. The first approach, enhancing the model, is often difficult to do while retaining tractability. For example, it is hard to imagine how to model the dependence between the capitalization of a word and its suxes, nor do we particularly wish to do so, since we always observe the test sentences anyway. The second approach is to include a large number of dependent features in a generative model, but to include independence assumptions among them|is possible, and in some domains can work well. But it can also be problematic because the independence assumptions can hurt performance. For example, although the naive Bayes classifier performs well in document classification, it performs worse on average across a range of applications than logistic regression [16].
+
+Furthermore, naive Bayes can produce poor probability estimates. As an illustrative example, imagine training naive Bayes on a data set in which all the features are repeated, that is, $$x = (x_1, x_1, x_2, x_2, \dots , x_K, x_K)$$. This will increase the confidence of the naive Bayes probability estimates, even though no new information has been added to the data. Assumptions like naive Bayes can be especially problematic when we generalize to sequence models, because inference essentially combines evidence from different parts of the model.  If probability estimates of the label at each sequence position are overconfident, it might be difficult to combine them sensibly.
+
+The difference between naive Bayes and logistic regression is due only to the fact that the first is generative and the second discriminative; the two classifiers are, for discrete input, identical in all other respects. Naive Bayes and logistic regression consider the same hypothesis space, in the sense that any logistic regression classifier can be converted into a naive Bayes classifier with the same decision boundary, and vice versa. Another way of saying this is that the naive Bayes model (2.5) denes the same family of distributions as the logistic regression
+model (2.7), if we interpret it generatively as
+\begin{equation}
+$$p(y,\mathbf{x})=\frac{\exp\left{\sum_k\theta_k f_k(y,\mathbf{x})\right})}{\exp\left{\sum_k\theta_k f_k(y,\mathbf{x})\right})}$$
+\label{eqn_c3_seqmod02}
+\end{equation}
+
+This means that if the naive Bayes model (2.5) is trained to maximize the conditional likelihood, we recover the same classier as from logistic regression. Conversely, if the logistic regression model is interpreted generatively, as in (2.9), and is trained to maximize the joint likelihood p(y; x), then we recover the same classier as from naive Bayes. In the terminology of Ng and Jordan [85], naive Bayes and logistic regression form a generative-discriminative pair. For a recent theoretical perspective on generative and discriminative models, see Liang and Jordan
+[61].
+
+One perspective for gaining insight into the difference between generative and discriminative modeling is due to Minka [80]. Suppose we have a generative model pg with parameters . By definition, this takes the form
+ - - - (2.10)
+ - - - (2.11)
+where $$p_g(x;\theta)$$ and $$p_g(y|x;\theta)$$ are computed by inference, i.e., $$p_g(x;\theta) =\Sigma_yp_g(\mathbf{y}; \mathbf{x};\theta)$$ and $$p_g(y|x;\theta) = p_g(\mathbf{y}|\mathbf{x};\theta )=p_g(\mathbf{y},\mathbf{x};\theta)/p_g(\mathbf{x};\theta)$$.
+
+Now, compare this generative model to a discriminative model over the same family of joint distributions. To do this, we dene a prior $$p(\mathbf{x})$$ over inputs, such that $$p(\mathbf{x})$$ could have arisen from pg with some parameter setting. That is, $$p(x) = p_c(\mathbf{x};\theta‘) =\Sigma_y p_g(\mathbf{y}; \mathbf{x}|\theta‘)$$. We combine this with a conditional distribution $$p_c(\mathbf{y|x};\theta)$$ that could also have arisen from pg, that is, $$p_c(\mathbf{y|x};\theta) =p_g(\mathbf{y,x};\theta)/p_g(\mathbf{x};\theta)$$. Then the resulting distribution is
+ - - - (2.12)
+By comparing (2.11) with (2.12), it can be seen that the conditional approach has more freedom to t the data, because it does not require that  = 0. Intuitively, because the parameters  in (2.11) are used in both the input distribution and the conditional, a good set of parameters must represent both well, potentially at the cost of trading off accuracy on $$p(\mathbf{y|x})$$, the distribution we care about, for accuracy on $$p(\mathbf{x})$$, which we care less about. On the other hand, this added freedom brings about an increased risk of overfitting the training data, and generalizing worse on unseen data.
+
+To be fair, however, generative models have several advantages of their own. First, generative models can be more natural for handling latent variables, partially-labeled data, and unlabelled data. In the most extreme case, when the data is entirely unlabeled, generative models can be applied in an unsupervised fashion, whereas unsupervised learning in discriminative models is less natural and is still an active area of research.
+
+Second, on some data a generative model can perform better than a discriminative model, intuitively because the input model $$p(x)$$ may have a smoothing effect on the conditional. Ng and Jordan [85] argue that this effect is especially pronounced when the data set is small. For any particular data set, it is impossible to predict in advance whether a generative or a discriminative model will perform better. Finally, sometimes either the problem suggests a natural generative model, or the application requires the ability to predict both future inputs and future outputs, making a generative model preferable. 
+
+Because a generative model takes the form $$p(\mathbf{y; x}) = p(\mathbf{y})p(\mathbf{x|y})$$, it is often natural to represent a generative model by a directed graph in which in outputs $$y$$ topologically precede the inputs. Similarly, we will see that it is often natural to represent a discriminative model by a undirected graph, although this need not always be the case.
+
+The relationship between naive Bayes and logistic regression mirrors the relationship between HMMs and linear-chain CRFs. Just as naive Bayes and logistic regression are a generative-discriminative pair, there is a discriminative analogue to the hidden Markov model, and this analogue is a particular special case of conditional random eld, as we explain in the next section. This analogy between naive Bayes, logistic regression, generative models, and conditional random elds is depicted
+
 ## Neural networks
+The HMM method mentioned in the previous section is based on the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As earlier mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
+
+### Neural network architecture
+The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) (ref) as the perceptron in fig (ref) below
+
+
+The linear operation is the sum of the inputs multiplied by a weight vector.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure below (ref):
+
+
+In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as M-number of neurons in the layer.
+Multilayer Perceptron (MLP)
+The multilayer perceptron or MLP extends the basic perceptron structure by adding one or more hidden layers.  These hidden layers comprise the outputs of one layer becoming the input of the next layer. In the simplest case having one hidden layer, the output of layer 1 becomes the input of the final output layer.  In comparison, the perceptron is a one dimensional structure having one or more linear and non linear combination outputs, while the multilayer perceptron is a 2-dimensional structure having one or more hidden layers of N linear and non-linear combination outputs.  Mathematically speaking the output of each layer of an MLP having N inputs and M neurons is given by
+$$z_j=h(b_j)=\frac{1}{1+e^{−b_j}}$$ - - - (1)
+ is the non-linear function while  is the linear function given by:
+$$b_j=\sum_{i=0}^Nw_{ji}^{(1)}\qquad j=1,2,\dots,M$$ - - - (2)
+
+For each layer in the MLP, the zeroth input value $$x_0$$ is 1 indicating a bias term.  This bias term is used in the neural network to ensure regularised and expected behaviour of the neural network.  In this example the non-linear step function is given by a more complex exponential.  In the next section the nonlinear functions for a multilayer perceptron is derived.
+Sigmoid and softmax Activation Function
+The combination of the linear function and the non linear function in the neural network could be said to be transformation of an algebraic problem to a probabilistic function.  In essence the step function is a squashing function that converts the inputs into a Naive Bayes function asking what is the probability that the output belongs to one of the input classes $$(C_y)$$ given the data $$(\mathbf{x})$$.
+$$p(C_1|\mathbf{x})=f(a)=f(\mathbf{w^\top x}+w_0)$$ - - - (3)
+In a two class problem with classes  and , then we can express the posterior probability of $$C_1$$ using Bayes’s theorem
+$$p(C_1|\mathbf{x})=\frac{p(\mathbf{x}|C_1)p(C_1)}{p(x|C_1)p(C_1)+p(\mathbf{x}|C_2)p(C_2)}$$ - - - (4)
+Dividing through by $$p(\mathbf{x}|C_1)p(C_1)$$ gives us
+$$p(C_1|\mathbf(x)=\frac{1}{1+\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}}$$ - - (5)
+If we define the ratio of the log posterior probabilities as
+$$a=\ln\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}$$ - - - (6)
+If we substitute back into (4) we have:
+$$p(C_1|\mathbf{x})=f(a)=\frac{1}{1+e^{−a}}$$ - - - (7)
+Here $$a=\mathbf{w^\top x}=w_0$$.  Thus the activation for the non-linear function is driven by the probability of the data to give the output class.  The probabilistic function here is called a sigmoid function due to the s-shaped graph that is plotted by the function.
+
+Rather than using the sigmoid function for multi-class classification a similar softmax function is derived by using the log probability of classes. If $$a_k=ln(p(\mathbf{x}|C_k)p(C_k))$$ then:
+$$y_k=p(C_k|\mathbf{x})=\frac{e^{a_k}}{\Sigma_{\ell=1}^K e^{a_\ell}}$$ - - - (8)
+$$a_k=\sum_{i=0}^dw_{ki}x_i$$ - - - (9)
+
+Recall that in the generative classification method the problem is divided into sub problems by using the conditional probability, while in the discriminative approach the joint probability is determined by looking at the data directly.  This is what $$p(C_k|\mathbf{x})$$ represents.  However, recall that we still need to determine the correct probability distribution represented by the data.  This is achieved by determining the values of the weights of the linear operation.  In the next section a method known as back propagation is discussed.  Back propagation is the training algorithm used to determine the weight vector of all the layers in the neural network.  Back propagation is an extension of the Gradient descent algorithm.
+Back propagation algorithm
+In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises M neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and acceptable value.  This is often referred to in machine learning as convergence (ref).
+Gradient Descent
+The last section ended stating that the back-propagation algorithm is an extension of the gradient descent algorithm.  It has also been seen that back propagation works by propagating the error and making adjustments on the weights.  In this section, the Gradient Descent algorithm is reviewed and how it is used in back propagation is examined.  
+
+The concept behind the Gradient descent algorithm is the fact that a function is optimized when the gradient of the function is equal to $$0$$.  Gradient descent algorithm is significant in machine learning applications because a cost function is easily defined for a particular machine learning application that is able to determine the error between the predicted value and the actual value.  Then, the parameters of the problem can be adjusted until the derivative of the cost function using gradient descent is zero.  Therefore the machine learning algorithm adjusts its parameters until the error is minimised or removed.
+
+A common error function or cost function for neural networks is the sum-of-squares error cost function.  This is obtained by summing the difference between the actual value and the machine learning model value over the training set $$N$$. 
+ $$E^n=\frac{1}{2}\sum_{k=1}^K(y_k^n−t_k^n)^2$$ - - - (ref)
+
+In a neural network having a weight matrix $$\mathbf{W}$$ of $$M$$ neurons times $$N$$ inputs, the resulting gradient is a vector of partial derivatives of $$E$$ with respect to each element.  
+$$\nabla_{\mathbf{W}}E=\left(\frac{\partial E}{\partial w_{10}},\dots,\frac{\partial E}{\partial w_{ki}},\dots,\frac{\partial E}{\partial w_{Kd}}\right)$$ - - - (ref)
+
+The adjustment on each weight therefore on each iteration is:
+$$w_{kj}^{\tau+1}=w_{kj}^{\tau}−\eta\frac{\partial E}{\partial w_{kj}}$$ - - - (ref)
+Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which is a factor to speed up or slow down the rate rate of learning of the machine learning algorithm which in this case is the neural network.
+
 ## LSTM network
+### Recurrent Neural Network
+Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
+
+### Gated Recurrent Units
+  A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
+
+The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
+
+% 
+\begin{equation}
+\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})
+  \label{eq1}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{f}_t=\sigma(\mathbf{W}^{(xf)}\mathbf{x}_t+\mathbf{W}^{(hf)}\mathbf{h}_{t-1}+\mathbf{W}^{(cf)}\mathbf{c}_{t-1}+\mathbf{b}^{(f)})
+\label{eq2}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{c}_t=\mathbf{f}_t\bullet\mathbf{c}_{t- 1}+\mathbf{i}_t\bullet\tanh(\mathbf{W}^{(xc)}\mathbf{x}_t+\mathbf{W}^{(hc)}\mathbf{h}_{t-1}+\mathbf{b}^{(c)})
+\label{eq3}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_{t-1}+\mathbf{W}^{(co)}\mathbf{c}_{t-1}+\mathbf{b}^{(o)})
+\label{eq4}
+\end{equation}
+%
+%
+\begin{equation}
+\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)} 
+\label{eq5}
+\end{equation}
+%
+
+
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{lstmcell}\\
+  \caption{LSTM Cell \cite{graves2013hybrid}}\label{fig1:lstmcell}
+\end{figure}
+
+The gates in the above formula are illustrated in Figure ~\ref{fig1:lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not. In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
+
+## Deep speech architecture
+A transcription W has many temporal dependencies which a DNN may not sufficiently capture. At each timestep t the DNN computes its output using only the input features $$x_t$$, ignoring previous hidden representations and output distributions. To enable better modeling of the temporal dependencies present in a problem, we use a RDNN. In a RDNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
+ - - - (4)
+Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t − 1$$. 
+
+When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases. 
+
+Aside from these changes, computations for a RDNN are the same as those in a DNN as described in DNN section above. Like the DNN, we can compute a subgradient for a RDNN using a method sometimes called backpropagation through time. In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient. 
+BiRNN
+While forward recurrent connections reflect the temporal nature of the audio input, a perhaps more powerful sequence transduction model is a BRDNN, which maintains state both forwards and backwards in time. Such a model can integrate information from the entire temporal extent of the input features when making each prediction. We extend the RDNN to form a BRDNN by again choosing a temporally recurrent layer $$j$$. The BRDNN creates both a forward and backward intermediate hidden representation which we call $$h^{(f)}_t$$ and $$h^{(b)}_t$$ respectively. We use the temporal weight matrices $$W^{(f)}$$ and $$W^{(b)}$$ to propagate $$h^{(f)}_t$$ forward in time and $$h^{(b)}_t$$ backward in time respectively. We update the forward and backward components via the equations,
+ - - - (5)
+Note that the recurrent forward and backward hidden representations are computed entirely independently of each other.  As with the RDNN we use the modified nonlinearity function $$\sigma(z) = min(max(z, 0), 20)$$. To obtain the final representation $$h^{(j)}_t$$ for the layer we sum the two temporally recurrent components,
+ - - - (6)
+Aside from this change to the recurrent layer the BRDNN computes its output using the same equations as the RDNN. As for other models, we can compute a subgradient for the BRDNN directly to perform gradient-based optimization.
+
+## CTC Loss Algorithm
+In accord with [Deep Speech: Scaling up end-to-end speech recognition](http://arxiv.org/abs/1412.5567), the loss function used by our network should be the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf). Unfortunately, as of this writing, the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) is not implemented within TensorFlow[[5]](https://github.com/tensorflow/tensorflow/issues/32). Thus we will have to implement it ourselves. The next few sections are dedicated to this implementation.
+
+The CTC algorithm was specifically designed for temporal classification tasks; that is, for sequence labelling problems where the alignment between the inputs and the target labels is unknown. Unlike hybrid approaches combining HMM and DNN, CTC models all aspects of the sequence with a single neural network, and does not require the network to be combined with a HMM. It also does not require pre-segmented training data, or external post-processing to extract the label sequence from the network outputs.
+
+Generally, neural networks require separate training targets for every timeslice in the input sequence. This has two important consequences. First, it means that the training data must be pre-segmented to provide targets for every timeslice. Second, as the network only outputs local classifications, global aspects of the sequence, such as the likelihood of two labels appearing consecutively, must be modelled externally. Indeed, without some form of post-processing the final label sequence cannot reliably be inferred at all.
+
+CTC avoids this problem by allowing the network to make label predictions at any point in the input sequence, so long as the overall sequence of labels is correct. This removes the need for pre-segmented data, since the alignment of the labels with the input is no longer important. Moreover, CTC directly outputs the probabilities of the complete label sequences, which means that no external post-processing is required to use the network as a temporal classifier.
+
+For a sequence labelling task where the labels are drawn from an alphabet $A$, CTC consists of a softmax output layer, our `layer_6`,  with one more unit than there are labels in `A`. The activations of the first `|A|` units are the probabilities of outputting the corresponding labels at particular times, given the input sequence and the network weights. The activation of the extra unit gives the probability of outputting a $blank$, or no label. The complete sequence of network outputs is then used to define a distribution over all possible label sequences of length up to that of the input sequence.
+
+Defining the extended alphabet $A′ = A \cup \{blank\}$, the activation $y_{t,p}$ of network output $p$ at time $t$ is interpreted as the probability that the network will output element $p$ of $A′$ at time $t$, given the length $T$ input sequence $x$. Let $A′^T$ denote the set of length $T$ sequences over $A′$. Then, if we assume the output probabilities at each timestep to be independent of those at other timesteps (or rather, conditionally independent given $x$), we get the following conditional distribution over $\pi \in A′^T$:
+
+$$\Pr( \pi \, | \, x ) = \prod_{t=1}^{T} y_{t,\pi_t}$$
+
+From now on we refer to the sequences $\pi$ over $A′$ as *paths*, to distinguish them from the *label sequences* or *labellings* $l$ over $A$. The next step is to define a many-to-one function $\mathcal{B} : A′^T \rightarrow A^{\le T}$, from the set of paths onto the set $A^{\le T}$ of possible labellings of $x$ (i.e. the set of sequences of length less than or equal to $T$ over $A$). We do this by removing first the repeated labels and then the blanks from the paths. For example,
+$$
+\begin{align}
+\mathcal{B}(a − ab−) &= aab \\
+\mathcal{B}(−aa − −abb) &= aab.
+\end{align}
+$$
+
+
+Intuitively, this corresponds to outputting a new label when the network either switches from predicting no label to predicting a label, or from predicting one label to another. As $\mathcal{B}$ is many-to-one, the probability of some labelling $l \in A^{\le T}$ can be calculated by summing the probabilities of all the paths mapped onto it by $\mathcal{B}$:
+
+$$\Pr( l \, | \, x) = \sum_{\pi \in \mathcal{B}^{-1}(l)} \Pr( \pi \, | \, x)$$
+
+This 'collapsing together' of different paths onto the same labelling is what makes it possible for CTC to use unsegmented data, because it allows the network to predict the labels without knowing in advance where they occur. In theory, it also makes CTC networks unsuitable for tasks where the location of the labels must be determined. However in practice CTC tends to output labels close to where they occur in the input sequence.
+
+In the original formulation of CTC there were no blank labels, and $\mathcal{B}(\pi)$ was simply $\pi$ with repeated labels removed. This led to two problems. First, the same label could not appear twice in a row, since transitions only occurred when $\pi$ passed between different labels. Second, the network was required to continue predicting one label until the next began, which is a burden in tasks where the input segments corresponding to consecutive labels are widely separated by unlabelled data (for example, in speech recognition there are often pauses or non-speech noises between the words in an utterance).
+
+### Forward-backward algorithm
+So far we have defined the conditional probabilities $\Pr(l \, | \, x)$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $T$ input sequence and a length $U$ labelling there are $$2^{T−U^2+U(T−3)}3^{(U−1)(T−U)−2}$$ paths.
+
+Fortunately the problem can be solved with a dynamic-programming algorithm similar to the forward-backward algorithm for HMM's[[6]](http://www.ee.columbia.edu/~dpwe/e6820/papers/Rabiner89-hmm.pdf). The key idea is that the sum over paths corresponding to a labelling l can be broken down into an iterative sum over paths corresponding to prefixes of that labelling.
+
+To allow for blanks in the output paths, we consider a modified "label sequence" $l′$, with blanks added to the beginning and the end of $l$, and inserted between every pair of consecutive labels. If the length of $l$ is $U$, the length of $l′$ is $U′ = 2U + 1$. In calculating the probabilities of prefixes of $l′$ we allow all transitions between blank and non-blank labels, and also those between any pair of distinct non-blank labels.
+
+For a labelling $l$, the forward variable $\alpha(t,u)$ is defined as the summed probability of all length $t$ paths that are mapped by $\mathcal{B}$ onto the length $\left \lfloor{u/2}\right \rfloor$ prefix of $l$. (Note, $\left \lfloor{u/2}\right \rfloor$ is the *floor* of $u/2$, the greatest integer less than or equal to $u/2$.) For some sequence $s$, let $s_{p:q}$ denote the subsequence $s_p$, $s_{p+1}$, ..., $s_{q−1}$, $s_q$, and define the set $V(t,u) \equiv \{ \pi \in A′^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$. We can then define $\alpha(t,u)$ as
+
+$$\alpha(t,u) \equiv \sum_{\pi \in V(t,u)} \prod_{i=1}^{t} y_{i,\pi_i}$$ 
+
+As we will see, the forward variables at time $t$ can be calculated recursively from those at time $t − 1$.
+
+Given the above formulation, the probability of $l$ can be expressed as the sum of the forward variables with and without the final blank at time $T$.
+
+$$\Pr( l \, | \, x) = \alpha(T, U') + \alpha(T, U' - 1)$$
+
+All correct paths must start with either a blank $(b)$ or the first symbol in $l$ $(l_1)$, yielding the following initial conditions:
+
+$$\begin{aligned}\alpha(1, 1) &= y_{1,b} \\ \alpha(1, 2) &= y_{1,l_1} \\ \alpha(1, u) &= 0, \, \forall u > 2 \end{aligned}$$
+
+Thereafter the variables can be calculated recursively:
+
+$$\alpha(t,u) = y_{t, l'_u} \sum_{i = f(u)}^{u} \alpha(t-1, i)$$
+
+where
+
+$$f(u) =\begin{cases}u-1, & \text{ if } l'_u = blank \text{ or } l'_{u-2} = l'_{u} \\ u-2, & \text{otherwise}\end{cases}$$
+
+Graphically we can express the recurrence relation for $\alpha(t, u)$ as follows.
+
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/Lattice.png "Beam Search Lattice Structure")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/Lattice.png}\\
+  \caption{Beam Search Lattice Structure} \cite{xxx}}\label{fig_3_a_lattice}
+\end{figure}
+
+where $$t$$ runs along the $$x$$ axis and $$u$$ runs along the $$y$$ axis. The black circles of the diagram represent $$blank$$ elements of $$l'$$ while the white circles represent non-$$blank$$ elements of $$l'$$. The arrows represent computational dependencies derived from our recursion relation for $$\alpha(t,u)$$. So, for example, the value of $$\alpha(2,3)$$, corresponding to the $$blank$$ at $$t=2$$ and $$u=3$$, is derived from $$\alpha(1,2)$$. Similarly, the value of $$\alpha(2,2)$$, corresponding to the letter $$c$$ at $$t=2$$ and $$u=2$$, is derived from $$\alpha(1,2)$$ and $$\alpha(1,1)$$.
+
+$$\alpha(t,u)=0 \quad \forall u < U'-2(T-t)-1$$
+
+because these variables correspond to states for which there are not enough timesteps left to complete the sequence. We also impose the boundary condition
+
+$$\alpha(t, 0) = 0 \quad \forall t$$
+
+The backward variables $\beta(t,u)$ are defined as the summed probabilities of all paths starting at $t + 1$ that "complete" $l$ when appended to any path $\hat{\pi}$ contributing to $\alpha(t,u)$. Define $W(t,u) \equiv \{ \pi \in A′^{T−t} : \mathcal{B}(\hat{\pi} + \pi) = l \, \, \forall \hat{\pi} \in V(t,u) \}$. Then
+
+$$\beta(t,u) \equiv \sum_{\pi \in W(t,u)} \prod_{i=1}^{T - t} y_{t + i,\pi_i}$$ 
+
+The rules for initialisation of the backward variables are as follows
+$$\begin{aligned}
+\beta(T, U') &= 1 \\
+\beta(T, U' - 1) &= 1 \\
+\beta(T, u) &= 0, \, \forall u < U' - 1
+\end{aligned}$$
+
+The rules for recursion are as follows:
+
+$$\beta(t, u) = \sum_{i = u}^{g(u)} \beta(t+1, i) y_{t+1, l'_i}$$
+where
+$$g(u) = \begin{cases} u + 1,& \text{if } l'_u = blank \text{ or } l'_{u+2} = l'_{u} \\ u + 2,& \text{otherwise} \end{cases}$$
+
+In practice, the above recursions will soon lead to underflows on any digital computer. A good way to avoid this is to work in the log scale, and only exponentiate to find the true probabilities at the end of the calculation. A useful equation in this context is
+$$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b − \ln a})$$
+
+### Loss Function
+The CTC loss function $\mathcal{L}(S)$ is defined as the negative log probability of correctly labelling all the training examples in some training set S:
+
+$$\mathcal{L}(S) = - \ln \prod_{(x,z) \in S} \Pr(z \, | \, x) = - \sum_{(x,z) \in S} \ln \Pr(z \, | \, x)$$
+
+Because the function is differentiable, its derivatives with respect to the network weights can be calculated with backpropagation through time, and the network can then be trained with any gradient-based non-linear optimisation algorithm.
+
+$$\mathcal{L}(x,z) \equiv - \ln \Pr(z \, | \, x)$$
+
+Obviously
+
+$$\mathcal{L}(S) = \sum_{(x,z) \in S} \mathcal{L}(x,z)$$
+
+Now if we identify $l$ and $z$ and define $X(t,u) \equiv \{ \pi \in A′^T : \mathcal{B}(\pi) = z, \, \pi_t = z′_u \}$, then our definition of $\alpha(t, u)$ and $\beta(t, u)$ imply
+
+$$\alpha(t, u) \beta(t, u) = \sum_{\pi \in X(t,u)} \prod_{t = 1}^{T} y_{t, \pi_t}$$
+
+thus substituting our previous expression for $\Pr(\pi \, | \, x)$
+
+$$\alpha(t, u) \beta(t, u) = \sum_{\pi \in X(t,u)} \Pr(\pi \, | \, x)$$
+
+From our expression for $\Pr(l \, | \, x)$ we can see that this is the portion of the total probability of $\Pr(z \, | \, x)$ due to those paths going through $z′_u$ at time $t$. For any $t$, we can therefore sum over all $u$ to get
+
+$$\Pr(z \, | \, x) = \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
+
+Thus the example loss is given by
+$$\mathcal{L}(x, z) = - \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
+as
+$$\mathcal{L}(S) = \sum_{(x,z) \in S} \mathcal{L}(x,z)$$
+the gradient of $\mathcal{L}(S)$ can be computed by computing the gradient of $\mathcal{L}(x, z)$. This gradient can be computed using the formulas above and TensorFlow's automatic differentiation.
 
 # Deep Scattering Network
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
@@ -414,59 +707,9 @@ Repeating these successive steps of computing invariant features and retrieving 
 \end{figure}
 
 # Wakirike Language Models
+This work draws upon the premise that the grammar of a language is expressed in the character sequence pattern which is ultimately expressed in words and therefore the abstract grammar rules can be extracted and learned by a character-based RNN neural network.
 
-## Wakirike Language model
-\section{The LSTM Cell Recurrent Neural Network}
-
-
-Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
-
-This work draws upon the premise that the grammar of a language is expressed in the character sequence pattern which is ultimately expressed in words and therefore the abstract grammar rules can be extracted and learned by a character-based RNN neural network.  A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
-
-The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
-
-% 
-\begin{equation}
-\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})
-  \label{eq1}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{f}_t=\sigma(\mathbf{W}^{(xf)}\mathbf{x}_t+\mathbf{W}^{(hf)}\mathbf{h}_{t-1}+\mathbf{W}^{(cf)}\mathbf{c}_{t-1}+\mathbf{b}^{(f)})
-\label{eq2}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{c}_t=\mathbf{f}_t\bullet\mathbf{c}_{t- 1}+\mathbf{i}_t\bullet\tanh(\mathbf{W}^{(xc)}\mathbf{x}_t+\mathbf{W}^{(hc)}\mathbf{h}_{t-1}+\mathbf{b}^{(c)})
-\label{eq3}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_{t-1}+\mathbf{W}^{(co)}\mathbf{c}_{t-1}+\mathbf{b}^{(o)})
-\label{eq4}
-\end{equation}
-%
-%
-\begin{equation}
-\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)} 
-\label{eq5}
-\end{equation}
-%
-
-
-\begin{figure}
-\centering
-  % Requires \usepackage{graphicx}
-  \includegraphics[width=7cm]{lstmcell}\\
-  \caption{LSTM Cell \cite{graves2013hybrid}}\label{fig1:lstmcell}
-\end{figure}
-
-The gates in the above formula are illustrated in Figure ~\ref{fig1:lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not. In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
-
-\subsection{Dataset Preparation}
+## Dataset Preparation
 The Wakirike new testament bible served as the source of data for the deep neural network training.  As there wasn’t a soft or on-line copy of the Wakirike new testament bible readily available for use, the four gospels of the Wakirike new testament bible were quickly typed and duplicated once giving a complete corpus word size of about 165,180 words.  This gracefully yielded a character count of about 1,113,820 characters void of punctuation characters. The dataset was then divided 1 in 10 parts for testing and the remaining 9 parts were used for training.
 
 During data preparation, the dataset was first striped off all punctuation marks such that only characters and spaces are selected.  Next, each character in the dataset was substituted with its equivalent Unicode numeric representation. Finally the numeric values were one-hot encoded deriving a sparse array of values having unique indexes set to one for each unique Unicode value and zero every where else. One-hot encoded array therefore, for each character input.
@@ -483,14 +726,77 @@ In this work, the output language generated was used to generate a corpus that m
 ## Grapheme to phoneme model
 
 # Deep Learning Speech Models
-Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.
+Earlier in chapter one, deep learning was defined as a type of representational learning whereby different levels of complexity are captured in internal layer-wise encapsulations.  It has also been noted that layer-wise stacking of neural and neural network type architectures such as the Restricted Boltzmann Machine (RBM) deep belief networks (DBMs) are used to implement such representations.  In this chapter, the end-to-end Bi-directional Recurrent Neural Network model is described. Here, the development of the features using the deep scattering convolution network is first elaborated on.   The model parameters and architecture is described and the decoding algorithm explained.
 
 ## Deep speech model
- 
-## CTC decoder
-## DSS model
+The core of the system is a bidirectional recurrent neural network (BRNN) trained to ingest speech spectrograms and generate English text transcriptions.
 
-# Conclusion and Discussion
+ Let a single utterance $x$ and label $y$ be sampled from a training set $S = \{(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), . . .\}$. Each utterance, $x^{(i)}$ is a time-series of length $T^{(i)}$ where every time-slice is a vector of audio features, $x^{(i)}_t$ where $t=1,\ldots,T^{(i)}$. We use spectrograms as our features; so $x^{(i)}_{t,p}$ denotes the power of the $p$-th frequency bin in the audio frame at time $t$. The goal of our BRNN is to convert an input sequence $x$ into a sequence of character probabilities for the transcription $y$, with $\hat{y}_t =\mathbb{P}(c_t \mid x)$, where $c_t \in \{a,b,c, . . . , z, space, apostrophe, blank\}$. (The significance of $blank$ will be explained below.)
+ 
+### Deep Scattering Layer
+Log Mel filter banks with 23 frequency bins
+Context window of +/- 10 frames concatenated to form a final vector size of 483
+No speaker adaptation
+Output classes 26 letters, 3 punctuation marks and blank ‘_’.
+
+### Model Architecture
+
+Our BRNN model is composed of $5$ layers of hidden units. For an input $x$, the hidden units at layer $l$ are denoted $h^{(l)}$ with the convention that $h^{(0)}$ is the input. The first three layers are not recurrent. For the first layer, at each time $t$, the output depends on the spectrogram frame $x_t$ along with a context of $C$ frames on each side. (We typically use $C \in \{5, 7, 9\}$ for our experiments.) The remaining non-recurrent layers operate on independent data for each time step. Thus, for each time $t$, the first $3$ layers are computed by:
+
+$$h^{(l)}_t = g(W^{(l)} h^{(l-1)}_t + b^{(l)})$$
+
+where $g(z) = \min\{\max\{0, z\}, 20\}$ is the clipped rectified-linear (ReLu) activation function and $W^{(l)}$, $b^{(l)}$ are the weight matrix and bias parameters for layer $l$. The fourth layer is a bidirectional recurrent layer[[1](http://www.di.ufpe.br/~fnj/RNA/bibliografia/BRNN.pdf)]. This layer includes two sets of hidden units: a set with forward recurrence, $h^{(f)}$, and a set with backward recurrence $h^{(b)}$:
+
+$$h^{(f)}_t = g(W^{(4)} h^{(3)}_t + W^{(f)}_r h^{(f)}_{t-1} + b^{(4)})$$
+$$h^{(b)}_t = g(W^{(4)} h^{(3)}_t + W^{(b)}_r h^{(b)}_{t+1} + b^{(4)})$$
+
+Note that $h^{(f)}$ must be computed sequentially from $t = 1$ to $t = T^{(i)}$ for the $i$-th utterance, while
+the units $h^{(b)}$ must be computed sequentially in reverse from $t = T^{(i)}$ to $t = 1$.
+
+The fifth (non-recurrent) layer takes both the forward and backward units as inputs
+
+$$h^{(5)} = g(W^{(5)} h^{(4)} + b^{(5)})$$
+
+where $h^{(4)} = h^{(f)} + h^{(b)}$. The output layer is a standard softmax function that yields the predicted character probabilities for each time slice $t$ and character $k$ in the alphabet:
+
+$$h^{(6)}_{t,k} = \hat{y}_{t,k} \equiv \mathbb{P}(c_t = k \mid x) = \frac{\exp{ \left( (W^{(6)} h^{(5)}_t)_k + b^{(6)}_k \right)}}{\sum_j \exp{\left( (W^{(6)} h^{(5)}_t)_j + b^{(6)}_j \right)}}$$
+
+Here $b^{(6)}_k$ denotes the $k$-th bias and $(W^{(6)} h^{(5)}_t)_k$ the $k$-th element of the matrix product.
+
+Once we have computed a prediction for $\mathbb{P}(c_t = k \mid x)$, we compute the CTC loss[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) $\cal{L}(\hat{y}, y)$ to measure the error in prediction. During training, we can evaluate the gradient $\nabla \cal{L}(\hat{y}, y)$ with respect to the network outputs given the ground-truth character sequence $y$. From this point, computing the gradient with respect to all of the model parameters may be done via back-propagation through the rest of the network. We use the Adam method for training[[3](http://arxiv.org/abs/1412.6980)].
+
+The complete BRNN model is illustrated in the figure below.
+
+![DeepSpeech BRNN](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/rnn_fig-624x548.png)
+
+5 hidden layers 1824 hidden units, 20.9M free parameters
+Weights are initialised from a uniform random distribution scaled by the weight matrix input and output layer size (Glorot et al 2011)
+Nesterov accelerated gradient optimisation algorithm as described in Sutskever et al. (2013) with initial learning rate 10-5, and maximum momentum 0.95.
+After each full pass through the training set we divide the learning rate by 1.2 to ensure the overall learning rate decreases over time. We train the network for a total of 20 passes over the training set, which takes about 96 hours using our Python GPU implementation. For decoding with prefix search we use a beam size of 200 and cross-validate with a held-out set to find a good setting of the parameters α and β. Table 1 shows word and character error rates for multiple approaches to decoding with this trained BRDNN
+
+## CTC decoder
+Assuming an input of length T, the output of the neural network will be $$p(c;x_t)$$ for $$t=1, \dots , T$$.  Again $$p(c;x_t)$$ is a distribution over possible characters in alphabet $$\Sigma$$, which includes the blank symbol, given audio input $$x_t$$.  In order to recover a character string from the output of the neural network, as a first approximation, we take the argmax at each time step.  Let $$S=(s_1, \dots, s_T)$$ be the character sequence where $$s_t=arg\max_{c\in\Sigma}p(c;x_t)$$.  The sequence S is mapped to a transcription by collapsing repeat characters and removing blanks.  This gives a sequence which can be scored against reference transcription using both CER and WER.
+
+The first approximation lacks the ability to include the constraint of either a lexicon or language model.  We propose a generic algorithm which is capable of incorporating such constraints.  Taking X to be acoustic input of time T, we seek a transcription W which maximises the probability.
+$$p_{net}(W;X)p_{lm}(W)$$ - - - (7)
+
+Here the overall  probability of the transcription is modeled as the product of two factors: pnet given by the network and plm given by the language model prior.  In practice the prior plm(W), when given by an n-gram language model, is too constraining and thus we down-weight it and include a word insertion penalty or bonus as 
+- - - (8)
+
+Algorithm 1 attempts to find a word string W which maximises equation 8.  The algorithm maintains two separate probabilities for each prefix, $$p_b(\ell;x_{1:t})$$ and $$p_{nb}(\ell;x_{1:t})$$.  Respectively, these are the probability of the prefix  ending in blank or not ending in blank given the first t time steps of the audio input X.
+
+Algorithm 1 Prefix Beam Search: The algorithm initializes the previous set of prefixes $$A_{prev}$$ to the empty string. For each time step and every prefix $$\ell$$ currently in $$A_{prev}$$, we propose adding a character from the alphabet $$\Sigma$$ to the prefix. If the character is a blank, we do not extend the prefix. If the character is a space, we incorporate the language model constraint. Otherwise we extend the prefix and incorporate the output of the network. All new active prefixes are added to $$A_{next}$$. We then set $$A_{prev}$$ to include only the $$k$$ most probable prefixes of $$A_{next}$$. The output is the 1 most probable transcript, although the this can easily be extended to return an n-best list.
+
+
+The sets $$A_prev$$ and $$A_next$$ maintain a list of active prefixes at the previous time step and a proposed prefixes at the next time step respectively.  Note that the size of $$A_prev$$ is never larger than the beam width $$k$$.  The overall probability of a prefix is the product of a word insertion term and the sum of the blank and non-black ending probabilities.
+  - - - (9)
+Where $$W(\ell)$$ is a set of words in the sequence .  When taking the k most probable prefixes of $$A_next$$, we sort each prefix using the probability given in equation (9).
+
+The variable $$\ell_{end}$$ is the last character in the label sequence $$\ell$$.  The function $$W(\cdot)$$, which converts $$\ell$$ into a string of words, segments the sequence $$\ell$$ at each space character and truncates any characters trailing the last space.
+
+We incorporate a lexicon or language model constraint by including the probability $$p(W(\ell^+)|W(\ell))$$ whenever the algorithm proposes appending a space character to $$\ell$$.  By setting $$p(W(\ell^+)|W(\ell))$$ to 1 if the last word of $$W(\ell^+)$$ is in the lexicon and 0 otherwise, the probability acts a a constraint forcing all character strings  to consists of words only in the lexicon.  Furthermore, $$p(W(\ell^+)|W(\ell))$$ can represent an n-gram language model by considering only the last n-1 words in $$W(\ell)$$.
+
+# Conclusion and Discussion of Results
 
 # Future Direction
 ## Pidgin English models
@@ -507,7 +813,6 @@ references:bib.bib
 
 ## Thesis notes
 ### Chapter 1
-* Summary
 * BiRNN - done
 * GRU ref
 * Scatnet references - done
@@ -516,6 +821,9 @@ references:bib.bib
 * emission, glossary beginning
 * larger image - p18
 * CNN are restricted DSS (Mallat, 2016)
+* Deng2003 Language models
+* Sample HMM-DNN system pipeline to show simplicity
+* Deepspeech refs
 
 ### Chapter 2
 * discriminative AM models -- done!
@@ -545,6 +853,19 @@ references:bib.bib
 * wavelet types - done
 * Multiresolution analysis - not done
 * Fast wavelet transform - not done
+### Chapter 5
+### Chapter 6
+* hannun2014deep training data
+* hannun2014deep results
+### Chapter 7 conclusion/discussion
+* hannun2014deep results/conclusion
+* Various strategies for speech recog
+** Kernel based methods
+* h
+
+### Chapter 8 Future
+* Various strategies for speech recog
+* Kernel based methods
 
 ## Questions
 ### Chap 1
@@ -565,6 +886,8 @@ references:bib.bib
 3. To read and summarise \cite{maas2017building}
 4. Publication rejection notes to be considered
 5. Fast Fourier transform?
+6. Chapter summaries
+
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
