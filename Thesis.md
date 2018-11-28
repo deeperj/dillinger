@@ -310,11 +310,76 @@ $$\alpha(t,u) = y_{t, l'_u} \sum_{i = f(u)}^{u} \alpha(t-1, i)$$
 
 where
 
-$$f(u) =\begin{cases}u - 1, & \text{ if } l'_u = blank \text{ or } l'_{u−2} = l'_{u} \\ u - 2, & \text{otherwise}\end{cases}$$
+$$f(u) =\begin{cases}u-1, & \text{ if } l'_u = blank \text{ or } l'_{u-2} = l'_{u} \\ u-2, & \text{otherwise}\end{cases}$$
 
 Graphically we can express the recurrence relation for $\alpha(t, u)$ as follows.
 
-where $$t$$ runs along the $x$ axis and $u$ runs along the $y$ axis. The black circles of the diagram represent $blank$ elements of $l'$ while the white circles represent non-$blank$ elements of $l'$. The arrows represent computational dependencies derived from our recursion relation for $\alpha(t,u)$. So, for example, the value of $\alpha(2,3)$, corresponding to the $blank$ at $t=2$ and $u=3$, is derived from $\alpha(1,2)$. Similarly, the value of $\alpha(2,2)$, corresponding to the letter $c$ at $t=2$ and $u=2$, is derived from $\alpha(1,2)$ and $\alpha(1,1)$.
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/Lattice.png "Beam Search Lattice Structure")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/Lattice.png}\\
+  \caption{Beam Search Lattice Structure} \cite{xxx}}\label{fig_3_a_lattice}
+\end{figure}
+
+where $$t$$ runs along the $$x$$ axis and $$u$$ runs along the $$y$$ axis. The black circles of the diagram represent $$blank$$ elements of $$l'$$ while the white circles represent non-$$blank$$ elements of $$l'$$. The arrows represent computational dependencies derived from our recursion relation for $$\alpha(t,u)$$. So, for example, the value of $$\alpha(2,3)$$, corresponding to the $$blank$$ at $$t=2$$ and $$u=3$$, is derived from $$\alpha(1,2)$$. Similarly, the value of $$\alpha(2,2)$$, corresponding to the letter $$c$$ at $$t=2$$ and $$u=2$$, is derived from $$\alpha(1,2)$$ and $$\alpha(1,1)$$.
+
+$$\alpha(t,u)=0 \quad \forall u < U'-2(T-t)-1$$
+
+because these variables correspond to states for which there are not enough timesteps left to complete the sequence. We also impose the boundary condition
+
+$$\alpha(t, 0) = 0 \quad \forall t$$
+
+The backward variables $\beta(t,u)$ are defined as the summed probabilities of all paths starting at $t + 1$ that "complete" $l$ when appended to any path $\hat{\pi}$ contributing to $\alpha(t,u)$. Define $W(t,u) \equiv \{ \pi \in A′^{T−t} : \mathcal{B}(\hat{\pi} + \pi) = l \, \, \forall \hat{\pi} \in V(t,u) \}$. Then
+
+$$\beta(t,u) \equiv \sum_{\pi \in W(t,u)} \prod_{i=1}^{T - t} y_{t + i,\pi_i}$$ 
+
+The rules for initialisation of the backward variables are as follows
+$$\begin{aligned}
+\beta(T, U') &= 1 \\
+\beta(T, U' - 1) &= 1 \\
+\beta(T, u) &= 0, \, \forall u < U' - 1
+\end{aligned}$$
+
+The rules for recursion are as follows:
+
+$$\beta(t, u) = \sum_{i = u}^{g(u)} \beta(t+1, i) y_{t+1, l'_i}$$
+where
+$$g(u) = \begin{cases} u + 1,& \text{if } l'_u = blank \text{ or } l'_{u+2} = l'_{u} \\ u + 2,& \text{otherwise} \end{cases}$$
+
+In practice, the above recursions will soon lead to underflows on any digital computer. A good way to avoid this is to work in the log scale, and only exponentiate to find the true probabilities at the end of the calculation. A useful equation in this context is
+$$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b − \ln a})$$
+
+### Loss Function
+The CTC loss function $\mathcal{L}(S)$ is defined as the negative log probability of correctly labelling all the training examples in some training set S:
+
+$$\mathcal{L}(S) = - \ln \prod_{(x,z) \in S} \Pr(z \, | \, x) = - \sum_{(x,z) \in S} \ln \Pr(z \, | \, x)$$
+
+Because the function is differentiable, its derivatives with respect to the network weights can be calculated with backpropagation through time, and the network can then be trained with any gradient-based non-linear optimisation algorithm.
+
+$$\mathcal{L}(x,z) \equiv - \ln \Pr(z \, | \, x)$$
+
+Obviously
+
+$$\mathcal{L}(S) = \sum_{(x,z) \in S} \mathcal{L}(x,z)$$
+
+Now if we identify $l$ and $z$ and define $X(t,u) \equiv \{ \pi \in A′^T : \mathcal{B}(\pi) = z, \, \pi_t = z′_u \}$, then our definition of $\alpha(t, u)$ and $\beta(t, u)$ imply
+
+$$\alpha(t, u) \beta(t, u) = \sum_{\pi \in X(t,u)} \prod_{t = 1}^{T} y_{t, \pi_t}$$
+
+thus substituting our previous expression for $\Pr(\pi \, | \, x)$
+
+$$\alpha(t, u) \beta(t, u) = \sum_{\pi \in X(t,u)} \Pr(\pi \, | \, x)$$
+
+From our expression for $\Pr(l \, | \, x)$ we can see that this is the portion of the total probability of $\Pr(z \, | \, x)$ due to those paths going through $z′_u$ at time $t$. For any $t$, we can therefore sum over all $u$ to get
+
+$$\Pr(z \, | \, x) = \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
+
+Thus the example loss is given by
+$$\mathcal{L}(x, z) = - \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
+as
+$$\mathcal{L}(S) = \sum_{(x,z) \in S} \mathcal{L}(x,z)$$
+the gradient of $\mathcal{L}(S)$ can be computed by computing the gradient of $\mathcal{L}(x, z)$. This gradient can be computed using the formulas above and TensorFlow's automatic differentiation.
 
 # Deep Scattering Network
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
