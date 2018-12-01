@@ -271,7 +271,7 @@ Furthermore, naive Bayes can produce poor probability estimates. As an illustrat
 The difference between naive Bayes and logistic regression is due only to the fact that the first is generative and the second discriminative; the two classifiers are, for discrete input, identical in all other respects. Naive Bayes and logistic regression consider the same hypothesis space, in the sense that any logistic regression classifier can be converted into a naive Bayes classifier with the same decision boundary, and vice versa. Another way of saying this is that the naive Bayes model (2.5) denes the same family of distributions as the logistic regression
 model (2.7), if we interpret it generatively as
 \begin{equation}
-$$p(y,\mathbf{x})=\frac{\exp\left{\sum_k\theta_k f_k(y,\mathbf{x})\right})}{\exp\left{\sum_k\theta_k f_k(y,\mathbf{x})\right})}$$
+$$p(y,\mathbf{x})=\frac{exp\{\sum_k\theta_kf_k(y,\mathbf{x})\}}{\sum_{\tilde{y},\tilde{x}}exp\{\sum_k\theta_kf_k(y,\mathbf{x})\}}$$
 \label{eqn_c3_seqmod02}
 \end{equation}
 
