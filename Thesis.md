@@ -244,6 +244,22 @@ Metrics used for low speech recognition in the zero speech challenge \citep{vers
 
 # Recurrent Neural Networks in Speech Recognition
 \cite{deng2015**}
+First we discuss the problem of classification, that is, predicting a single discrete class variable y given a vector of features $$x = (x_1, x_2, \dots,  x_K)$$. One simple way to accomplish this is to assume that once the class label is known, all the features are independent. The resulting classifier is called the naive Bayes classifier. It is based on a joint probability model of the form
+\begin{equation}
+$$p(y,\mathbf{x})=p(y)\prod_{k=1}^Kp(x_k|y)$$
+\label{eqn_c3_seqmod00a}
+\end{equation}
+This model can be described by the directed model shown in Figure 2.2 (left). We can also write this model as a factor graph, by defining a factor $$\Psi(y) = p(y)$$, and a factor $$\Psi_k(y, x_k) = p(x_k|y)$$ for each feature . This factor graph is shown in Figure 2.2 (right).
+
+Another well-known classier that is naturally represented as a graphical model is logistic regression (sometimes known as the maximum entropy classifier in the NLP community). In statistics, this classifier is motivated by the assumption that the log probability, $$log p(y|x)$$, of each class is a linear function of $$x$$, plus a normalization constant. This leads to the conditional distribution:
+\begin{equation}
+$$p(y|\mathbf{x})=\frac{1}{Z(\mathbf{x})}exp\{\theta_y+\sum_{j=1}^K\theta_{y,j}x_j)\}$$
+\label{eqn_c3_seqmod00b}
+\end{equation}
+where $$Z(x) =\Sigma_y exp\{\theta_y+\Sigma_{j=1}^K\theta_{y,j}x_j\}$$ is a normalizing constant, and  is a bias weight that acts like $$log p(y)$$ in naive Bayes. Rather than using one weight vector per class, as in equation (\ref{eqn_c3_seqmod00b}), we can use a different notation in which a single set of weights is shared across all the classes.  The trick is to define a set of feature functions that are nonzero only for a single class. To do this, the feature functions can be defined as $$f_{y',j}(y, \mathbf{x})=1_{\{y'=y\}}x_j$$ for the feature weights and $$f_'y(y,\mathbf{x}) = 1_{\{y'=y\}}$$ for the bias weights. Now we can use $$f_k$$ to index each feature function $$f_{y‘;j}$$ and $$\theta_k$$ to index corresponding weight $$\theta_{y‘,j}$$ . Using this notational trick, the logistic regression model becomes:
+ - - - (2.7)
+We introduce this notation because it mirrors the notation for conditional random fields that we will present later.
+
 ## Sequential models
 Classifiers predict only a single class variable, but the true power of graphical models lies in their ability to model many variables that are interdependent. In this section, we discuss perhaps the simplest form of dependency, in which the output variables are arranged in a sequence. To motivate this kind of model, we discuss an application from natural language processing, the task of named-entity recognition (NER). NER is the problem of identifying and classifying proper names in text, including locations, such as China; people, such as George Bush; and organizations, such as the United Nations. The named-entity recognition task is, given a sentence, to segment which words are part of entities, and to classify each entity by type (person, organization, location, and so on). The challenge of this problem is that many named entities are too rare to appear even in a large training set, and therefore the system must identify them based only on context. 
 
@@ -279,12 +295,22 @@ This means that if the naive Bayes model (2.5) is trained to maximize the condit
 [61].
 
 One perspective for gaining insight into the difference between generative and discriminative modeling is due to Minka [80]. Suppose we have a generative model pg with parameters . By definition, this takes the form
- - - - (2.10)
- - - - (2.11)
+\begin{equation}
+$$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{y};\theta)p_g(\mathbf{x|y};\theta)$$
+\label{eqn_c3_seqmod03}
+\end{equation}
+\begin{equation}
+$$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{x};\theta)p_g(\mathbf{y|x};\theta)$$
+\label{eqn_c3_seqmod02}
+\end{equation}
 where $$p_g(x;\theta)$$ and $$p_g(y|x;\theta)$$ are computed by inference, i.e., $$p_g(x;\theta) =\Sigma_yp_g(\mathbf{y}; \mathbf{x};\theta)$$ and $$p_g(y|x;\theta) = p_g(\mathbf{y}|\mathbf{x};\theta )=p_g(\mathbf{y},\mathbf{x};\theta)/p_g(\mathbf{x};\theta)$$.
 
-Now, compare this generative model to a discriminative model over the same family of joint distributions. To do this, we dene a prior $$p(\mathbf{x})$$ over inputs, such that $$p(\mathbf{x})$$ could have arisen from pg with some parameter setting. That is, $$p(x) = p_c(\mathbf{x};\theta‘) =\Sigma_y p_g(\mathbf{y}; \mathbf{x}|\theta‘)$$. We combine this with a conditional distribution $$p_c(\mathbf{y|x};\theta)$$ that could also have arisen from pg, that is, $$p_c(\mathbf{y|x};\theta) =p_g(\mathbf{y,x};\theta)/p_g(\mathbf{x};\theta)$$. Then the resulting distribution is
- - - - (2.12)
+Now, compare this generative model to a discriminative model over the same family of joint distributions. To do this, we need a prior $$p(\mathbf{x})$$ over inputs, such that $$p(\mathbf{x})$$ could have arisen from pg with some parameter setting. That is, $$p(x) = p_c(\mathbf{x};\theta‘) =\Sigma_y p_g(\mathbf{y}; \mathbf{x}|\theta‘)$$. We combine this with a conditional distribution $$p_c(\mathbf{y|x};\theta)$$ that could also have arisen from pg, that is, $$p_c(\mathbf{y|x};\theta) =p_g(\mathbf{y,x};\theta)/p_g(\mathbf{x};\theta)$$. Then the resulting distribution is
+\begin{equation}
+$$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{y};\theta)p_g(\mathbf{x|y};\theta)$$
+\label{eqn_c3_seqmod02}
+\end{equation}
+
 By comparing (2.11) with (2.12), it can be seen that the conditional approach has more freedom to t the data, because it does not require that  = 0. Intuitively, because the parameters  in (2.11) are used in both the input distribution and the conditional, a good set of parameters must represent both well, potentially at the cost of trading off accuracy on $$p(\mathbf{y|x})$$, the distribution we care about, for accuracy on $$p(\mathbf{x})$$, which we care less about. On the other hand, this added freedom brings about an increased risk of overfitting the training data, and generalizing worse on unseen data.
 
 To be fair, however, generative models have several advantages of their own. First, generative models can be more natural for handling latent variables, partially-labeled data, and unlabelled data. In the most extreme case, when the data is entirely unlabeled, generative models can be applied in an unsupervised fashion, whereas unsupervised learning in discriminative models is less natural and is still an active area of research.
