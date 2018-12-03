@@ -1,5 +1,16 @@
 * Bibliography 
 
+@article{sutton2012introduction,
+  title={An introduction to conditional random fields},
+  author={Sutton, Charles and McCallum, Andrew and others},
+  journal={Foundations and Trends{\textregistered} in Machine Learning},
+  volume={4},
+  number={4},
+  pages={267--373},
+  year={2012},
+  publisher={Now Publishers, Inc.}
+}
+
 @article{maas2017building,
   title={Building DNN acoustic models for large vocabulary speech recognition},
   author={Maas, Andrew L and Qi, Peng and Xie, Ziang and Hannun, Awni Y and Lengerich, Christopher T and Jurafsky, Daniel and Ng, Andrew Y},
