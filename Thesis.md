@@ -256,8 +256,12 @@ Another well-known classier that is naturally represented as a graphical model i
 $$p(y|\mathbf{x})=\frac{1}{Z(\mathbf{x})}exp\{\theta_y+\sum_{j=1}^K\theta_{y,j}x_j)\}$$
 \label{eqn_c3_seqmod00b}
 \end{equation}
-where $$Z(x) =\Sigma_y exp\{\theta_y+\Sigma_{j=1}^K\theta_{y,j}x_j\}$$ is a normalizing constant, and  is a bias weight that acts like $$log p(y)$$ in naive Bayes. Rather than using one weight vector per class, as in equation (\ref{eqn_c3_seqmod00b}), we can use a different notation in which a single set of weights is shared across all the classes.  The trick is to define a set of feature functions that are nonzero only for a single class. To do this, the feature functions can be defined as $$f_{y',j}(y, \mathbf{x})=1_{\{y'=y\}}x_j$$ for the feature weights and $$f_'y(y,\mathbf{x}) = 1_{\{y'=y\}}$$ for the bias weights. Now we can use $$f_k$$ to index each feature function $$f_{y‘;j}$$ and $$\theta_k$$ to index corresponding weight $$\theta_{y‘,j}$$ . Using this notational trick, the logistic regression model becomes:
- - - - (2.7)
+where $$Z(x) =\Sigma_y exp\{\theta_y+\Sigma_{j=1}^K\theta_{y,j}x_j\}$$ is a normalizing constant, and  is a bias weight that acts like $$log p(y)$$ in naive Bayes. Rather than using one weight vector per class, as in equation (\ref{eqn_c3_seqmod00b}), we can use a different notation in which a single set of weights is shared across all the classes.  The trick is to define a set of feature functions that are nonzero only for a single class. To do this, the feature functions can be defined as $$f_{y',j}(y, \mathbf{x})=1_{\{y'=y\}}x_j$$ for the feature weights and $$f_{y'}(y,\mathbf{x}) = 1_{\{y'=y\}}$$ for the bias weights. Now we can use $$f_k$$ to index each feature function $$f_{y';j}$$ and $$\theta_k$$ to index corresponding weight $$\theta_{y',j}$$ . Using this notational trick, the logistic regression model becomes:
+\begin{equation}
+$$p(y|\mathbf{x})=\frac{1}{Z(\mathbf{x})}exp\{\sum_{j=1}^K\theta_kf_k(y,\mathbf{x})\}$$
+\label{eqn_c3_seqmod00c}
+\end{equation}
+
 We introduce this notation because it mirrors the notation for conditional random fields that we will present later.
 
 ## Sequential models
@@ -276,22 +280,21 @@ where, to simplify notation, we write the initial state distribution $$p(y_1)$$ 
 ### Comparison
 Of the models described in this section, two are generative (the naive Bayes and hidden Markov models) and one is discriminative (the logistic regression model). In a general, generative models are models of the joint distribution $$p(y, \mathbf{x})$$, and like naive Bayes have the form $$p(y)p(x|y)$$. In other words, they describe how the output is probabilistically generated as a function of the input. Discriminative models, on the other hand, focus solely on the conditional distribution $$p(y|x)$$. In this section, we discuss the differences between generative and discriminative modeling, and the potential advantages of discriminative modeling.  For concreteness, we focus on the examples of naive Bayes and logistic regression, but the discussion in this section applies equally as well to the differences between arbitrarily structured generative models and conditional random fields.
 
-The main difference is that a conditional distribution $$p(yjx)$$ does not include a model of $$p(x)$$, which is not needed for classification anyway.  The difficulty in modeling $$p(x)$$ is that it often contains many highly dependent features that are difficult to model. For example, in named-entity recognition, an HMM relies on only one feature, the word's identity. But many words, especially proper names, will not have occurred in the training set, so the word-identity feature is uninformative. To label unseen words, we would like to exploit other features of a word, such as its capitalization, its neighboring words, its prefixes and suffixes, its membership in predetermined lists of people and locations, and so on.
+The main difference is that a conditional distribution $$p(y|x)$$ does not include a model of $$p(x)$$, which is not needed for classification anyway.  The difficulty in modeling $$p(x)$$ is that it often contains many highly dependent features that are difficult to model. For example, in named-entity recognition, an HMM relies on only one feature, the word's identity. But many words, especially proper names, will not have occurred in the training set, so the word-identity feature is uninformative. To label unseen words, we would like to exploit other features of a word, such as its capitalization, its neighboring words, its prefixes and suffixes, its membership in predetermined lists of people and locations, and so on.
 
-The principal advantage of discriminative modeling is that it is better suited to including rich, overlapping features. To understand this, consider the family of naive Bayes distributions (2.5). This is a family of joint distributions whose conditionals all take the “logistic regression form" (2.7). But there are many other joint models, some with complex dependencies among x, whose conditional distributions also have the form (2.7). By modeling the conditional distribution directly, we can remain agnostic about the form of $$p(x)$$. CRFs make independence assumptions among y, and assumptions about how the $$y$$ can depend on $$x$$, but not among $$x$$. This point can also be understood graphically:  Suppose that we have a factor graph representation for the joint distribution $$p(y, x)$$. If we then construct a graph for the conditional distribution $$p(y|x)$$, any factors that depend only on $$x$$ vanish from the graphical structure for the conditional distribution. They are irrelevant to the conditional because they are constant with respect to $$y$$.
+The principal advantage of discriminative modeling is that it is better suited to including rich, overlapping features. To understand this, consider the family of naive Bayes distributions equation (\ref{eqn_c3_seqmod00a}). This is a family of joint distributions whose conditionals all take the “logistic regression form" equation (\ref{eqn_c3_seqmod00c}). But there are many other joint models, some with complex dependencies among x, whose conditional distributions also have the form equation (\ref{eqn_c3_seqmod00c}). By modeling the conditional distribution directly, we can remain agnostic about the form of $$p(x)$$. CRFs make independence assumptions among y, and assumptions about how the $$y$$ can depend on $$x$$, but not among $$x$$. This point can also be understood graphically:  Suppose that we have a factor graph representation for the joint distribution $$p(y, x)$$. If we then construct a graph for the conditional distribution $$p(y|x)$$, any factors that depend only on $$x$$ vanish from the graphical structure for the conditional distribution. They are irrelevant to the conditional because they are constant with respect to $$y$$.
 
 To include interdependent features in a generative model, we have two choices: enhance the model to represent dependencies among the inputs, or make simplifying independence assumptions, such as the naive Bayes assumption. The first approach, enhancing the model, is often difficult to do while retaining tractability. For example, it is hard to imagine how to model the dependence between the capitalization of a word and its suxes, nor do we particularly wish to do so, since we always observe the test sentences anyway. The second approach is to include a large number of dependent features in a generative model, but to include independence assumptions among them|is possible, and in some domains can work well. But it can also be problematic because the independence assumptions can hurt performance. For example, although the naive Bayes classifier performs well in document classification, it performs worse on average across a range of applications than logistic regression [16].
 
 Furthermore, naive Bayes can produce poor probability estimates. As an illustrative example, imagine training naive Bayes on a data set in which all the features are repeated, that is, $$x = (x_1, x_1, x_2, x_2, \dots , x_K, x_K)$$. This will increase the confidence of the naive Bayes probability estimates, even though no new information has been added to the data. Assumptions like naive Bayes can be especially problematic when we generalize to sequence models, because inference essentially combines evidence from different parts of the model.  If probability estimates of the label at each sequence position are overconfident, it might be difficult to combine them sensibly.
 
-The difference between naive Bayes and logistic regression is due only to the fact that the first is generative and the second discriminative; the two classifiers are, for discrete input, identical in all other respects. Naive Bayes and logistic regression consider the same hypothesis space, in the sense that any logistic regression classifier can be converted into a naive Bayes classifier with the same decision boundary, and vice versa. Another way of saying this is that the naive Bayes model (2.5) denes the same family of distributions as the logistic regression
-model (2.7), if we interpret it generatively as
+The difference between naive Bayes and logistic regression is due only to the fact that the first is generative and the second discriminative; the two classifiers are, for discrete input, identical in all other respects. Naive Bayes and logistic regression consider the same hypothesis space, in the sense that any logistic regression classifier can be converted into a naive Bayes classifier with the same decision boundary, and vice versa. Another way of saying this is that the naive Bayes model equation (\ref{eqn_c3_seqmod00a}) denes the same family of distributions as the logistic regression model equation (\ref{eqn_c3_seqmod00c}), if we interpret it generatively as
 \begin{equation}
 $$p(y,\mathbf{x})=\frac{exp\{\sum_k\theta_kf_k(y,\mathbf{x})\}}{\sum_{\tilde{y},\tilde{x}}exp\{\sum_k\theta_kf_k(y,\mathbf{x})\}}$$
 \label{eqn_c3_seqmod02}
 \end{equation}
 
-This means that if the naive Bayes model (2.5) is trained to maximize the conditional likelihood, we recover the same classier as from logistic regression. Conversely, if the logistic regression model is interpreted generatively, as in (2.9), and is trained to maximize the joint likelihood p(y; x), then we recover the same classier as from naive Bayes. In the terminology of Ng and Jordan [85], naive Bayes and logistic regression form a generative-discriminative pair. For a recent theoretical perspective on generative and discriminative models, see Liang and Jordan
+This means that if the naive Bayes model equation (\ref{eqn_c3_seqmod00a}) is trained to maximize the conditional likelihood, we recover the same classier as from logistic regression. Conversely, if the logistic regression model is interpreted generatively, as in equation (\ref{eqn_c3_seqmod02}), and is trained to maximize the joint likelihood $$p(y; x)$$, then we recover the same classier as from naive Bayes. In the terminology of Ng and Jordan [85], naive Bayes and logistic regression form a generative-discriminative pair. For a recent theoretical perspective on generative and discriminative models, see Liang and Jordan
 [61].
 
 One perspective for gaining insight into the difference between generative and discriminative modeling is due to Minka [80]. Suppose we have a generative model pg with parameters . By definition, this takes the form
@@ -301,17 +304,17 @@ $$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{y};\theta)p_g(\mathbf{x|y};\thet
 \end{equation}
 \begin{equation}
 $$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{x};\theta)p_g(\mathbf{y|x};\theta)$$
-\label{eqn_c3_seqmod02}
+\label{eqn_c3_seqmod04}
 \end{equation}
 where $$p_g(x;\theta)$$ and $$p_g(y|x;\theta)$$ are computed by inference, i.e., $$p_g(x;\theta) =\Sigma_yp_g(\mathbf{y}; \mathbf{x};\theta)$$ and $$p_g(y|x;\theta) = p_g(\mathbf{y}|\mathbf{x};\theta )=p_g(\mathbf{y},\mathbf{x};\theta)/p_g(\mathbf{x};\theta)$$.
 
 Now, compare this generative model to a discriminative model over the same family of joint distributions. To do this, we need a prior $$p(\mathbf{x})$$ over inputs, such that $$p(\mathbf{x})$$ could have arisen from pg with some parameter setting. That is, $$p(x) = p_c(\mathbf{x};\theta‘) =\Sigma_y p_g(\mathbf{y}; \mathbf{x}|\theta‘)$$. We combine this with a conditional distribution $$p_c(\mathbf{y|x};\theta)$$ that could also have arisen from pg, that is, $$p_c(\mathbf{y|x};\theta) =p_g(\mathbf{y,x};\theta)/p_g(\mathbf{x};\theta)$$. Then the resulting distribution is
 \begin{equation}
-$$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{y};\theta)p_g(\mathbf{x|y};\theta)$$
-\label{eqn_c3_seqmod02}
+$$p_c(\mathbf{y},\mathbf{x})=p_cg(\mathbf{x};\theta')p_c(\mathbf{y|x};\theta)$$
+\label{eqn_c3_seqmod05}
 \end{equation}
 
-By comparing (2.11) with (2.12), it can be seen that the conditional approach has more freedom to t the data, because it does not require that  = 0. Intuitively, because the parameters  in (2.11) are used in both the input distribution and the conditional, a good set of parameters must represent both well, potentially at the cost of trading off accuracy on $$p(\mathbf{y|x})$$, the distribution we care about, for accuracy on $$p(\mathbf{x})$$, which we care less about. On the other hand, this added freedom brings about an increased risk of overfitting the training data, and generalizing worse on unseen data.
+By comparing equation (\ref{eqn_c3_seqmod04}) with equation (\ref{eqn_c3_seqmod05}), it can be seen that the conditional approach has more freedom to t the data, because it does not require that  = 0. Intuitively, because the parameters  in equation (\ref{eqn_c3_seqmod04}) are used in both the input distribution and the conditional, a good set of parameters must represent both well, potentially at the cost of trading off accuracy on $$p(\mathbf{y|x})$$, the distribution we care about, for accuracy on $$p(\mathbf{x})$$, which we care less about. On the other hand, this added freedom brings about an increased risk of overfitting the training data, and generalizing worse on unseen data.
 
 To be fair, however, generative models have several advantages of their own. First, generative models can be more natural for handling latent variables, partially-labeled data, and unlabelled data. In the most extreme case, when the data is entirely unlabeled, generative models can be applied in an unsupervised fashion, whereas unsupervised learning in discriminative models is less natural and is still an active area of research.
 
@@ -319,59 +322,110 @@ Second, on some data a generative model can perform better than a discriminative
 
 Because a generative model takes the form $$p(\mathbf{y; x}) = p(\mathbf{y})p(\mathbf{x|y})$$, it is often natural to represent a generative model by a directed graph in which in outputs $$y$$ topologically precede the inputs. Similarly, we will see that it is often natural to represent a discriminative model by a undirected graph, although this need not always be the case.
 
-The relationship between naive Bayes and logistic regression mirrors the relationship between HMMs and linear-chain CRFs. Just as naive Bayes and logistic regression are a generative-discriminative pair, there is a discriminative analogue to the hidden Markov model, and this analogue is a particular special case of conditional random eld, as we explain in the next section. This analogy between naive Bayes, logistic regression, generative models, and conditional random elds is depicted
+The relationship between naive Bayes and logistic regression mirrors the relationship between HMMs and linear-chain CRFs. Just as naive Bayes and logistic regression are a generative-discriminative pair, there is a discriminative analogue to the hidden Markov model, and this analogue is a particular special case of conditional random eld, as we explain in the next section. This analogy between naive Bayes, logistic regression, generative models, and conditional random fields is depicted in figure \ref{fig_3_1_crf} below.
+
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/crf.png "Developemnt of Sequentiial Models")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/crf.png}\\
+  \caption{Developemnt of Sequentiial Models} \cite{xxx}}\label{fig_3_1_crf}
+\end{figure}
 
 ## Neural networks
 The HMM method mentioned in the previous section is based on the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As earlier mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
 
 ### Neural network architecture
-The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) (ref) as the perceptron in fig (ref) below
+The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) (ref) as the perceptron in figure \ref{fig_3_2_ptron} below
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/ptron2.png "Perceptron")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/ptron2.png}\\
+  \caption{Perceptron} \cite{xxx}}\label{fig_3_2_ptron}
+\end{figure}
 
-
-The linear operation is the sum of the inputs multiplied by a weight vector.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure below (ref):
+The linear operation is the sum of the inputs multiplied by a weight vector.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure \ref{fig_3_2_nn} below :
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/ptron3.png "Perceptron")
+\begin{figure}
+\centering
+  % Requires \usepackage{graphicx}
+  \includegraphics[width=7cm]{thesis/images/ptron3.png}\\
+  \caption{Perceptron} \cite{xxx}}\label{fig_3_2_nn}
+\end{figure}
 
 
 In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as M-number of neurons in the layer.
-Multilayer Perceptron (MLP)
+
+### Multilayer Perceptron (MLP)
 The multilayer perceptron or MLP extends the basic perceptron structure by adding one or more hidden layers.  These hidden layers comprise the outputs of one layer becoming the input of the next layer. In the simplest case having one hidden layer, the output of layer 1 becomes the input of the final output layer.  In comparison, the perceptron is a one dimensional structure having one or more linear and non linear combination outputs, while the multilayer perceptron is a 2-dimensional structure having one or more hidden layers of N linear and non-linear combination outputs.  Mathematically speaking the output of each layer of an MLP having N inputs and M neurons is given by
-$$z_j=h(b_j)=\frac{1}{1+e^{−b_j}}$$ - - - (1)
+\begin{equation}
+$$z_j=h(b_j)=\frac{1}{ 1+e^{-b_j} }$$
+\label{eqn_c3_nn_01}\end{equation}
  is the non-linear function while  is the linear function given by:
-$$b_j=\sum_{i=0}^Nw_{ji}^{(1)}\qquad j=1,2,\dots,M$$ - - - (2)
+\begin{equation
+$$b_j=\sum_{i=0}^Nw_{ji}^{(1)}\qquad j=1,2,\dots,M$$
+\label{eqn_c3_nn_02}\end{equation}
 
 For each layer in the MLP, the zeroth input value $$x_0$$ is 1 indicating a bias term.  This bias term is used in the neural network to ensure regularised and expected behaviour of the neural network.  In this example the non-linear step function is given by a more complex exponential.  In the next section the nonlinear functions for a multilayer perceptron is derived.
-Sigmoid and softmax Activation Function
+
+### Sigmoid and softmax Activation Function
 The combination of the linear function and the non linear function in the neural network could be said to be transformation of an algebraic problem to a probabilistic function.  In essence the step function is a squashing function that converts the inputs into a Naive Bayes function asking what is the probability that the output belongs to one of the input classes $$(C_y)$$ given the data $$(\mathbf{x})$$.
-$$p(C_1|\mathbf{x})=f(a)=f(\mathbf{w^\top x}+w_0)$$ - - - (3)
+\begin{equation}
+$$p(C_1|\mathbf{x})=f(a)=f(\mathbf{w^\top x}+w_0)$$
+\label{eqn_c3_nn_02}\end{equation}
 In a two class problem with classes  and , then we can express the posterior probability of $$C_1$$ using Bayes’s theorem
-$$p(C_1|\mathbf{x})=\frac{p(\mathbf{x}|C_1)p(C_1)}{p(x|C_1)p(C_1)+p(\mathbf{x}|C_2)p(C_2)}$$ - - - (4)
+\begin{equation}
+$$p(C_1|\mathbf{x})=\frac{p(\mathbf{x}|C_1)p(C_1)}{p(x|C_1)p(C_1)+p(\mathbf{x}|C_2)p(C_2)}$$
+\label{eqn_c3_nn_03}\end{equation}
 Dividing through by $$p(\mathbf{x}|C_1)p(C_1)$$ gives us
-$$p(C_1|\mathbf(x)=\frac{1}{1+\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}}$$ - - (5)
+\begin{equation}
+$$p(C_1|\mathbf(x)=\frac{1}{1+\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}}$$
+\label{eqn_c3_nn_04}\end{equation}
+
 If we define the ratio of the log posterior probabilities as
-$$a=\ln\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}$$ - - - (6)
+\begin{equation}
+$$a=\ln\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}$$
+\label{eqn_c3_nn_05}\end{equation}
 If we substitute back into (4) we have:
-$$p(C_1|\mathbf{x})=f(a)=\frac{1}{1+e^{−a}}$$ - - - (7)
+\begin{eqution}$$p(C_1|\mathbf{x})=f(a)=\frac{1}{1+e^{-a}}$$ - - - (7)
+\label{eqn_c3_nn_06}\end{equation}
+
 Here $$a=\mathbf{w^\top x}=w_0$$.  Thus the activation for the non-linear function is driven by the probability of the data to give the output class.  The probabilistic function here is called a sigmoid function due to the s-shaped graph that is plotted by the function.
 
 Rather than using the sigmoid function for multi-class classification a similar softmax function is derived by using the log probability of classes. If $$a_k=ln(p(\mathbf{x}|C_k)p(C_k))$$ then:
-$$y_k=p(C_k|\mathbf{x})=\frac{e^{a_k}}{\Sigma_{\ell=1}^K e^{a_\ell}}$$ - - - (8)
-$$a_k=\sum_{i=0}^dw_{ki}x_i$$ - - - (9)
+\begin{equation}
+$$y_k=p(C_k|\mathbf{x})=\frac{e^{a_k}}{\Sigma_{\ell=1}^K e^{a_\ell}}$$
+\label{eqn_c3_nn_07}\end{equation}
+\begin{equation}
+$$a_k=\sum_{i=0}^dw_{ki}x_i$$
+\label{eqn_c3_nn_08}\end{equation}
 
 Recall that in the generative classification method the problem is divided into sub problems by using the conditional probability, while in the discriminative approach the joint probability is determined by looking at the data directly.  This is what $$p(C_k|\mathbf{x})$$ represents.  However, recall that we still need to determine the correct probability distribution represented by the data.  This is achieved by determining the values of the weights of the linear operation.  In the next section a method known as back propagation is discussed.  Back propagation is the training algorithm used to determine the weight vector of all the layers in the neural network.  Back propagation is an extension of the Gradient descent algorithm.
-Back propagation algorithm
+
+### Back propagation algorithm
 In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises M neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and acceptable value.  This is often referred to in machine learning as convergence (ref).
-Gradient Descent
+
+#### Gradient Descent
 The last section ended stating that the back-propagation algorithm is an extension of the gradient descent algorithm.  It has also been seen that back propagation works by propagating the error and making adjustments on the weights.  In this section, the Gradient Descent algorithm is reviewed and how it is used in back propagation is examined.  
 
 The concept behind the Gradient descent algorithm is the fact that a function is optimized when the gradient of the function is equal to $$0$$.  Gradient descent algorithm is significant in machine learning applications because a cost function is easily defined for a particular machine learning application that is able to determine the error between the predicted value and the actual value.  Then, the parameters of the problem can be adjusted until the derivative of the cost function using gradient descent is zero.  Therefore the machine learning algorithm adjusts its parameters until the error is minimised or removed.
 
 A common error function or cost function for neural networks is the sum-of-squares error cost function.  This is obtained by summing the difference between the actual value and the machine learning model value over the training set $$N$$. 
- $$E^n=\frac{1}{2}\sum_{k=1}^K(y_k^n−t_k^n)^2$$ - - - (ref)
+\begin{equation}
+$$E^n=\frac{1}{2}\sum_{k=1}^K(y_k^n-t_k^n)^2$$
+\label{eqn_c3_nn_01}\end{equation}
 
 In a neural network having a weight matrix $$\mathbf{W}$$ of $$M$$ neurons times $$N$$ inputs, the resulting gradient is a vector of partial derivatives of $$E$$ with respect to each element.  
-$$\nabla_{\mathbf{W}}E=\left(\frac{\partial E}{\partial w_{10}},\dots,\frac{\partial E}{\partial w_{ki}},\dots,\frac{\partial E}{\partial w_{Kd}}\right)$$ - - - (ref)
+\begin{equation}$$\nabla_{\mathbf{W}}E=\left(\frac{\partial E}{\partial w_{10}},\dots,\frac{\partial E}{\partial w_{ki}},\dots,\frac{\partial E}{\partial w_{Kd}}\right)$$ 
+\label{eqn_c3_nn_01}\end{equation}
+
 
 The adjustment on each weight therefore on each iteration is:
-$$w_{kj}^{\tau+1}=w_{kj}^{\tau}−\eta\frac{\partial E}{\partial w_{kj}}$$ - - - (ref)
+\begin{equation}
+$$w_{kj}^{\tau+1}=w_{kj}^{\tau}-\eta\frac{\partial E}{\partial w_{kj}}$$
+\label{eqn_c3_nn_01}\end{equation}
+
 Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which is a factor to speed up or slow down the rate rate of learning of the machine learning algorithm which in this case is the neural network.
 
 ## LSTM network
@@ -379,42 +433,27 @@ Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which i
 Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
 
 ### Gated Recurrent Units
-  A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
+A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
 
 The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
 
-% 
 \begin{equation}
-\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})
-  \label{eq1}
+$$\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})$$
+\label{eqn_c3_lstm01}
 \end{equation}
-%
-%
 \begin{equation}
-\mathbf{f}_t=\sigma(\mathbf{W}^{(xf)}\mathbf{x}_t+\mathbf{W}^{(hf)}\mathbf{h}_{t-1}+\mathbf{W}^{(cf)}\mathbf{c}_{t-1}+\mathbf{b}^{(f)})
-\label{eq2}
+$$\mathbf{f}_t=\sigma(\mathbf{W}^{(xf)}\mathbf{x}_t+\mathbf{W}^{(hf)}\mathbf{h}_{t-1}+\mathbf{W}^{(cf)}\mathbf{c}_{t-1}+\mathbf{b}^{(f)})$$
+\label{eqn_c3_lstm02}
 \end{equation}
-%
-%
 \begin{equation}
-\mathbf{c}_t=\mathbf{f}_t\bullet\mathbf{c}_{t- 1}+\mathbf{i}_t\bullet\tanh(\mathbf{W}^{(xc)}\mathbf{x}_t+\mathbf{W}^{(hc)}\mathbf{h}_{t-1}+\mathbf{b}^{(c)})
-\label{eq3}
+$$\mathbf{c}_t=\mathbf{f}_t\bullet\mathbf{c}_{t- 1}+\mathbf{i}_t\bullet\tanh(\mathbf{W}^{(xc)}\mathbf{x}_t+\mathbf{W}^{(hc)}\mathbf{h}_{t-1}+\mathbf{b}^{(c)})$$\label{eqn_c3_lstm03}
 \end{equation}
-%
-%
 \begin{equation}
-\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_{t-1}+\mathbf{W}^{(co)}\mathbf{c}_{t-1}+\mathbf{b}^{(o)})
-\label{eq4}
-\end{equation}
-%
-%
+$$\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_{t-1}+\mathbf{W}^{(co)}\mathbf{c}_{t-1}+\mathbf{b}^{(o)})$$\label{eqn_c3_lstm04}\end{equation}
 \begin{equation}
-\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)} 
-\label{eq5}
+$$\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)}$$
+\label{eqn_c3_lstm05}
 \end{equation}
-%
-
-
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
