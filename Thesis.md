@@ -354,7 +354,6 @@ The linear operation is the sum of the inputs multiplied by a weight vector.  Th
   \caption{Perceptron} \cite{xxx}}\label{fig_3_2_nn}
 \end{figure}
 
-
 In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as M-number of neurons in the layer.
 
 ### Multilayer Perceptron (MLP)
@@ -420,7 +419,6 @@ In a neural network having a weight matrix $$\mathbf{W}$$ of $$M$$ neurons times
 \begin{equation}$$\nabla_{\mathbf{W}}E=\left(\frac{\partial E}{\partial w_{10}},\dots,\frac{\partial E}{\partial w_{ki}},\dots,\frac{\partial E}{\partial w_{Kd}}\right)$$ 
 \label{eqn_c3_nn_01}\end{equation}
 
-
 The adjustment on each weight therefore on each iteration is:
 \begin{equation}
 $$w_{kj}^{\tau+1}=w_{kj}^{\tau}-\eta\frac{\partial E}{\partial w_{kj}}$$
@@ -429,13 +427,37 @@ $$w_{kj}^{\tau+1}=w_{kj}^{\tau}-\eta\frac{\partial E}{\partial w_{kj}}$$
 Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which is a factor to speed up or slow down the rate rate of learning of the machine learning algorithm which in this case is the neural network.
 
 ## LSTM network
-### Recurrent Neural Network
 Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
+
+A DNN computes a distribution function $$p(c|x_t)$$ using a series of hidden layers followed by an output layer.  Given an input vector xt the first hidden layer activations are a vector computer
+\begin{equation}$$h^{(1)}=\sigma(\mathbf{W}^{(1)T}x_t+b^{(1)})$$
+\label{eqn_c3_dnn01}\end{equation}
+
+The matrix $$W^{(1)}$$ and vector $$b^{(1)}$$ are the weight matrix and bias vector for the layer.  The function $$\sigma(\cdot)$$ is a pointwise nonlinearity.  We use rectifier nonlinearities and thus choose $$\sigma(z)=max(z,0)$$.
+
+DNNs have arbitrarily many hidden layers. After the first hidden layer, the hidden activations $$h^{(i)}$$ for the layer i are computed as
+\begin{equation}$$h^{(1)}=\sigma(\mathbf{W}^{(1)T}h^{(i-1)}+b^{(1)})$$
+\label{eqn_c3_dnn02}\end{equation}
+
+To obtain a proper distribution over the set of possible characters c the final layer of the network is a softmax output layer of the form,
+\begin{equation}$$p(c=c_k|x_t)=\frac{exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}{\sum_j exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}$$
+\label{eqn_c3_dnn02}\end{equation}
+where $$W_k^{(s)}$$ is the k-th column of the output weight matrix $$W^{(s)}$$ and $$b_k^{(k)}$$ is the scalar bias term.  We can compute the subgradient for all parameters of the DNN given a training example and thus utilise gradient-based optimisation techniques.  This same formulation is used in DNN-HMM models to predict distribution over senones instead of characters.
+
+### Recurrent Neural Network
+A transcription W has many temporal dependencies which a DNN may not sufficiently capture. At each timestep t the DNN computes its output using only the input features $$x_t$$, ignoring previous hidden representations and output distributions. To enable better modeling of the temporal dependencies present in a problem, we use a RDNN. In a RDNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
+\begin{equation}$$h_t^{(j)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(j)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
+\label{eqn_c3_rnn01}\end{equation}
+Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t − 1$$. 
+
+When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases. 
+
+Aside from these changes, computations for a RDNN are the same as those in a DNN as described in DNN section above. Like the DNN, we can compute a subgradient for a RDNN using a method sometimes called backpropagation through time. In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient. 
 
 ### Gated Recurrent Units
 A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
 
-The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
+The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $$\mathbf{c}_t$$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
 
 \begin{equation}
 $$\mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})$$
@@ -454,28 +476,26 @@ $$\mathbf{o}_t=\sigma(\mathbf{W}^{(xo)}\mathbf{x}_t+\mathbf{W}^{(ho)}\mathbf{h}_
 $$\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)}$$
 \label{eqn_c3_lstm05}
 \end{equation}
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/lstmcell.png "An LSTM Cell")
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{lstmcell}\\
-  \caption{LSTM Cell \cite{graves2013hybrid}}\label{fig1:lstmcell}
+  \caption{An LSTM Cell \cite{graves2013hybrid}}\label{fig_3_3_lstmcell}
 \end{figure}
 
-The gates in the above formula are illustrated in Figure ~\ref{fig1:lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not. In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
+The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $$\mathbf{i}_t$$ represents the input gate, $$\mathbf{f}_t$$ is the forget gate and $$\mathbf{o}_t$$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $$\mathbf{c}_t$$.
 
 ## Deep speech architecture
-A transcription W has many temporal dependencies which a DNN may not sufficiently capture. At each timestep t the DNN computes its output using only the input features $$x_t$$, ignoring previous hidden representations and output distributions. To enable better modeling of the temporal dependencies present in a problem, we use a RDNN. In a RDNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
- - - - (4)
-Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t − 1$$. 
 
-When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases. 
-
-Aside from these changes, computations for a RDNN are the same as those in a DNN as described in DNN section above. Like the DNN, we can compute a subgradient for a RDNN using a method sometimes called backpropagation through time. In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient. 
-BiRNN
 While forward recurrent connections reflect the temporal nature of the audio input, a perhaps more powerful sequence transduction model is a BRDNN, which maintains state both forwards and backwards in time. Such a model can integrate information from the entire temporal extent of the input features when making each prediction. We extend the RDNN to form a BRDNN by again choosing a temporally recurrent layer $$j$$. The BRDNN creates both a forward and backward intermediate hidden representation which we call $$h^{(f)}_t$$ and $$h^{(b)}_t$$ respectively. We use the temporal weight matrices $$W^{(f)}$$ and $$W^{(b)}$$ to propagate $$h^{(f)}_t$$ forward in time and $$h^{(b)}_t$$ backward in time respectively. We update the forward and backward components via the equations,
- - - - (5)
+\begin{equation}$$h_t^{(f)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(f)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
+\label{eqn_c3_ds01}\end{equation}
+\begin{equation}$$h_t^{(b)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(b)T}_kh_{t+1}^{(b)}+b^{(j)}))$$
+\label{eqn_c3_ds02}\end{equation}
 Note that the recurrent forward and backward hidden representations are computed entirely independently of each other.  As with the RDNN we use the modified nonlinearity function $$\sigma(z) = min(max(z, 0), 20)$$. To obtain the final representation $$h^{(j)}_t$$ for the layer we sum the two temporally recurrent components,
- - - - (6)
+ \begin{equation}$$h_t^{(j)}=h_t^{(f)}+h_t^{(b)}$$
+\label{eqn_c3_ds03}\end{equation}
 Aside from this change to the recurrent layer the BRDNN computes its output using the same equations as the RDNN. As for other models, we can compute a subgradient for the BRDNN directly to perform gradient-based optimization.
 
 ## CTC Loss Algorithm
@@ -489,35 +509,32 @@ CTC avoids this problem by allowing the network to make label predictions at any
 
 For a sequence labelling task where the labels are drawn from an alphabet $A$, CTC consists of a softmax output layer, our `layer_6`,  with one more unit than there are labels in `A`. The activations of the first `|A|` units are the probabilities of outputting the corresponding labels at particular times, given the input sequence and the network weights. The activation of the extra unit gives the probability of outputting a $blank$, or no label. The complete sequence of network outputs is then used to define a distribution over all possible label sequences of length up to that of the input sequence.
 
-Defining the extended alphabet $A′ = A \cup \{blank\}$, the activation $y_{t,p}$ of network output $p$ at time $t$ is interpreted as the probability that the network will output element $p$ of $A′$ at time $t$, given the length $T$ input sequence $x$. Let $A′^T$ denote the set of length $T$ sequences over $A′$. Then, if we assume the output probabilities at each timestep to be independent of those at other timesteps (or rather, conditionally independent given $x$), we get the following conditional distribution over $\pi \in A′^T$:
-
+Defining the extended alphabet $$A' = A \cup \{blank\}$$, the activation $$y_{t,p}$$ of network output $$p$$ at time $$t$$ is interpreted as the probability that the network will output element $$p$$ of $$A'$$ at time $$t$$, given the length $$T$$ input sequence $$x$$. Let $$A'^T$$ denote the set of length $$T$$ sequences over $$A'$$. Then, if we assume the output probabilities at each timestep to be independent of those at other timesteps (or rather, conditionally independent given $$x$$), we get the following conditional distribution over $$\pi \in A'^T$$:
+\begin{equation}
 $$\Pr( \pi \, | \, x ) = \prod_{t=1}^{T} y_{t,\pi_t}$$
+\label{eqn_c3_ctc01}\end{equation}
 
-From now on we refer to the sequences $\pi$ over $A′$ as *paths*, to distinguish them from the *label sequences* or *labellings* $l$ over $A$. The next step is to define a many-to-one function $\mathcal{B} : A′^T \rightarrow A^{\le T}$, from the set of paths onto the set $A^{\le T}$ of possible labellings of $x$ (i.e. the set of sequences of length less than or equal to $T$ over $A$). We do this by removing first the repeated labels and then the blanks from the paths. For example,
-$$
-\begin{align}
-\mathcal{B}(a − ab−) &= aab \\
-\mathcal{B}(−aa − −abb) &= aab.
-\end{align}
-$$
+From now on we refer to the sequences $$\pi$$ over $$A'$$ as paths, to distinguish them from the label sequences or labellings $$l$$ over $$A$$. The next step is to define a many-to-one function $$\mathcal{B} : A'^T \rightarrow A^{\le T}$$, from the set of paths onto the set $$A^{\le T}$$ of possible labellings of $$x$$ (i.e. the set of sequences of length less than or equal to $$T$$ over $$A$$). We do this by removing first the repeated labels and then the blanks from the paths. For example,
 
+\begin{equation}$$\begin{aligned}\mathcal{B}(a - ab-) &= aab \\ \mathcal{B}(-aa - -abb) &= aab.\end{aligned}$$ \label{eqn_c3_ctc02}
+\end{equation}
 
-Intuitively, this corresponds to outputting a new label when the network either switches from predicting no label to predicting a label, or from predicting one label to another. As $\mathcal{B}$ is many-to-one, the probability of some labelling $l \in A^{\le T}$ can be calculated by summing the probabilities of all the paths mapped onto it by $\mathcal{B}$:
-
+Intuitively, this corresponds to outputting a new label when the network either switches from predicting no label to predicting a label, or from predicting one label to another. As $$\mathcal{B}$$ is many-to-one, the probability of some labelling $$l \in A^{\le T}$$ can be calculated by summing the probabilities of all the paths mapped onto it by $$\mathcal{B}$$:
+\begin{equation}
 $$\Pr( l \, | \, x) = \sum_{\pi \in \mathcal{B}^{-1}(l)} \Pr( \pi \, | \, x)$$
-
+\label{eqn_c3_ct03}\end{equation}
 This 'collapsing together' of different paths onto the same labelling is what makes it possible for CTC to use unsegmented data, because it allows the network to predict the labels without knowing in advance where they occur. In theory, it also makes CTC networks unsuitable for tasks where the location of the labels must be determined. However in practice CTC tends to output labels close to where they occur in the input sequence.
 
-In the original formulation of CTC there were no blank labels, and $\mathcal{B}(\pi)$ was simply $\pi$ with repeated labels removed. This led to two problems. First, the same label could not appear twice in a row, since transitions only occurred when $\pi$ passed between different labels. Second, the network was required to continue predicting one label until the next began, which is a burden in tasks where the input segments corresponding to consecutive labels are widely separated by unlabelled data (for example, in speech recognition there are often pauses or non-speech noises between the words in an utterance).
+In the original formulation of CTC there were no blank labels, and $$\mathcal{B}(\pi)$$ was simply $$\pi$$ with repeated labels removed. This led to two problems. First, the same label could not appear twice in a row, since transitions only occurred when $$\pi$$ passed between different labels. Second, the network was required to continue predicting one label until the next began, which is a burden in tasks where the input segments corresponding to consecutive labels are widely separated by unlabelled data (for example, in speech recognition there are often pauses or non-speech noises between the words in an utterance).
 
 ### Forward-backward algorithm
-So far we have defined the conditional probabilities $\Pr(l \, | \, x)$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $T$ input sequence and a length $U$ labelling there are $$2^{T−U^2+U(T−3)}3^{(U−1)(T−U)−2}$$ paths.
+So far we have defined the conditional probabilities $$\Pr(l \, | \, x)$$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $T$ input sequence and a length $$U$$ labelling there are $$2^{T-U^2+U(T-3)}3^{(U-1)(T-U)-2}$$ paths.
 
 Fortunately the problem can be solved with a dynamic-programming algorithm similar to the forward-backward algorithm for HMM's[[6]](http://www.ee.columbia.edu/~dpwe/e6820/papers/Rabiner89-hmm.pdf). The key idea is that the sum over paths corresponding to a labelling l can be broken down into an iterative sum over paths corresponding to prefixes of that labelling.
 
-To allow for blanks in the output paths, we consider a modified "label sequence" $l′$, with blanks added to the beginning and the end of $l$, and inserted between every pair of consecutive labels. If the length of $l$ is $U$, the length of $l′$ is $U′ = 2U + 1$. In calculating the probabilities of prefixes of $l′$ we allow all transitions between blank and non-blank labels, and also those between any pair of distinct non-blank labels.
+To allow for blanks in the output paths, we consider a modified "label sequence" $$l'$$, with blanks added to the beginning and the end of $$l$$, and inserted between every pair of consecutive labels. If the length of $$l$$ is $$U$$, the length of $$l'$$ is $$U' = 2U + 1$$. In calculating the probabilities of prefixes of $$l'$$ we allow all transitions between blank and non-blank labels, and also those between any pair of distinct non-blank labels.
 
-For a labelling $l$, the forward variable $\alpha(t,u)$ is defined as the summed probability of all length $t$ paths that are mapped by $\mathcal{B}$ onto the length $\left \lfloor{u/2}\right \rfloor$ prefix of $l$. (Note, $\left \lfloor{u/2}\right \rfloor$ is the *floor* of $u/2$, the greatest integer less than or equal to $u/2$.) For some sequence $s$, let $s_{p:q}$ denote the subsequence $s_p$, $s_{p+1}$, ..., $s_{q−1}$, $s_q$, and define the set $V(t,u) \equiv \{ \pi \in A′^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$. We can then define $\alpha(t,u)$ as
+For a labelling $$l$$, the forward variable $$\alpha(t,u)$$ is defined as the summed probability of all length $$t$$ paths that are mapped by $$\mathcal{B}$$ onto the length $$\left \lfloor{u/2}\right \rfloor$$ prefix of $$l$$. (Note, $$$\left \lfloor{u/2}\right \rfloor$$ is the floor of $$u/2$$, the greatest integer less than or equal to $$u/2$$.) For some sequence $$s$$, let $$s_{p:q}$$ denote the subsequence $$s_p$$, $$s_{p+1}$$, ..., $$s_{q−1}$$, $$s_q$$, and define the set $$V(t,u) \equiv \{ \pi \in A′^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$$. We can then define $$\alpha(t,u)$$ as
 
 $$\alpha(t,u) \equiv \sum_{\pi \in V(t,u)} \prod_{i=1}^{t} y_{i,\pi_i}$$ 
 
