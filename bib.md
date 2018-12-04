@@ -1,5 +1,30 @@
 * Bibliography
 
+@article{dahl2012context,
+  title={Context-dependent pre-trained deep neural networks for large-vocabulary speech recognition},
+  author={Dahl, George E and Yu, Dong and Deng, Li and Acero, Alex},
+  journal={IEEE Transactions on audio, speech, and language processing},
+  volume={20},
+  number={1},
+  pages={30--42},
+  year={2012},
+  publisher={IEEE}
+}
+
+@inproceedings{yu2012conversational,
+  title={Conversational Speech Transcription Using Context-Dependent Deep Neural Networks.},
+  author={Yu, Dong and Seide, Frank and Li, Gang},
+  booktitle={ICML},
+  year={2012}
+}
+
+@book{yu2016automatic,
+  title={AUTOMATIC SPEECH RECOGNITION.},
+  author={Yu, Dong and Deng, Li},
+  year={2016},
+  publisher={Springer}
+}
+
 @article{maas2017building,
   title={Building DNN acoustic models for large vocabulary speech recognition},
   author={Maas, Andrew L and Qi, Peng and Xie, Ziang and Hannun, Awni Y and Lengerich, Christopher T and Jurafsky, Daniel and Ng, Andrew Y},
