@@ -1,5 +1,23 @@
 * Bibliography
 
+@inproceedings{mohamed2009deep,
+  title={Deep belief networks for phone recognition},
+  author={Mohamed, Abdel-rahman and Dahl, George and Hinton, Geoffrey},
+  booktitle={Nips workshop on deep learning for speech recognition and related applications},
+  volume={1},
+  number={9},
+  pages={39},
+  year={2009},
+  organization={Vancouver, Canada}
+}
+
+@inproceedings{yu2010roles,
+  title={Roles of pre-training and fine-tuning in context-dependent DBN-HMMs for real-world speech recognition},
+  author={Yu, Dong and Deng, Li and Dahl, George},
+  booktitle={Proc. NIPS Workshop on Deep Learning and Unsupervised Feature Learning},
+  year={2010}
+}
+
 @article{dahl2012context,
   title={Context-dependent pre-trained deep neural networks for large-vocabulary speech recognition},
   author={Dahl, George E and Yu, Dong and Deng, Li and Acero, Alex},
