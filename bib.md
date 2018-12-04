@@ -1,6 +1,5 @@
 * Bibliography
 
-<<<<<<< HEAD
 @article{dahl2012context,
   title={Context-dependent pre-trained deep neural networks for large-vocabulary speech recognition},
   author={Dahl, George E and Yu, Dong and Deng, Li and Acero, Alex},
@@ -24,7 +23,8 @@
   author={Yu, Dong and Deng, Li},
   year={2016},
   publisher={Springer}
-=======
+}
+
 @article{sutton2012introduction,
   title={An introduction to conditional random fields},
   author={Sutton, Charles and McCallum, Andrew and others},
@@ -34,7 +34,6 @@
   pages={267--373},
   year={2012},
   publisher={Now Publishers, Inc.}
->>>>>>> 69a13861b8827bc4d9f711911cdf237c42364a41
 }
 
 @article{maas2017building,
