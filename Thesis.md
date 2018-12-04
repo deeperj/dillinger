@@ -342,14 +342,14 @@ Neural networks have become increasingly popular due to their ability to model n
 ### Deep Neural Networks (DNN)
 
 Deep neural networks have been accepted to be networks having multiple layers and capable of hierarchical knowledge representation \citep{yu2016automatic}.
- This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar struture.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$x_t$$ is applied.  At the first hidden layer, activations are vectors computed using
-\begin{equation}$$h^{(1)}=\sigma(\mathbf{W}^{(1)T}x_t+b^{(1)})$$
+ This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar struture.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$\mathbf{x}_t$$ is applied.  At the first hidden layer, activations are vectors evaluated using
+\begin{equation}$$\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{x}_t+\mathbf{b}^{(1)})$$
 \label{eqn_c3_dnn01}\end{equation}
 
-The matrix $$W^{(1)}$$ and vector $$b^{(1)}$$ are the weight matrix and bias vector for the layer.  The function $$\sigma(\cdot)$$ is a pointwise nonlinearity.  We use rectifier nonlinearities and thus choose $$\sigma(z)=max(z,0)$$.
+The matrix $$\mathbf{W}^{(1)}$$ and vector $$b^{(1)}$$ are the weight matrix and bias vector for the layer.  The function $$\sigma(\cdot)$$ is a pointwise nonlinearity.  We use rectifier nonlinearities and thus choose $$\sigma(z)=max(z,0)$$.
 
 DNNs have arbitrarily many hidden layers. After the first hidden layer, the hidden activations $$h^{(i)}$$ for the layer i are computed as
-\begin{equation}$$h^{(1)}=\sigma(\mathbf{W}^{(1)T}h^{(i-1)}+b^{(1)})$$
+\begin{equation}$$\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{h}^{(i-1)}+\mathbf{b}^{(1)})$$
 \label{eqn_c3_dnn02}\end{equation}
 
 To obtain a proper distribution over the set of possible characters c the final layer of the network is a softmax output layer of the form,
@@ -357,11 +357,18 @@ To obtain a proper distribution over the set of possible characters c the final 
 \label{eqn_c3_dnn02}\end{equation}
 where $$W_k^{(s)}$$ is the k-th column of the output weight matrix $$W^{(s)}$$ and $$b_k^{(k)}$$ is the scalar bias term.  We can compute the subgradient for all parameters of the DNN given a training example and thus utilise gradient-based optimisation techniques.  This same formulation is used in DNN-HMM models to predict distribution over senones instead of characters.
 
-### Recurrent Neural Network
-A transcription W has many temporal dependencies which a DNN may not sufficiently capture. At each timestep t the DNN computes its output using only the input features $$x_t$$, ignoring previous hidden representations and output distributions. To enable better modeling of the temporal dependencies present in a problem, we use a RDNN. In a RDNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
+### Recurrent Neural Networks (RNNs)
+
+The two advantages RNNs have over regular DNNs is firstly to capture varying lengths of outputs to inputs.  That is for tasks such as language translation for example, there is no one to one correspondence of number of words in a sentence for example from the source language to the output destination langauge.  At the same time the sentence length appearing at the input and that appearing at the output differ for different sentences.  This is the first problem of varying lengths for input and output sequences.
+
+The second issue that RNNs effectively contain as opposed to DNNs is capturing temporal relationships between the input sequences.  As was realised for hidden Markov models, we saw that the HMM modeled not just observation likelihoods but also transition state likelihoods which were latent models.  By tying the output of previous neuron activations to present neuron activations, a DNN is inherits a cyclic arhcitecture becomming a recurrent neural network (RNN). As a result, an RNN is able capture previous hidden states and in the process derive memory-like capabilities \citep{yu2016automatic}.
+
+In speech processing, it is observed that a given utterance various temporal dependencies which may not be sufficiently captured by DNN-based systems because DNN systems ignore previous hidden representations and output distributions at each timestep t.  The DNN derives its output using only the  feature inputs $$x_t$$. The architecture of RNN to enable better model temporal dependencies present in a speech is given in \citep{hannun2014first, yu2016automatic}. 
+
+In an RNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
 \begin{equation}$$h_t^{(j)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(j)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
 \label{eqn_c3_rnn01}\end{equation}
-Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t − 1$$. 
+Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t - 1$$. 
 
 When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases. 
 
