@@ -342,7 +342,7 @@ Neural networks have become increasingly popular due to their ability to model n
 ### Deep Neural Networks (DNN)
 
 Deep neural networks have been accepted to be networks having multiple layers and capable of hierarchical knowledge representation \citep{yu2016automatic}.
-A DNN computes a distribution function $$p(c|x_t)$$ using a series of hidden layers followed by an output layer.  Given an input vector xt the first hidden layer activations are a vector computer
+ This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar struture.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$x_t$$ is applied.  At the first hidden layer, activations are vectors computed using
 \begin{equation}$$h^{(1)}=\sigma(\mathbf{W}^{(1)T}x_t+b^{(1)})$$
 \label{eqn_c3_dnn01}\end{equation}
 
