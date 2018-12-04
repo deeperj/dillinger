@@ -243,96 +243,6 @@ Here $$I,D$$ and $$R$$ are wrong insertions, deletions and replacements respecti
 Metrics used for low speech recognition in the zero speech challenge \citep{versteegh2015zero} includes the ABX metric. Other common speech recognition error metrics following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 
 # Recurrent Neural Networks in Speech Recognition
-\cite{deng2015**}
-First we discuss the problem of classification, that is, predicting a single discrete class variable y given a vector of features $$x = (x_1, x_2, \dots,  x_K)$$. One simple way to accomplish this is to assume that once the class label is known, all the features are independent. The resulting classifier is called the naive Bayes classifier. It is based on a joint probability model of the form
-\begin{equation}
-$$p(y,\mathbf{x})=p(y)\prod_{k=1}^Kp(x_k|y)$$
-\label{eqn_c3_seqmod00a}
-\end{equation}
-This model can be described by the directed model shown in Figure 2.2 (left). We can also write this model as a factor graph, by defining a factor $$\Psi(y) = p(y)$$, and a factor $$\Psi_k(y, x_k) = p(x_k|y)$$ for each feature . This factor graph is shown in Figure 2.2 (right).
-
-Another well-known classier that is naturally represented as a graphical model is logistic regression (sometimes known as the maximum entropy classifier in the NLP community). In statistics, this classifier is motivated by the assumption that the log probability, $$log p(y|x)$$, of each class is a linear function of $$x$$, plus a normalization constant. This leads to the conditional distribution:
-\begin{equation}
-$$p(y|\mathbf{x})=\frac{1}{Z(\mathbf{x})}exp\{\theta_y+\sum_{j=1}^K\theta_{y,j}x_j)\}$$
-\label{eqn_c3_seqmod00b}
-\end{equation}
-where $$Z(x) =\Sigma_y exp\{\theta_y+\Sigma_{j=1}^K\theta_{y,j}x_j\}$$ is a normalizing constant, and  is a bias weight that acts like $$log p(y)$$ in naive Bayes. Rather than using one weight vector per class, as in equation (\ref{eqn_c3_seqmod00b}), we can use a different notation in which a single set of weights is shared across all the classes.  The trick is to define a set of feature functions that are nonzero only for a single class. To do this, the feature functions can be defined as $$f_{y',j}(y, \mathbf{x})=1_{\{y'=y\}}x_j$$ for the feature weights and $$f_{y'}(y,\mathbf{x}) = 1_{\{y'=y\}}$$ for the bias weights. Now we can use $$f_k$$ to index each feature function $$f_{y';j}$$ and $$\theta_k$$ to index corresponding weight $$\theta_{y',j}$$ . Using this notational trick, the logistic regression model becomes:
-\begin{equation}
-$$p(y|\mathbf{x})=\frac{1}{Z(\mathbf{x})}exp\{\sum_{j=1}^K\theta_kf_k(y,\mathbf{x})\}$$
-\label{eqn_c3_seqmod00c}
-\end{equation}
-
-We introduce this notation because it mirrors the notation for conditional random fields that we will present later.
-
-## Sequential models
-Classifiers predict only a single class variable, but the true power of graphical models lies in their ability to model many variables that are interdependent. In this section, we discuss perhaps the simplest form of dependency, in which the output variables are arranged in a sequence. To motivate this kind of model, we discuss an application from natural language processing, the task of named-entity recognition (NER). NER is the problem of identifying and classifying proper names in text, including locations, such as China; people, such as George Bush; and organizations, such as the United Nations. The named-entity recognition task is, given a sentence, to segment which words are part of entities, and to classify each entity by type (person, organization, location, and so on). The challenge of this problem is that many named entities are too rare to appear even in a large training set, and therefore the system must identify them based only on context. 
-
-One approach to NER is to classify each word independently as one of either Person, Location, Organization, or Other (meaning not an entity). The problem with this approach is that it assumes that given the input, all of the named-entity labels are independent. In fact, the named-entity labels of neighboring words are dependent; for example, while New York is a location, New York Times is an organization. One way to relax this independence assumption is to arrange the output variables in a linear chain. This is the approach taken by the hidden  Markov model (HMM) [96]. An HMM models a sequence of observations $$X = \{x_t\}_{t=1}^\top$$ by assuming that there is an underlying sequence of states $$Y =\{y\}_{t=1}^\top$$ drawn from a nite state set $$S$$. In the named-entity example, each observation $$x_t$$ is the identity of the word at position $$t$$, and each state $$y_t$$ is the named-entity label, that is, one of the entity types Person, Location, Organization, and Other.
-
-To model the joint distribution $$p(\mathbf{y, x})$$ tractably, an HMM makes two independence assumptions. First, it assumes that each state depends only on its immediate predecessor, that is, each state $$y_t$$ is independent of all its ancestors $$y_1; y_2, y_{t−2}$$ given the preceding state $$y_{t-1}$$.  Second, it also assumes that each observation variable $$x_t$$ depends only on the current state $$y_t$$. With these assumptions, we can specify an HMM using three probability distributions: first, the distribution $$p(y_1)$$ over initial states; second, the transition distribution $$p(y_t|y_{t−1})$$; and finally, the observation distribution $$p(x_t|y_t)$$. That is, the joint probability of a state sequence $$\mathbf{y}$$ and an observation sequence $$\mathbf{x}$$ factorizes as
-\begin{equation}
-$$p(\mathbf{y,x})=\prod_{t=1}^Tp(y_t|y_{t-1})$$
-\label{eqn_c3_seqmod01}
-\end{equation}
-
-where, to simplify notation, we write the initial state distribution $$p(y_1)$$ as $$p(y_1|y_0)$$. In natural language processing, HMMs have been used for sequence labeling tasks such as part-of-speech tagging, named-entity recognition, and information extraction.
-
-### Comparison
-Of the models described in this section, two are generative (the naive Bayes and hidden Markov models) and one is discriminative (the logistic regression model). In a general, generative models are models of the joint distribution $$p(y, \mathbf{x})$$, and like naive Bayes have the form $$p(y)p(x|y)$$. In other words, they describe how the output is probabilistically generated as a function of the input. Discriminative models, on the other hand, focus solely on the conditional distribution $$p(y|x)$$. In this section, we discuss the differences between generative and discriminative modeling, and the potential advantages of discriminative modeling.  For concreteness, we focus on the examples of naive Bayes and logistic regression, but the discussion in this section applies equally as well to the differences between arbitrarily structured generative models and conditional random fields.
-
-The main difference is that a conditional distribution $$p(y|x)$$ does not include a model of $$p(x)$$, which is not needed for classification anyway.  The difficulty in modeling $$p(x)$$ is that it often contains many highly dependent features that are difficult to model. For example, in named-entity recognition, an HMM relies on only one feature, the word's identity. But many words, especially proper names, will not have occurred in the training set, so the word-identity feature is uninformative. To label unseen words, we would like to exploit other features of a word, such as its capitalization, its neighboring words, its prefixes and suffixes, its membership in predetermined lists of people and locations, and so on.
-
-The principal advantage of discriminative modeling is that it is better suited to including rich, overlapping features. To understand this, consider the family of naive Bayes distributions equation (\ref{eqn_c3_seqmod00a}). This is a family of joint distributions whose conditionals all take the “logistic regression form" equation (\ref{eqn_c3_seqmod00c}). But there are many other joint models, some with complex dependencies among x, whose conditional distributions also have the form equation (\ref{eqn_c3_seqmod00c}). By modeling the conditional distribution directly, we can remain agnostic about the form of $$p(x)$$. CRFs make independence assumptions among y, and assumptions about how the $$y$$ can depend on $$x$$, but not among $$x$$. This point can also be understood graphically:  Suppose that we have a factor graph representation for the joint distribution $$p(y, x)$$. If we then construct a graph for the conditional distribution $$p(y|x)$$, any factors that depend only on $$x$$ vanish from the graphical structure for the conditional distribution. They are irrelevant to the conditional because they are constant with respect to $$y$$.
-
-To include interdependent features in a generative model, we have two choices: enhance the model to represent dependencies among the inputs, or make simplifying independence assumptions, such as the naive Bayes assumption. The first approach, enhancing the model, is often difficult to do while retaining tractability. For example, it is hard to imagine how to model the dependence between the capitalization of a word and its suxes, nor do we particularly wish to do so, since we always observe the test sentences anyway. The second approach is to include a large number of dependent features in a generative model, but to include independence assumptions among them|is possible, and in some domains can work well. But it can also be problematic because the independence assumptions can hurt performance. For example, although the naive Bayes classifier performs well in document classification, it performs worse on average across a range of applications than logistic regression [16].
-
-Furthermore, naive Bayes can produce poor probability estimates. As an illustrative example, imagine training naive Bayes on a data set in which all the features are repeated, that is, $$x = (x_1, x_1, x_2, x_2, \dots , x_K, x_K)$$. This will increase the confidence of the naive Bayes probability estimates, even though no new information has been added to the data. Assumptions like naive Bayes can be especially problematic when we generalize to sequence models, because inference essentially combines evidence from different parts of the model.  If probability estimates of the label at each sequence position are overconfident, it might be difficult to combine them sensibly.
-
-The difference between naive Bayes and logistic regression is due only to the fact that the first is generative and the second discriminative; the two classifiers are, for discrete input, identical in all other respects. Naive Bayes and logistic regression consider the same hypothesis space, in the sense that any logistic regression classifier can be converted into a naive Bayes classifier with the same decision boundary, and vice versa. Another way of saying this is that the naive Bayes model equation (\ref{eqn_c3_seqmod00a}) denes the same family of distributions as the logistic regression model equation (\ref{eqn_c3_seqmod00c}), if we interpret it generatively as
-\begin{equation}
-$$p(y,\mathbf{x})=\frac{exp\{\sum_k\theta_kf_k(y,\mathbf{x})\}}{\sum_{\tilde{y},\tilde{x}}exp\{\sum_k\theta_kf_k(y,\mathbf{x})\}}$$
-\label{eqn_c3_seqmod02}
-\end{equation}
-
-This means that if the naive Bayes model equation (\ref{eqn_c3_seqmod00a}) is trained to maximize the conditional likelihood, we recover the same classier as from logistic regression. Conversely, if the logistic regression model is interpreted generatively, as in equation (\ref{eqn_c3_seqmod02}), and is trained to maximize the joint likelihood $$p(y; x)$$, then we recover the same classier as from naive Bayes. In the terminology of Ng and Jordan [85], naive Bayes and logistic regression form a generative-discriminative pair. For a recent theoretical perspective on generative and discriminative models, see Liang and Jordan
-[61].
-
-One perspective for gaining insight into the difference between generative and discriminative modeling is due to Minka [80]. Suppose we have a generative model pg with parameters . By definition, this takes the form
-\begin{equation}
-$$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{y};\theta)p_g(\mathbf{x|y};\theta)$$
-\label{eqn_c3_seqmod03}
-\end{equation}
-\begin{equation}
-$$p_g(\mathbf{y},\mathbf{x};\theta)=p_g(\mathbf{x};\theta)p_g(\mathbf{y|x};\theta)$$
-\label{eqn_c3_seqmod04}
-\end{equation}
-where $$p_g(x;\theta)$$ and $$p_g(y|x;\theta)$$ are computed by inference, i.e., $$p_g(x;\theta) =\Sigma_yp_g(\mathbf{y}; \mathbf{x};\theta)$$ and $$p_g(y|x;\theta) = p_g(\mathbf{y}|\mathbf{x};\theta )=p_g(\mathbf{y},\mathbf{x};\theta)/p_g(\mathbf{x};\theta)$$.
-
-Now, compare this generative model to a discriminative model over the same family of joint distributions. To do this, we need a prior $$p(\mathbf{x})$$ over inputs, such that $$p(\mathbf{x})$$ could have arisen from pg with some parameter setting. That is, $$p(x) = p_c(\mathbf{x};\theta‘) =\Sigma_y p_g(\mathbf{y}; \mathbf{x}|\theta‘)$$. We combine this with a conditional distribution $$p_c(\mathbf{y|x};\theta)$$ that could also have arisen from pg, that is, $$p_c(\mathbf{y|x};\theta) =p_g(\mathbf{y,x};\theta)/p_g(\mathbf{x};\theta)$$. Then the resulting distribution is
-\begin{equation}
-$$p_c(\mathbf{y},\mathbf{x})=p_cg(\mathbf{x};\theta')p_c(\mathbf{y|x};\theta)$$
-\label{eqn_c3_seqmod05}
-\end{equation}
-
-By comparing equation (\ref{eqn_c3_seqmod04}) with equation (\ref{eqn_c3_seqmod05}), it can be seen that the conditional approach has more freedom to t the data, because it does not require that  = 0. Intuitively, because the parameters  in equation (\ref{eqn_c3_seqmod04}) are used in both the input distribution and the conditional, a good set of parameters must represent both well, potentially at the cost of trading off accuracy on $$p(\mathbf{y|x})$$, the distribution we care about, for accuracy on $$p(\mathbf{x})$$, which we care less about. On the other hand, this added freedom brings about an increased risk of overfitting the training data, and generalizing worse on unseen data.
-
-To be fair, however, generative models have several advantages of their own. First, generative models can be more natural for handling latent variables, partially-labeled data, and unlabelled data. In the most extreme case, when the data is entirely unlabeled, generative models can be applied in an unsupervised fashion, whereas unsupervised learning in discriminative models is less natural and is still an active area of research.
-
-Second, on some data a generative model can perform better than a discriminative model, intuitively because the input model $$p(x)$$ may have a smoothing effect on the conditional. Ng and Jordan [85] argue that this effect is especially pronounced when the data set is small. For any particular data set, it is impossible to predict in advance whether a generative or a discriminative model will perform better. Finally, sometimes either the problem suggests a natural generative model, or the application requires the ability to predict both future inputs and future outputs, making a generative model preferable. 
-
-Because a generative model takes the form $$p(\mathbf{y; x}) = p(\mathbf{y})p(\mathbf{x|y})$$, it is often natural to represent a generative model by a directed graph in which in outputs $$y$$ topologically precede the inputs. Similarly, we will see that it is often natural to represent a discriminative model by a undirected graph, although this need not always be the case.
-
-The relationship between naive Bayes and logistic regression mirrors the relationship between HMMs and linear-chain CRFs. Just as naive Bayes and logistic regression are a generative-discriminative pair, there is a discriminative analogue to the hidden Markov model, and this analogue is a particular special case of conditional random eld, as we explain in the next section. This analogy between naive Bayes, logistic regression, generative models, and conditional random fields is depicted in figure \ref{fig_3_1_crf} below.
-
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/crf.png "Developemnt of Sequentiial Models")
-\begin{figure}
-\centering
-  % Requires \usepackage{graphicx}
-  \includegraphics[width=7cm]{thesis/images/crf.png}\\
-  \caption{Developemnt of Sequentiial Models} \cite{xxx}}\label{fig_3_1_crf}
-\end{figure}
-
-## Neural networks
 The HMM method mentioned in the previous section is based on the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As earlier mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
 
 ### Neural network architecture
@@ -426,8 +336,10 @@ $$w_{kj}^{\tau+1}=w_{kj}^{\tau}-\eta\frac{\partial E}{\partial w_{kj}}$$
 
 Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which is a factor to speed up or slow down the rate rate of learning of the machine learning algorithm which in this case is the neural network.
 
-## LSTM network
-Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.
+## From RNN to LSTM and GRU networks
+Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.  This section develops recurrent neural networks (RNNs) from a specialised multi-layer perceptron (MLP), the deep neural network (DNN).
+
+### Deep Neural Networks (DNN)
 
 A DNN computes a distribution function $$p(c|x_t)$$ using a series of hidden layers followed by an output layer.  Given an input vector xt the first hidden layer activations are a vector computer
 \begin{equation}$$h^{(1)}=\sigma(\mathbf{W}^{(1)T}x_t+b^{(1)})$$
@@ -964,6 +876,11 @@ references:bib.bib
 ### Chap 2
 1. Why is Bleu not explained or used?
 2. Why is ABX not explained
+
+### Chap 3
+1. What about sequence models?
+2. MRF vs CRF
+3. How does this chapter relate to your work?
 
 ### Chap 4
 1. How does this chapter relate to your work?
