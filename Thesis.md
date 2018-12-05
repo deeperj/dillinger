@@ -361,18 +361,57 @@ where $$W_k^{(s)}$$ is the k-th column of the output weight matrix $$W^{(s)}$$ a
 
 The two advantages RNNs have over regular DNNs is firstly to capture varying lengths of outputs to inputs.  That is for tasks such as language translation for example, there is no one to one correspondence of number of words in a sentence for example from the source language to the output destination langauge.  At the same time the sentence length appearing at the input and that appearing at the output differ for different sentences.  This is the first problem of varying lengths for input and output sequences.
 
-The second issue that RNNs effectively contain as opposed to DNNs is capturing temporal relationships between the input sequences.  As was realised for hidden Markov models, we saw that the HMM modeled not just observation likelihoods but also transition state likelihoods which were latent models.  By tying the output of previous neuron activations to present neuron activations, a DNN is inherits a cyclic arhcitecture becomming a recurrent neural network (RNN). As a result, an RNN is able capture previous hidden states and in the process derive memory-like capabilities \citep{yu2016automatic}.
+The second issue that RNNs effectively contain as opposed to DNNs is capturing temporal relationships between the input sequences.  As was realised for hidden Markov models, it was seen that the HMM modeled not just observation likelihoods but also transition state likelihoods which were latent or hidden variables.  By tying the output of previous neuron activations to present neuron activations, a DNN is inherits a cyclic arhcitecture becomming a recurrent neural network (RNN). As a result, an RNN is able capture previous hidden states and in the process derive memory-like capabilities \citep{yu2016automatic}.
 
 In speech processing, it is observed that a given utterance various temporal dependencies which may not be sufficiently captured by DNN-based systems because DNN systems ignore previous hidden representations and output distributions at each timestep t.  The DNN derives its output using only the  feature inputs $$x_t$$. The architecture of RNN to enable better model temporal dependencies present in a speech is given in \citep{hannun2014first, yu2016automatic}. 
 
-In an RNN we select one hidden layer $$j$$ to have a temporally recurrent weight matrix $$W^{(f)}$$ and compute the layer’s hidden activations as
 \begin{equation}$$h_t^{(j)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(j)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
 \label{eqn_c3_rnn01}\end{equation}
-Note that we now make the distinction $$h^{(j)}_t$$ for the hidden activation vector of layer $$j$$ at timestep $$t$$ since it now depends upon the activation vector of layer $$j$$ at time $$t - 1$$. 
 
-When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases. 
+It can be seen in equation (\ref{eqn_c3_rnn01}) above given a seleted RNN  hidden layer $$j$$, a temporally recurrent weight matrix $$W^{(f)}$$ is computed for output activations $$h^{(j)}_{t-1}$$ for the hidden activation vector of layer $$j$$ at timestep $$t - 1$$ such that the output contributes to the standard DNN output of  $$\mathbf{W}^{(j)T}h_t^{(i-1)}$$. It can also be seen from  equation (\ref{eqn_c3_rnn01}) that the temporal recurrent weight matrix computation is a modified version of the standard DNN weight matrix computation and that the overall output is a superposition of the two.
 
-Aside from these changes, computations for a RDNN are the same as those in a DNN as described in DNN section above. Like the DNN, we can compute a subgradient for a RDNN using a method sometimes called backpropagation through time. In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient. 
+Since computations for a RNN are the same as those described in standard DNN evaluations, it is possible to compute the subgradient for  RNN architecture using the back propagation algorithm.  The modified algorithm appropriately called backpropagation through time \citep{boden2002guide,jaeger2002tutorial} is derived as follows.  
+
+We define the cost function (or training criterion) as the sum-squared error
+$$E=c\sum_{t=1}^T||\mathbf{l}_t−\mathbf{y}_t||^2=c\sum_{t=1}^T\sum_{j=1}^L(l_t(j)−y_t(j))^2$$- - - (4)
+Between the actual output, $$\mathbf{y}_t$$, and the target vector, $$\mathbf{l}_t$$, over all time frames as the cost function where $$l_t(j)$$ and $$y_t(j)$$ are the $$j$$-th units in the target and output vectors, respectively, and $$c=0.5$$ is a conveniently chosen scale factor.
+
+We seek to minimise the cost with respect to the weights using the gradient descent algorithm.  For a specific weight, w, in the RNN, the update rule for gradient descent is
+$$w^{new}=w−\gamma\frac{\delta E}{\delta w}$$ - - - (5)
+Where  is the learning rate.  To compute the gradient, we define the error terms
+$$\delta_t^y(j)=−\frac{\delta E}{\delta},\delta_t^h(j)=\frac{\delta E}{\delta u_t(j)}$$ - - - (6)
+As the gradient of the cost with respect to the unit’s input potential.  The error terms and gradients can be recursively computed as we will explain next.
+
+#### Recursive Computation of Error terms
+In the propagation part of the BPTT algorithm, all RNN weights are duplicated spatially for an arbitrary number of time steps.  That is, they are tied over time. Therefore, the standard backpropagation algorithm for feed-forward neural networks needs to be modified by incorporating this tying constraint.
+
+At the final time t=T, we can calculate the error terms at the output as 
+$$\delta^y_T(j)=−\frac{\delta E}{\delta y_T(j)}\frac{\delta y_T(j)}{\delta v_T(j)}=(l_T(j)−y_T(j))g‘(v_T(j))\text{ for } j=1,2,\dots,L$$- - - (7)
+or
+$$\mathbf{\delta}_T^y=(\mathbf{l}_T−\mathbf{y}_T)\bullet g‘(\mathbf{v}_T)$$
+And at the hidden layer as
+$$\delta_T^h(j)=−\left(\sum_{i=1}^L\frac{\partial E}{\partial v_T(i)}\frac{\partial v_T(i)}{\partial h_T(j)}\frac{\partial h_T(j)}{\partial u_t(j)}\right)=\sum_{i=1}^L\delta_T^y(i)w_{hy}(i,j)f‘(u_T(j))$$- - - (8)
+for j=1,2,...,N
+or $$\delta_T^h=\mathbf{W}_{hy}^T\mathbf{\delta}_T^y\bullet f‘(\mathbf{u}_T)$$
+Where  is the element-wise multiplication operator.
+
+For all other time frames, t=T-1, T-2, …, 1, we can compute the error terms as 
+$$\delta_t^y(j)=(l_t(j)−y_t(j))g‘(v_t(j))\text{ for } j=1,2,\dots,L$$
+or
+$$\mathbf{\delta}_t^y = (\mathbf{l}_t−\mathbf{y}_t)\bullet g‘(\mathbf{v}_t)$$ - - - (9)
+For the output units and
+$$\begin{align*}\delta_t^h(j)&=−\left[\sum_{i=1}^N\frac{\partial E}{\partial\mathbf{u}_{t+1}(i)}\frac{\partial\mathbf{u}_{t+1}(i)}{\partial h_t(j)}+\sum_{i=1}^L\frac{\partial E}{\partial v_t(i)}\frac{\partial v_t(i)}{\partial h_t(j)}\right]\frac{\partial h_t(j)}{\partial u_t(j)}\\ &=\left[\sum_{i=1}^N\delta_{t+1}^h(i)w_{hh}(i,j)+\sum_{i=1}^L\delta_t^y(i)w_{hy}(i,j)\right]f‘(u_t(j)) \text{ for }j=1,\dots,N \\ \text{ or } \delta_t^h&=\left[\mathbf{W}_{hh}^\top\mathbf{\delta}_{t+1}^h+\mathbf{W}_{hy}^\top\mathbf{\delta}_t^y\right]\bullet f‘(\mathbf{u}_t)\end{align*}$$ - - - (10)
+For the hidden units, recursively, where the error term  is propagated back from the output layer at time frame t, and  is propagated back from the hidden layer at time frame t + 1.
+
+#### Update of RNN Weights
+Given all the error terms and gradients computed above, we can easily update the weights.  For the output weight matrices, we have
+$$\begin{align*}w_{hy}^{new}(i,j)&=w_{hy}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial v_t(i)}\frac{\partial v_t(i)}{\partial w_{hy}(i,j)}=w_{hy}(i,j)−\gamma\sum_{i=1}^T\delta_t^y(i)h_t(j)\\ \text{ or }\mathbf{W}_{hy}^{new}&=\mathbf{W}_{hy}+\gamma\sum_{t=1}^T\mathbf{\delta}_y^t\mathbf{h}_t^\top\end{align*}$$- - - (11)
+For the input weight matrices, we get
+$$w_{xh}^{new}(i,j)=w_{xh}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{xh}(i,j)}=w_{xh}(i,j)−\gamma\sum_{t=1}^T\delta_t^h(i)x_t(j)$$ - - - (12a)
+or $$\mathbf{W}_{xh}^{new}=\mathbf{W}_{xh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{x}_t^\top$$ - - - (12b)
+For the recurrent weight matrices we have 
+$$\begin{align*}w_{hh}^{new}(i,j)&=w_{hh}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{hh}(i,j)}\\ &=w_{hh}(i,j)−\gamma\sum_{t=1}^T\mathbf{\delta}_h^t(i)h_{t−1}(j) \\ \text{ or }&=\mathbf{W}_{hh}^{new}=\mathbf{W}_{hh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{h}_{t−1}^\top\end{align*}$$ - - - (13)
+Note that different from BP algorithm used in the DNN system, here the gradients are summed over all the time frames since the same weight matrices are used across time.  This is summarised below
 
 ### Gated Recurrent Units
 A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
@@ -408,15 +447,26 @@ The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.
 
 ## Deep speech architecture
 
-While forward recurrent connections reflect the temporal nature of the audio input, a perhaps more powerful sequence transduction model is a BRDNN, which maintains state both forwards and backwards in time. Such a model can integrate information from the entire temporal extent of the input features when making each prediction. We extend the RDNN to form a BRDNN by again choosing a temporally recurrent layer $$j$$. The BRDNN creates both a forward and backward intermediate hidden representation which we call $$h^{(f)}_t$$ and $$h^{(b)}_t$$ respectively. We use the temporal weight matrices $$W^{(f)}$$ and $$W^{(b)}$$ to propagate $$h^{(f)}_t$$ forward in time and $$h^{(b)}_t$$ backward in time respectively. We update the forward and backward components via the equations,
+This work makes use of an enhanced RNN architecture called the Bi-directional Recurrent Neural Network (BiRNN). While \cite{hannun2014first} assert that forward recurrent connections does reflect the sequencial relationships of an audio waveform, perhaps the BiRNN model poses a more powerful sequence model.
+
+The BiRNN is a preferred end to end mechanism due to the length of sequence over which temporal relationships can be captured.  This implies that BiRNNs will be suited for capturing temporal relationships over much longer sequences than a forward only RNN because hidden state information are preserved in both forwards and backwards direction. 
+
+In additin, such a model has a notion of complete sentence or utterance  integration having information over the entire temporal extent of the input features when making each prediction. 
+
+The formulation of the BiRNN is derived by starting of with the basic RNN architecture which is referred to as the forward architecture.  From th forward architecture we derive the bakward architecture. If we choose a temporally recurrent layer $$j$$, the BiRNN forward and backward intermediate hidden representation $$h^{(f)}_t$$ and $$h^{(b)}_t$$ is given as. 
 \begin{equation}$$h_t^{(f)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(f)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
 \label{eqn_c3_ds01}\end{equation}
 \begin{equation}$$h_t^{(b)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(b)T}_kh_{t+1}^{(b)}+b^{(j)}))$$
 \label{eqn_c3_ds02}\end{equation}
-Note that the recurrent forward and backward hidden representations are computed entirely independently of each other.  As with the RDNN we use the modified nonlinearity function $$\sigma(z) = min(max(z, 0), 20)$$. To obtain the final representation $$h^{(j)}_t$$ for the layer we sum the two temporally recurrent components,
+
+Temporal weight matrices $$W^{(f)}$$ and $$W^{(b)}$$ propagate $$h^{(f)}_t$$  and $$h^{(b)}_t$$ forward and backward in time respectively. 
+
+\cite{hanun2014first} points out that the recurrent forward and backward components are evaluated entirely independent of each other and for optimal training, a modified nonlinearity function $$\sigma(z) = min(max(z, 0), 20)$$ is recommended. 
+
+The final BiRNN representation $$h^{(j)}_t$$ for the layer is now the sum of the two RNN components,
  \begin{equation}$$h_t^{(j)}=h_t^{(f)}+h_t^{(b)}$$
 \label{eqn_c3_ds03}\end{equation}
-Aside from this change to the recurrent layer the BRDNN computes its output using the same equations as the RDNN. As for other models, we can compute a subgradient for the BRDNN directly to perform gradient-based optimization.
+Also note that backpropagation subgradient evaluations is computed from the combined BiRNN structure directly during training.
 
 ## CTC Loss Algorithm
 In accord with [Deep Speech: Scaling up end-to-end speech recognition](http://arxiv.org/abs/1412.5567), the loss function used by our network should be the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf). Unfortunately, as of this writing, the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) is not implemented within TensorFlow[[5]](https://github.com/tensorflow/tensorflow/issues/32). Thus we will have to implement it ourselves. The next few sections are dedicated to this implementation.
@@ -855,6 +905,11 @@ references:bib.bib
 1. Bleu ref 
 
 ### Chapter 3
+#### RNN
+* In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient.
+* BPTT algorithm
+* When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases.
+
 ### Chapter 4
 * Invariance introduction - done
 * Fourier analysis - done
