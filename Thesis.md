@@ -413,7 +413,7 @@ For the recurrent weight matrices we have
 $$\begin{align*}w_{hh}^{new}(i,j)&=w_{hh}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{hh}(i,j)}\\ &=w_{hh}(i,j)−\gamma\sum_{t=1}^T\mathbf{\delta}_h^t(i)h_{t−1}(j) \\ \text{ or }&=\mathbf{W}_{hh}^{new}=\mathbf{W}_{hh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{h}_{t−1}^\top\end{align*}$$ - - - (13)
 Note that different from BP algorithm used in the DNN system, here the gradients are summed over all the time frames since the same weight matrices are used across time.  This is summarised below
 
-### Gated Recurrent Units
+### LSTMs and GRUs
 A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
 
 The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $$\mathbf{c}_t$$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
@@ -444,6 +444,11 @@ $$\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)}$$
 \end{figure}
 
 The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $$\mathbf{i}_t$$ represents the input gate, $$\mathbf{f}_t$$ is the forget gate and $$\mathbf{o}_t$$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid ($$tanh$$) activation functions utilised at the input and output of the current cell $$\mathbf{c}_t$$.
+
+One particular variant of the original LSTM model is the GRU cell. Though simpler than an LSTM cell the GRU cell performs equally efficient.  The main simplifications are that both state vectors are merged into a single vector $$\mathbf{h}_{(t)}$$. A single gate controller controls both the forget gate an the input gate.   If the gate controller outputs a 1, the input gate is open and the forget gate is closed.  If it outputs a 0, the opposite happens.  In other words, whenever a memory be stored, the location where it will be stored is erased first.  This is actually a frequent variant LSTM cell in and of itself. Finally, there is no output gate; the full vector cost is output at every time step.  However, there is a new gate controller that controls which part or the previous state will be shown to the main layer.
+
+The overall architecture of a GRU is as follows:
+
 
 ## Deep speech architecture
 
@@ -906,12 +911,13 @@ references:bib.bib
 
 ### Chapter 3
 #### Perceptron
-* Affine transformations
+* Affine transformations - done
+#### DNN
+* We use rectifier non-linearities and thus choose $\sigma(z)=max(z,0)$.
 #### RNN
 * In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient.
 * BPTT algorithm
 * When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases.
-
 
 ### Chapter 4
 * Invariance introduction - done
