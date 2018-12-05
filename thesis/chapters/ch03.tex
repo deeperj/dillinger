@@ -2,16 +2,16 @@ The HMM model described in the chapter \ref{c02} is uses the divide and conquer 
 
 \section{Neural network architecture}
 
-The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This rudimentary structure is described by McCullough and Pitts (1942) \cite{cowan1990discussion} as the Perceptron in figure \ref{fig_3_2_ptron} below
+The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This rudimentary structure is described by McCullough and Pitts (1942) \cite{cowan1990discussion} as the Perceptron in figure \ref{fig_3_1_ptron} 
 
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/ptron2.png}\\
-  \caption{Perceptron} \label{fig_3_2_ptron}
+  \caption{Perceptron} \label{fig_3_1_ptron}
 \end{figure}
 
-The linear operation is the sum of the products between the input features and weight vector.  This vector sum of products is referred to as an affine transformation or operation.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure \ref{fig_3_2_nn} below :
+The linear operation is the sum of the products between the input features and weight vector.  This vector sum of products is referred to as an affine transformation or operation.  The non linear operation is the given by any one of a selection of nonlinear functions.  In  figure \ref{fig_3_2_nn} this is shown as a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure \ref{fig_3_2_nn}  :
 
 \begin{figure}
 \centering
@@ -20,9 +20,9 @@ The linear operation is the sum of the products between the input features and w
   \caption{Perceptron} \label{fig_3_2_nn}
 \end{figure}
 
-In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as M-number of neurons in the layer.
+In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as $N$-number of neurons in the layer.
 
-\subsection{Multi-layer Perceptron}
+\subsection{Multi-layer Perceptron (MLP)}
 The multilayer Perceptron or MLP extends the basic Perceptron structure by adding one or more hidden layers.  These hidden layers comprise the outputs of one layer becoming the input of the next layer. In the simplest case having one hidden layer, the output of layer 1 becomes the input of the final output layer.  In comparison, the Perceptron is a one dimensional structure having one or more linear and non linear combination outputs, while the multilayer Perceptron is a 2-dimensional structure having one or more hidden layers of $N$ linear and non-linear combination outputs.  Mathematically speaking the output of each layer of an MLP having $N$ inputs and $M$ neurons is given by
 \begin{equation}
 z_j=h(b_j)=\frac{1}{ 1+e^{-b_j}} 
@@ -37,7 +37,7 @@ b_j=\sum_{i=0}^Nw_{ji}^{(1)}\qquad j=1,2,\dots,M
 For each layer in the MLP, the zeroth input value $x_0$ is 1 indicating a bias term.  This bias term is used in the neural network to ensure regularised and expected behaviour of the neural network.  In this example the non-linear step function is given by a more complex exponential.  In the next section the nonlinear functions for a multilayer Perceptron is derived.
 
 \subsection{Sigmoid and soft-max Activation Function}
-The combination of the linear function and the non linear function in the neural network could be said to be transformation of an algebraic problem to a probabilistic function.  In essence the step function is a squashing function that converts the inputs into a Naive Bayes function asking what is the probability that the output belongs to one of the input classes $(C_y)$ given the data $(\mathbf{x})$.
+The combination of the linear function and the non linear function in the neural network could be said to be transformation of an algebraic problem to a probabilistic function.  In this case the "step" function is a squashing sigmoid-shaped function that converts the inputs into a Naive Bayes function evaluating the probability that an output belongs to any of the output classes $(C_y)$ given the data $(\mathbf{x})$.
 \begin{equation}
 p(C_1|\mathbf{x})=f(a)=f(\mathbf{w^\top x}+w_0)
 \label{eqn_c3_nn_02}\end{equation}
@@ -102,11 +102,11 @@ Neural networks have become increasingly popular due to their ability to model n
 \subsection{Deep Neural Networks (DNNs)}
 
 Deep neural networks have been accepted to be networks having multiple layers and capable of hierarchical knowledge representation \citep{yu2016automatic}.
- This will therefore include multi-layer Perceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar structure.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $p(c|x_t)$ on the output layer when an input vector $\mathbf{x}_t$ is applied.  At the first hidden layer, activations are vectors evaluated using
+ This will therefore include multi-layer Perceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} having a similar structure.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $p(c|x_t)$ on the output layer when an input vector $\mathbf{x}_t$ is applied.  At the first hidden layer, activations are vectors evaluated using
 \begin{equation}\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{x}_t+\mathbf{b}^{(1)})
 \label{eqn_c3_dnn01}\end{equation}
 
-The matrix $\mathbf{W}^{(1)}$ and vector $b^{(1)}$ are the weight matrix and bias vector for the layer.  The function $\sigma(\cdot)$ is a point-wise non-linearity.  We use rectifier non-linearities and thus choose $\sigma(z)=max(z,0)$.
+The matrix $\mathbf{W}^{(1)}$ and vector $b^{(1)}$ are the weight matrix and bias vector for the layer.  The function $\sigma(\cdot)$ is the point-wise non-linear function.
 
 DNNs have arbitrarily many hidden layers. After the first hidden layer, the hidden activations $h^{(i)}$ for the layer i are computed as
 \begin{equation}\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{h}^{(i-1)}+\mathbf{b}^{(1)})
@@ -131,7 +131,7 @@ It can be seen in equation (\ref{eqn_c3_rnn01}) above given a selected RNN  hidd
 
 Since computations for a RNN are the same as those described in standard DNN evaluations, it is possible to compute the sub gradient for  RNN architecture using the back propagation algorithm.  The modified algorithm appropriately called back propagation through time (BPTT) \citep{boden2002guide,jaeger2002tutorial} is derived as follows.  
 
-\subsection{Gated Recurrent Units (GRUs)}
+\subsection{LSTMs and GRUs}
 
 A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
 
@@ -163,6 +163,10 @@ The internal structure and working  of the LSTM cell is documented by its creato
 \end{figure}
 
 The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid ($tanh$) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
+
+One particular variant of the original LSTM model is the GRU cell. Though simpler than an LSTM cell the GRU cell performs equally efficient.  The main simplifications are that both state vectors are merged into a single vector $\mathbf{h}_{(t)}$. A single gate controller controls both the forget gate an the input gate.   If the gate controller outputs a 1, the input gate is open and the forget gate is closed.  If it outputs a 0, the opposite happens.  In other words, whenever a memory be stored, the location where it will be stored is erased first.  This is actually a frequent variant LSTM cell in and of itself. Finally, there is no output gate; the full vector cost is output at every time step.  However, there is a new gate controller that controls which part or the previous state will be shown to the main layer.
+
+The overall architecture of a GRU is as follows:
 
 \section{Deep speech architecture}
 
