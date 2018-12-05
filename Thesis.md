@@ -905,10 +905,13 @@ references:bib.bib
 1. Bleu ref 
 
 ### Chapter 3
+#### Perceptron
+* Affine transformations
 #### RNN
 * In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient.
 * BPTT algorithm
 * When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases.
+
 
 ### Chapter 4
 * Invariance introduction - done
@@ -956,7 +959,6 @@ references:bib.bib
 4. Publication rejection notes to be considered
 5. Fast Fourier transform?
 6. Chapter summaries
-
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
