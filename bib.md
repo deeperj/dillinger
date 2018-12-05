@@ -1,5 +1,16 @@
 * Bibliography
 
+@article{cowan1990discussion,
+  title={Discussion: McCulloch-Pitts and related neural nets from 1943 to 1989},
+  author={Cowan, Jack D},
+  journal={Bulletin of mathematical biology},
+  volume={52},
+  number={1-2},
+  pages={73--97},
+  year={1990},
+  publisher={Springer}
+}
+
 @article{boden2002guide,
   title={A guide to recurrent neural networks and backpropagation},
   author={Boden, Mikael},
