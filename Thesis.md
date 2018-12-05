@@ -245,14 +245,14 @@ Metrics used for low speech recognition in the zero speech challenge \citep{vers
 # Recurrent Neural Networks in Speech Recognition
 The HMM method mentioned in the previous section is based on the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As earlier mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
 
-### Neural network architecture
-The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) (ref) as the perceptron in figure \ref{fig_3_2_ptron} below
+## Neural network architecture
+The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) \cite{cowan1990discussion} as the perceptron in figure \ref{fig_3_2_ptron} below
 ![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/ptron2.png "Perceptron")
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/ptron2.png}\\
-  \caption{Perceptron} \cite{xxx}}\label{fig_3_2_ptron}
+  \caption{Perceptron} \label{fig_3_2_ptron}
 \end{figure}
 
 The linear operation is the sum of the inputs multiplied by a weight vector.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure \ref{fig_3_2_nn} below :
@@ -261,13 +261,13 @@ The linear operation is the sum of the inputs multiplied by a weight vector.  Th
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/ptron3.png}\\
-  \caption{Perceptron} \cite{xxx}}\label{fig_3_2_nn}
+  \caption{Perceptron}\label{fig_3_2_nn}
 \end{figure}
 
 In this regime each combination of linear operation followed by a non linear operation is called a neuron and the total number of neurons in the layer formed is termed as M-number of neurons in the layer.
 
 ### Multilayer Perceptron (MLP)
-The multilayer perceptron or MLP extends the basic perceptron structure by adding one or more hidden layers.  These hidden layers comprise the outputs of one layer becoming the input of the next layer. In the simplest case having one hidden layer, the output of layer 1 becomes the input of the final output layer.  In comparison, the perceptron is a one dimensional structure having one or more linear and non linear combination outputs, while the multilayer perceptron is a 2-dimensional structure having one or more hidden layers of N linear and non-linear combination outputs.  Mathematically speaking the output of each layer of an MLP having N inputs and M neurons is given by
+The multilayer perceptron or MLP extends the basic perceptron structure by adding one or more hidden layers.  These hidden layers comprise the outputs of one layer becoming the input of the next layer. In the simplest case having one hidden layer, the output of layer 1 becomes the input of the final output layer.  In comparison, the perceptron is a one dimensional structure having one or more linear and non linear combination outputs, while the multilayer perceptron is a 2-dimensional structure having one or more hidden layers of $$N$$ linear and non-linear combination outputs.  Mathematically speaking the output of each layer of an MLP having $$N$$ inputs and $$M$$ neurons is given by
 \begin{equation}
 $$z_j=h(b_j)=\frac{1}{ 1+e^{-b_j} }$$
 \label{eqn_c3_nn_01}\end{equation}
@@ -297,7 +297,7 @@ If we define the ratio of the log posterior probabilities as
 $$a=\ln\frac{p(\mathbf{x}|C_1)p(C_1)}{p(\mathbf{x}|C_2)p(C_2)}$$
 \label{eqn_c3_nn_05}\end{equation}
 If we substitute back into (4) we have:
-\begin{eqution}$$p(C_1|\mathbf{x})=f(a)=\frac{1}{1+e^{-a}}$$ - - - (7)
+\begin{equation}$$p(C_1|\mathbf{x})=f(a)=\frac{1}{1+e^{-a}}$$
 \label{eqn_c3_nn_06}\end{equation}
 
 Here $$a=\mathbf{w^\top x}=w_0$$.  Thus the activation for the non-linear function is driven by the probability of the data to give the output class.  The probabilistic function here is called a sigmoid function due to the s-shaped graph that is plotted by the function.
@@ -313,7 +313,7 @@ $$a_k=\sum_{i=0}^dw_{ki}x_i$$
 Recall that in the generative classification method the problem is divided into sub problems by using the conditional probability, while in the discriminative approach the joint probability is determined by looking at the data directly.  This is what $$p(C_k|\mathbf{x})$$ represents.  However, recall that we still need to determine the correct probability distribution represented by the data.  This is achieved by determining the values of the weights of the linear operation.  In the next section a method known as back propagation is discussed.  Back propagation is the training algorithm used to determine the weight vector of all the layers in the neural network.  Back propagation is an extension of the Gradient descent algorithm.
 
 ### Back propagation algorithm
-In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises M neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and acceptable value.  This is often referred to in machine learning as convergence (ref).
+In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises $$M$$ neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and acceptable value.  This is often referred to in machine learning as convergence \citep{boden2002guide}.
 
 #### Gradient Descent
 The last section ended stating that the back-propagation algorithm is an extension of the gradient descent algorithm.  It has also been seen that back propagation works by propagating the error and making adjustments on the weights.  In this section, the Gradient Descent algorithm is reviewed and how it is used in back propagation is examined.  
@@ -336,41 +336,41 @@ $$w_{kj}^{\tau+1}=w_{kj}^{\tau}-\eta\frac{\partial E}{\partial w_{kj}}$$
 
 Where $$\tau$$ is the iteration and $$\eta$$ is a constant learning rate which is a factor to speed up or slow down the rate rate of learning of the machine learning algorithm which in this case is the neural network.
 
-## From RNN to LSTM and GRU networks
-Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.  This section develops recurrent neural networks (RNNs) from a specialised multi-layer perceptron (MLP), the deep neural network (DNN).
+## RNN, LSTM and GRU Networks
+Neural networks have become increasingly popular due to their ability to model non-linear system dynamics. Since their inception, there have been many modifications made to the original design of having linear affine transformations terminated with a nonlinear functions as the means to capture both linear and non-linear features of the target system. In particular, one of such neural network  modifications, namely the recurrent neural network, has been shown to overcome the limitation of varying lengths in the inputs and outputs of the classic feed-forward neural network.  In addition the RNN is not only able to learn non-linear features of a system but has also been shown to be effective at capturing the patterns in sequential data.  This section develops recurrent neural networks (RNNs) from a specialised multi-layer perceptron (MLP) or the deep neural network (DNN).
 
 ### Deep Neural Networks (DNN)
 
 Deep neural networks have been accepted to be networks having multiple layers and capable of hierarchical knowledge representation \citep{yu2016automatic}.
- This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar struture.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$\mathbf{x}_t$$ is applied.  At the first hidden layer, activations are vectors evaluated using
+ This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar structure.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$\mathbf{x}_t$$ is applied.  At the first hidden layer, activations are vectors evaluated using
 \begin{equation}$$\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{x}_t+\mathbf{b}^{(1)})$$
 \label{eqn_c3_dnn01}\end{equation}
 
-The matrix $$\mathbf{W}^{(1)}$$ and vector $$b^{(1)}$$ are the weight matrix and bias vector for the layer.  The function $$\sigma(\cdot)$$ is a pointwise nonlinearity.  We use rectifier nonlinearities and thus choose $$\sigma(z)=max(z,0)$$.
+The matrix $$\mathbf{W}^{(1)}$$ and vector $$b^{(1)}$$ are the weight matrix and bias vector for the layer.  The function $$\sigma(\cdot)$$ is a point-wise non-linearity.  We use rectifier non-linearities and thus choose $$\sigma(z)=max(z,0)$$.
 
 DNNs have arbitrarily many hidden layers. After the first hidden layer, the hidden activations $$h^{(i)}$$ for the layer i are computed as
 \begin{equation}$$\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{h}^{(i-1)}+\mathbf{b}^{(1)})$$
 \label{eqn_c3_dnn02}\end{equation}
 
-To obtain a proper distribution over the set of possible characters c the final layer of the network is a softmax output layer of the form,
+To obtain a proper distribution over the set of possible characters $$c$$ the final layer of the network is a soft max output layer of the form,
 \begin{equation}$$p(c=c_k|x_t)=\frac{exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}{\sum_j exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}$$
 \label{eqn_c3_dnn02}\end{equation}
-where $$W_k^{(s)}$$ is the k-th column of the output weight matrix $$W^{(s)}$$ and $$b_k^{(k)}$$ is the scalar bias term.  We can compute the subgradient for all parameters of the DNN given a training example and thus utilise gradient-based optimisation techniques.  This same formulation is used in DNN-HMM models to predict distribution over senones instead of characters.
+where $$W_k^{(s)}$$ is the $$k$$-th column of the output weight matrix $$W^{(s)}$$ and $$b_k^{(k)}$$ is the scalar bias term.  We can compute the subgradient for all parameters of the DNN given a training example and thus utilise gradient-based optimisation techniques.  This same formulation is used in DNN-HMM models to predict distribution over senones instead of characters.
 
 ### Recurrent Neural Networks (RNNs)
 
-The two advantages RNNs have over regular DNNs is firstly to capture varying lengths of outputs to inputs.  That is for tasks such as language translation for example, there is no one to one correspondence of number of words in a sentence for example from the source language to the output destination langauge.  At the same time the sentence length appearing at the input and that appearing at the output differ for different sentences.  This is the first problem of varying lengths for input and output sequences.
+The two advantages RNNs have over regular DNNs is firstly to capture varying lengths of outputs to inputs.  That is for tasks such as language translation for example, there is no one to one correspondence of number of words in a sentence for example from the source language to the output destination language.  At the same time the sentence length appearing at the input and that appearing at the output differ for different sentences.  This is the first problem of varying lengths for input and output sequences.
 
-The second issue that RNNs effectively contain as opposed to DNNs is capturing temporal relationships between the input sequences.  As was realised for hidden Markov models, it was seen that the HMM modeled not just observation likelihoods but also transition state likelihoods which were latent or hidden variables.  By tying the output of previous neuron activations to present neuron activations, a DNN is inherits a cyclic arhcitecture becomming a recurrent neural network (RNN). As a result, an RNN is able capture previous hidden states and in the process derive memory-like capabilities \citep{yu2016automatic}.
+The second issue that RNNs effectively contain as opposed to DNNs is capturing temporal relationships between the input sequences.  As was realised for hidden Markov models, it was seen that the HMM modeled not just observation likelihoods but also transition state likelihoods which were latent or hidden variables.  By tying the output of previous neuron activations to present neuron activations, a DNN is inherits a cyclic architecture becoming a recurrent neural network (RNN). As a result, an RNN is able capture previous hidden states and in the process derive memory-like capabilities \citep{yu2016automatic}.
 
-In speech processing, it is observed that a given utterance various temporal dependencies which may not be sufficiently captured by DNN-based systems because DNN systems ignore previous hidden representations and output distributions at each timestep t.  The DNN derives its output using only the  feature inputs $$x_t$$. The architecture of RNN to enable better model temporal dependencies present in a speech is given in \citep{hannun2014first, yu2016automatic}. 
+In speech processing, it is observed that a given utterance various temporal dependencies which may not be sufficiently captured by DNN-based systems because DNN systems ignore previous hidden representations and output distributions at each timestep $$t$$.  The DNN derives its output using only the  feature inputs $$x_t$$. The architecture of RNN to enable better model temporal dependencies present in a speech is given in \citep{hannun2014first, yu2016automatic}. 
 
 \begin{equation}$$h_t^{(j)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(j)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
 \label{eqn_c3_rnn01}\end{equation}
 
-It can be seen in equation (\ref{eqn_c3_rnn01}) above given a seleted RNN  hidden layer $$j$$, a temporally recurrent weight matrix $$W^{(f)}$$ is computed for output activations $$h^{(j)}_{t-1}$$ for the hidden activation vector of layer $$j$$ at timestep $$t - 1$$ such that the output contributes to the standard DNN output of  $$\mathbf{W}^{(j)T}h_t^{(i-1)}$$. It can also be seen from  equation (\ref{eqn_c3_rnn01}) that the temporal recurrent weight matrix computation is a modified version of the standard DNN weight matrix computation and that the overall output is a superposition of the two.
+It can be seen in equation (\ref{eqn_c3_rnn01}) above given a selected RNN  hidden layer $$j$$, a temporally recurrent weight matrix $$W^{(f)}$$ is computed for output activations $$h^{(j)}_{t-1}$$ for the hidden activation vector of layer $$j$$ at time step $$t - 1$$ such that the output contributes to the standard DNN output of  $$\mathbf{W}^{(j)T}h_t^{(i-1)}$$. It can also be seen from  equation (\ref{eqn_c3_rnn01}) that the temporal recurrent weight matrix computation is a modified version of the standard DNN weight matrix computation and that the overall output is a superposition of the two.
 
-Since computations for a RNN are the same as those described in standard DNN evaluations, it is possible to compute the subgradient for  RNN architecture using the back propagation algorithm.  The modified algorithm appropriately called backpropagation through time \citep{boden2002guide,jaeger2002tutorial} is derived as follows.  
+Since computations for a RNN are the same as those described in standard DNN evaluations, it is possible to compute the sub gradient for  RNN architecture using the back propagation algorithm.  The modified algorithm appropriately called back propagation through time (BPTT) \citep{boden2002guide,jaeger2002tutorial} is derived as follows.  
 
 We define the cost function (or training criterion) as the sum-squared error
 $$E=c\sum_{t=1}^T||\mathbf{l}_t−\mathbf{y}_t||^2=c\sum_{t=1}^T\sum_{j=1}^L(l_t(j)−y_t(j))^2$$- - - (4)
@@ -443,17 +443,17 @@ $$\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)}$$
   \caption{An LSTM Cell \cite{graves2013hybrid}}\label{fig_3_3_lstmcell}
 \end{figure}
 
-The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $$\mathbf{i}_t$$ represents the input gate, $$\mathbf{f}_t$$ is the forget gate and $$\mathbf{o}_t$$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid (tanh) activation functions utilised at the input and output of the current cell $$\mathbf{c}_t$$.
+The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $$\mathbf{i}_t$$ represents the input gate, $$\mathbf{f}_t$$ is the forget gate and $$\mathbf{o}_t$$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid ($$tanh$$) activation functions utilised at the input and output of the current cell $$\mathbf{c}_t$$.
 
 ## Deep speech architecture
 
-This work makes use of an enhanced RNN architecture called the Bi-directional Recurrent Neural Network (BiRNN). While \cite{hannun2014first} assert that forward recurrent connections does reflect the sequencial relationships of an audio waveform, perhaps the BiRNN model poses a more powerful sequence model.
+This work makes use of an enhanced RNN architecture called the Bi-directional Recurrent Neural Network (BiRNN). While \cite{hannun2014first} assert that forward recurrent connections does reflect the sequential relationships of an audio waveform, perhaps the BiRNN model poses a more powerful sequence model.
 
 The BiRNN is a preferred end to end mechanism due to the length of sequence over which temporal relationships can be captured.  This implies that BiRNNs will be suited for capturing temporal relationships over much longer sequences than a forward only RNN because hidden state information are preserved in both forwards and backwards direction. 
 
-In additin, such a model has a notion of complete sentence or utterance  integration having information over the entire temporal extent of the input features when making each prediction. 
+In addition, such a model has a notion of complete sentence or utterance  integration having information over the entire temporal extent of the input features when making each prediction. 
 
-The formulation of the BiRNN is derived by starting of with the basic RNN architecture which is referred to as the forward architecture.  From th forward architecture we derive the bakward architecture. If we choose a temporally recurrent layer $$j$$, the BiRNN forward and backward intermediate hidden representation $$h^{(f)}_t$$ and $$h^{(b)}_t$$ is given as. 
+The formulation of the BiRNN is derived by starting of with the basic RNN architecture which is referred to as the forward architecture.  From the forward architecture we derive the backward architecture. If we choose a temporally recurrent layer $$j$$, the BiRNN forward and backward intermediate hidden representation $$h^{(f)}_t$$ and $$h^{(b)}_t$$ is given as. 
 \begin{equation}$$h_t^{(f)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(f)T}_kh_{t-1}^{(j)}+b^{(j)}))$$
 \label{eqn_c3_ds01}\end{equation}
 \begin{equation}$$h_t^{(b)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(b)T}_kh_{t+1}^{(b)}+b^{(j)}))$$
@@ -461,7 +461,7 @@ The formulation of the BiRNN is derived by starting of with the basic RNN archit
 
 Temporal weight matrices $$W^{(f)}$$ and $$W^{(b)}$$ propagate $$h^{(f)}_t$$  and $$h^{(b)}_t$$ forward and backward in time respectively. 
 
-\cite{hanun2014first} points out that the recurrent forward and backward components are evaluated entirely independent of each other and for optimal training, a modified nonlinearity function $$\sigma(z) = min(max(z, 0), 20)$$ is recommended. 
+\cite{hanun2014first} points out that the recurrent forward and backward components are evaluated entirely independent of each other and for optimal training, a modified non linearity function $$\sigma(z) = min(max(z, 0), 20)$$ is recommended. 
 
 The final BiRNN representation $$h^{(j)}_t$$ for the layer is now the sum of the two RNN components,
  \begin{equation}$$h_t^{(j)}=h_t^{(f)}+h_t^{(b)}$$
