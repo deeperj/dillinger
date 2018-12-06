@@ -342,17 +342,17 @@ Neural networks have become increasingly popular due to their ability to model n
 ### Deep Neural Networks (DNN)
 
 Deep neural networks have been accepted to be networks having multiple layers and capable of hierarchical knowledge representation \citep{yu2016automatic}.
- This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} with a similar structure.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$\mathbf{x}_t$$ is applied.  At the first hidden layer, activations are vectors evaluated using
+ This will therefore include multi-layer preceptrons (MLPs) having more than one hidden layer \citep{dahl2012context} as well as deep belief networks (DBNs)\citep{mohamed2009deep,yu2010roles} having a similar structure.  Therefore, following the MLP architecture, A DNN uses multiple hidden layers and generates distribution function, $$p(c|x_t)$$ on the output layer when an input vector $$\mathbf{x}_t$$ is applied.  At the first hidden layer, activations are vectors evaluated using
 \begin{equation}$$\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{x}_t+\mathbf{b}^{(1)})$$
 \label{eqn_c3_dnn01}\end{equation}
 
-The matrix $$\mathbf{W}^{(1)}$$ and vector $$b^{(1)}$$ are the weight matrix and bias vector for the layer.  The function $$\sigma(\cdot)$$ is a point-wise non-linearity.  We use rectifier non-linearities and thus choose $$\sigma(z)=max(z,0)$$.
+The matrix $$\mathbf{W}^{(1)}$$ is the weight matrix and vector $$b^{(1)}$$, the bias vector for the layer.  The function $$\sigma(\cdot)$$ is the point-wise non-linear function. 
 
-DNNs have arbitrarily many hidden layers. After the first hidden layer, the hidden activations $$h^{(i)}$$ for the layer i are computed as
+DNNs activations  $$h^{(i)}$$ at layer i, at arbitrarily many hidden layers after the first hidden layer, are subsequently hiddenare determimed from
 \begin{equation}$$\mathbf{h}^{(1)}=\sigma(\mathbf{W}^{(1)T}\mathbf{h}^{(i-1)}+\mathbf{b}^{(1)})$$
 \label{eqn_c3_dnn02}\end{equation}
 
-To obtain a proper distribution over the set of possible characters $$c$$ the final layer of the network is a soft max output layer of the form,
+The distribution over all the possible set of characters $$c$$ is obtained in the final layer of the network in the exact way of a multi-layer Perceptron, that is, using soft max activation at the output layer of the form,
 \begin{equation}$$p(c=c_k|x_t)=\frac{exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}{\sum_j exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}$$
 \label{eqn_c3_dnn02}\end{equation}
 where $$W_k^{(s)}$$ is the $$k$$-th column of the output weight matrix $$W^{(s)}$$ and $$b_k^{(k)}$$ is the scalar bias term.  We can compute the subgradient for all parameters of the DNN given a training example and thus utilise gradient-based optimisation techniques.  This same formulation is used in DNN-HMM models to predict distribution over senones instead of characters.
@@ -373,44 +373,54 @@ It can be seen in equation (\ref{eqn_c3_rnn01}) above given a selected RNN  hidd
 Since computations for a RNN are the same as those described in standard DNN evaluations, it is possible to compute the sub gradient for  RNN architecture using the back propagation algorithm.  The modified algorithm appropriately called back propagation through time (BPTT) \citep{boden2002guide,jaeger2002tutorial} is derived as follows.  
 
 We define the cost function (or training criterion) as the sum-squared error
-$$E=c\sum_{t=1}^T||\mathbf{l}_t−\mathbf{y}_t||^2=c\sum_{t=1}^T\sum_{j=1}^L(l_t(j)−y_t(j))^2$$- - - (4)
+\begin{equatin}
+$$E=c\sum_{t=1}^T||\mathbf{l}_t-\mathbf{y}_t||^2=c\sum_{t=1}^T\sum_{j=1}^L(l_t(j)-y_t(j))^2$$ \label{eqn_c3_bptt01}\end{equation}
+
 Between the actual output, $$\mathbf{y}_t$$, and the target vector, $$\mathbf{l}_t$$, over all time frames as the cost function where $$l_t(j)$$ and $$y_t(j)$$ are the $$j$$-th units in the target and output vectors, respectively, and $$c=0.5$$ is a conveniently chosen scale factor.
 
 We seek to minimise the cost with respect to the weights using the gradient descent algorithm.  For a specific weight, w, in the RNN, the update rule for gradient descent is
-$$w^{new}=w−\gamma\frac{\delta E}{\delta w}$$ - - - (5)
-Where  is the learning rate.  To compute the gradient, we define the error terms
-$$\delta_t^y(j)=−\frac{\delta E}{\delta},\delta_t^h(j)=\frac{\delta E}{\delta u_t(j)}$$ - - - (6)
+\begin{equation}
+$$w^{new}=w-\gamma\frac{\delta E}{\delta w}$$  \label{eqn_c3_bptt02}\end{equation}
+where  is the learning rate.  To compute the gradient, we define the error terms
+\begin{equation}
+$$\delta_t^y(j)=-\frac{\delta E}{\delta},\delta_t^h(j)=\frac{\delta E}{\delta u_t(j)}$$ \label{eqn_c3_bptt03}\end{equation}
 As the gradient of the cost with respect to the unit’s input potential.  The error terms and gradients can be recursively computed as we will explain next.
 
 #### Recursive Computation of Error terms
 In the propagation part of the BPTT algorithm, all RNN weights are duplicated spatially for an arbitrary number of time steps.  That is, they are tied over time. Therefore, the standard backpropagation algorithm for feed-forward neural networks needs to be modified by incorporating this tying constraint.
 
-At the final time t=T, we can calculate the error terms at the output as 
-$$\delta^y_T(j)=−\frac{\delta E}{\delta y_T(j)}\frac{\delta y_T(j)}{\delta v_T(j)}=(l_T(j)−y_T(j))g‘(v_T(j))\text{ for } j=1,2,\dots,L$$- - - (7)
+At the final time t=T, we can calculate the error terms at the output as
+\begin{equation}
+$$\delta^y_T(j)=-\frac{\delta E}{\delta y_T(j)}\frac{\delta y_T(j)}{\delta v_T(j)}=(l_T(j)-y_T(j))g'(v_T(j))\text{ for } j=1,2,\dots,L$$ \label{eqn_c3_bptt04}\end{equation}
 or
-$$\mathbf{\delta}_T^y=(\mathbf{l}_T−\mathbf{y}_T)\bullet g‘(\mathbf{v}_T)$$
+\begin{equation}
+$$\mathbf{\delta}_T^y=(\mathbf{l}_T-\mathbf{y}_T)\bullet g'(\mathbf{v}_T)$$ \label{eqn_c3_bptt05}\end{equation}
 And at the hidden layer as
-$$\delta_T^h(j)=−\left(\sum_{i=1}^L\frac{\partial E}{\partial v_T(i)}\frac{\partial v_T(i)}{\partial h_T(j)}\frac{\partial h_T(j)}{\partial u_t(j)}\right)=\sum_{i=1}^L\delta_T^y(i)w_{hy}(i,j)f‘(u_T(j))$$- - - (8)
-for j=1,2,...,N
-or $$\delta_T^h=\mathbf{W}_{hy}^T\mathbf{\delta}_T^y\bullet f‘(\mathbf{u}_T)$$
-Where  is the element-wise multiplication operator.
+\begin{equation}
+$$\delta_T^h(j)=-\left(\sum_{i=1}^L\frac{\partial E}{\partial v_T(i)}\frac{\partial v_T(i)}{\partial h_T(j)}\frac{\partial h_T(j)}{\partial u_t(j)}\right)=\sum_{i=1}^L\delta_T^y(i)w_{hy}(i,j)f'(u_T(j))\text{ for } j=1,2,...,N$$ \label{eqn_c3_bptt06}
+or $$\delta_T^h=\mathbf{W}_{hy}^T\mathbf{\delta}_T^y\bullet f'(\mathbf{u}_T)$$
+where $$\bullet$$ is the element-wise multiplication operator.
 
-For all other time frames, t=T-1, T-2, …, 1, we can compute the error terms as 
-$$\delta_t^y(j)=(l_t(j)−y_t(j))g‘(v_t(j))\text{ for } j=1,2,\dots,L$$
-or
-$$\mathbf{\delta}_t^y = (\mathbf{l}_t−\mathbf{y}_t)\bullet g‘(\mathbf{v}_t)$$ - - - (9)
-For the output units and
-$$\begin{align*}\delta_t^h(j)&=−\left[\sum_{i=1}^N\frac{\partial E}{\partial\mathbf{u}_{t+1}(i)}\frac{\partial\mathbf{u}_{t+1}(i)}{\partial h_t(j)}+\sum_{i=1}^L\frac{\partial E}{\partial v_t(i)}\frac{\partial v_t(i)}{\partial h_t(j)}\right]\frac{\partial h_t(j)}{\partial u_t(j)}\\ &=\left[\sum_{i=1}^N\delta_{t+1}^h(i)w_{hh}(i,j)+\sum_{i=1}^L\delta_t^y(i)w_{hy}(i,j)\right]f‘(u_t(j)) \text{ for }j=1,\dots,N \\ \text{ or } \delta_t^h&=\left[\mathbf{W}_{hh}^\top\mathbf{\delta}_{t+1}^h+\mathbf{W}_{hy}^\top\mathbf{\delta}_t^y\right]\bullet f‘(\mathbf{u}_t)\end{align*}$$ - - - (10)
-For the hidden units, recursively, where the error term  is propagated back from the output layer at time frame t, and  is propagated back from the hidden layer at time frame t + 1.
+For all other time frames, $$t=T-1, T-2, …, 1,$$ we can compute the error terms as 
+\begin{equation}
+$$\delta_t^y(j)=(l_t(j)-y_t(j))g'(v_t(j))\text{ for } j=1,2,\dots,L$$
+\label{eqn_c3_bptt07}\end{equation{
+or \begin{equation}
+$$\mathbf{\delta}_t^y = (\mathbf{l}_t-\mathbf{y}_t)\bullet g'(\mathbf{v}_t)$$ \label{eqn_c3_bptt08}\end{equation}
+
+For the output units and \begin{equation}$$\begin{aligned}\delta_t^h(j)&=-\left[\sum_{i=1}^N\frac{\partial E}{\partial\mathbf{u}_{t+1}(i)}\frac{\partial\mathbf{u}_{t+1}(i)}{\partial h_t(j)}+\sum_{i=1}^L\frac{\partial E}{\partial v_t(i)}\frac{\partial v_t(i)}{\partial h_t(j)}\right]\frac{\partial h_t(j)}{\partial u_t(j)}\\ &=\left[\sum_{i=1}^N\delta_{t+1}^h(i)w_{hh}(i,j)+\sum_{i=1}^L\delta_t^y(i)w_{hy}(i,j)\right]f'(u_t(j)) \text{ for }j=1,\dots,N \\ \text{ or } \delta_t^h&=\left[\mathbf{W}_{hh}^\top\mathbf{\delta}_{t+1}^h+\mathbf{W}_{hy}^\top\mathbf{\delta}_t^y\right]\bullet f'(\mathbf{u}_t)\end{aligned}$$\label{eqn_c3_bptt09}\end{equation}
+
+For the hidden units, recursively, where the error term  is propagated back from the output layer at time frame t, and  is propagated back from the hidden layer at time frame $$t + 1$$.
 
 #### Update of RNN Weights
-Given all the error terms and gradients computed above, we can easily update the weights.  For the output weight matrices, we have
-$$\begin{align*}w_{hy}^{new}(i,j)&=w_{hy}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial v_t(i)}\frac{\partial v_t(i)}{\partial w_{hy}(i,j)}=w_{hy}(i,j)−\gamma\sum_{i=1}^T\delta_t^y(i)h_t(j)\\ \text{ or }\mathbf{W}_{hy}^{new}&=\mathbf{W}_{hy}+\gamma\sum_{t=1}^T\mathbf{\delta}_y^t\mathbf{h}_t^\top\end{align*}$$- - - (11)
-For the input weight matrices, we get
-$$w_{xh}^{new}(i,j)=w_{xh}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{xh}(i,j)}=w_{xh}(i,j)−\gamma\sum_{t=1}^T\delta_t^h(i)x_t(j)$$ - - - (12a)
-or $$\mathbf{W}_{xh}^{new}=\mathbf{W}_{xh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{x}_t^\top$$ - - - (12b)
-For the recurrent weight matrices we have 
-$$\begin{align*}w_{hh}^{new}(i,j)&=w_{hh}(i,j)−\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{hh}(i,j)}\\ &=w_{hh}(i,j)−\gamma\sum_{t=1}^T\mathbf{\delta}_h^t(i)h_{t−1}(j) \\ \text{ or }&=\mathbf{W}_{hh}^{new}=\mathbf{W}_{hh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{h}_{t−1}^\top\end{align*}$$ - - - (13)
+Given all the error terms and gradients computed above, we can easily update the weights.  For the output weight matrices, we have \begin{equation}
+$$\begin{aligned}w_{hy}^{new}(i,j)&=w_{hy}(i,j)-\gamma\sum_{t=1}^T\frac{\partial E}{\partial v_t(i)}\frac{\partial v_t(i)}{\partial w_{hy}(i,j)}=w_{hy}(i,j)-\gamma\sum_{i=1}^T\delta_t^y(i)h_t(j)\\ \text{ or }\mathbf{W}_{hy}^{new}&=\mathbf{W}_{hy}+\gamma\sum_{t=1}^T\mathbf{\delta}_y^t\mathbf{h}_t^\top\end{aligned}$$ \label{eqn_c3_bptt10}\end{equation}
+For the input weight matrices, we get \begin{equation}
+$$w_{xh}^{new}(i,j)=w_{xh}(i,j)-\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{xh}(i,j)}=w_{xh}(i,j)-\gamma\sum_{t=1}^T\delta_t^h(i)x_t(j)$$ \label{eqn_c3_bptt11}\end{equation}
+or \begin{equation}
+$$\mathbf{W}_{xh}^{new}=\mathbf{W}_{xh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{x}_t^\top$$ \label{eqn_c3_bptt_13}\end{equation}
+For the recurrent weight matrices we have \begin{equation}
+$$\begin{aligned}w_{hh}^{new}(i,j)&=w_{hh}(i,j)-\gamma\sum_{t=1}^T\frac{\partial E}{\partial u_t(i)}\frac{\partial u_t(i)}{\partial w_{hh}(i,j)}\\ &=w_{hh}(i,j)-\gamma\sum_{t=1}^T\mathbf{\delta}_h^t(i)h_{t-1}(j) \\ \text{ or }&=\mathbf{W}_{hh}^{new}=\mathbf{W}_{hh}+\gamma\sum_{t=1}^T\mathbf{\delta}_h^t\mathbf{h}_{t-1}^\top\end{aligned}$$ \label{eqn_c3_bptt14}\end{equation}
 Note that different from BP algorithm used in the DNN system, here the gradients are summed over all the time frames since the same weight matrices are used across time.  This is summarised below
 
 ### LSTMs and GRUs
@@ -445,16 +455,24 @@ $$\mathbf{h}_t=\mathbf{o}_t\bullet\tanh{(\mathbf{c}_t)}$$
 
 The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $$\mathbf{i}_t$$ represents the input gate, $$\mathbf{f}_t$$ is the forget gate and $$\mathbf{o}_t$$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid ($$tanh$$) activation functions utilised at the input and output of the current cell $$\mathbf{c}_t$$.
 
-One particular variant of the original LSTM model is the GRU cell. Though simpler than an LSTM cell the GRU cell performs equally efficient.  The main simplifications are that both state vectors are merged into a single vector $$\mathbf{h}_{(t)}$$. A single gate controller controls both the forget gate an the input gate.   If the gate controller outputs a 1, the input gate is open and the forget gate is closed.  If it outputs a 0, the opposite happens.  In other words, whenever a memory be stored, the location where it will be stored is erased first.  This is actually a frequent variant LSTM cell in and of itself. Finally, there is no output gate; the full vector cost is output at every time step.  However, there is a new gate controller that controls which part or the previous state will be shown to the main layer.
+One particular variant of the original LSTM model is the GRU cell. Though simpler than an LSTM cell the GRU cell performs equally efficient.  The main simplifications are that both state vectors are merged into a single vector $$\mathbf{h}_{(t)}$$. A single gate controller controls both the forget gate an the input gate.   If the gate controller outputs a 1, the input gate is open and the forget gate is closed.  If it outputs a 0, the opposite happens.  In other words, whenever a memory be stored, the location where it will be stored is erased first.  This is actually a frequent variant LSTM cell in and of itself. Finally, there is no output gate; the full vector cost is output at every time step.  However, there is a new gate controller that controls which part or the previous state will be shown to the main layer \citep{\cho2014learning}.
 
 The overall architecture of a GRU is as follows:
-
+\begin{equation}
+$$\mathbf{z}_{(t)}=\sigma(\mathbf{W}_{xz}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hz}^T\cdot\mathbf{x}_{(t-1)})$$\label{eqn_c3_gru01}
+\end{equation}\begin{equation}
+$$\mathbf{r}_{(t)}=\sigma(\mathbf{W}_{xr}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hr}^T\cdot\mathbf{x}_{(t-1)})$$\label{eqn_c3_gru01}
+\end{equation}\begin{equation}
+$$\mathbf{g}_{(t)}=\tanh(\mathbf{W}_{xg}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hg}^T\cdot(\mathbf{r}_{(t)}\otimes\mathbf{h}_{(t-1)}))$$\label{eqn_c3_gru01}
+\end{equation}\begin{equation}
+$$\mathbf{h}_{(t)}=(1-\mathbf{z}_{(t)})\otimes(\mathbf{h}_{(t-1)})+\mathbf{z}_{(t)}\otimes\mathbf{g}_{t}$$\label{eqn_c3_gru01}
+\end{equation}
 
 ## Deep speech architecture
 
 This work makes use of an enhanced RNN architecture called the Bi-directional Recurrent Neural Network (BiRNN). While \cite{hannun2014first} assert that forward recurrent connections does reflect the sequential relationships of an audio waveform, perhaps the BiRNN model poses a more powerful sequence model.
 
-The BiRNN is a preferred end to end mechanism due to the length of sequence over which temporal relationships can be captured.  This implies that BiRNNs will be suited for capturing temporal relationships over much longer sequences than a forward only RNN because hidden state information are preserved in both forwards and backwards direction. 
+The BiRNN is a preferred end to end mechanism similar to the LSTM also due to the length of sequence over which temporal relationships can be captured.  This implies that BiRNNs will be suited for capturing temporal relationships over much longer sequences than a forward only RNN because hidden state information are preserved in both forwards and backwards direction. 
 
 In addition, such a model has a notion of complete sentence or utterance  integration having information over the entire temporal extent of the input features when making each prediction. 
 
@@ -965,6 +983,7 @@ references:bib.bib
 4. Publication rejection notes to be considered
 5. Fast Fourier transform?
 6. Chapter summaries
+7. Search for duplicate words
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
