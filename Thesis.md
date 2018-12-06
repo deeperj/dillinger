@@ -983,6 +983,7 @@ references:bib.bib
 4. Publication rejection notes to be considered
 5. Fast Fourier transform?
 6. Chapter summaries
+7. Search for duplicate words
 [Highland-ScratchPad-End]-->
 
 <!--[Highland-Bin-Start]
