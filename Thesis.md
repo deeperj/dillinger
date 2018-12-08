@@ -354,8 +354,21 @@ DNNs activations  $$h^{(i)}$$ at layer i, at arbitrarily many hidden layers afte
 
 The distribution over all the possible set of characters $$c$$ is obtained in the final layer of the network in the exact way of a multi-layer Perceptron, that is, using soft max activation at the output layer of the form,
 \begin{equation}$$p(c=c_k|x_t)=\frac{exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}{\sum_j exp(-(\mathbf{W}^{(s)T}_kh^{(i-1)}+b_k^{(1)}))}$$
-\label{eqn_c3_dnn02}\end{equation}
-where $$W_k^{(s)}$$ is the $$k$$-th column of the output weight matrix $$W^{(s)}$$ and $$b_k^{(k)}$$ is the scalar bias term.  We can compute the subgradient for all parameters of the DNN given a training example and thus utilise gradient-based optimisation techniques.  This same formulation is used in DNN-HMM models to predict distribution over senones instead of characters.
+\label{eqn_c3_dnn03}\end{equation}
+$$W_k^{(s)}$$ and $$b_k^{(k)}$$ respectively are the output weight matrix and the scalar bias term of the $$k$$-th neuron. Accordingly, subgradients for all parameters in the DNN are utilised to back propagate errors in weights during training for gradient-based optimisation techniques.  In DNN-HMM speech models,   DNNs are trained to predict probabilty distributions over senones.  However, in the model neural network described in section \ref{c3_ctc}, of this thesis, predicts per character conditional distributions.
+
+Combining equations (\ref{eqn_c3_nn_01}, \ref{eqn_c3_dnn01}, \ref{eqn_c3_dnn02} and \ref{eqn_c3_dnn03}) the following simplified algorithm ensues
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwResult{Optimal weights }
+ initialise weights randomly\;
+ \While{error is significant or epochs less than maximum}{
+  forward computation in equation (\ref{eqn_c3_dnn01} to \ref{eqn_c3_dnn03} )\;
+  determine layerwise error for weights and biases $$\Delta_\mathbf{W}E$$ and  $$\Delta_\mathbf{b}E$$ \;
+  update weights and biases according to gradient descent\;
+ }
+ \caption{DNN training algorithm}
+\end{algorithm}
 
 ### Recurrent Neural Networks (RNNs)
 
@@ -491,7 +504,7 @@ The final BiRNN representation $$h^{(j)}_t$$ for the layer is now the sum of the
 \label{eqn_c3_ds03}\end{equation}
 Also note that backpropagation subgradient evaluations is computed from the combined BiRNN structure directly during training.
 
-## CTC Loss Algorithm
+## CTC Loss Algorithm \label{c3_ctc}
 In accord with [Deep Speech: Scaling up end-to-end speech recognition](http://arxiv.org/abs/1412.5567), the loss function used by our network should be the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf). Unfortunately, as of this writing, the CTC loss function[[2]](http://www.cs.toronto.edu/~graves/preprint.pdf) is not implemented within TensorFlow[[5]](https://github.com/tensorflow/tensorflow/issues/32). Thus we will have to implement it ourselves. The next few sections are dedicated to this implementation.
 
 The CTC algorithm was specifically designed for temporal classification tasks; that is, for sequence labelling problems where the alignment between the inputs and the target labels is unknown. Unlike hybrid approaches combining HMM and DNN, CTC models all aspects of the sequence with a single neural network, and does not require the network to be combined with a HMM. It also does not require pre-segmented training data, or external post-processing to extract the label sequence from the network outputs.
