@@ -513,7 +513,7 @@ Generally, neural networks require separate training targets for every timeslice
 
 CTC avoids this problem by allowing the network to make label predictions at any point in the input sequence, so long as the overall sequence of labels is correct. This removes the need for pre-segmented data, since the alignment of the labels with the input is no longer important. Moreover, CTC directly outputs the probabilities of the complete label sequences, which means that no external post-processing is required to use the network as a temporal classifier.
 
-For a sequence labelling task where the labels are drawn from an alphabet $A$, CTC consists of a softmax output layer, our `layer_6`,  with one more unit than there are labels in `A`. The activations of the first `|A|` units are the probabilities of outputting the corresponding labels at particular times, given the input sequence and the network weights. The activation of the extra unit gives the probability of outputting a $blank$, or no label. The complete sequence of network outputs is then used to define a distribution over all possible label sequences of length up to that of the input sequence.
+For a sequence labelling task where the labels are drawn from an alphabet $$A$$, CTC consists of a softmax output layer, our `layer_6`,  with one more unit than there are labels in `A`. The activations of the first `|A|` units are the probabilities of outputting the corresponding labels at particular times, given the input sequence and the network weights. The activation of the extra unit gives the probability of outputting a $blank$, or no label. The complete sequence of network outputs is then used to define a distribution over all possible label sequences of length up to that of the input sequence.
 
 Defining the extended alphabet $$A' = A \cup \{blank\}$$, the activation $$y_{t,p}$$ of network output $$p$$ at time $$t$$ is interpreted as the probability that the network will output element $$p$$ of $$A'$$ at time $$t$$, given the length $$T$$ input sequence $$x$$. Let $$A'^T$$ denote the set of length $$T$$ sequences over $$A'$$. Then, if we assume the output probabilities at each timestep to be independent of those at other timesteps (or rather, conditionally independent given $$x$$), we get the following conditional distribution over $$\pi \in A'^T$$:
 \begin{equation}
@@ -534,24 +534,24 @@ This 'collapsing together' of different paths onto the same labelling is what ma
 In the original formulation of CTC there were no blank labels, and $$\mathcal{B}(\pi)$$ was simply $$\pi$$ with repeated labels removed. This led to two problems. First, the same label could not appear twice in a row, since transitions only occurred when $$\pi$$ passed between different labels. Second, the network was required to continue predicting one label until the next began, which is a burden in tasks where the input segments corresponding to consecutive labels are widely separated by unlabelled data (for example, in speech recognition there are often pauses or non-speech noises between the words in an utterance).
 
 ### Forward-backward algorithm
-So far we have defined the conditional probabilities $$\Pr(l \, | \, x)$$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $T$ input sequence and a length $$U$$ labelling there are $$2^{T-U^2+U(T-3)}3^{(U-1)(T-U)-2}$$ paths.
+So far we have defined the conditional probabilities $$\Pr(l \, | \, x)$$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $$T$$ input sequence and a length $$U$$ labelling there are $$2^{T-U^2+U(T-3)}3^{(U-1)(T-U)-2}$$ paths.
 
 Fortunately the problem can be solved with a dynamic-programming algorithm similar to the forward-backward algorithm for HMM's[[6]](http://www.ee.columbia.edu/~dpwe/e6820/papers/Rabiner89-hmm.pdf). The key idea is that the sum over paths corresponding to a labelling l can be broken down into an iterative sum over paths corresponding to prefixes of that labelling.
 
 To allow for blanks in the output paths, we consider a modified "label sequence" $$l'$$, with blanks added to the beginning and the end of $$l$$, and inserted between every pair of consecutive labels. If the length of $$l$$ is $$U$$, the length of $$l'$$ is $$U' = 2U + 1$$. In calculating the probabilities of prefixes of $$l'$$ we allow all transitions between blank and non-blank labels, and also those between any pair of distinct non-blank labels.
 
-For a labelling $$l$$, the forward variable $$\alpha(t,u)$$ is defined as the summed probability of all length $$t$$ paths that are mapped by $$\mathcal{B}$$ onto the length $$\left \lfloor{u/2}\right \rfloor$$ prefix of $$l$$. (Note, $$$\left \lfloor{u/2}\right \rfloor$$ is the floor of $$u/2$$, the greatest integer less than or equal to $$u/2$$.) For some sequence $$s$$, let $$s_{p:q}$$ denote the subsequence $$s_p, s_{p+1},\dots,s_{q-1},s_q$$, and define the set $$V(t,u) \equiv \{ \pi \in A'^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$$. We can then define $$\alpha(t,u)$$ as
+For a labelling $$l$$, the forward variable $$\alpha(t,u)$$ is defined as the summed probability of all length $$t$$ paths that are mapped by $$\mathcal{B}$$ onto the length $$\left \lfloor{u/2}\right \rfloor$$ prefix of $$l$$. (Note, $$\left \lfloor{u/2}\right \rfloor$$ is the floor of $$u/2$$, the greatest integer less than or equal to $$u/2$$.) For some sequence $$s$$, let $$s_{p:q}$$ denote the subsequence $$s_p, s_{p+1},\dots,s_{q-1},s_q$$, and define the set $$V(t,u) \equiv \{ \pi \in A'^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$$. We can then define $$\alpha(t,u)$$ as
 \begin{equation}
 $$\alpha(t,u) \equiv \sum_{\pi \in V(t,u)} \prod_{i=1}^{t} y_{i,\pi_i}$$ 
 \label{eqn_c3_ctc04}
-As we will see, the forward variables at time $t$ can be calculated recursively from those at time $$t − 1$$.
+As we will see, the forward variables at time $$t$$ can be calculated recursively from those at time $$t - 1$$.
 
 Given the above formulation, the probability of $$l$$ can be expressed as the sum of the forward variables with and without the final blank at time $$T$$.
 \begin{equation}
 $$\Pr( l \, | \, x) = \alpha(T, U') + \alpha(T, U' - 1)$$
 \label{eqn_c3_ctc05}\end{eequation}
 
-All correct paths must start with either a blank $(b)$ or the first symbol in $l$ $(l_1)$, yielding the following initial conditions:
+All correct paths must start with either a blank $$(b)$$ or the first symbol in $$l$$ $$(l_1)$$, yielding the following initial conditions:
 \begin{equation}
 $$\begin{aligned}\alpha(1, 1) &= y_{1,b} \\ \alpha(1, 2) &= y_{1,l_1} \\ \alpha(1, u) &= 0, \, \forall u > 2 \end{aligned}$$
 \label{eqn_c3_ctc05}\end{equation}
@@ -564,7 +564,7 @@ where
 \begin{equation}
 $$f(u) =\begin{cases}u-1, & \text{ if } l'_u = blank \text{ or } l'_{u-2} = l'_{u} \\ u-2, & \text{otherwise}\end{cases}$$
 \label{eqn_c3_ctc07}\end{equation}
-Graphically we can express the recurrence relation for $\alpha(t, u)$ as follows.
+Graphically we can express the recurrence relation for $$\alpha(t, u)$$ as follows.
 
 ![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/Lattice.png "Beam Search Lattice Structure")
 \begin{figure}
@@ -601,10 +601,12 @@ where
 $$g(u) = \begin{cases} u + 1,& \text{if } l'_u = blank \text{ or } l'_{u+2} = l'_{u} \\ u + 2,& \text{otherwise} \end{cases}$$
 
 In practice, the above recursions will soon lead to underflows on any digital computer. A good way to avoid this is to work in the log scale, and only exponentiate to find the true probabilities at the end of the calculation. A useful equation in this context is
+\begin{eqution}
 $$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b - \ln a})$$
+\label{eqn_c3_ctc18}\end{equation}
 
 ### Loss Function
-The CTC loss function $\mathcal{L}(S)$ is defined as the negative log probability of correctly labelling all the training examples in some training set S:
+The CTC loss function $$\mathcal{L}(S)$$ is defined as the negative log probability of correctly labelling all the training examples in some training set S:
 \begin{equation}
 $$\mathcal{L}(S) = - \ln \prod_{(x,z) \in S} \Pr(z \, | \, x) = - \sum_{(x,z) \in S} \ln \Pr(z \, | \, x)$$
 \label{eqn_c3_ctc11}\end{equation}
