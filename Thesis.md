@@ -243,19 +243,19 @@ Here $$I,D$$ and $$R$$ are wrong insertions, deletions and replacements respecti
 Metrics used for low speech recognition in the zero speech challenge \citep{versteegh2015zero} includes the ABX metric. Other common speech recognition error metrics following a similar definition as the Word Error Rate (WER) are Character Error Rate (CER), Phoneme Error Rate (PER) and Syllabic Error Rate (SyER) and sentence error rate (SER).
 
 # Recurrent Neural Networks in Speech Recognition
-The HMM method mentioned in the previous section is based on the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As earlier mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
+The HMM method described in Chapter 2 uses the divide and conquer strategy which has been defined as a generative method in which we use the smaller components represented by the HMM to learn the entire speech process.   As also previously mentioned this can also be referred to as the bottom-up strategy.  The discriminative method however uses the opposite mechanism.  Rather than using the building blocks of speech to determine speech parameters of a HMM, the discriminative strategy rather determines the posterior probability directly using the joint probability distribution of the parameters involved in the discriminative process.  The discriminative parameters are discussed in this section where the Neural network discriminative approach is described beginning with the architecture.
 
 ## Neural network architecture
-The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  This structure is described by McCulloch and Pitts (1942) \cite{cowan1990discussion} as the perceptron in figure \ref{fig_3_2_ptron} below
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/ptron2.png "Perceptron")
+The building block of a neural network simulates a combination of two consecutive linear and non-linear operations having many inputs interconnected with the linear portion of the network.  The rudimentary structure is described by McCulloch and Pitts (1942) in \cite{cowan1990discussion} as the perceptron in figure \ref{fig_3_2_ptron} 
+![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/ptron2.png "Neural Network")
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/ptron2.png}\\
-  \caption{Perceptron} \label{fig_3_2_ptron}
+  \caption{Neural Network} \label{fig_3_2_ptron}
 \end{figure}
 
-The linear operation is the sum of the inputs multiplied by a weight vector.  The non linear operation is the given by a any one of a selection of nonlinear functions.  In the figure above this is given by a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure \ref{fig_3_2_nn} below :
+The linear operation is the sum of the products of the input feature and a  weight vector set.  This vector sum of products is referred to as an affine transformation or operation.  The non linear operation is the given by any one of a selection of nonlinear functions.  In  figure \ref{fig_3_2_nn} this is shown as a step function.  The step function is activated (becomes 1) whenever the output of the linear function is above a certain threshold, otherwise remains at 0.  A simple neural network of perceptrons is formed by stacking the perceptrons into an interconnected layer as shown in the figure \ref{fig_3_2_nn} below :
 ![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/ptron3.png "Perceptron")
 \begin{figure}
 \centering
@@ -283,7 +283,7 @@ The combination of the linear function and the non linear function in the neural
 \begin{equation}
 $$p(C_1|\mathbf{x})=f(a)=f(\mathbf{w^\top x}+w_0)$$
 \label{eqn_c3_nn_02}\end{equation}
-In a two class problem with classes  and , then we can express the posterior probability of $$C_1$$ using Bayes’s theorem
+In a two class problem with classes $$C_1$$ and $$C_2$$, the posterior probability of class $$C_1$$ is expressed using Bayes’s theorem
 \begin{equation}
 $$p(C_1|\mathbf{x})=\frac{p(\mathbf{x}|C_1)p(C_1)}{p(x|C_1)p(C_1)+p(\mathbf{x}|C_2)p(C_2)}$$
 \label{eqn_c3_nn_03}\end{equation}
@@ -310,15 +310,15 @@ $$y_k=p(C_k|\mathbf{x})=\frac{e^{a_k}}{\Sigma_{\ell=1}^K e^{a_\ell}}$$
 $$a_k=\sum_{i=0}^dw_{ki}x_i$$
 \label{eqn_c3_nn_08}\end{equation}
 
-Recall that in the generative classification method the problem is divided into sub problems by using the conditional probability, while in the discriminative approach the joint probability is determined by looking at the data directly.  This is what $$p(C_k|\mathbf{x})$$ represents.  However, recall that we still need to determine the correct probability distribution represented by the data.  This is achieved by determining the values of the weights of the linear operation.  In the next section a method known as back propagation is discussed.  Back propagation is the training algorithm used to determine the weight vector of all the layers in the neural network.  Back propagation is an extension of the Gradient descent algorithm.
+Recall that in the generative classification method the problem is divided into sub problems by using the conditional probability, while in the discriminative approach the joint probability is determined by looking at the data directly.  This is what $$p(C_k|\mathbf{x})$$ represents.  However, also recall that we still need to determine the correct probability distribution represented by the data.  This is achieved by determining the values of the weights of the linear operation.  In the next section a method known as back propagation is discussed.  Back propagation is the training algorithm used to determine the weight vector of all the layers in the neural network.  Back propagation is an extension of the Gradient descent algorithm.
 
 ### Back propagation algorithm
-In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises $$M$$ neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and acceptable value.  This is often referred to in machine learning as convergence \citep{boden2002guide}.
+In the previous section, the neural network architecture has been described as having $$N$$ inputs $$M$$ neurons and $$L$$ layers. Each layer comprises $$M$$ neurons of a maximum of $$N$$ inputs times $$M$$ neurons interconnections which embodies the inner product of the inputs and unknown set of weights. The output of this inner product is then passed to a logistic squashing function that results output probabilities.  The discriminative process, is used here to determine the correct combination of weight vectors that accurately describe the training data.  For neural networks, the weight vectors at each layer are determined through propagating the errors back through each preceding and adjusting the weights according to the errors propagated each time a batch of the data is processed.  This process of continuously adjusting weights from back propagation continues until all the data is processed and a steady state has been reached.  The steady state refers to the fact that the error has reached a steady and/or acceptable negligible value.  This is often referred to in machine learning as convergence \citep{boden2002guide}.
 
 #### Gradient Descent
 The last section ended stating that the back-propagation algorithm is an extension of the gradient descent algorithm.  It has also been seen that back propagation works by propagating the error and making adjustments on the weights.  In this section, the Gradient Descent algorithm is reviewed and how it is used in back propagation is examined.  
 
-The concept behind the Gradient descent algorithm is the fact that a function is optimized when the gradient of the function is equal to $$0$$.  Gradient descent algorithm is significant in machine learning applications because a cost function is easily defined for a particular machine learning application that is able to determine the error between the predicted value and the actual value.  Then, the parameters of the problem can be adjusted until the derivative of the cost function using gradient descent is zero.  Therefore the machine learning algorithm adjusts its parameters until the error is minimised or removed.
+The concept behind the Gradient descent algorithm is the fact that a function is optimized when the gradient of the function is equal to $$0$$.  Gradient descent algorithm is significant in machine learning applications because a cost function is easily defined for a particular machine learning application that is able to determine the error between the predicted value and the actual value.  Then, the parameters of the problem can be adjusted until the derivative of the cost function using gradient descent is zero.  Thus the machine learning algorithm adjusts its parameters until the error is minimised or removed.
 
 A common error function or cost function for neural networks is the sum-of-squares error cost function.  This is obtained by summing the difference between the actual value and the machine learning model value over the training set $$N$$. 
 \begin{equation}
@@ -385,9 +385,14 @@ It can be seen in equation (\ref{eqn_c3_rnn01}) above given a selected RNN  hidd
 
 Since computations for a RNN are the same as those described in standard DNN evaluations, it is possible to compute the sub gradient for  RNN architecture using the back propagation algorithm.  The modified algorithm appropriately called back propagation through time (BPTT) \citep{boden2002guide,jaeger2002tutorial} is derived as follows.  
 
-We define the cost function (or training criterion) as the sum-squared error
-\begin{equatin}
+### Back propagation through time (BPTT) algorithm
+
+First we define an arbitrary carefull
+Using the sum-squared error as the cost function
+\begin{equation}
 $$E=c\sum_{t=1}^T||\mathbf{l}_t-\mathbf{y}_t||^2=c\sum_{t=1}^T\sum_{j=1}^L(l_t(j)-y_t(j))^2$$ \label{eqn_c3_bptt01}\end{equation}
+
+Where $$c$$ is a gradient descent convenience factor.  TheThe two-step BPTT algorithm described in \cite{yu2016automatic} is shown as follows.
 
 Between the actual output, $$\mathbf{y}_t$$, and the target vector, $$\mathbf{l}_t$$, over all time frames as the cost function where $$l_t(j)$$ and $$y_t(j)$$ are the $$j$$-th units in the target and output vectors, respectively, and $$c=0.5$$ is a conveniently chosen scale factor.
 
@@ -945,6 +950,8 @@ references:bib.bib
 ### Chapter 3
 #### Perceptron
 * Affine transformations - done
+#### MLP
+* Check that definition of discriminative and generative approach is consistent with chapter 1
 #### DNN
 * We use rectifier non-linearities and thus choose $\sigma(z)=max(z,0)$.
 #### RNN
@@ -967,7 +974,6 @@ references:bib.bib
 * hannun2014deep results/conclusion
 * Various strategies for speech recog
 ** Kernel based methods
-* h
 
 ### Chapter 8 Future
 * Various strategies for speech recog
