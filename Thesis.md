@@ -387,7 +387,7 @@ Since computations for a RNN are the same as those described in standard DNN eva
 
 ### Back propagation through time (BPTT) algorithm
 
-First we define an arbitrary carefull
+First we define an arbitrary but carefully chosen number of time steps $$t=1,2,\dots,T$$ such that at each time step the states of the neuron activations $$j=1,2,\dots,J$$ are captured.
 Using the sum-squared error as the cost function
 \begin{equation}
 $$E=c\sum_{t=1}^T||\mathbf{l}_t-\mathbf{y}_t||^2=c\sum_{t=1}^T\sum_{j=1}^L(l_t(j)-y_t(j))^2$$ \label{eqn_c3_bptt01}\end{equation}
