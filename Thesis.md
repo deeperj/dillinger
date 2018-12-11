@@ -961,7 +961,7 @@ references:bib.bib
 * BPTT algorithm
 * When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases.
 #### GRU paragraph
-* BPTT algorithm
+* LSTM Ref, GRU ref
 ### CTC algorithm - todo
 
 ### Chapter 4
