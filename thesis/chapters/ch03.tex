@@ -207,7 +207,7 @@ In the BPTT algorithm the sub gradients are summed over all time frames. The alg
 
 A special implementation of the RNN called the Long Short Term Memory (LSTM) has been designed to capture patterns over particularly long sequences of data and thus is an ideal candidate for generating character sequences while preserving syntactic language rules learned from the training data.
 
-The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series give rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
+The internal structure and working  of the LSTM cell is documented by its creators in \cite{sak2014long}. The ability to recall information over extended sequences results from the internal gated structure which performs a series of element wise multiplications on the inputs and internal state of the LSTM cell at each time step.  In addition to the output neurons which in this text we refer to as the write gate and denote as the current cell state, $\mathbf{c}_t$, three additional gates (comprising a neural network sub-layer) located within the LSTM cell are the input gate, the forget gate and the output gate.  Together with the initial current state cell, these gates along with the current-state cell itself enable the LSTM cell architecture to store information, forward information, delete information and receive information.  Generally however, the LSTM cell looks like a regular feed-forward network having a set of neurons capped with a nonlinear function.  The recurrent nature of the network arises, however due to the fact that the internal state of the RNN cell is rerouted back as an input to the RNN cell or input to the next cell in the time-series giving rise to sequence memory within the LSTM architecture. Mathematically, these gates are formulated as follows:
 
 \begin{equation}
 \mathbf{i}_t=\sigma(\mathbf{W}^{(xi)}\mathbf{x}_t+\mathbf{W}^{(hi)}\mathbf{h}_{t-1}+\mathbf{W}^{(ci)}\mathbf{c}_{t-1}+\mathbf{b}^{(i)})
@@ -234,21 +234,31 @@ The internal structure and working  of the LSTM cell is documented by its creato
   \caption{An LSTM Cell \cite{graves2013hybrid}}\label{fig_3_3_lstmcell}
 \end{figure}
 
-The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM not whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid ($tanh$) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
+The gates in the above formula are illustrated in Figure \ref{fig_3_3_lstmcell}.  $\mathbf{i}_t$ represents the input gate, $\mathbf{f}_t$ is the forget gate and $\mathbf{o}_t$ represents the output gate.  At each of these gates therefore, the inputs consisting of hidden states in addition to the regular inputs are multiplied by a set of weights and passed through a soft-max function. These weights during training learn whether the gate will, during inference, open or not.  In summary, the input gate tells the LSTM whether or not to receive new information, the forget gate determines whether the current information it already has from the previous step should be kept or dropped and the output gate determines what should be forwarded to the next LSTM cell.  Note also that the LSTM has two sigmoid ($tanh$) activation functions utilised at the input and output of the current cell $\mathbf{c}_t$.
 
-One particular variant of the original LSTM model is the GRU cell. Though simpler than an LSTM cell the GRU cell performs equally efficient.  The main simplifications are that both state vectors are merged into a single vector $\mathbf{h}_{(t)}$. A single gate controller controls both the forget gate an the input gate.   If the gate controller outputs a 1, the input gate is open and the forget gate is closed.  If it outputs a 0, the opposite happens.  In other words, whenever a memory be stored, the location where it will be stored is erased first.  This is actually a frequent variant LSTM cell in and of itself. Finally, there is no output gate; the full vector cost is output at every time step.  However, there is a new gate controller that controls which part or the previous state will be shown to the main layer.
+One particular variant of the original LSTM model is the GRU cell. Though simpler than an LSTM cell the GRU cell performs equally efficiently.  The main simplifications are that both state vectors are merged into a single vector $\mathbf{h}_{(t)}$. A single gate controller controls both the forget gate an the input gate.   If the gate controller outputs a 1, the input gate is open and the forget gate is closed.  If it outputs a 0, the opposite happens.  In other words, whenever a memory be stored, the location where it will be stored is erased first.  This is actually a frequent variant LSTM cell in and of itself. Finally, there is no output gate; the full vector cost is output at every time step.  However, there is a new gate controller that controls which part or the previous state will be shown to the main layer.
 
 The overall architecture of a GRU is as follows:
+\begin{equation}
+\mathbf{z}_{(t)}=\sigma(\mathbf{W}_{xz}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hz}^T\cdot\mathbf{x}_{(t-1)})\label{eqn_c3_gru01}
+\end{equation}
+\begin{equation}
+\mathbf{r}_{(t)}=\sigma(\mathbf{W}_{xr}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hr}^T\cdot\mathbf{x}_{(t-1)})\label{eqn_c3_gru01}
+\end{equation}\begin{equation}
+\mathbf{g}_{(t)}=\tanh(\mathbf{W}_{xg}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hg}^T\cdot(\mathbf{r}_{(t)}\otimes\mathbf{h}_{(t-1)}))\label{eqn_c3_gru01}
+\end{equation}\begin{equation}
+\mathbf{h}_{(t)}=(1-\mathbf{z}_{(t)})\otimes(\mathbf{h}_{(t-1)})+\mathbf{z}_{(t)}\otimes\mathbf{g}_{t}\label{eqn_c3_gru01}
+\end{equation}
 
 \section{Deep speech architecture}
 
 This work makes use of an enhanced RNN architecture called the Bi-directional Recurrent Neural Network (BiRNN). While \cite{hannun2014first} assert that forward recurrent connections does reflect the sequential relationships of an audio waveform, perhaps the BiRNN model poses a more powerful sequence model.
 
-The BiRNN is a preferred end to end mechanism due to the length of sequence over which temporal relationships can be captured.  This implies that BiRNNs will be suited for capturing temporal relationships over much longer sequences than a forward only RNN because hidden state information are preserved in both forwards and backwards direction. 
+The BiRNN is a preferred end to end mechanism due to the length of sequence over which temporal relationships can be captured.  This implies that BiRNNs will be suited for capturing temporal relationships over much longer sequences than a forward only RNN, because hidden state information is preserved in both forwards and backwards direction. 
 
-In addition, such a model has a notion of complete sentence or utterance  integration having information over the entire temporal extent of the input features when making each prediction. 
+In addition, such a model has a notion of complete sentence or utterance  integration, having information over the entire temporal extent of the input features when making each prediction. 
 
-The formulation of the BiRNN is derived by starting of with the basic RNN architecture which is referred to as the forward architecture.  From the forward architecture we derive the backward architecture. If we choose a temporally recurrent layer $j$, the BiRNN forward and backward intermediate hidden representation $h^{(f)}_t$ and $h^{(b)}_t$ is given as. 
+The formulation of the BiRNN is derived by starting off with the basic RNN architecture which is referred to as the forward architecture.  From the forward architecture we derive the backward architecture. If we choose a temporally recurrent layer $j$, the BiRNN forward and backward intermediate hidden representation $h^{(f)}_t$ and $h^{(b)}_t$ is given as. 
 \begin{equation}h_t^{(f)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(f)T}_kh_{t-1}^{(j)}+b^{(j)}))
 \label{eqn_c3_ds01}\end{equation}
 \begin{equation}h_t^{(b)}=\sigma(\mathbf{W}^{(j)T}h_t^{(i-1)}+\mathbf{W}^{(b)T}_kh_{t+1}^{(b)}+b^{(j)}))
@@ -256,7 +266,7 @@ The formulation of the BiRNN is derived by starting of with the basic RNN archit
 
 Temporal weight matrices $W^{(f)}$ and $W^{(b)}$ propagate $h^{(f)}_t$  and $h^{(b)}_t$ forward and backward in time respectively. 
 
-\cite{hanun2014first} points out that the recurrent forward and backward components are evaluated entirely independent of each other and for optimal training, a modified non linearity function $\sigma(z) = min(max(z, 0), 20)$ is recommended. 
+\cite{hannun2014first} points out that the recurrent forward and backward components are evaluated entirely independent of each other and for optimal training, a modified non linearity function $\sigma(z) = min(max(z, 0), 20)$ is recommended. 
 
 The final BiRNN representation $h^{(j)}_t$ for the layer is now the sum of the two RNN components,
  \begin{equation}h_t^{(j)}=h_t^{(f)}+h_t^{(b)}
