@@ -959,7 +959,8 @@ references:bib.bib
 * Equation error
 #### RNN
 * In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient.
-* BPTT algorithm
+#### BPTT algorithm
+* Correction in p2
 * When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases.
 #### GRU paragraph
 * LSTM Ref, GRU ref
