@@ -956,12 +956,15 @@ references:bib.bib
 * Check that definition of discriminative and generative approach is consistent with chapter 1
 #### DNN
 * We use rectifier non-linearities and thus choose $\sigma(z)=max(z,0)$.
+* Equation error
 #### RNN
 * In our experiments we always compute the gradient completely through time rather than truncating to obtain an approximate subgradient.
-* BPTT algorithm
+#### BPTT algorithm
+* Correction in p2
 * When working with RDNNs, we found it important to use a modified version of the rectifier nonlinearity. This modified function selects $$\sigma(z) = min(max(z, 0), 20)$$ which clips large activations to prevent divergence during network training. Setting the maximum allowed activation to $$20$$ results in the clipped rectifier acting as a normal rectifier function in all but the most extreme cases.
 #### GRU paragraph
 * LSTM Ref, GRU ref
+#### Deepspeech rewrite
 #### CTC algorithm - todo
 
 ### Chapter 4
