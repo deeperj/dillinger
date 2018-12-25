@@ -488,7 +488,7 @@ $$\mathbf{g}_{(t)}=\tanh(\mathbf{W}_{xg}^T\cdot\mathbf{x}_{(t)}+\mathbf{W}_{hg}^
 $$\mathbf{h}_{(t)}=(1-\mathbf{z}_{(t)})\otimes(\mathbf{h}_{(t-1)})+\mathbf{z}_{(t)}\otimes\mathbf{g}_{t}$$\label{eqn_c3_gru01}
 \end{equation}
 
-## Deep speech architecture
+## Deep speech architecture \label{deepspeech}
 
 This work makes use of an enhanced RNN architecture called the Bi-directional Recurrent Neural Network (BiRNN). While \cite{hannun2014first} assert that forward recurrent connections does reflect the sequential relationships of an audio waveform, perhaps the BiRNN model poses a more powerful sequence model.
 
@@ -615,39 +615,40 @@ $$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b - \ln a})$$
 \label{eqn_c3_ctc18}\end{equation}
 
 ### Loss Function
-The CTC loss function $$\mathcal{L}(S)$$ is defined as the negative log probability of correctly labelling all the training examples in some training set S:
+The cross entropy error is a loss function used to measure accuracy of probabilistic measures.  It is calculated as the negative log probability of a likelihood measure.  The CTC loss function $$\mathcal{L}(S)$$ uses the cross entropy loss function of and is defined as the cross entropy error of correctly labelling all the training samples in some training set S:
 \begin{equation}
 $$\mathcal{L}(S) = - \ln \prod_{(x,z) \in S} \Pr(z \, | \, x) = - \sum_{(x,z) \in S} \ln \Pr(z \, | \, x)$$
 \label{eqn_c3_ctc11}\end{equation}
-Because the function is differentiable, its derivatives with respect to the network weights can be calculated with backpropagation through time, and the network can then be trained with any gradient-based non-linear optimisation algorithm.
+where $$z$$ is the output label and $$x$$ is the input sequence.  Since $$\mathcal{L}(S)$$ in equation \ref{eqn_c3_ctc11} is differentiable, this loss function can be back propagated to the softmax layer in the BiRNN configuration discussed in section \ref{deepspeech}.
 \begin{equation}
 $$\mathcal{L}(x,z) \equiv - \ln \Pr(z \, | \, x)$$
 \label{eqn_c3_ctc12}\end{equation}
-Obviously
+and therefore 
 \begin{equation}
 $$\mathcal{L}(S) = \sum_{(x,z) \in S} \mathcal{L}(x,z)$$
 \label{eqn_c3_ctc12}\end{equation}
 
-Now if we identify $$l$$ and $$z$$ and define $$X(t,u) \equiv \{ \pi \in A'^T : \mathcal{B}(\pi) = z, \, \pi_t = z'_u \}$$, then our definition of $$\alpha(t, u)$$ and $$\beta(t, u)$$ imply
+From the definition of the forward and backward variables ($$\alpha(t, u)$$ and $$\beta(t, u)$$), we also establish that $$X(t,u) \equiv \{ \pi \in A'^T : \mathcal{B}(\pi) = z, \, \pi_t = z'_u \}$$, such that
 \begin{equation}
 $$\alpha(t, u) \beta(t, u) = \sum_{\pi \in X(t,u)} \prod_{t = 1}^{T} y_{t, \pi_t}$$\label{eqn_c3_ctc13}\end{equation}
 
-thus substituting our previous expression for $$\Pr(\pi \, | \, x)$$
+then substituting $$\Pr(\pi \, | \, x)$$ from the expression in equation \ref{eqn_c3_ctc01}, we have
 \begin{equation}
 $$\alpha(t, u) \beta(t, u) = \sum_{\pi \in X(t,u)} \Pr(\pi \, | \, x)$$
 \label{eqn_c3_ctc14}\end{equation}
-From our expression for $$\Pr(l \, | \, x)$$ we can see that this is the portion of the total probability of $$\Pr(z \, | \, x)$$ due to those paths going through $$z'_u$$ at time $$t$$. For any $$t$$, we can therefore sum over all $$u$$ to get
+
+Also observe that $$\Pr(l \, | \, x)$$ is equivalent to the total probability $$\Pr(z \, | \, x)$$. Paths going through $$z'_u$$ at time $$t$$ can be obtained as summed over all $$u$$ to get
 \begin{equation}
 $$\Pr(z \, | \, x) = \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
 \label{eqn_c3_ctc15}\end{equation}
 
-Thus the example loss is given by
+Thus a sample loss is determiend by
 \begin{quation}$$\mathcal{L}(x, z) = - \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$\label{eqn_c3_ctc16}\end{equation}
-as
-\begin{equation}$$\mathcal{L}(S) = \sum_{(x,z) \in S} \mathcal{L}(x,z)$$
+and therefore the overall loss is given by
+\begin{equation}$$\mathcal{L}(S) = -\sum_{(x,z) \in S} \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
 \label{eqn_c3_ctc17}\end{equation}
 
-the gradient of $$\mathcal{L}(S)$$ can be computed by computing the gradient of $$\mathcal{L}(x, z)$$. This gradient can be computed using the formulas above and TensorFlow's automatic differentiation.
+In the model described in this work, the gradient $$\mathcal{L}(x, z)$$is computed using TensorFlow's automatic differentiation capabilities.
 
 # Deep Scattering Network
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
