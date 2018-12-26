@@ -274,3 +274,32 @@ The final BiRNN representation $h^{(j)}_t$ for the layer is now the sum of the t
 Also note that back propagation sub gradient evaluations is computed from the combined BiRNN structure directly during training.
 
 \subsection{Connectionist Temporal Classification (CTC)}
+The term CTC stands for Connectionist Temporal classification.  This algorithm was designed to solve the problem of fuzzy alignment between the source input data and the output classification desired from the machine learning system.  This type of fuzzy alignment is observed in speech recognition systems as the same speech in either the same individual or different individuals will have different signal forms.  This is a many to one relationship between the input signal and the output classification that is dependent on the speaker style of speech when the utterance is spoken.  Unlike hybrid DNN-HMM networks the CTC algorithm deploys an end-to-end framework that models all aspects of the input sequence in a single neural network, therefore discarding the need for an HMM interpretation of the input sequence. In  addition, the CTC method does not require pre-segmented training data at the same time output classification is made independent of post-processing.
+
+CTC works by making predictions at any point in the input sequence. For the case of speech modelling,  CTC makes a character prediction for every time step of the raw audio input speech signal. Although this initially seems counter intuitive, this method models the many to one relationship seen in the fuzzy audio speech to text alignment. 
+
+For hybrid DNN-HMM systems, speech or more accurately, acoustic models, require separate training of targets for every time-slice in the input sequence. Secondly, and  as a consequence of this, it becomes necessary to segment the audio sequence, in order to provide targets for every time-slice. A third consequence is the limitation of DNNs previously discussed. As the DNN network only outputs local classifications, global aspects such as the likelihood of two consecutive labels appearing together cannot be directly modelled.  Without an external model, usually in the form of a language model, the hybrid speech model will significantly degrade performance.
+
+In the CTC case, so long as the overall sequence of labels is correct the network can be optimised to correct the temporal or fuzzy alignments. Since this many to one fuzzy alignment is simultaneously modelled in CTC, then there is no need for pre-segmented data. At the same time, CTC models probabilities of complete label sequences, hence external post-processing required by hybrid models is eliminated.
+
+Similar to the HMM sequence model, the CTC algorithm is a sequence model that predicts the next label in a sequence as a cumulative of previous sequences.  This section develops the CTC loss function borrowing concepts used in HMM models such as the forward backward algorithm as outlined in \citep{graves2006connectionist}.  In the following paragraph we introduce terminology associated with the CTC loss function.
+
+Given two symbols $A$ and $\mathcal{B}$ such that $A$ has a many to one relationship with $\mathcal{B}$, signifying the temporal nature of the classification. The symbol $A$ represents an alphabet from which a sequence of the output classifications are drawn from. This CTC output consists of a soft-max layer in a BiRNN (bidirectional recurrent neural network). 
+
+This output models the probability distribution of a complete sequence of arbitrary length $|A|$ over all possible labels in $A$ from activations within $|A|$. An extra activation is given to represent the probability of outputting a $blank$, or no label. At each time-step leading up to the final step, the probability distribution estimated as distribution over all possible label sequences of length leading up to that of the input sequence.
+
+It is now possible to define the extended alphabet $A' = A \cup \{blank\}$, also, $y_{t,p}$ as the the activation of network output $p$ at time $t$.  Therefore $y_{t,p}$  is the probability that the network will output element $p \in A'$ at time $t$ given that $x$ is the input sequence of length $T$.  The distribution sought after $Pr(\pi|x)$, is the conditionally independent distribution over the subset $A'^T$ where $A'^T$ denotes the set of length $T$ sequences in $A'$. 
+\begin{equation}
+\Pr( \pi \, | \, x ) = \prod_{t=1}^{T} y_{t,\pi_t}
+\label{eqn_c3_ctc01}\end{equation}
+
+From the above, it is now possible to define the many-to-one mapping $\mathcal{B} : A'^T \rightarrow A^{\le T}$, from the set of paths onto the set $A^{\le T}$ of possible labellings of $$x$$ (i.e. the set of sequences of length less than or equal to $$T$$ over $$A$$). We do this by removing first the repeated labels and then the blanks from the paths. For example,
+
+\begin{equation}\begin{aligned}\mathcal{B}(a - ab-) &= aab \\ \mathcal{B}(-aa - -abb) &= aab.\end{aligned} \label{eqn_c3_ctc02}
+\end{equation}
+
+Intuitively, this corresponds to outputting a new label when the network either switches from predicting no label to predicting a label, or from predicting one label to another. As $\mathcal{B}$ is many-to-one, the probability of some labelling $l \in A^{\le T}$ can be calculated by summing the probabilities of all the paths mapped onto it by $\mathcal{B}$:
+\begin{equation}
+\Pr( l \, | \, x) = \sum_{\pi \in \mathcal{B}^{-1}(l)} \Pr( \pi \, | \, x)
+\label{eqn_c3_ct03}\end{equation}
+This 'collapsing together' of different paths onto the same labelling is what makes it possible for CTC to use unsegmented data, because it allows the network to predict the labels without knowing in advance where they occur. In theory, it also makes CTC networks unsuitable for tasks where the location of the labels must be determined. However in practice CTC tends to output labels close to where they occur in the input sequence.
