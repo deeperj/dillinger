@@ -512,19 +512,19 @@ The final BiRNN representation $$h^{(j)}_t$$ for the layer is now the sum of the
 Also note that backpropagation subgradient evaluations is computed from the combined BiRNN structure directly during training.
 
 ## CTC Loss Algorithm \label{c3_ctc}
-The term CTC stands for Connectionist Temporal clssification.  This algorithm was designed to solve the problem of fuzzy alignment between the source input data and the output classification desired from the machine learning system.  This type of fuzzy alignment is observed in speech recognition systems as the same speech in either the same individual or different individuals will have different signal forms.  This is a many to one relationship between the input signal and the ouptut classification that is dependent on the speaker style of speech when the utternance is spoken.  Unlike hybrid DNN-HMM networks the CTC algorithm deploys an end-to-end framework that models all aspects of the input sequence in a single neural network, therefore discaring the need for an HMM interpretation of the input sequence. In  addition, the CTC method does not require pre-segmented training data at the same time ouput classification is made independent of post-processing.
+The term CTC stands for Connectionist Temporal classification.  This algorithm was designed to solve the problem of fuzzy alignment between the source input data and the output classification desired from the machine learning system.  This type of fuzzy alignment is observed in speech recognition systems as the same speech in either the same individual or different individuals will have different signal forms.  This is a many to one relationship between the input signal and the output classification that is dependent on the speaker style of speech when the utterance is spoken.  Unlike hybrid DNN-HMM networks the CTC algorithm deploys an end-to-end framework that models all aspects of the input sequence in a single neural network, therefore discarding the need for an HMM interpretation of the input sequence. In  addition, the CTC method does not require pre-segmented training data at the same time output classification is made independent of post-processing.
 
 CTC works by making predictions at any point in the input sequence. For the case of speech modelling,  CTC makes a character prediction for every time step of the raw audio input speech signal. Although this initially seems counter intuitive, this method models the many to one relationship seen in the fuzzy audio speech to text alignment. 
 
-For hybrid DNN-HMM systems, speech or more accurately, acoustic models, require separate training of targets for every timeslice in the input sequence. Secondly, and  as a consequence of this, it becomes necessary to segment the audio sequence, in order to provide targets for every timeslice. A third consequence is the limitation of DNNs previously discussed. As the DNN network only outputs local classifications, global aspects such as the likelihood of two consecutive labels appearing together cannot be directly modelled.  Without an external model, usually in the form of a language model, the hybrid speech model will significantly degrade performance.
+For hybrid DNN-HMM systems, speech or more accurately, acoustic models, require separate training of targets for every time-slice in the input sequence. Secondly, and  as a consequence of this, it becomes necessary to segment the audio sequence, in order to provide targets for every time-slice. A third consequence is the limitation of DNNs previously discussed. As the DNN network only outputs local classifications, global aspects such as the likelihood of two consecutive labels appearing together cannot be directly modelled.  Without an external model, usually in the form of a language model, the hybrid speech model will significantly degrade performance.
 
-In the CTC case, so long as the overall sequence of labels is correct the network can be optimised to correct the temporal or fuzzy alignments. Since this many to one fuzzy alignment is simultaneously modelled in CTC, then there is no need for presegmented data. At the same time, CTC models probabilities of complete label sequences, hence external post-processing required by hybrid models is eliminated.
+In the CTC case, so long as the overall sequence of labels is correct the network can be optimised to correct the temporal or fuzzy alignments. Since this many to one fuzzy alignment is simultaneously modelled in CTC, then there is no need for pre-segmented data. At the same time, CTC models probabilities of complete label sequences, hence external post-processing required by hybrid models is eliminated.
 
 Similar to the HMM sequence model, the CTC algorithm is a sequence model that predicts the next label in a sequence as a cumulative of previous sequences.  This section develops the CTC loss function borrowing concepts used in HMM models such as the forward backward algorithm as outlined in \citep{graves2006connectionist}.  In the following paragraph we introduce terminology associated with the CTC loss function.
 
-Given two symbols $$A$$ and $$\mathcal{B}$$ such that $$A$$ has a many to one relationship with $$\mathcal{B}$$, signifying the temporal nature of the classification. The symbol $$A$$ represents an alphabet from which a sequence of the output classifications are drawn from. This CTC output consists of a softmax layer in a BiRNN (bidirectional recurrent neural network). 
+Given two symbols $$A$$ and $$\mathcal{B}$$ such that $$A$$ has a many to one relationship with $$\mathcal{B}$$, signifying the temporal nature of the classification. The symbol $$A$$ represents an alphabet from which a sequence of the output classifications are drawn from. This CTC output consists of a soft-max layer in a BiRNN (bidirectional recurrent neural network). 
 
-This output models the probability distribution of a complete sequence of arbitratry length $$|A|$$ over all possible labels in $$A$$ from activations within $$|A|$$. An extra activation is given to represent the probability of outputting a $$blank$$, or no label. At each timestep leading up to the final step, the probability distribution estimated as distribution over all possible label sequences of length leading up to that of the input sequence.
+This output models the probability distribution of a complete sequence of arbitrary length $$|A|$$ over all possible labels in $$A$$ from activations within $$|A|$$. An extra activation is given to represent the probability of outputting a $$blank$$, or no label. At each time-step leading up to the final step, the probability distribution estimated as distribution over all possible label sequences of length leading up to that of the input sequence.
 
 It is now possible to define the extended alphabet $$A' = A \cup \{blank\}$$, also, $$y_{t,p}$$ as the the activation of network output $$p$$ at time $$t$$.  Therefore $$y_{t,p}$$  is the probability that the network will output element $$p \in A'$$ at time $$t$$ given that $$x$$ is the input sequence of length $$T$$.  The distribution sought after $$Pr(\pi|x)$$, is the conditionally independent distribution over the subset $$A'^T$$ where $$A'^T$$ denotes the set of length $$T$$ sequences in $$A'$$. 
 \begin{equation}
@@ -543,22 +543,22 @@ $$\Pr( l \, | \, x) = \sum_{\pi \in \mathcal{B}^{-1}(l)} \Pr( \pi \, | \, x)$$
 This 'collapsing together' of different paths onto the same labelling is what makes it possible for CTC to use unsegmented data, because it allows the network to predict the labels without knowing in advance where they occur. In theory, it also makes CTC networks unsuitable for tasks where the location of the labels must be determined. However in practice CTC tends to output labels close to where they occur in the input sequence.
 
 ### Forward-backward algorithm
-So far we have defined the conditional probabilities $$\Pr(l \, | \, x)$$ of the possible label sequences. Now we need an efficient way of calculating them. At first sight, the previous equation suggests this will be problematic. The sum is over all paths corresponding to a given labelling. The number of these paths grows exponentially with the length of the input sequence. More precisely, for a length $$T$$ input sequence and a length $$U$$ labelling there are $$2^{T-U^2+U(T-3)}3^{(U-1)(T-U)-2}$$ paths.
+The forward-backward algorithm is used to estimate the probability of a point in the sequence as the product of all point leading up to that point from the  initial state, the forward variable ($\alpha$), multiplied by the probability of all the points from that state to the end of the sequence, the backward variable ($\beta$).
 
-Fortunately the problem can be solved with a dynamic-programming algorithm similar to the forward-backward algorithm for HMM's[[6]](http://www.ee.columbia.edu/~dpwe/e6820/papers/Rabiner89-hmm.pdf). The key idea is that the sum over paths corresponding to a labelling l can be broken down into an iterative sum over paths corresponding to prefixes of that labelling.
+The difference between this estimation and that determined from equation (\ref{eqn_c3_ct03}) is the fact that the forward-backward algorithm converts equation (\ref{eqn_c3_ct03}) into a form that is both recursive as well as reduces the computational complexity from an otherwise intractable computation to one that is readily computable.
 
-To allow for blanks in the output paths, we consider a modified "label sequence" $$l'$$, with blanks added to the beginning and the end of $$l$$, and inserted between every pair of consecutive labels. If the length of $$l$$ is $$U$$, the length of $$l'$$ is $$U' = 2U + 1$$. In calculating the probabilities of prefixes of $$l'$$ we allow all transitions between blank and non-blank labels, and also those between any pair of distinct non-blank labels.
-
-For a labelling $$l$$, the forward variable $$\alpha(t,u)$$ is defined as the summed probability of all length $$t$$ paths that are mapped by $$\mathcal{B}$$ onto the length $$\left \lfloor{u/2}\right \rfloor$$ prefix of $$l$$. (Note, $$\left \lfloor{u/2}\right \rfloor$$ is the floor of $$u/2$$, the greatest integer less than or equal to $$u/2$$.) For some sequence $$s$$, let $$s_{p:q}$$ denote the subsequence $$s_p, s_{p+1},\dots,s_{q-1},s_q$$, and define the set $$V(t,u) \equiv \{ \pi \in A'^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$$. We can then define $$\alpha(t,u)$$ as
+With CTC, consider a modified "label sequence" $$l'$$, that caters for blank characters in between regular ones $$l$$, as defined in $$A$$. Thus, if $$U$$ is defined as the length of $$l$$.  Then $$U'$$ is of length $$2U + 1$$. CTC therefore integrates probability distributions of transitions between blank and non-blank labels at the same time CTC calculates those transition occurring between pairs of distinct non-blank labels.  The forward variable $$\alpha(t,u)$$ now becomes the summed probability of all length $$t$$ paths that are mapped by $$\mathcal{B}$$ onto the length $$\left \lfloor{u/2}\right \rfloor$$ prefix of $$l$$. (Note, $$\left \lfloor{u/2}\right \rfloor$$ is the floor of $$u/2$$, the greatest integer less than or equal to $$u/2$$.) For some sequence $$s$$, let $$s_{p:q}$$ denote the sub-sequence $$s_p, s_{p+1},\dots,s_{q-1},s_q$$, and define the set $$V(t,u) \equiv \{ \pi \in A'^t : \mathcal{B}(\pi) = l_{1:\left \lfloor{u/2}\right \rfloor} \text{ and } \pi_t = l'_u \}$$. $$\alpha(t,u)$$ then becomes
 \begin{equation}
 $$\alpha(t,u) \equiv \sum_{\pi \in V(t,u)} \prod_{i=1}^{t} y_{i,\pi_i}$$ 
 \label{eqn_c3_ctc04}
-As we will see, the forward variables at time $$t$$ can be calculated recursively from those at time $$t - 1$$.
+\end{equation}
 
-Given the above formulation, the probability of $$l$$ can be expressed as the sum of the forward variables with and without the final blank at time $$T$$.
+The forward variables at time $$t$$ can be calculated recursively from those at time $$t - 1$$ and expressed as the sum of the forward variables with and without the final blank at time $$T$$.
+
+
 \begin{equation}
 $$\Pr( l \, | \, x) = \alpha(T, U') + \alpha(T, U' - 1)$$
-\label{eqn_c3_ctc05}\end{eequation}
+\label{eqn_c3_ctc05}\end{equation}
 
 All correct paths must start with either a blank $$(b)$$ or the first symbol in $$l$$ $$(l_1)$$, yielding the following initial conditions:
 \begin{equation}
@@ -587,7 +587,7 @@ where $$t$$ runs along the $$x$$ axis and $$u$$ runs along the $$y$$ axis. The b
 \begin{equation}
 $$\alpha(t,u)=0 \quad \forall u < U'-2(T-t)-1$$
 \label{eqn_c3_ctc07}\end{equation}
-because these variables correspond to states for which there are not enough timesteps left to complete the sequence. We also impose the boundary condition
+because these variables correspond to states for which there are not enough time-steps left to complete the sequence. We also impose the boundary condition
 \begin{equation}
 $$\alpha(t, 0) = 0 \quad \forall t$$
 \label{eqn_c3_ctc08}
@@ -608,11 +608,6 @@ The rules for recursion are as follows:
 $$\beta(t, u) = \sum_{i = u}^{g(u)} \beta(t+1, i) y_{t+1, l'_i}$$\label{eqn_c3_ctc10}\end{equation}
 where
 $$g(u) = \begin{cases} u + 1,& \text{if } l'_u = blank \text{ or } l'_{u+2} = l'_{u} \\ u + 2,& \text{otherwise} \end{cases}$$
-
-In practice, the above recursions will soon lead to underflows on any digital computer. A good way to avoid this is to work in the log scale, and only exponentiate to find the true probabilities at the end of the calculation. A useful equation in this context is
-\begin{eqution}
-$$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b - \ln a})$$
-\label{eqn_c3_ctc18}\end{equation}
 
 ### Loss Function
 The cross entropy error is a loss function used to measure accuracy of probabilistic measures.  It is calculated as the negative log probability of a likelihood measure.  The CTC loss function $$\mathcal{L}(S)$$ uses the cross entropy loss function of and is defined as the cross entropy error of correctly labelling all the training samples in some training set S:
@@ -642,16 +637,19 @@ Also observe that $$\Pr(l \, | \, x)$$ is equivalent to the total probability $$
 $$\Pr(z \, | \, x) = \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
 \label{eqn_c3_ctc15}\end{equation}
 
-Thus a sample loss is determiend by
-\begin{quation}$$\mathcal{L}(x, z) = - \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$\label{eqn_c3_ctc16}\end{equation}
+Thus a sample loss is determined by
+\begin{equation}$$\mathcal{L}(x, z) = - \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$\label{eqn_c3_ctc16}\end{equation}
 and therefore the overall loss is given by
 \begin{equation}$$\mathcal{L}(S) = -\sum_{(x,z) \in S} \ln \sum_{u = 1}^{|z'|} \alpha(t, u) \beta(t, u)$$
 \label{eqn_c3_ctc17}\end{equation}
 
-In the model described in this work, the gradient $$\mathcal{L}(x, z)$$is computed using TensorFlow's automatic differentiation capabilities.
+In the model described in this work, the gradient $$\mathcal{L}(x, z)$$ is computed using TensorFlow's automatic differentiation capabilities. In practice, computations soon lead to underflow however the log scale, being used in the above loss function calculations avoids this situation and another useful equation in this context is
+\begin{equation}
+$$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b - \ln a})$$
+\label{eqn_c3_ctc18}\end{equation}
 
 # Deep Scattering Network
-Curve fitting is a very common theme in pattern recognition. The concept of invariant functions are mapping functions that approximate a discriminating function when it is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter we build an invariance function called a scattering transform which enables invariance of groups of deformations that could possibly distort speech signals yet invariant to the higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.
+Curve fitting is a very common theme in pattern recognition. The concept of invariant functions convey mapping functions that approximate a discriminating function when a parent function is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter an invariance function called a scattering transform  enables invariance of groups of deformations that could apply to speech signals thereby preserving higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.  While experiments have been performed with hybrid HMM-DNN systems in the past, this thesis focuses on the use of scatter transforms in end-to-end RNN speech models.
 
 This chapter iterates the use of the Fourier transform as the starting analysis function for buildng invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
 
