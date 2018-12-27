@@ -676,7 +676,7 @@ $$x(t)=\sum_{k=-\infty}^{\infty}a_ke^{\left(j\frac{2\pi kt}{T}\right)}$$
 \label{eqn_c4_fourier02}
 \end{equation}
 
-Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $$k$$ such that higher values of k correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral}), it can be seen that the energy of the signal is concentrated about a central region and then harmonic spikes of energy content exponentially decrease and taper off.  Therefore in figure \ref{fig_4_2_spectral}, the energies are concentrated at frequencies of about 100, 150 and 400 hertz.
+Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $$k$$ such that higher values of $$k$$ correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral}), it can be seen that the energy of the signal is concentrated about a central region and then harmonic spikes of energy content exponentially decrease and taper off.  Therefore in figure \ref{fig_4_2_spectral}, the energies are concentrated at frequencies of about 100, 150 and 400 hertz.
 ![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/spectral.png "Sample Spectrogram")
 \begin{figure}
 \centering
@@ -694,24 +694,45 @@ The continuous wavelet transform can be defined as a signal multiplied by scaled
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/spectral.png}\\
-  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform} \cite{xxx}}\label{fig_4_2_tftile}
+  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform} }\label{fig_4_2_tftile}
 \end{figure}
 
-It can be seen here that for the Fourier transform there is no time information obtained.  In the STFT, as there is no way of telling where in time the frequencies are contained, the STFT makes a blanket range of the resolution of the window and is therefore equally tiled potentially losing information based on this setup.  For the case of the wavelet, because it is a scaled and shifted convolution, it takes care of the this problem providing a good resolution in both time and frequency.  The representation of the continuous wavelet function is given as:
+It can be seen here that for the Fourier transform there is no time information obtained.  In the STFT, as there is no way of telling where in time the frequencies are contained, the STFT makes a blanket range of the resolution of the window and is therefore equally tiled potentially losing information based on this setup.  For the case of the wavelet, because it is a scaled and shifted convolution, it takes care of the this problem providing a good resolution in both time and frequency.  The fundamental representation of the continuous wavelet function is:
 \begin{equation}
 $$C(a,b)=\int f(t)\frac{1}{\sqrt{a}}\psi\left(\frac{t-b}{a}\right)dt$$
 \label{eqn_c4_wavelet01}
 \end{equation}
-
-There are a few mother wavelet functions discussed later in this chapter. Generally a wavelet can be identified as being an energy spike in an infinite signal of zero energy whose total energy within the spiking regions also sum to zero.
+In this equation, $$a$$ and $$b$$ respectively represent the scaling and shifting resolution variables of the wavelet function. This is referred to as a mother wavelet. A few other mother wavelet functions discussed later in this chapter. Generally a mother wavelet is identified as being energy spikes in an infinite signal whose accumulative energy sums to zero.
 
 ### Discrete and Fast wavelet transform
-Suppose the scaling function and wavelet function and bases of the following wavelets (Haar, Daubechies) are known.  We can approximate discrete signal $$l^2(\mathbb{Z})^1$$ by
+
+Synthesis and analaysis equations (\ref{eqn_c4_fourier02} and \ref{eqn_c4_fourier01}) can be formulated as a linear combination of the basis $$\phi_k(t)$$ such that the basis, $$\phi_k(t)=e^{j2\pi kt}$$ and it's conjugate or orthonormal basis $$\tilde{\phi}_k(t)=e^{-j2\pi kt}$$. Equations (\ref{eqn_c4_fourier02} and \ref{eqn_c4_fourier01}) now become
+
+\begin{equation}
+$$x(t)=\sum_{k}a_k\phi_k$$
+\label{eqn_c4_dwt02}
+\end{equation}
+
+\begin{equation}
+$$a_k=\int x(t)\tilde{\phi}_k(t)$$
+\label{eqn_c4_dwt01}
+\end{equation}
+
+With respect to scaling and shifting variables of continuous wavelet transforms in equation (\ref{eqn_c4_wavelet01}), a similar linear combination transformation can be applied by constructing orthornormal bases parameters, referred to as scaling ($$\phi$$) and translating ($$\psi$$) functions. For example, a simple Haar mother wavelet transform associated with a delta function, it is seen that:
+\begin{equation}
+$$\phi_{j,k}(t)=2^{j/2}\phi(2^jt-k)$$
+\label{eqn_c4_dwt03}
+\end{equation}
+\begin{equation}
+$$\psi_{j,k}(t)=2^{j/2}\psi(2^jt-k)$$
+\label{eqn_c4_dwt04}
+\end{equation}
+where j is associated with the dilation (scaling) parameter and k is associated with the position (shifting) parameter. An approximate discrete signal $$l^2(\mathbb{Z})^1$$ is determined by
 \begin{equation}
 $$f[n]=\frac{1}{\sqrt{M}}\sum_kW_\phi[j_0,k]\phi_{j_0,k}[n]+\frac{1}{\sqrt{M}}\sum_{j=j_0}^\infty\sum_kW_\psi[j,k]\psi_{j,k}[n]$$
 \label{eqn_c4_wavelet02}
 \end{equation}
-Here $$f[n],\phi_{j_0,k}[n]$$ and $$\psi_{j,k}[n]$$ are discrete functions defined in [0,M - 1], totally M points.  Because the sets $$\{\phi_{j_0,k}[n]\}_{k\in\mathbf{Z}}$$ and $$\{\phi_{(j,k)\in\mathbf{Z}^2,j\ge j_0}\}$$ are orthogonal to each other.  We can simply take the inner product to obtain the wavelet coefficients.
+Here $$f[n],\phi_{j_0,k}[n]$$ and $$\psi_{j,k}[n]$$ are discrete functions defined in [0,M - 1], totally M points.  Because the sets $$\{\phi_{j_0,k}[n]\}_{k\in\mathbf{Z}}$$ and $$\{\psi_{(j,k)\in\mathbf{Z}^2,j\ge j_0}\}$$ are orthogonal to each other.  We can simply take the inner product to obtain the wavelet coefficients.
 \begin{equation}
 $$\frac{1}{\sqrt{M}}\sum_kW_\phi[j_0,k]\phi_{j_0,k}[n]$$
 \label{eqn_c4_wavelet03}
