@@ -649,6 +649,7 @@ $$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b - \ln a})$$
 \label{eqn_c3_ctc18}\end{equation}
 
 # Deep Scattering Network
+
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions convey mapping functions that approximate a discriminating function when a parent function is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter an invariance function called a scattering transform  enables invariance of groups of deformations that could apply to speech signals thereby preserving higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.  While experiments have been performed with hybrid HMM-DNN systems in the past, this thesis focuses on the use of scatter transforms in end-to-end RNN speech models.
 
 This chapter iterates the use of the Fourier transform as the starting analysis function for buildng invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
@@ -727,64 +728,45 @@ $$\phi_{j,k}(t)=2^{j/2}\phi(2^jt-k)$$
 $$\psi_{j,k}(t)=2^{j/2}\psi(2^jt-k)$$
 \label{eqn_c4_dwt04}
 \end{equation}
-where j is associated with the dilation (scaling) parameter and k is associated with the position (shifting) parameter. An approximate discrete signal $$l^2(\mathbb{Z})^1$$ is determined by
+where j is associated with the dilation (scaling) parameter and k is associated with the position (shifting) parameter. If the haar coeficients $$h_{(\cdot)}[n]=\{1/\sqrt{2},1/\sqrt{2}\}$$ are extracted we have the following dilation and position parameters.
+\begin{equation}
+$$\phi(t)=h_\phi[n]\sqrt{2}\phi(2t-n)$$
+\label{eqn_c4_dwt05}
+\end{equation}
+\begin{equation}
+$$\psi(t)=h_\phi[n]\sqrt{2}\psi(2t-n)$$
+\label{eqn_c4_dwt06}
+\end{equation}
+
+For any signal, a discrete wavelet transform in $$l^2(\mathbb{Z})^1$$ can be approximated by
 \begin{equation}
 $$f[n]=\frac{1}{\sqrt{M}}\sum_kW_\phi[j_0,k]\phi_{j_0,k}[n]+\frac{1}{\sqrt{M}}\sum_{j=j_0}^\infty\sum_kW_\psi[j,k]\psi_{j,k}[n]$$
-\label{eqn_c4_wavelet02}
+\label{eqn_c4_dwt07}
 \end{equation}
 Here $$f[n],\phi_{j_0,k}[n]$$ and $$\psi_{j,k}[n]$$ are discrete functions defined in [0,M - 1], totally M points.  Because the sets $$\{\phi_{j_0,k}[n]\}_{k\in\mathbf{Z}}$$ and $$\{\psi_{(j,k)\in\mathbf{Z}^2,j\ge j_0}\}$$ are orthogonal to each other.  We can simply take the inner product to obtain the wavelet coefficients.
 \begin{equation}
-$$\frac{1}{\sqrt{M}}\sum_kW_\phi[j_0,k]\phi_{j_0,k}[n]$$
-\label{eqn_c4_wavelet03}
+$$W_\phi[j_0,k]=\frac{1}{\sqrt{M}}\sum_nf[n]\phi_{j_0,k}[n]$$
+\label{eqn_c4_dwt08}
 \end{equation}
 \begin{equation}
-$$\frac{1}{\sqrt{M}}\sum_{j=j_0}^\infty\sum_kW_\psi[j,k]\psi_{j,k}[n] \quad j\ge j_0$$
-\label{eqn_c4_wavelet04}
+$$W_\psi[j,k]=\frac{1}{\sqrt{M}}\sum_nf[n]\psi_{j,k}[n] \quad j\ge j_0$$
+\label{eqn_c4_dwt09}
 \end{equation}
-Equation (\ref{eqn_c4_wavelet03}) are called approximation coefficient while  (\ref{eqn_c4_wavelet04}) are called detailed coefficients.
+Equation (\ref{eqn_c4_dwt08}) is called approximation coefficient while (\ref{eqn_c4_dwt09}) is called detailed coefficients.
 
-### Wavelet types
-#### Daubechies
-Based on these equations, Daubechies [9], designed a type of wavelet for a given vanishing moment p and found the minimum size discrete filter.  The conclusion is that if we want the wavelet function with p vanishing moments, the minimum filter is 2p.  The derivation starts from (5.17), rewrite as
- - - - (5.19)
-The  absolute-square  of  this  function  is
- - - - (5.20)
-The last step makes $$P\left(sin^2\frac{\omega}{2}\right)=|R(e^{j\omega})|^2$$.  Recall (5.6), we can determine the form of P(x). Let $$y=sin^2\frac{\omega}{2}$$, we have
- - - - (5.21)
-A theorem in algebra, called Bezout theorem, can solve this equation.  The unique solution is
- - -- (5.22)
-The polynomial P(y) is the minimum degree polynomial satisfying equation (5.21).  Once we have P(y), the polynomial $$R(e^{j\omega})$$ can be derived.  First we decompose $$R(e^{j\omega})$$ according to its roots
- - - - (5.23)
-Let , the relation between P and R is 
- - - - (5.24)
-By solving the roots of $$P\left(\frac{2−z−z^{−1}}{4}\right)=0$$, we have the roots of $$R, \{a_k,1/a_k\}_{k=0,1,\dots,m}$$ and $$r_0=2^{p-1}$$   Usually, we choose $$a_k$$ lies in the unit circle to have minimum phase filter.
+These two components show that the approximation coefficient, $$W_\psi[j_0,k]$$, models a low pass filter and the detailed coefficient,$$W_\psi[j_0,k]$$, models a high pass filter. It is possible to determine the approximation and detailed coefficients without the scaling and dilating parameters. The resulting coefficients, called the fast wavelet transform, are a convolution between the wavelet coefficients and a downsampled version of the next order coefficients.  The fast wavelet transform was first postulated in \citep{mallat1989theory}.
 
-Taking p=2 for an example, the obtained polynomial P(y) is
- - - - (5.25)
+$$W_\phi[j,k]=h_\phi[-n]\ast W_\phi[j+1,n]|_{n=2k, k\ge 0}$$
+\label{eqn_c4_dwt10}
+\end{equation}
+\begin{equation}
+$$W_\psi[j_0,k]=h_\psi[-n]\ast W_\phi[j+1,n]|_{n=2k, k\ge 0}$$
+\label{eqn_c4_dwt11}
+\end{equation}
 
- - - - (5.26)
-
-The roots are $$2+\sqrt{3}$$ and $$2−\sqrt{3}$$.  After factorisation, we have the lowpass filter to be
-
-(5.27)
-The discrete-time domain representation is 
-
-(5.28)
-The  result  is  the  minimum  size  filter  with  2  vanishing  moments  and  the corresponding  filter  size  is  4.  Recall  the  conclusion  mentioned  above,  the  filter size  is  two  times  the  vanishing  moment.  Higher  order  Daubechies  wavelets are  derived  at  similar  way.
-
-#### Symlets
-Take  a  look  at  the  discrete  filters  and  the  scaling/wavelet  functions  of  Daubechies wavelets.  These  functions  are  far  from  symmetry.  That’s  because  Daubechies wavelets  select  the  minimum  phase  square  root  such  that  the  energy  concentrates  near  the  starting  point  of  their  support.  Symmlets  select  other  set  of roots  to  have  closer  symmetry  but  with  linear  complex  phase. 
-
-#### Coiflets
-For  an  application  in  numerical  analysis,  Coifman  asked  Daubechies  [9]  to construct  a  family  of  waveletsψthat  have p vanishing  moments,  minimum-size  support  and
- - - - (5.29)
- - - - (5.30)
-The  equation  above  can  be  taken  as  some  requirement  about  vanishing  moments  of  the  scaling  function.  The  resulting  coiflets  has  a  support  of  size3 p−1.
+For analysis of the Haar wavelet and the derivation of equations (\ref{eqn_c4_dwt10} and \ref{eqn_c4_dwt11}) see appendix \ref{app01}.
 
 ## Mel filter banks
-The first step in any automatic speech recognition system is to extract features i.e. identify the components of the audio signal that are good for identifying the linguistic content and discarding all the other stuff which carries information like background noise, emotion etc.
-
-The main point to understand about speech is that the sounds generated by a human are filtered by the shape of the vocal tract including tongue, teeth etc. This shape determines what sound comes out. If we can determine the shape accurately, this should give us an accurate representation of the phoneme being produced. The shape of the vocal tract manifests itself in the envelope of the short time power spectrum, and the job of MFCCs is to accurately represent this envelope. 
 
 Mel Frequency Cepstral Coefficents (MFCCs) are a feature widely used in automatic speech and speaker recognition. They were introduced by Davis and Mermelstein in the 1980's, and have been state-of-the-art ever since. Prior to the introduction of MFCCs, Linear Prediction Coefficients (LPCs) and Linear Prediction Cepstral Coefficients (LPCCs) and were the main feature type for automatic speech recognition (ASR), especially with HMM classifiers. 
 
@@ -930,6 +912,47 @@ We incorporate a lexicon or language model constraint by including the probabili
 ## GAN exploration
 
 # Appendices
+
+## Appendix 1 Mother Wavelet examples
+### Haar Wavelets
+
+### Daubechies
+Based on these equations, Daubechies [9], designed a type of wavelet for a given vanishing moment p and found the minimum size discrete filter.  The conclusion is that if we want the wavelet function with p vanishing moments, the minimum filter is 2p.  The derivation starts from (5.17), rewrite as
+ - - - (5.19)
+The  absolute-square  of  this  function  is
+ - - - (5.20)
+The last step makes $$P\left(sin^2\frac{\omega}{2}\right)=|R(e^{j\omega})|^2$$.  Recall (5.6), we can determine the form of P(x). Let $$y=sin^2\frac{\omega}{2}$$, we have
+ - - - (5.21)
+A theorem in algebra, called Bezout theorem, can solve this equation.  The unique solution is
+ - -- (5.22)
+The polynomial P(y) is the minimum degree polynomial satisfying equation (5.21).  Once we have P(y), the polynomial $$R(e^{j\omega})$$ can be derived.  First we decompose $$R(e^{j\omega})$$ according to its roots
+ - - - (5.23)
+Let , the relation between P and R is 
+ - - - (5.24)
+By solving the roots of $$P\left(\frac{2−z−z^{−1}}{4}\right)=0$$, we have the roots of $$R, \{a_k,1/a_k\}_{k=0,1,\dots,m}$$ and $$r_0=2^{p-1}$$   Usually, we choose $$a_k$$ lies in the unit circle to have minimum phase filter.
+
+Taking p=2 for an example, the obtained polynomial P(y) is
+ - - - (5.25)
+
+ - - - (5.26)
+
+The roots are $$2+\sqrt{3}$$ and $$2−\sqrt{3}$$.  After factorisation, we have the lowpass filter to be
+
+(5.27)
+The discrete-time domain representation is 
+
+(5.28)
+The  result  is  the  minimum  size  filter  with  2  vanishing  moments  and  the corresponding  filter  size  is  4.  Recall  the  conclusion  mentioned  above,  the  filter size  is  two  times  the  vanishing  moment.  Higher  order  Daubechies  wavelets are  derived  at  similar  way.
+
+#### Symlets
+Take  a  look  at  the  discrete  filters  and  the  scaling/wavelet  functions  of  Daubechies wavelets.  These  functions  are  far  from  symmetry.  That’s  because  Daubechies wavelets  select  the  minimum  phase  square  root  such  that  the  energy  concentrates  near  the  starting  point  of  their  support.  Symmlets  select  other  set  of roots  to  have  closer  symmetry  but  with  linear  complex  phase. 
+
+#### Coiflets
+For  an  application  in  numerical  analysis,  Coifman  asked  Daubechies  [9]  to construct  a  family  of  waveletsψthat  have p vanishing  moments,  minimum-size  support  and
+ - - - (5.29)
+ - - - (5.30)
+The  equation  above  can  be  taken  as  some  requirement  about  vanishing  moments  of  the  scaling  function.  The  resulting  coiflets  has  a  support  of  size3 p−1.
+
 # References
 references:bib.bib
 
@@ -994,8 +1017,8 @@ references:bib.bib
 * Fourier analysis - done
 * Continuous wavelets - done
 * wavelet types - done
-* Multiresolution analysis - not done
-* Fast wavelet transform - not done
+* Multiresolution analysis - done
+* Fast wavelet transform - done
 ### Chapter 5
 ### Chapter 6
 * hannun2014deep training data
