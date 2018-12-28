@@ -1,6 +1,15 @@
 * Bibliography
 
-
+@article{mallat1989theory,
+  title={A theory for multiresolution signal decomposition: the wavelet representation},
+  author={Mallat, Stephane G},
+  journal={IEEE transactions on pattern analysis and machine intelligence},
+  volume={11},
+  number={7},
+  pages={674--693},
+  year={1989},
+  publisher={Ieee}
+}
 
 @article{cowan1990discussion,
   title={Discussion: McCulloch-Pitts and related neural nets from 1943 to 1989},
