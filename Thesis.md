@@ -782,18 +782,27 @@ The final step is to compute the DCT of the log filterbank energies. There are 2
 
 ## Deep scattering spectrum
 In this section reference is made to \citep{anden2011multiscale, anden2014deep, zeghidour2016deep}. For a signal $$x$$ we define the following transform $$W_x$$ as a convolution with a low-pass filter $$\phi$$ and higher frequency complex analytic wavelets $$\psi_{\lambda_1}$$:
-$$Wx=(x\star\phi(t),x\star\psi_{\lambda_1}(t))_{t\in\mathbb{R},\lambda_1\in\Lambda_1}$$ - - - (1)
+\begin{equation}
+$$Wx=(x\star\phi(t),x\star\psi_{\lambda_1}(t))_{t\in\mathbb{R},\lambda_1\in\Lambda_1}$$ \label{eqn_c4_dss01}
+\end{equation}
 
 We apply a modulus operator to the wavelet coefficients to remove complex phase and extract envelopes at different resolutions
-$$|W|x=\left(x\star\phi(t),|x\star\psi_{\lambda_1}(t)|\right)_{t\in\mathbb{R},\lambda_1\in\Lambda_1}$$ - - - (2)
+\begin{equation}
+$$|W|x=\left(x\star\phi(t),|x\star\psi_{\lambda_1}(t)|\right)_{t\in\mathbb{R},\lambda_1\in\Lambda_1}$$ \label{eqn_c4_dss02}
+\end{equation}
 $$S_0x=x\star\phi(t)$$ is locally invariant to translation thanks to the time averaging $$\phi$$.  This time-averaging loses the high frequency information, which is retrieved in the wavelet modulus coefficients $$|x\star\psi_{\lambda_1}|$$.  However, these wavelet modulus coefficients are not invariant to translation, and as for $$S_0$$, a local translation invariance is obtained by a time averaging which defines the first layer of scattering coefficients
-$$S_1x(t,\psi_{\lambda_1})=|x\star\psi_{\labmda_1}|\star \phi(t)$$ - - - (3)
-
-It is shown in [6] that if the wavelets $$\psi_{\lambda_1}$$ have the same frequency resolution as the standard mel-filters, then the S1x coefficients approximate the mel-filter coefficients.  Unlike the mel-filter banks however, there is a strategy to recover the lost information, by passing the wavelet modulus coefficients  $$|x\star\phi_{\lambda_1}|$$ through a bank of higher frequency wavelets $$\psi_{\lambda_2}$$:
-$$|W_2||x\star\phi_{\lambda_1}|=\left(|x\star\psi_{\lambda_1}|\star\phi,||x\star\psi_{\lambda1}|\star\psi{\lambda_2}|\right)_{\lambda_2\in\Lambda_2}$$ - - - (4)
-
+\begin{equation}
+$$S_1x(t,\psi_{\lambda_1})=|x \star\psi_{\lambda_1}| \star\phi(t)$$\label{eqn_c4_dss03})
+\end{equation}
+It is shown in \cite{anden2014deep} that if the wavelets $$\psi_{\lambda_1}$$ have the same frequency resolution as the standard mel-filters, then the $$S_1x$$ coefficients approximate the mel-filter coefficients.  Unlike the mel-filter banks however, there is a strategy to recover the lost information, by passing the wavelet modulus coefficients  $$|x\star\phi_{\lambda_1}|$$ through a bank of higher frequency wavelets $$\psi_{\lambda_2}$$:
+\begin{equation}
+$$|W_2||x\star\phi_{\lambda_1}|=\left(|x\star\psi_{\lambda_1}|\star\phi,||x\star\psi_{\lambda_1}|\star\psi_{\lambda_2}|\right)_{\lambda_2\in\Lambda_2}$$ \label{eqn_c4_dss04})
+\end{equation}
 This second layer of wavelet modulus coefficients is still not invariant to translation, hence we average these coefficients with a low-pass filter $$\phi$$ to derive a second layer of of scattering coefficients.
- - - - (5)
+ \begin{equation}
+$$|W_2||x\star\phi_{\lambda_1}|=\left(|x\star\psi_{\lambda_1}|\star\phi,||x\star\psi_{\lambda_1}|\star\psi_{\lambda_2}|\right)_{\lambda_2\in\Lambda_2}$$ \label{eqn_c4_dss04})
+\end{equation}
+
 Repeating these successive steps of computing invariant features and retrieving lost information leads to the scattering spectrum, as seen in Fig. 1, however speech signals are almost entirely characterized by the first two layers of the spectrum, that is why a two layers spectrum is typically used for speech representation. It is shown in [6] that this representation is invariant to translations and stable to deformations, while keeping more information than the mel-filter banks coefficients
 
 ![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/scatter.png "Scattering network - 2 layers deep")
