@@ -707,7 +707,7 @@ In this equation, $$a$$ and $$b$$ respectively represent the scaling and shiftin
 
 ### Discrete and Fast wavelet transform
 
-Synthesis and analaysis equations (\ref{eqn_c4_fourier02} and \ref{eqn_c4_fourier01}) can be formulated as a linear combination of the basis $$\phi_k(t)$$ such that the basis, $$\phi_k(t)=e^{j2\pi kt}$$ and it's conjugate or orthonormal basis $$\tilde{\phi}_k(t)=e^{-j2\pi kt}$$. Equations (\ref{eqn_c4_fourier02} and \ref{eqn_c4_fourier01}) now become
+Synthesis and analysis equations (\ref{eqn_c4_fourier02} and \ref{eqn_c4_fourier01}) can be formulated as a linear combination of the basis $$\phi_k(t)$$ such that the basis, $$\phi_k(t)=e^{j2\pi kt}$$, and it's conjugate or orthonormal basis, $$\tilde{\phi}_k(t)=e^{-j2\pi kt}$$, equations (\ref{eqn_c4_fourier02} and \ref{eqn_c4_fourier01}) now become
 
 \begin{equation}
 $$x(t)=\sum_{k}a_k\phi_k$$
@@ -719,7 +719,7 @@ $$a_k=\int x(t)\tilde{\phi}_k(t)$$
 \label{eqn_c4_dwt01}
 \end{equation}
 
-With respect to scaling and shifting variables of continuous wavelet transforms in equation (\ref{eqn_c4_wavelet01}), a similar linear combination transformation can be applied by constructing orthornormal bases parameters, referred to as scaling ($$\phi$$) and translating ($$\psi$$) functions. For example, a simple Haar mother wavelet transform associated with a delta function, it is seen that:
+With respect to scaling and shifting variables of continuous wavelet transforms in equation (\ref{eqn_c4_wavelet01}), a similar linear combination transformation can be applied by constructing orthonormal bases parameters, referred to as scaling ($$\phi$$) and translating ($$\psi$$) functions. For example, a simple Haar mother wavelet transform associated with a delta function, it is seen that:
 \begin{equation}
 $$\phi_{j,k}(t)=2^{j/2}\phi(2^jt-k)$$
 \label{eqn_c4_dwt03}
@@ -728,7 +728,7 @@ $$\phi_{j,k}(t)=2^{j/2}\phi(2^jt-k)$$
 $$\psi_{j,k}(t)=2^{j/2}\psi(2^jt-k)$$
 \label{eqn_c4_dwt04}
 \end{equation}
-where j is associated with the dilation (scaling) parameter and k is associated with the position (shifting) parameter. If the haar coeficients $$h_{(\cdot)}[n]=\{1/\sqrt{2},1/\sqrt{2}\}$$ are extracted we have the following dilation and position parameters.
+where j is associated with the dilation (scaling) parameter and k is associated with the position (shifting) parameter. If the haar coefficients $$h_{(\cdot)}[n]=\{1/\sqrt{2},1/\sqrt{2}\}$$ are extracted we have the following dilation and position parameters.
 \begin{equation}
 $$\phi(t)=h_\phi[n]\sqrt{2}\phi(2t-n)$$
 \label{eqn_c4_dwt05}
