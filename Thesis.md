@@ -652,7 +652,7 @@ $$\ln(a + b) = \ln(a) + \ln(1 + e^{\ln b - \ln a})$$
 
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions convey mapping functions that approximate a discriminating function when a parent function is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter an invariance function called a scattering transform  enables invariance of groups of deformations that could apply to speech signals thereby preserving higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7% relative improvement in word error rates (WER) over Mel frequences cepstal coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.  While experiments have been performed with hybrid HMM-DNN systems in the past, this thesis focuses on the use of scatter transforms in end-to-end RNN speech models.
 
-This chapter iterates the use of the Fourier transform as the starting analysis function for buildng invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
+This chapter iterates the use of the Fourier transform as the starting analysis function for building invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
 
 ## Fourier transform
 The Fourier transform often referred to as the power spectrum, allows us to discover frequencies contained within a function.  The Fourier transform is a convolution between a signal and a complex sinusoid from $$-\infty$$ to $$+\infty$$ (Figure \ref{fig_4_1_fourier_eqn}). 
@@ -663,7 +663,7 @@ The Fourier transform often referred to as the power spectrum, allows us to disc
   \includegraphics[width=7cm]{thesis/images/fourier.png}\\
   \caption{Fourier Equation} \cite{xxx}}\label{fig_4_1_fourier_eqn}
 \end{figure}
-From the orthorgonal property of complex exponential function, two functions are orthogonal if $$\int f(x)g(x)=0$$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
+From the orthogonal property of complex exponential function, two functions are orthogonal if $$\int f(x)g(x)=0$$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
 
 If the discrete form of the Fourier transform analysis equation is given by
 \begin{equation}
@@ -686,7 +686,7 @@ Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series 
   \caption{Sample Spectrogram} \cite{xxx}}\label{fig_4_2_spectral}
 \end{figure}
 
-The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.  However is not able to determine when in time a frequency occurs hence is not able to analyse time related signal deformations.  The Short-time Fourier Transform (STFT) attempts to salvage this by windowing the signal in time signal and performing fourier transforms over sliding windows sections of the original signal rather than the whole signal.  There is however, a resolution trade off that ensues from this operation such that, the higher the resolution in time accuracy, the lower the freqeuncy accuracy and vice versa.  In the next section on the continuous wavelet transform, how the wavelet transform improves on the weakneses of the Fourer Transform and the STFT is reviewed.
+The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.  However is not able to determine when in time a frequency occurs hence is not able to analyse time related signal deformations.  The Short-time Fourier Transform (STFT) attempts to salvage this by windowing the signal in time signal and performing Fourier transforms over sliding windows sections of the original signal rather than the whole signal.  There is however, a resolution trade off that ensues from this operation such that, the higher the resolution in time accuracy, the lower the frequency accuracy and vice versa.  In the next section on the continuous wavelet transform, how the wavelet transform improves on the weaknesses of the Fourier Transform and the STFT is reviewed.
 
 ## Wavelet transform
 The continuous wavelet transform can be defined as a signal multiplied by scaled and shifted version of a wavelet function $$\psi(t)$$ referred to as the mother wavelet. The time-frequency tile-allocation of the three basic transforms examined in the first part of this chapter is illustrated in figure \ref{fig_4_3_tftile}
