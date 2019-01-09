@@ -1,17 +1,17 @@
 Curve fitting is a very common theme in pattern recognition. The concept of invariant functions convey mapping functions that approximate a discriminating function when a parent function is reduced from a high dimensional space to a low dimensional space \cite{mallat2016understanding}.  In this chapter an invariance function called a scattering transform  enables invariance of groups of deformations that could apply to speech signals thereby preserving higher level characterisations useful for classifying speech sounds. Works done by \citep{peddinti2014deep,zeghidour2016deep,anden2011multiscale,sainath2014deep} have shown that when the scattering spectrum are applied to speech signals and used as input to speech systems have state of the art performance.  In particular \cite{sainath2014deep} shows 4-7\% relative improvement in word error rates (WER) over Mel frequencies cepstral coefficients (MFCCs) for 50 and 430 hours of English Broadcast News speech corpus.  While experiments have been performed with hybrid HMM-DNN systems in the past, this thesis focuses on the use of scatter transforms in end-to-end RNN speech models.
 
-This chapter iterates the use of the Fourier transform as the starting analysis function for buildng invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
+This chapter iterates the use of the Fourier transform as the starting analysis function for building invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
 
-## Fourier transform
+\section{Fourier transform}
 The Fourier transform often referred to as the power spectrum, allows us to discover frequencies contained within a function.  The Fourier transform is a convolution between a signal and a complex sinusoid from $$-\infty$$ to $$+\infty$$ (Figure \ref{fig_4_1_fourier_eqn}). 
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/fourier.png "Fourier Equation")
+
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/fourier.png}\\
-  \caption{Fourier Equation} \cite{xxx}}\label{fig_4_1_fourier_eqn}
+  \caption{Fourier Equation} \label{fig_4_1_fourier_eqn}
 \end{figure}
-From the orthorgonal property of complex exponential function, two functions are orthogonal if $$\int f(x)g(x)=0$$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
+From the orthogonal property of complex exponential function, two functions are orthogonal if $$\int f(x)g(x)=0$$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
 
 If the discrete form of the Fourier transform analysis equation is given by
 \begin{equation}
