@@ -3,7 +3,7 @@ Curve fitting is a very common theme in pattern recognition. The concept of inva
 This chapter iterates the use of the Fourier transform as the starting analysis function for building invariant functions and then discusses the Mel filter bank solution and then establishes why the scattering transform through the wavelet modulus operator provides better invariance features over the Mel filters.
 
 \section{Fourier transform}
-The Fourier transform often referred to as the power spectrum, allows us to discover frequencies contained within a function.  The Fourier transform is a convolution between a signal and a complex sinusoid from $$-\infty$$ to $$+\infty$$ (Figure \ref{fig_4_1_fourier_eqn}). 
+The Fourier transform often referred to as the power spectrum, allows us to discover frequencies contained within a function.  The Fourier transform is a convolution between a signal and a complex sinusoid from $-\infty$ to $+\infty$ (Figure \ref{fig_4_1_fourier_eqn}). 
 
 \begin{figure}
 \centering
@@ -11,39 +11,38 @@ The Fourier transform often referred to as the power spectrum, allows us to disc
   \includegraphics[width=7cm]{thesis/images/fourier.png}\\
   \caption{Fourier Equation} \label{fig_4_1_fourier_eqn}
 \end{figure}
-From the orthogonal property of complex exponential function, two functions are orthogonal if $$\int f(x)g(x)=0$$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
+From the orthogonal property of complex exponential function, two functions are orthogonal if $\int f(x)g(x)=0$ where f(x) and g(x) are complimentary functions, one being referred to as the analysis equation and the other referred to as the synthesis function.
 
 If the discrete form of the Fourier transform analysis equation is given by
 \begin{equation}
-$$a_k=\frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{\left(-j\frac{2\pi kt}{T}\right)}$$
+a_k=\frac{1}{T}\int_{-T/2}^{T/2}x(t)e^{\left(-j\frac{2\pi kt}{T}\right)}
 \label{eqn_c4_fourier01}
 \end{equation}
 
 Then, the corresponding synthesis equation is given by
 \begin{equation}
-$$x(t)=\sum_{k=-\infty}^{\infty}a_ke^{\left(j\frac{2\pi kt}{T}\right)}$$
+x(t)=\sum_{k=-\infty}^{\infty}a_ke^{\left(j\frac{2\pi kt}{T}\right)}
 \label{eqn_c4_fourier02}
 \end{equation}
 
-Recall that $$x(t)$$ is the original signal while $$a_k$$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $$k$$ such that higher values of $$k$$ correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral}), it can be seen that the energy of the signal is concentrated about a central region and then harmonic spikes of energy content exponentially decrease and taper off.  Therefore in figure \ref{fig_4_2_spectral}, the energies are concentrated at frequencies of about 100, 150 and 400 hertz.
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/spectral.png "Sample Spectrogram")
+Recall that $x(t)$ is the original signal while $a_k$ is the Fourier Series coefficient.  This coefficient indicates the amplitude and phase of the original signal's higher order harmonics indexed by $k$ such that higher values of $k$ correspond to higher frequency components.  In a typical spectrogram (figure \ref{fig_4_2_spectral}), it can be seen that the energy of the signal is concentrated about a central region and then harmonic spikes of energy content exponentially decrease and taper off.  Therefore in figure \ref{fig_4_2_spectral}, the energies are concentrated at frequencies of about 100, 150 and 400 hertz.
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
   \includegraphics[width=7cm]{thesis/images/spectral.png}\\
-  \caption{Sample Spectrogram} \cite{xxx}}\label{fig_4_2_spectral}
+  \caption{Sample Spectrogram} \cite{xxx}\label{fig_4_2_spectral}
 \end{figure}
 
-The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.  However is not able to determine when in time a frequency occurs hence is not able to analyse time related signal deformations.  The Short-time Fourier Transform (STFT) attempts to salvage this by windowing the signal in time signal and performing fourier transforms over sliding windows sections of the original signal rather than the whole signal.  There is however, a resolution trade off that ensues from this operation such that, the higher the resolution in time accuracy, the lower the freqeuncy accuracy and vice versa.  In the next section on the continuous wavelet transform, how the wavelet transform improves on the weakneses of the Fourer Transform and the STFT is reviewed.
+The Fourier transform discussed in the previous section constitutes a valuable tool for the analysis of the frequency component of a signal.  However is not able to determine when in time a frequency occurs hence is not able to analyse time related signal deformations.  The Short-time Fourier Transform (STFT) attempts to salvage this by windowing the signal in time signal and performing Fourier transforms over sliding windows sections of the original signal rather than the whole signal.  There is however, a resolution trade off that ensues from this operation such that, the higher the resolution in time accuracy, the lower the frequency accuracy and vice versa.  In the next section on the continuous wavelet transform, how the wavelet transform improves on the weaknesses of the Fourier Transform and the STFT is reviewed.
 
-## Wavelet transform
-The continuous wavelet transform can be defined as a signal multiplied by scaled and shifted version of a wavelet function $$\psi(t)$$ referred to as the mother wavelet. The time-frequency tile-allocation of the three basic transforms examined in the first part of this chapter is illustrated in figure \ref{fig_4_3_tftile}
-![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/tftile.png "Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform")
+\section{Wavelet transform}
+The continuous wavelet transform can be defined as a signal multiplied by scaled and shifted version of a wavelet function $\psi(t)$ referred to as the mother wavelet. The time-frequency tile-allocation of the three basic transforms examined in the first part of this chapter is illustrated in figure \ref{fig_4_3_tftile}
+
 \begin{figure}
 \centering
   % Requires \usepackage{graphicx}
-  \includegraphics[width=7cm]{thesis/images/spectral.png}\\
-  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform} }\label{fig_4_2_tftile}
+  \includegraphics[width=7cm]{thesis/images/spectral}\\
+  \caption{Time frequency tiling for (a) Fourier Transform (b) Short-time Fourier Transform (STFT) (c) Wavelet transform}\label{fig_4_2_tftile}
 \end{figure}
 
 It can be seen here that for the Fourier transform there is no time information obtained.  In the STFT, as there is no way of telling where in time the frequencies are contained, the STFT makes a blanket range of the resolution of the window and is therefore equally tiled potentially losing information based on this setup.  For the case of the wavelet, because it is a scaled and shifted convolution, it takes care of the this problem providing a good resolution in both time and frequency.  The fundamental representation of the continuous wavelet function is:
