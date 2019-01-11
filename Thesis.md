@@ -794,7 +794,7 @@ $$S_0x=x\star\phi(t)$$ is locally invariant to translation thanks to the time av
 \begin{equation}
 $$S_1x(t,\psi_{\lambda_1})=|x \star\psi_{\lambda_1}| \star\phi(t)$$\label{eqn_c4_dss03})
 \end{equation}
-It is shown in \cite{anden2014deep} that if the wavelets $$\psi_{\lambda_1}$$ have the same frequency resolution as the standard mel-filters, then the $$S_1x$$ coefficients approximate the mel-filter coefficients.  Unlike the mel-filter banks however, there is a strategy to recover the lost information, by passing the wavelet modulus coefficients  $$|x\star\phi_{\lambda_1}|$$ through a bank of higher frequency wavelets $$\psi_{\lambda_2}$$:
+It is shown in \cite{anden2014deep} that if the wavelets $$\psi_{\lambda_1}$$ have the same frequency resolution as the standard Mel-filters, then the $$S_1x$$ coefficients approximate the Mel-filter coefficients.  Unlike the Mel-filter banks however, there is a strategy to recover the lost information, by passing the wavelet modulus coefficients  $$|x\star\phi_{\lambda_1}|$$ through a bank of higher frequency wavelets $$\psi_{\lambda_2}$$:
 \begin{equation}
 $$|W_2||x\star\phi_{\lambda_1}|=\left(|x\star\psi_{\lambda_1}|\star\phi,||x\star\psi_{\lambda_1}|\star\psi_{\lambda_2}|\right)_{\lambda_2\in\Lambda_2}$$ \label{eqn_c4_dss04})
 \end{equation}
@@ -803,7 +803,7 @@ This second layer of wavelet modulus coefficients is still not invariant to tran
 $$|W_2||x\star\phi_{\lambda_1}|=\left(|x\star\psi_{\lambda_1}|\star\phi,||x\star\psi_{\lambda_1}|\star\psi_{\lambda_2}|\right)_{\lambda_2\in\Lambda_2}$$ \label{eqn_c4_dss04})
 \end{equation}
 
-Repeating these successive steps of computing invariant features and retrieving lost information leads to the scattering spectrum, as seen in Fig. 1, however speech signals are almost entirely characterized by the first two layers of the spectrum, that is why a two layers spectrum is typically used for speech representation. It is shown in [6] that this representation is invariant to translations and stable to deformations, while keeping more information than the mel-filter banks coefficients
+Repeating these successive steps of computing invariant features and retrieving lost information leads to the scattering spectrum, as seen in Fig. 1, however speech signals are almost entirely characterized by the first two layers of the spectrum, that is why a two layers spectrum is typically used for speech representation. It is shown in [6] that this representation is invariant to translations and stable to deformations, while keeping more information than the Mel-filter banks coefficients
 
 ![alt text](https://raw.githubusercontent.com/deeperj/dillinger/master/thesis/images/scatter.png "Scattering network - 2 layers deep")
 \begin{figure}
