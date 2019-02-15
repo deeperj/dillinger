@@ -1,5 +1,16 @@
 * Bibliography 
 
+@article{dines2010measuring,
+  title={Measuring the gap between HMM-based ASR and TTS},
+  author={Dines, John and Yamagishi, Junichi and King, Simon},
+  journal={IEEE Journal of Selected Topics in Signal Processing},
+  volume={4},
+  number={6},
+  pages={1046--1058},
+  year={2010},
+  publisher={IEEE}
+}
+
 @article{mallat1989theory,
   title={A theory for multiresolution signal decomposition: the wavelet representation},
   author={Mallat, Stephane G},
