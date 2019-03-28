@@ -1,5 +1,22 @@
 * Bibliography 
 
+@book{mcloughlin2009applied,
+  title={Applied speech and audio processing: with Matlab examples},
+  author={McLoughlin, Ian},
+  year={2009},
+  publisher={Cambridge University Press}
+}
+
+@article{shen2016combination,
+  title={Combination of multiple acoustic models with unsupervised adaptation for lecture speech transcription},
+  author={Shen, Peng and Lu, Xugang and Hu, Xinhui and Kanda, Naoyuki and Saiko, Masahiro and Hori, Chiori and Kawai, Hisashi},
+  journal={Speech Communication},
+  volume={82},
+  pages={1--13},
+  year={2016},
+  publisher={Elsevier}
+}
+
 @article{dines2010measuring,
   title={Measuring the gap between HMM-based ASR and TTS},
   author={Dines, John and Yamagishi, Junichi and King, Simon},
