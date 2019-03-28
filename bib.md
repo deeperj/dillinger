@@ -1,5 +1,33 @@
 * Bibliography
 
+@book{mcloughlin2009applied,
+  title={Applied speech and audio processing: with Matlab examples},
+  author={McLoughlin, Ian},
+  year={2009},
+  publisher={Cambridge University Press}
+}
+
+@article{shen2016combination,
+  title={Combination of multiple acoustic models with unsupervised adaptation for lecture speech transcription},
+  author={Shen, Peng and Lu, Xugang and Hu, Xinhui and Kanda, Naoyuki and Saiko, Masahiro and Hori, Chiori and Kawai, Hisashi},
+  journal={Speech Communication},
+  volume={82},
+  pages={1--13},
+  year={2016},
+  publisher={Elsevier}
+}
+
+@article{dines2010measuring,
+  title={Measuring the gap between HMM-based ASR and TTS},
+  author={Dines, John and Yamagishi, Junichi and King, Simon},
+  journal={IEEE Journal of Selected Topics in Signal Processing},
+  volume={4},
+  number={6},
+  pages={1046--1058},
+  year={2010},
+  publisher={IEEE}
+}
+
 @article{mallat1989theory,
   title={A theory for multiresolution signal decomposition: the wavelet representation},
   author={Mallat, Stephane G},
@@ -294,13 +322,15 @@
 	pages={1738-1752}
 }
 
-@incollection{davis1990comparison,
+@article{davis1980comparison,
   title={Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences},
-  author={Davis, Steven B and Mermelstein, Paul},
-  booktitle={Readings in speech recognition},
-  pages={65--74},
-  year={1990},
-  publisher={Elsevier}
+  author={Davis, Steven and Mermelstein, Paul},
+  journal={IEEE transactions on acoustics, speech, and signal processing},
+  volume={28},
+  number={4},
+  pages={357--366},
+  year={1980},
+  publisher={IEEE}
 }
 
 @article{anden2014deep,
