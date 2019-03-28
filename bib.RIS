@@ -20,9 +20,15 @@ Y1  - 1995
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Bengio, Yoshua
 AU  - Ducharme, Réjean
 AU  - Vincent, Pascal
+=======
+AU  - Bengio, Yoshua
+AU  - Ducharme, Réjean
+AU  - Vincent, Pascal
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Jauvin, Christian
 T1  - A neural probabilistic language model
 JO  - Journal of machine learning research
@@ -43,9 +49,15 @@ EP  - 1155
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Besacier, Laurent
 AU  - Barnard, Etienne
 AU  - Karpov, Alexey
+=======
+AU  - Besacier, Laurent
+AU  - Barnard, Etienne
+AU  - Karpov, Alexey
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Schultz, Tanja
 T1  - Automatic speech recognition for under-resourced languages: A survey
 JO  - Speech Communication
@@ -66,7 +78,11 @@ EP  - 100
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Chen, Stanley F.
+=======
+AU  - Chen, Stanley F.
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Goodman, Joshua
 
 T1  - An empirical study of smoothing techniques for language modeling
@@ -90,12 +106,21 @@ EP  - 318
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Cho, Kyunghyun
 AU  - Van Merriënboer, Bart
 AU  - Gulcehre, Caglar
 AU  - Bahdanau, Dzmitry
 AU  - Bougares, Fethi
 AU  - Schwenk, Holger
+=======
+AU  - Cho, Kyunghyun
+AU  - Van Merriënboer, Bart
+AU  - Gulcehre, Caglar
+AU  - Bahdanau, Dzmitry
+AU  - Bougares, Fethi
+AU  - Schwenk, Holger
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Bengio, Yoshua
 T1  - Learning phrase representations using RNN encoder-decoder for statistical machine translation
 JO  - arXiv preprint arXiv:1406.1078
@@ -115,7 +140,11 @@ Y1  - 2014
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Gales, Mark
+=======
+AU  - Gales, Mark
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Young, Steve
 T1  - The Application of Hidden Markov Models in Speech Recognition
 JO  - Foundations and TrendsÂ® in Signal Processing
@@ -136,6 +165,7 @@ M3  - https://doi.org/10.1561/2000000004
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Goodfellow, Ian
 AU  - Pouget-Abadie, Jean
 AU  - Mirza, Mehdi
@@ -143,6 +173,15 @@ AU  - Xu, Bing
 AU  - Warde-Farley, David
 AU  - Ozair, Sherjil
 AU  - Courville, Aaron
+=======
+AU  - Goodfellow, Ian
+AU  - Pouget-Abadie, Jean
+AU  - Mirza, Mehdi
+AU  - Xu, Bing
+AU  - Warde-Farley, David
+AU  - Ozair, Sherjil
+AU  - Courville, Aaron
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Bengio, Yoshua
 
 T1  - Generative adversarial nets
@@ -166,8 +205,13 @@ EP  - 2680
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Graves, Alex
 AU  - Jaitly, Navdeep
+=======
+AU  - Graves, Alex
+AU  - Jaitly, Navdeep
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Mohamed, Abdel-rahman
 
 T1  - Hybrid speech recognition with deep bidirectional LSTM
@@ -191,6 +235,7 @@ EP  - 278
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Hannun, Awni
 AU  - Case, Carl
 AU  - Casper, Jared
@@ -201,6 +246,18 @@ AU  - Prenger, Ryan
 AU  - Satheesh, Sanjeev
 AU  - Sengupta, Shubho
 AU  - Coates, Adam
+=======
+AU  - Hannun, Awni
+AU  - Case, Carl
+AU  - Casper, Jared
+AU  - Catanzaro, Bryan
+AU  - Diamos, Greg
+AU  - Elsen, Erich
+AU  - Prenger, Ryan
+AU  - Satheesh, Sanjeev
+AU  - Sengupta, Shubho
+AU  - Coates, Adam
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - others
 T1  - Deep speech: Scaling up end-to-end speech recognition
 JO  - arXiv preprint arXiv:1412.5567
@@ -240,9 +297,15 @@ EP  - 556
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Kim, Yoon
 AU  - Jernite, Yacine
 AU  - Sontag, David
+=======
+AU  - Kim, Yoon
+AU  - Jernite, Yacine
+AU  - Sontag, David
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Rush, Alexander M.
 
 T1  - Character-Aware Neural Language Models.
@@ -266,8 +329,13 @@ EP  - 2749
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Luong, Thang
 AU  - Socher, Richard
+=======
+AU  - Luong, Thang
+AU  - Socher, Richard
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Manning, Christopher D.
 
 T1  - Better word representations with recursive neural networks for morphology.
@@ -291,10 +359,17 @@ EP  - 113
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Mikolov, Tomáš
 AU  - Deoras, Anoop
 AU  - Kombrink, Stefan
 AU  - Burget, Lukáš
+=======
+AU  - Mikolov, Tomáš
+AU  - Deoras, Anoop
+AU  - Kombrink, Stefan
+AU  - Burget, Lukáš
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Černockỳ, Jan
 
 T1  - Empirical evaluation and combination of advanced language modeling techniques
@@ -317,8 +392,13 @@ Y1  - 2011
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Sak, Haşim
 AU  - Senior, Andrew
+=======
+AU  - Sak, Haşim
+AU  - Senior, Andrew
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Beaufays, Françoise
 T1  - Long short-term memory based recurrent neural network architectures for large vocabulary speech recognition
 JO  - arXiv preprint arXiv:1402.1128
@@ -338,8 +418,13 @@ Y1  - 2014
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Sutskever, Ilya
 AU  - Vinyals, Oriol
+=======
+AU  - Sutskever, Ilya
+AU  - Vinyals, Oriol
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Le, Quoc V.
 
 T1  - Sequence to sequence learning with neural networks
@@ -363,12 +448,21 @@ EP  - 3112
 
 ER  -
 TY  - CONF
+<<<<<<< HEAD
 AU  - Versteegh, Maarten
 AU  - Thiolliere, Roland
 AU  - Schatz, Thomas
 AU  - Cao, Xuan Nga
 AU  - Anguera, Xavier
 AU  - Jansen, Aren
+=======
+AU  - Versteegh, Maarten
+AU  - Thiolliere, Roland
+AU  - Schatz, Thomas
+AU  - Cao, Xuan Nga
+AU  - Anguera, Xavier
+AU  - Jansen, Aren
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Dupoux, Emmanuel
 
 T1  - The zero resource speech challenge 2015
@@ -391,7 +485,11 @@ Y1  - 2015
 
 ER  -
 TY  - JOUR
+<<<<<<< HEAD
 AU  - Xu, Ping
+=======
+AU  - Xu, Ping
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
 AU  - Fung, Pascale
 T1  - Cross-lingual language modeling for low-resource speech recognition
 JO  - IEEE Transactions on Audio, Speech, and Language Processing
