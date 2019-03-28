@@ -9,6 +9,7 @@
 
 \end{abstract}
 
+<<<<<<< HEAD
 * DONE Introduction
 Automatic Speech Recognition is a subset of Machine Translation that takes a sequence of raw audio information and translates or matches it against the most likely sequence of text as would be interpreted by a human language expert.  In this thesis, Automatic Speech Recognition will also be referred to as 
 ASR or speech recognition for short.
@@ -282,3 +283,31 @@ references:bib.org
 
 * References
 references:bib.md
+=======
+* TODO Introduction
+** TODO Generative Speech Models disambiguation
+* TODO Literature Review
+** TODO Speech Recognition Overview
+*** Challenges of speech recognitio
+*** Challenges of low resource speech recognition
+** TODO Low Resource Speech Recognition
+*** TODO Low Resource Language Modelling
+*** TODO Low Resource Acoustic Modelling
+**** TODO Swap Hat Method
+**** TODO SubSpace Gaussian Mixture Modelling
+* TODO RNN
+** TODO Sequential Models
+** TODO LSTM Training
+* TODO GAN
+** TODO Auto encoders
+* TODO Language Models
+** TODO Wakirike Language Mode
+** TODO Pidgin English 
+* TODO Generative Speech Models
+* TODO Conclusion and Discussion
+* TODO Future Direction
+* References
+
+references:bib.org
+
+>>>>>>> 3ef68fb5b75bb45286846e57bc17926fa30d5ad1
