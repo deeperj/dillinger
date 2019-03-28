@@ -1019,6 +1019,7 @@ references:bib.bib
 * Multiresolution analysis - done
 * Fast wavelet transform - done
 ### Chapter 5
+* Grapheme to Phoneme - todo
 ### Chapter 6
 * hannun2014deep training data
 * hannun2014deep results
@@ -1030,6 +1031,8 @@ references:bib.bib
 ### Chapter 8 Future
 * Various strategies for speech recog
 * Kernel based methods
+* OCR - todo
+* GAN - todo
 
 ## Questions
 ### Chap 1
