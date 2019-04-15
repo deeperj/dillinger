@@ -1033,6 +1033,7 @@ references:bib.bib
 * Kernel based methods
 * OCR - todo
 * GAN - todo
+* Model variations
 
 ## Questions
 ### Chap 1
