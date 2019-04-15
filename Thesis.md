@@ -1034,6 +1034,7 @@ references:bib.bib
 * OCR - todo
 * GAN - todo
 * Model variations
+* e2elrsr/attn report
 
 ## Questions
 ### Chap 1
