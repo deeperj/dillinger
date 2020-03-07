@@ -1,0 +1,418 @@
+\documentclass{article}
+\usepackage{UsePackageOnce}
+\UsePackageOnce{System}
+\UsePackageOnce{programmes}
+
+\newcommand{\Order}[1]{\mbox{\rm O}(#1)}
+
+\title{Concurrent Systems}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{quote}
+\section*{Reminder}
+You should now have handed in part 2 of your logbook.
+\end{quote}
+
+\section{This semester's course}
+
+\subsection{Concurrent systems}
+\subsubsection{Properties of concurrent systems}
+
+\begin{itemize}
+\item Critical sections
+\item Mutual exclusion
+\item Deadlock
+\item Starvation
+\item Liveness
+\item Loosely connectedness
+\end{itemize}
+
+
+\subsubsection{Tools for concurrent systems}
+
+\begin{itemize}
+\item Shared variables
+\item Semaphores
+\item Monitors
+\end{itemize}
+
+
+\subsection{Quantum computing}
+\begin{itemize}
+\item Circuits as matrices and vectors
+\item Quantum systems
+\item Quantum circuits
+\item Quantum algorithms
+\end{itemize}
+
+\subsection{Theoretical aspects}
+\begin{itemize}
+\item Correctness
+\item Complexity
+\item {\em Computability}
+\end{itemize}
+
+
+\subsection{Outcomes}
+
+\begin{enumerate}
+\item Discuss the classification of algorithms according to
+efficiency and complexity
+\item Prove code correct
+\item Demonstrate a knowledge of the characteristics of a range
+of concurrency paradigms
+\item Explain the difference between classical and quantum computing
+\item Use a standard notation to analyse the efficiency and
+complexity of algorithms
+\end{enumerate}
+
+\subsection{Lecture Plan}
+\begin{center}
+\begin{tabular}{|r|l|}
+\hline
+Week & \multicolumn{1}{c|}{Topic}\\
+\hline\hline
+13 & Introduction to Concurrent Systems \\
+\hline
+14 & Dekker's Algorithm \\
+\hline
+15 & Semaphores \\
+\hline
+16 & Monitors \\
+\hline
+17 & Modelling Circuits \\
+\hline
+\multicolumn{2}{|c|}{--- Guidance Week ---}\\
+\hline
+19 & Quantum Systems \\
+\hline
+20 & Quantum Computing \\
+\hline
+21 & Correctness \\
+\hline
+22 & Complexity \\
+\hline
+23 & {\em Computability} \\
+\hline
+24 & Q\&{}A\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\section{Introduction to Concurrent Systems}
+\subsection{Why programme concurrent systems?}
+
+\begin{itemize}
+\item Because they are efficient.
+
+Deterministic polynomial {\em vs.}\ nondeterministic polynomial
+\item Because they simplify programming.
+
+GUIs
+\item Because you have to.
+
+Operating systems.
+\end{itemize}
+
+
+\subsubsection{Efficiency}
+\paragraph{Sequential merge sort}
+\subparagraph{Algorithm}
+\begin{flushleft}
+\BeginSystem{javatex}{lect13prog1.java}{lect13prog1.tex}
+  public void mergeSort() {
+    int half; Sort !verbleft!,right;
+    if (size > 1) {
+      half = size/2;
+      !verbleft! = new Sort(list,0,half-1);
+      right = new Sort(list,half,size-1);
+      !verbleft!.mergeSort(); right.mergeSort();
+      merge(!verbleft!,right);
+    }
+  }
+\EndSystem
+\end{flushleft}
+
+\subparagraph{Complexity}
+\begin{itemize}
+\item Assume {\tt merge} of $N$ items takes ${N}$ ``time units'' $t$.
+\item How many merges?
+\begin{displaymath}
+n\left\{\begin{array}{ccl|c@{\;\times\;}c@{\;=\;}c@{t}}
+%\mbox{no.} & \multicolumn{2}{c}{\mbox{size}} & \multicolumn{3}{c}{\mbox{cost}}\\
+1~\mbox{merge} & \mbox{each}~N & =2^n & 1 & {N} & {N}\\
+2~\mbox{merges} & \mbox{each}~{N\over 2} & =2^{n-1} & 2 & {{N\over 2}} & {N}\\
+\multicolumn{6}{c}{\vdots}\\
+2^{n-1}~\mbox{merges} & \mbox{each}~{N\over{2^{n-1}}} & =2 & 2^{n-1} & {{N\over{2^{n-1}}}} & {N}\\
+2^n~\mbox{merges} & \mbox{each}~{N\over{2^n}} & =1 & 2^n & {{N\over{2^n}}} & {N}
+\end{array}\right.
+\end{displaymath}
+So $n\times{N}t$.  What is $n$?  $2^n=N\Rightarrow n={\log_2 N}$.
+\item So (sequential) mergesort ${tN\log_2 N}$.
+\end{itemize}
+
+
+\paragraph{Parallel merge sort}
+\subparagraph{Algorithm}
+\begin{flushleft}
+\BeginSystem{javatex}{lect13prog2.java}{lect13prog2.tex}
+  public void mergeSort() throws InterruptedException {
+    int half; Sort !verbleft!,right; // Note: {\tt Sort} extends {\tt Thread}
+    if (size > 1) {
+      half = size/2;
+      !verbleft! = new Sort(list,0,half-1);
+      right = new Sort(list,half,size-1);
+!verb\begin{tabular}{@{}l@{~}l@{}}!left.start();!verb&!right.start();!verb\\!left.join();!verb&!right.join(); !verb\end{tabular}!
+      merge(!verbleft!,right);
+    }
+  }
+\EndSystem
+\end{flushleft}
+
+
+\subparagraph{Complexity}
+\begin{itemize} 
+\item Merges at each level can be executed in parallel
+\begin{displaymath} 
+\begin{array}{cc@{\;=\;}c|c@{\;\times\;}c@{\;=\;}c@{t}} 
+%\mbox{no.} & \multicolumn{2}{c}{\mbox{size}} & \multicolumn{3}{c}{\mbox{cost}}\\
+1~\mbox{merge} & \mbox{each}~N & 2^n & 1 & {N} & {N}\\ 
+2~\mbox{merges} & \mbox{each}~{N\over 2} & 2^{n-1} & 1 & {{N\over 2}} & {{N\over 2}}\\ 
+\multicolumn{6}{c}{\vdots}\\ 
+2^{n-1}~\mbox{merges} & \mbox{each}~{N\over{2^{n-1}}} & 2 & 1 & {{N\over{2^{n-1}}}} & {{N\over{2^{n-1}}}}\\          
+2^n~\mbox{merges} & \mbox{each}~{N\over{2^n}} & 1 & 1 & {{N\over{2^n}}} & {{N\over{2^n}}} 
+\end{array} 
+\end{displaymath} 
+So $\Sigma_{i=0}^{n}{N\over{2^i}}=N+{N\over 2}+{N\over 4}+\cdots+1=2N$
+
+\item So (parallel) mergesort: ${2N}t$.
+\end{itemize}
+
+
+\subsubsection{Simplification}
+\begin{center}
+\begin{Picture}{1.75em}(8,6)
+\put(4,3){\oval(8,6)}
+
+\put(0.5,1){\makebox(3,1){FIRE}}
+\put(0.5,1){\line(1,0){3}}
+\put(0.5,1){\line(0,1){1}}
+\put(3.5,2){\line(-1,0){3}}
+\put(3.5,2){\line(0,-1){1}}
+
+\put(4.5,1){\makebox(3,1){\large\bf STOP!}}
+\put(4.5,1){\line(1,0){3}}
+\put(4.5,1){\line(0,1){1}}
+\put(7.5,2){\line(-1,0){3}}
+\put(7.5,2){\line(0,-1){1}}
+
+\put(0.5,4){\makebox(3,1){LOCK}}
+\put(0.5,4){\line(1,0){3}}
+\put(0.5,4){\line(0,1){1}}
+\put(3.5,5){\line(-1,0){3}}
+\put(3.5,5){\line(0,-1){1}}
+
+\put(4.5,4){\makebox(3,1){UNLOCK}}
+\put(4.5,4){\line(1,0){3}}
+\put(4.5,4){\line(0,1){1}}
+\put(7.5,5){\line(-1,0){3}}
+\put(7.5,5){\line(0,-1){1}}
+
+\end{Picture}
+\end{center}
+\begin{center}
+\begin{tabular}{cc}
+Sequential & Parallel\\
+\begin{minipage}{.4\textwidth}
+\BeginSystem{javatex}{l13-seq1.java}{l13-seq1.tex}
+while (true) {
+  LOCK.listenTo();
+  UNLOCK.listenTo();
+  FIRE.listenTo();
+  STOP.listenTo();
+}
+\EndSystem
+\end{minipage}
+&
+\begin{minipage}{.4\textwidth}
+\BeginSystem{javatex}{l13-par1.java}{l13-par1.tex}
+while (true) {
+  LOCK.listenTo() !verb$\parallel$!
+  UNLOCK.listenTo() !verb$\parallel$!
+  FIRE.listenTo() !verb$\parallel$!
+  STOP.listenTo() !verb$\parallel$!
+}
+\EndSystem
+\end{minipage}
+\end{tabular}
+\end{center}
+The sequential system imposes an ordering on the buttons.  The code of
+the {\tt listenTo}s may become complex in order to ensure that, for example,
+the \fbox{\bf STOP!} button {\em always} prevents any of the other buttons 
+from working.  The parallel version may also require some complex code 
+(see later weeks on e.g.\ critical sections) but is conceptually clearer.
+
+
+\subsubsection{Necessity}
+Operating Systems
+
+\begin{itemize}
+\item I/O devices
+\item Interrupts
+\item Multi-tasking
+\item Networks
+\end{itemize}
+
+
+\subsection{Aspects of concurrent systems}
+
+{\bf Note:} A concurrent system is not necessarily truly parallel --- timeslicing,
+interleaving.
+
+\subsubsection{Necessary tools}
+\begin{itemize}
+\item Communication
+\item Synchronisation
+\end{itemize}
+
+\subsubsection{Properties}
+\begin{itemize}
+\item Complexity
+\item Correctness
+\item Granularity
+\end{itemize}
+
+
+\section{Concurrent processes in Java}
+\subsection{Defining process classes}
+A parallel process is an instance of a {\tt Thread} --- a {\tt Thread}
+runs a {\tt Runnable}.
+\begin{itemize}
+\item Either implement the {\tt Runnable} class
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog1-a.java}{tut13prog1-a.tex}
+class Process implements Runnable {!verb\ldots!}
+\EndSystem
+\end{flushleft}
+\item or extend the {\tt Thread} class
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog1-b.java}{tut13prog1-b.tex}
+class Process extends Thread {!verb\ldots!}
+\EndSystem
+\end{flushleft}
+\end{itemize}
+
+\subsection{Defining process behaviour}
+\begin{flushleft}
+\BeginSystem{javatex}{lect11-run.java}{lect11-run.tex}
+public void run() {
+  !verb\ldots!
+}
+\EndSystem
+\end{flushleft}
+
+\subsection{Creating a process}
+\begin{itemize}
+\item From a subclass of {\tt Thread}
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog2-a.java}{tut13prog2-a.tex}
+Process process = new Process();
+\EndSystem
+\end{flushleft}
+\item From an implementation of {\tt Runnable}
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog2-b.java}{tut13prog2-b.tex}
+Thread thread = new Thread(new MyRunnable());
+\EndSystem
+\end{flushleft}
+\end{itemize}
+Note: this does {\em not} start the thread running.
+Note also that named threads can be defined:
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog2-c.java}{tut13prog2-c.tex}
+Thread process = new Process(threadGroup,"My process");
+\EndSystem
+\end{flushleft}
+or 
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog2-d.java}{tut13prog2-d.tex}
+Thread thread = new Thread(threadGroup,new MyRunnable(),"My process");
+\EndSystem
+\end{flushleft}
+
+\subsection{Starting a thread}
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog3.java}{tut13prog3.tex}
+myThread.start();
+\EndSystem
+\end{flushleft}
+Note: do {\em not} call {\tt run()}.
+\subsection{Waiting for a thread to stop}
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog4.java}{tut13prog4.tex}
+try {
+	myThread.!verbjoin!();
+} catch (InterruptedException e) {};
+\EndSystem
+\end{flushleft}
+
+\subsection{Sharing data between processes}
+\begin{itemize}
+\item a non-static variable is unique to the instance
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog5.java}{tut13prog5.tex}
+int belongsToPooh;
+\EndSystem
+\end{flushleft}
+\item a \kword{static} variable is shared by all instances of the class
+\begin{flushleft}
+\BeginSystem{javatex}{tut13prog6.java}{tut13prog6.tex}
+static int botherItsPigletsToo;
+\EndSystem
+\end{flushleft}
+\end{itemize}
+
+\subsection{Some useful methods}
+\subsubsection{Access}
+\begin{itemize}
+\item {\tt someThread.checkAccess()}
+
+Is the currently running thread allowed to modify {\tt someThread}?
+\item {\tt someThread.getId()} (returns a \kword{long})
+\item {\tt someThread.getName()} (returns a {\tt String})
+\end{itemize}
+
+\subsubsection{Control}
+\begin{itemize}
+\item {\tt join}:
+\begin{itemize}
+\item {\tt someThread.join()}
+
+Wait for {\tt someThread} to die
+\item {\tt someThread.join(millis)}
+
+Wait at most {\tt millis} ms for {\tt someThread} to die (millis is \kword{long})
+\end{itemize}
+\item \kword{static} \kword{void} {\tt sleep(millis)}
+
+Currently executing thread sleeps for {\tt millis} ms.
+\item \kword{static} \kword{void} {\tt yield()}
+
+Currently executing thread temporarily allows another thread to execute.
+\end{itemize}
+
+\subsubsection{Priorities}
+\begin{itemize}
+\item \kword{static} \kword{void} {\tt setPriority(}\kword{int} {\tt newPriority)}
+\item \kword{int} {\tt getPriority()}
+\item {\tt MAX\_PRIORITY}, {\tt MIN\_PRIORITY}, {\tt NORM\_PRIORITY}
+\end{itemize}
+
+
+
+\end{document}
