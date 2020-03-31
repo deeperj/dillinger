@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{UsePackageOnce}
+\UsePackageOnce{System}
+\UsePackageOnce{programmes}
+
+\title{Parallel Processes}
+
+\begin{document}
+\maketitle
+
+\section{The Code}
+This week's package contains the following classes and interfaces:
+\begin{itemize}
+\item {\tt Counter.java}: This
+is a ``shared counter'' {\tt Thread} class.  This class is incomplete
+(see below), but when complete a {\tt Counter} thread will (attempt to)
+count from a start value to an end value.  All {\tt Counter} threads
+share the same internal counter, so it is possible that two or more 
+{\tt Counter} threads running concurrently might compete to change
+the value of the internal counter in conflicting directions.
+The {\tt Counter} class also contains static methods that can switch tracing
+of {\tt Counter}s on or off, and static methods that can be used to
+affect the speed at which {\tt Counter}s work.
+\item {\tt CounterException}: This is used for errors in {\tt Counter}s,
+usually in the initial values used to construct a {\tt Counter}
+--- e.g.\ trying to construct a {\tt Counter} that attempts to count from
+$0$ to $5$ in steps of $-1$.  It is also used to report errors in trying
+to set the delays used to slow down {\tt Counter}s.
+\item {\tt ThreadSet}: This interface defines a set of {\tt Thread}s, and
+requires any implementation to implement a {\tt runSet()} method that will
+run all the {\tt Thread}s in the set concurrently.
+\item {\tt ThreadHashSet}: This is an incomplete (see below) 
+implementation of the {\tt ThreadSet} interface.
+\item {\tt Main.java}: This class contains a main method that demonstrates 
+how {\tt Counter}s and {\tt ThreadSet}s can be used.  It also switches on
+tracing of {\tt Counter}s so that their behaviour can be observed.
+\end{itemize}
+\section{Programming Exercises}
+\begin{itemize}
+\item 
+{\bf \colour{blue} Model question.} 
+The {\tt run()} method in the {\tt Counter} class is currently just a stub.
+Implement the {\tt run()} method so that when a {\tt Counter}
+thread is run it will start a \kword{while} loop to run through all the 
+values of the counter.  Note: this is {\em easy!} It does not require any
+knowledge or experience of concurrent programming.  Think of it as an
+exercise suited to an introductory course in Java progamming.
+
+Have a look 
+at the last few methods defined in the {\tt Counter} class.
+Using these to implement the loop should then be trivial.
+\item The {\tt ThreadHashSet} class claims to implement the {\tt ThreadSet}
+interface, but the {\tt runSet()} method demanded by the
+interface is also just a stub.  Implement this method.  It should 
+start up all the {\tt Thread}s in the set, and then wait for them to 
+stop.  This is slightly more difficult, as you need to manage
+starting up the {\tt Counter} threads, and then waiting for
+them to stop.  See the lecture notes for information on how
+to do this.  If necessary, use ``for each'' loops to iterate through all
+the {\tt Thread}s in the set:
+\BeginSystem{javatex}{threadset.java}{threadset.tex}
+for (Thread thread: this) {
+  !verb\ldots!
+}
+\EndSystem
+\end{itemize}
+\section{Demo Code}
+The {\tt Main} class contains a {\tt main} method demonstrating the use
+of {\tt Counter}s and {\tt ThreadSet}s.  In this method a {\tt ThreadSet}
+is populated with two {\tt Counter}s, one that tries to count from 5 to 10, and
+another that tries to count from 5 to 0.  Tracing is switched on, so that
+when the code is run the behaviour of the {\tt Counter}s can be 
+observed (if you have correctly implemeted the {\tt run()} and 
+{\tt runSet()} metods).
+
+Try running the {\tt main} method a few times and observe the
+{\tt Counters}' behaviour.
+Do you see something like:
+\begin{verbatim}
+up has started: 5
+down has started: 5
+up has stepped: 6
+down has stepped: 5
+up has stepped: 6
+down has stepped: 5
+down has stepped: 4
+up has stepped: 5
+down has stepped: 4
+up has stepped: 5
+down has stepped: 4
+up has stepped: 5
+up has stepped: 6
+up has stepped: 7
+\end{verbatim}
+\ldots, or is:
+\begin{verbatim}
+up has started: 5
+up has stepped: 6
+up has stepped: 7
+up has stepped: 8
+up has stepped: 9
+up has stepped: 10
+up has finished: 10
+down has started: 5
+down has stepped: 4
+down has stepped: 3
+down has stepped: 2
+down has stepped: 1
+down has stepped: 0
+down has finished: 0
+\end{verbatim}
+more like your output?
+
+If the latter, there is almost certainly a problem with your code so that the counters
+are not running concurrently.  Things that you can check:
+\begin{itemize}
+\item Do you call the counters' {\tt start()} method (which will start them
+up as concurrent threads), or do you call their {\tt run()} method
+(which will run each counter as a sequential process)?
+\item Do you start {\em all} counters running {\em before} you wait for
+any of them to finish?
+\end{itemize}
+
+
+Once your counters appear to properly run concurrently try editing the {\tt main} method to change
+the {\tt Counter} delay to low and high delays, and try running the code
+again. 
+You 
+may observe a difference in behaviour.  If you do, what is this difference, and why
+do you think it occurs?
+{\colour{red}\section{Logbook Exercise}}
+Edit the {\tt main} method so that the {\tt Counter}s now try to count
+from 0 to 10, and from 10 to 0, in steps of $\pm 1$.
+Make sure that the {\tt Counter}s trace their behaviour.
+
+Run this revised method a number of times, and
+answer the following questions.  Make sure that you explain your answers.
+
+ 
+{\em Note:} these questions must be answered for the $(0\rightarrow 10,10\rightarrow 0)$ counter pair, {\em not} for the $(5\rightarrow 10,5\rightarrow 0)$
+counter pair.
+\begin{enumerate}
+\item Will the test always terminate?  I.e.\ is it certain that no matter
+how often you were to run the test it would always end in a finite length of
+time?
+\item What is the shortest possible output for the test, in terms of the
+number of lines output?
+\item What is the largest possible value that the count can reach when the
+test is run?
+\item What is the lowest possible value that the count can reach when the
+test is run?
+\end{enumerate}
+
+
+\end{document}
