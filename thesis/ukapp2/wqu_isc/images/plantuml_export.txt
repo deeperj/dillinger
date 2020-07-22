@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor User
+actor SessionManager
+rectangle LoginManager {
+  User -- (Enter Login)
+  (username, password) .> (Enter Login) : include
+  (CreateSession) -- SessionManager
+  (LoginError) -- SessionManager
+ (validationError) .> (LoginError) : extends
+ (NotFoundError) .> (LoginError) : extends
+
+}
+@enduml
