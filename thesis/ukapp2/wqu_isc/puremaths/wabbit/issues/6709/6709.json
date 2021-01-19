@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2011-06-20T20:50:29.693-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Not sure exactly how this is handled by the driver, but we do need to have an option to do it. Having a delay of 0 rules until you cant figure out which part is too slow. Make the delay configurable, say minimum of 55 and max of 75",
+    "LastUpdatedDate": "2013-05-16T05:08:25.737-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-07-11T13:39:21.483-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "LCD update delay",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 0,
+    "Id": 6709
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

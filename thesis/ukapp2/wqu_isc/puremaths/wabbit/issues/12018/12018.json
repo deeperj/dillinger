@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Closing per feedback",
+    "ClosedDate": "2015-05-17T02:33:58.313-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi I am using the latest version of Wabbitemu in Windows 7, 32-bit, Home Premium Edition, and I notice a considerable amount of lag when I type in numbers into the calculator. For example, I try to type the number 193500, but all that shows up in the calculator is \"5\". Is there a way to resolve this issue?\n\nUPDATE - This issue is resolved in the latest version released March 25, 2015. Thank you so much wabbitemu team!! :D",
+    "LastUpdatedDate": "2015-05-17T02:33:58.313-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-02-18T11:47:09.39-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Wabbitemu Lags in Windows 7",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12018
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

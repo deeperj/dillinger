@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "im not sure what happened, i was just looking around in the options looking for a way to keep it from automatically \"turning off\", and all of the options disappear.",
+    "LastUpdatedDate": "2017-03-14T17:57:28.9-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-08-25T18:39:56.063-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Completely transparent; no options",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12415
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5077,
+      "FileName": "2016-08-25.png",
+      "DownloadUrl": ".\\5077"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Right click on the LCD screen",
+      "PostedDate": "2017-03-14T17:57:28.9-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "I&#39;m not exactly sure what was causing this one, but a little tweaking and it appears to be fixed now",
+    "ClosedDate": "2010-12-10T21:06:46.767-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I've not been able to get the Oct 28 release to run properly.  \n \nOpening a saved state file, or using Restore Previous State option, the calculator resets and clears memory each time the program is launched and each time a saved state is opened.\n \nThis happens for the 32 and 64 bit versions on various computers.",
+    "LastUpdatedDate": "2013-05-16T05:08:21.643-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-12-09T03:04:58.82-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "calc memory cleared each time program is run",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7747
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

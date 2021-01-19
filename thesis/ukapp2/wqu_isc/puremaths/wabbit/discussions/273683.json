@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "676085",
+    "ThreadId": "273683",
+    "Html": "\r\n<p>Does Wabbitemu (1.5.7.7) work on Windows XP?&nbsp; I've loaded it on a laptop with Windows 7 and it works wonderfully.&nbsp; I'd like to load it on the computer in my classroom and use it for classroom instruction.&nbsp; That computer, however, runs WindowsXP\r\n Professional (no plans to upgrade to Windows 7).&nbsp; I've tried loading it and the program will load and the calculator will appear, however, I can't get the &quot;buttons&quot; to click, and I can't right click and shut down the program -- the only way to exit is\r\n by using Task Manager.&nbsp;</p>\r\n",
+    "PostedDate": "2011-09-23T19:39:25.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676761",
+    "ThreadId": "273683",
+    "Html": "<p>Wabbitemu does run on windows XP. I've uploaded a new version that you'll want to download and try, it will fix the issue with closing wabbitemu (I'm guessing you are in skin cutout mode). As for not being able to click the buttons, I didn't see any issue with that, tell me if the latest download fixes it. Also when you right click, make sure it is on the screen not anywhere else on the skin.</p>",
+    "PostedDate": "2011-09-26T09:29:23.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

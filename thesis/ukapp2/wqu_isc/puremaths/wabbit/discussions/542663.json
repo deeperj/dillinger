@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1235473",
+    "ThreadId": "542663",
+    "Html": "Hello,\r<br />\nThank you for your work on wabbitemu.\r<br />\nI'm trying to create a skin for TI83+.fr and I have a &quot;Invalid screen size / Unable to find the screen box&quot; message.\r<br />\nI have the 1.8.2.26 version on Win 7x64.\r<br />\nMy skin and keymap are png 32bit 350*725px.\r<br />\nYou cann see them here : <a href=\"http://webcloud.zaclys.com/public.php?service=files&amp;t=84973ac0fda901a2d98a4c4078e125bb\" rel=\"nofollow\">http://webcloud.zaclys.com/public.php?service=files&t=84973ac0fda901a2d98a4c4078e125bb</a>\r<br />\nI don't understand where is the problem...\r<br />\nCould someone help me ?\r<br />\n<br />\nThanks !<br />\n",
+    "PostedDate": "2014-04-18T10:12:01.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1237843",
+    "ThreadId": "542663",
+    "Html": "I downloaded your skin and keymap and they seem to be fine. I tested them on both 1.8.2.26 and the latest beta, they worked correctly on both. Try the beta from here: <a href=\"http://buckeyedude.com/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\" rel=\"nofollow\">http://buckeyedude.com/Revsoft/Wabbitemu/Beta/Wabbitemu.exe</a>. It has better skin handling code, and will darken your keypresses like normal.\r<br />\n<br />\nIf that still doesn't work, I'll take another look at it. The invalid skin size message usually indicate that the skin is not a factor of 350x725 px. Maybe you were loading a different version that didn't quite conform to those dimensions?\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-04-24T22:22:00.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1238716",
+    "ThreadId": "542663",
+    "Html": "Thank you for you answer and your test.\r<br />\nI tried with the last beta and after a problem with the cutout mode, it works without it !\r<br />\nI don't really understand where was the problem but it works and that's great !\r<br />\nI'm very fond of the &quot;teacher view&quot; ;-)\r<br />\nJust a question : is it possible to copy to the clipboard a screenshot ?\r<br />\nIt's possible to save a screenshot to a file, but I didn't find the way for a quick copy-paste in a document otherwise a external program.\r<br />\nIt sould be great to be able to do it, and for the teacher view too...\r<br />\n<br />\nNolendil<br />\n",
+    "PostedDate": "2014-04-28T03:10:31.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1239092",
+    "ThreadId": "542663",
+    "Html": "Good point with cutout mode, I'll fix that for custom skins. As for easily getting a screenshot to the clipboard, no but its a good idea I'll add it. You can drag and drop from the screen to the program (assuming it supports drag and drop).\r<br />\n<br />\nTeacher view is still a work in progress, its close but doesn't quite smartly update. Its a technically challenging problem that I'm still looking for a good platform independent solution to.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-04-28T20:04:34.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1239109",
+    "ThreadId": "542663",
+    "Html": "<strong>BuckeyeDude wrote:</strong><br />\n<blockquote>\nYou can drag and drop from the screen to the program (assuming it supports drag and drop).<br />\n</blockquote>\nOh, that's fine ! Maybe it can be just a little more explicite in the doc ?<br />\n<blockquote>\nTeacher view is still a work in progress, its close but doesn't quite smartly update. Its a technically challenging problem that I'm still looking for a good platform independent solution to.<br />\n</blockquote>\nIt's already quite interesting !\r<br />\nI can't help on programming, but good luck and thank you !<br />\n",
+    "PostedDate": "2014-04-28T22:46:47.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

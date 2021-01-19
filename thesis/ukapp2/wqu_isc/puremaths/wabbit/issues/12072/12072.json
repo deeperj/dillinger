@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "It would be a nice feature to be able to specify where the minimize- and close buttons are placed in cutout mode. Just like where the keys and LCD are placed. That way they wouldn't be \"hanging\" outside the calculators that have a round top-right corner.",
+    "LastUpdatedDate": "2015-04-12T10:17:13.343-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-04-12T10:16:49.867-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Specify where minimize and close buttons are placed",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12072
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

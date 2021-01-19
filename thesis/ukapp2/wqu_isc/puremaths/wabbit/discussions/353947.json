@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "829895",
+    "ThreadId": "353947",
+    "Html": "\r\n<p>I saw this discussion saying that Wabbitemu is ported to android:&nbsp;http://wabbit.codeplex.com/discussions/353943</p>\r\n<p>The point is that you can easily port from android to IOS: you can use for example the DragonfireSDK which allow to developp IOS apps directly on windows without the need of an apple developper account.</p>\r\n<p>It would be cool since it would even work on 1st gen devices 'cause Wabbitemu is light.</p>\r\n<p>&nbsp;</p>\r\n<p>I can be a beta tester on my jailbroken Ipod touch 1g &nbsp;if needed.</p>\r\n<p>&nbsp;</p>\r\n<p>Regards.</p>\r\n",
+    "PostedDate": "2012-04-29T06:40:37.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829898",
+    "ThreadId": "353947",
+    "Html": "<p>The difference between Android and iOS is pretty large. 1. I know how to program in Java. I don't know how to program in Obj-C. 2. I have an Android device and can test easily. 3. I can actually publish Wabbitemu on the Android market. I'm not particularly inclined to do development for a platform that restricts it so a tiny portion of the users can actually use it.</p>\r\n<p>That being said, if anyone with iOS development experience wants to bring Wabbitemu to the platform, I'd be glad to help them get started. Its very easy to build the core, all that is required as a GUI to use it.</p>",
+    "PostedDate": "2012-04-29T06:45:02.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829899",
+    "ThreadId": "353947",
+    "Html": "<p>1) AFAIK, Wabbitemu is in C++</p>\n<p>2) DragonfireSDK allow to program using C and C++ on IOS</p>\n<p>3) it does include an emulator</p>\n<p>4) it would be also accessible to ipad users if you do you app universal</p>\n<p>5) Please consider quick looking at this: http://www.dragonfiresdk.net/help/gettingstarting.htm</p>",
+    "PostedDate": "2012-04-29T06:51:31.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829904",
+    "ThreadId": "353947",
+    "Html": "<p>I looked at the sdk and it looks interesting, but pretty sparse. I'll look into it a little more. As for having an emulator, I'm sure it does, but I ported Wabbitemu to Android because I wanted to run it on my device. Here I don't have the same motivation.</p>",
+    "PostedDate": "2012-04-29T07:07:59.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829906",
+    "ThreadId": "353947",
+    "Html": "<p>I understand you but for us, users, it would be really nice to have one !</p>",
+    "PostedDate": "2012-04-29T07:09:33.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

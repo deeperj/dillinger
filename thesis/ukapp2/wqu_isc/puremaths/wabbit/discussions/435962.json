@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1012613",
+    "ThreadId": "435962",
+    "Html": "Hello,\r<br />\n<br />\nI often send programs to the emulator for debugging. However, I'm unable to save the changes I have made in the program, instead having to rewrite the changes in my actual calculator. How do I save the programs created in Wabbitemu?<br />\n",
+    "PostedDate": "2013-03-08T16:06:46.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012625",
+    "ThreadId": "435962",
+    "Html": "Hello,\r<br />\n<br />\nIf you've created a program in Wabbitemu, you'll need to export it as an .8xp file (or maybe some other kind of .8x* file) and send it to your calculator via the linking software of your choice, probably TI Connect. To export a program, you can go to View-&gt;Variables and find your program or other variable in the list. From there you can either click export (when you have selected the item), or drag and drop the program from the tree into an explorer window. You can then send this file to your calculator and avoid retyping it all. It's important to note that this will only work on the 83+ and 84+ series. \r<br />\n<br />\nLet me know if you have another questions or issues.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-03-08T16:55:00.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098790",
+    "ThreadId": "435962",
+    "Html": "My version of wabbitemu on Mac OS X has no &quot;Variables&quot; on the &quot;View&quot; menu. It only has &quot;Skin Mode&quot;, &quot;Show Toolbar&quot;, and &quot;Customize Toolbar&quot;.<br />\n",
+    "PostedDate": "2013-09-24T15:41:46.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098797",
+    "ThreadId": "435962",
+    "Html": "Unfortunately, currently the OS X version does not support exporting variables from the emulator. Hopefully at some point this will be added in.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-24T16:09:19.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

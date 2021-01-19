@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "703272",
+    "ThreadId": "280806",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>Yesterday I downloaded version nov. 2011 and today I did the same at school. But in the first usage in front of my class, Wabbitemu appeared to be frozen and non-responsive.<br>\r\nI tried again and again, starting and stopping the program. Same behaviour. On the XP machines here, the latest version is not reliable.\r\n<br>\r\nIf log files would help to solve this problem, please tell me what to do.</p>\r\n<p>Mathteacher</p>\r\n",
+    "PostedDate": "2011-11-25T00:36:09.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "704852",
+    "ThreadId": "280806",
+    "Html": "<p>Hello,</p>\r\n<p>Sorry for the issue with the new version. I've tested under XP, and there doesn't seem to be any issue I can replicate, but I'm guessing its related to the change I made to the skin. Are you using the cutout skin mode?</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2011-11-29T09:04:46.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705553",
+    "ThreadId": "280806",
+    "Html": "<p>Sure. Always cutout skin.</p>",
+    "PostedDate": "2011-11-30T14:48:31.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705599",
+    "ThreadId": "280806",
+    "Html": "<p>I have downloaded <a id=\"fileDownload1\" class=\"FileNameLink\" tabindex=\"9\" href=\"../releases/view/44625#DownloadId=132343\">Wabbitemu 64-bit</a> 1.5.11.4 this morning 11/30/2011. I have noticed that the graphing functionality does not work. I'm completely new to this sw, so maybe I have to do something not obvious to me to enable graphing?</p>\r\n<p>Thanks</p>\r\n<p>franK</p>",
+    "PostedDate": "2011-11-30T17:06:20.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "706153",
+    "ThreadId": "280806",
+    "Html": "<p>Hey Frank,</p>\r\n<p>Once you have your calculator setup it should be the exact same as a normal calculator. Can you walk me through what what you did to get a ROM and what you're doing in wabbit to try and graph something?</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2011-12-01T15:54:44.19-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725217",
+    "ThreadId": "280806",
+    "Html": "<p>Hi ﻿BuckeyeDude,</p>\r\n<p>for me it's just the other way: the last version which was working correctly here was the one from Nov 4th 2011, all newer versions since December have big problems!</p>\r\n<p>Anytime in December you implemented a new option &quot;Open debugger on flash error&quot; and if this option is ON (which it is by default) then no matter which ROM image I load, the debugger is opening at each program start. It looks as if these neweer Wabbitemu version can't read the usual ROM images anymore (but all previous versions upto 4th Dec had no problems with them). So the only way to run the new Wabbitemu is to deactivate this option - but then I'm wondering what this 'feature' should be good for!?</p>\r\n<p>In the last December version the debugger didn't work at all anymore (just crashing), but in your first new version this year this bug was corrected. Unfortunately since yesterday there's again a new problem: now you've added this 'looking for updates' feature, and when I run Wabbitemu on my computers which are not connected to the internet I always get this annoying error popup window (because there's no internet connection). Couldn't you imagine that many users start Wabbitemu while being offline or on computers without internet connection??? :-(</p>\r\n<p>Sorry to say this, but Wabbitemu is getting worse with every new release since 2 months, fortunately I still have this old 4th Nov version which works fine, but all your newer versions are almost unusable (or at least very annoying).</p>\r\n<p>&nbsp;</p>\r\n<p>Franz</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-01-14T07:46:34.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725307",
+    "ThreadId": "280806",
+    "Html": "<p>Hi Franz,</p>\r\n<p>Sorry about all the issues. Lets see if I can't get some of them fixed. First I've changed it so that by default opening the debugger on invalid flash commands is off. Same with breaking on execution violations. These are important debugging tools for developers and in theory should never happen. Unfortunately it appears it does, so devs can turn it on themselves. I'm a little confused though. Once you uncheck these options, do you still have issues with your ROM? If you do what ROM version are you using and what issues do you have using the ROM?</p>\r\n<p>Second the automatic check for updates doesn't have the error box anymore. It was only suppose to show on the manual check for updates not the automatic check.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-01-14T16:44:00.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725386",
+    "ThreadId": "280806",
+    "Html": "<p>Hi BuckeyeDude,</p>\r\n<p>first many thanks for todays new release - now the error message when<br />being offline has gone and also switching off &quot;Open debugger on ...&quot;<br />is indeed a good idea. :-)</p>\r\n<p>Now I've redownloaded again all ROM images to be sure that my stored<br />images aren't damaged in any way before I made a new complete test with<br />this new Wabbitemu version.<br />BTW, if you want to know exactly which versions I'm using here - here's<br />the site from where I've downloaded all my 'original' (?) ROMs:<br /><a href=\"http://www.emunews.eu/?page_id=10\">http://www.emunews.eu/?page_id=10</a><br />(you've to scroll down to get to the TI images)</p>\r\n<p>Here's the list of ROMs I'm using here (all with Wabbitemu 32-bit under Win7) -<br />the first list are the 'original' ROMs from the site mentioned above:<br />TI-73&nbsp;&nbsp;&nbsp;&nbsp; 1.60<br />TI-82&nbsp;&nbsp;&nbsp;&nbsp; 19.0<br />TI-83&nbsp;&nbsp;&nbsp;&nbsp; 1.10<br />TI-83+&nbsp;&nbsp;&nbsp; 1.16<br />TI-83+SE&nbsp; 1.16<br />TI-84+&nbsp;&nbsp;&nbsp; 2.43<br />TI-84+SE&nbsp; 2.41<br />TI-85&nbsp;&nbsp;&nbsp;&nbsp; 10.0<br />TI-86&nbsp;&nbsp;&nbsp;&nbsp; 1.6</p>\r\n<p>And this second list are the neweset flash-files from the TI-website,<br />of which I made ROM images myself with a previous Wabbitemu (anytime<br />in Oct. 2011(:<br />TI-73&nbsp;&nbsp;&nbsp;&nbsp; 1.91<br />TI-83+&nbsp;&nbsp;&nbsp; 1.19<br />TI-84+&nbsp;&nbsp;&nbsp; 2.55</p>\r\n<p>Now for the results of my tests:<br />When &quot;Open debugger on invalid flash command&quot; is switch OFF, then all<br />of the ROMs listed above can be loaded (and the calculator switched on)<br />without any problems, in other words: everything is working fine!</p>\r\n<p>If this option &quot;Open debugger on invalid flash command&quot; is switched ON,<br />then the debugger automatically open whenever I load and switch on one<br />of the following ROMs:<br />all 73/82/83 'original' ROMs and the 73 ROM made from flash!</p>\r\n<p>The 'original' 84/85/86 and the 83/84 made from flash work correctly,<br />i.e. do not call the debugger.</p>\r\n<p>I've also tried to create a new 73 ROM from the TI-flashfile (because<br />that's the only one of the selfmade ROMs that doesn't work), but when<br />I try to create a ROM file from this 73 flashfile the new Wabbitemu<br />completely crashes: during this creation process it suddenly opens the<br />debugger, and the debugger then is going crazy and has to be canceled<br />by the Windows taskmanager.</p>\r\n<p>So it seems you've changed anything in the Wabbitemu versions since<br />Dec 2011, so that it now treats any ROM/flash commands as illegal and<br />opens the debugger (if this option is on) - as I already mentioned<br />the version from 4th Nov 2011 (and earlier ones) did not have these<br />problems at all.</p>\r\n<p>And the second thing is that now it can't create a ROM image from a<br />flashfile anymore (at least not for the TI-73), and also this has<br />worked in my old versions (upto Nov 2011).</p>\r\n<p>I hope this long post will be helpful for you in solving these<br />remaining problems. ;-)</p>\r\n<p>Franz</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-01-15T03:10:52.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

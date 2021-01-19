@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "995932",
+    "ThreadId": "431851",
+    "Html": "ok, so I created a program in TI Editor from TI Connect X, and I saved it to my Desktop\r<br />\nsecond, I downloaded wabbitemu and an 86 rom, which I opened with wabbitemu,\r<br />\nI tried to transfer the program to wabbitemu but it wouldn't let me... I check the file extension and saw that it was a *.TIProgram\r<br />\nI need it to be a <em>.8xp or </em>.86p I guess...\r<br />\nWhat do I need to do to test this program on the emulator?<br />\n",
+    "PostedDate": "2013-02-03T22:24:31.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "995993",
+    "ThreadId": "431851",
+    "Html": "Hello Hessertsr,\r<br />\n<br />\nWhen you created the program you created it in the editor on the Mac version of TI Connect yes? I'm not super familiar with this program, but I would advise checking out this article: <a href=\"http://epsstore.ti.com/OA_HTML/csksxvm.jsp?nSetId=108959\" rel=\"nofollow\">TEXT</a>. When you save it, you'll want to save it as an 86 program and then send it to Wabbitemu as you would normally send to an 86.\r<br />\n<br />\nLet me know if you have any other issues, or this doesn't completely solve the problem.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-02-04T01:52:59.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "997033",
+    "ThreadId": "431851",
+    "Html": "I tried everything you said above, and when I go to save as there is no other options. and when I try to change the extension, it won't let me. I changed it manually after I saved it and dragged it into wabbitemu and it crashed.\r<br />\nAnything Else?<br />\n",
+    "PostedDate": "2013-02-05T20:51:04.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1206139",
+    "ThreadId": "431851",
+    "Html": "I take back what I said, I read the article and I was saving it wrong... You have to hit Save a Copy as, i was trying to Save as, which wasn't working... Thanks for the Help :)<br />\n",
+    "PostedDate": "2014-02-09T22:20:36.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-02-13T18:06:22.103-08:00"
+  }
+]

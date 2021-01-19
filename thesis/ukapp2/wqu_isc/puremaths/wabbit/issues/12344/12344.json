@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Love the application!\n\nThe issues is that ctrl+c is not able to copy from the app. \nI have tried this running a TI-85 and a TI-86 rom in Windows 10. \n\nI get an error message saying: \"Unable to set clipboard data\".\n\nThanks again for the great app.\nIf someone gets a chance to look into this is would be awesome. \n\nDavid",
+    "LastUpdatedDate": "2016-02-13T09:45:26.77-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-02-13T09:45:26.77-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unable to set clipboard data",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12344
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

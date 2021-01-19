@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "writing a 0 to 9C87 seems to have fixed",
+    "ClosedDate": "2010-09-10T21:31:33.713-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Only happens in release build. The data is loaded properly, but the os isn't updated correctly. link_send_app is my guess, but I don't see anything uninitialized to cause this issue in release.",
+    "LastUpdatedDate": "2013-05-16T05:08:25.587-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-07-11T15:51:36.99-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "App force loading fails after loading one app",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 6710
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

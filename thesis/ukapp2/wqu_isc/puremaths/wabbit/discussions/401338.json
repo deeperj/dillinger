@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "934530",
+    "ThreadId": "401338",
+    "Html": "\r\n<p>There's been some discussion over at yAronet (http://www.yaronet.com/posts.php?s=150151) and later at Maxcoderz (http://maxcoderz.org/forum/viewtopic.php?p=67145#p67145) where a program that uses the link works on the emulator but doesn't work on actual\r\n hardware. Timendus seems to suggest that there's a bcall (_ipoint, _vputs, _dispop1a, and _setxxop1) touching one of the ports and messing with the silent linking. The strange thing is just that it runs fine on WabbitEmu but not on actual hardware.</p>\r\n",
+    "PostedDate": "2012-10-30T20:58:26.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935016",
+    "ThreadId": "401338",
+    "Html": "<p>Thanks for the links. One of the sore points of Wabbitemu has been its linking support. I've been steadily working on it, but at this point its still not completely trustable. Hopefully soon I'll be able to put out a newer version with improved linking support. For now however I would recommend always double checking on real hardware to ensure the linking is accurate.</p>",
+    "PostedDate": "2012-10-31T14:36:17.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "935952",
+    "ThreadId": "401338",
+    "Html": "<p>I don't know if a copy of one of the programs that works on WabbitEmu but not on hardware would be useful? Others suggested it might be _vPutS doing things with the interrupts (disabling them, maybe?) what's causing the problems. Anyway, thanks for the response :)</p>",
+    "PostedDate": "2012-11-02T19:54:43.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

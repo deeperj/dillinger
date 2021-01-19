@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "698532",
+    "ThreadId": "279542",
+    "Html": "\r\n<p>Here I write many bugs that occure in wabbitcode windows :</p>\r\n<p>Launching the prog : (due to the server which is down)</p>\r\n<p>&quot;System.Net.WebException: The remote name could not be resolved: 'group.revsoft.org'<br>\r\n&nbsp;&nbsp; at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest&amp; request)<br>\r\n&nbsp;&nbsp; at System.Net.WebClient.DownloadString(Uri address)<br>\r\n&nbsp;&nbsp; at System.Net.WebClient.DownloadString(String address)<br>\r\n&nbsp;&nbsp; at Revsoft.Wabbitcode.Services.UpdateService.CheckForNewerVersion(Object state)&quot;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Trying to assemble a prog if I haven't saved it before. It should ask to save, not write an error :</p>\r\n<p>&quot;Error saving the file<br>\r\nSystem.ArgumentNullException: Path cannot be null.<br>\r\nParameter name: path<br>\r\n&nbsp;&nbsp; at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)<br>\r\n&nbsp;&nbsp; at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)<br>\r\n&nbsp;&nbsp; at Revsoft.TextEditor.TextEditorControlBase.SaveFile(String fileName)<br>\r\n&nbsp;&nbsp; at Revsoft.Wabbitcode.newEditor.SaveFile()&quot;</p>\r\n<p>Trying to start debug, I obtain the following error, but the file is in the calculator, so the shouldn't be a bug, perhaps the COM interface of wabbitemu wich changed :</p>\r\n<p>&quot;System.InvalidCastException: Unable to cast COM object of type 'System.__ComObject' to interface type 'IWabbitemu'. This operation failed because the QueryInterface call on the COM component for the interface with IID '{13B5C004-4377-4C94-A8F9-EFC1FDAEB31C}'\r\n failed due to the following error: Cette interface n&rsquo;est pas prise en charge (Exception from HRESULT: 0x80004002 (E_NOINTERFACE)).<br>\r\n&nbsp;&nbsp; at Revsoft.Wabbitcode.Classes.CWabbitemu..ctor(String file)&quot;</p>\r\n<p>I'll add other bugs here soon, please fix them.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-11-15T09:59:44.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699071",
+    "ThreadId": "279542",
+    "Html": "<p>Unfortunately this version of wabbitcode I've discontinued, and are working on a rewrite. The poor design made it nearly impossible to keep up with the issues it created. I'll see if I can make a release that fixes some of the main issues, but no guarantees on anything</p>",
+    "PostedDate": "2011-11-16T09:30:39.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

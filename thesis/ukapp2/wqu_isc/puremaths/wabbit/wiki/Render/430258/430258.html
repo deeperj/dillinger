@@ -1,0 +1,70 @@
+
+<div class="wikidoc">
+<div class="wikidoc">
+<h1>Wabbitemu COM Interface</h1>
+<p>Wabbitemu provides a COM class object that allows a user to access all of the internal features of a running Wabbitemu core without any programming language-specific restrictions. You can create a Wabbitemu instance from C/C&#43;&#43;, any .NET language, VBScript,
+ or JScript without any changes or additions to Wabbitemu.&nbsp;</p>
+<h2>Getting Started</h2>
+<p>To use the COM interface you must register the class object. This can be done via the regsvr32 tool. Simply open an administrative&nbsp;command prompt, navigate to the directory containing the Wabbitemu DLL and execute regsvr32 Wabbitemu.dll. You should
+ get a message box telling you registration has succeeded.</p>
+<p>If you're using a .NET language, you can open Visual&nbsp;Studio and simply add a reference to the DLL. Visual Studio will translate all the unmanaged COM interfaces into a nice Interop DLL that allows you to call the functions through managed code. Once
+ you've added the reference to the project, you're done. You can proceed to look at some of the code samples below, or download the sample C# or Visual Basic projects. Wabbitemu is available for Registration-Free COM meaning users do not have to run the regsvr32
+ command (good if you don't want to require administrative access or an installer). To isolate the COM object simply open the Properties window for the reference and change Isolated to True.
+<strong>Note:</strong> You will still need to have the dll registered on your computer to build your application. If you want to test either unregister your DLL using the regsvr32 /u switch or by testing on a different computer.</p>
+<p>If you're using unmanaged code (C&#43;&#43;) you'll need to import the DLL. Add the line</p>
+<pre>#import &quot;Wabbitemu.dll&quot; no_namespace</pre>
+<p>into your header file (make sure Wabbitemu.dll is in an included directory). Also make sure you have added support for ATL in your project settings.</p>
+<h2>Class Objects</h2>
+<ul>
+<li><strong>coclass Wabbitemu</strong> </li></ul>
+<blockquote><em>Implements <strong>IWabbitemu</strong></em></blockquote>
+<h2>Interfaces</h2>
+<ul>
+<li><a href="http://wabbit.codeplex.com/wikipage?title=IWabbitemu&referringTitle=Wabbitemu COM Interface">IWabbitemu</a>
+</li><li><a href="http://wabbit.codeplex.com/wikipage?title=IZ80&referringTitle=Wabbitemu COM Interface">IZ80</a>
+</li><li><a href="http://wabbit.codeplex.com/wikipage?title=ILCD&referringTitle=Wabbitemu COM Interface">ILCD</a>
+</li><li><a href="http://wabbit.codeplex.com/wikipage?title=IKeypad&referringTitle=Wabbitemu COM Interface">IKeypad</a>
+</li><li><a href="http://wabbit.codeplex.com/wikipage?title=IPage&referringTitle=Wabbitemu COM Interface">IPage</a>
+</li></ul>
+<h2>Structures</h2>
+<ul>
+<li><a href="http://wabbit.codeplex.com/wikipage?title=TIApplication&referringTitle=Wabbitemu COM Interface">TIApplication
+</a></li><li><a href="http://wabbit.codeplex.com/wikipage?title=TISymbol&referringTitle=Wabbitemu COM Interface">TISymbol</a>
+</li></ul>
+</div>
+<h2>Examples</h2>
+<h3>VBScript</h3>
+<p>Sample Project: <a href="http://download.codeplex.com/download?ProjectName=wabbit&DownloadId=244728">
+Download</a></p>
+<pre class="csharpcode"><span class="rem">' Instantiate a new Wabbitemu object</span>
+<span class="kwrd">Dim</span> Calc
+<span class="kwrd">Set</span> Calc = CreateObject(<span class="str">&quot;Wabbit.Wabbitemu&quot;</span>)
+
+Calc.LoadFile <span class="str">&quot;ti83p.rom&quot;</span>
+Calc.LoadFile <span class="str">&quot;test.8xp&quot;</span>
+
+<span class="rem">' List every APP on the calculator</span>
+<span class="kwrd">For</span> <span class="kwrd">Each</span> App <span class="kwrd">in</span> Calc.Apps
+    WScript.Echo <span class="str">&quot;APP on calc: &quot;</span> &amp; App.Name
+<span class="kwrd">Next</span>
+
+Calc.Visible = <span class="kwrd">True</span>
+Calc.Running = <span class="kwrd">True</span> </pre>
+<h3>C#</h3>
+<p>Sample Project: <a href="http://download.codeplex.com/download?ProjectName=wabbit&DownloadId=244715">
+Download</a></p>
+<pre class="csharpcode">Wabbitemu Calc = <span class="kwrd">new</span> Wabbitemu();
+
+Calc.LoadFile(<span class="str">@&quot;ti83p.rom&quot;</span>);
+Calc.LoadFile(<span class="str">@&quot;test.8xp&quot;</span>);
+
+<span class="kwrd">foreach</span> (TIApplication App <span class="kwrd">in</span> Calc.Apps)
+{
+    Console.WriteLine(<span class="str">&quot;APP on calc: &quot;</span> &#43; App.Name);
+}
+
+Calc.Visible = <span class="kwrd">true</span>;
+Calc.Running = <span class="kwrd">true</span>;</pre>
+</div>
+<div id="_mcePaste" style="width:1px; height:1px; overflow:hidden; top:1032px; left:-10000px">
+&#65279;</div>

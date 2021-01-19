@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Would be nice if you also would be able to save the state of a ROM in the Android version. An awesome feature would of course be if this would be done automatically and you can swipe between multiple calculators, so you have a kind of \"multi-window\" mode.",
+    "LastUpdatedDate": "2015-11-23T08:20:44.033-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-23T08:20:44.033-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Android: Suggestions",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12283
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

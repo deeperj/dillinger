@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Still get this message when trying to install the TI emulator on my Windows 10 machine.",
+    "LastUpdatedDate": "2017-03-14T20:07:44.973-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-06-09T14:59:41.54-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "OS file is corrupted or invalid",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 5,
+    "Id": 12390
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have same problem.",
+      "PostedDate": "2016-06-16T02:59:38.41-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am having the same problem.  I get that the OS file is corrupted. ",
+      "PostedDate": "2016-06-23T20:23:06.787-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-06-28T19:11:02.77-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am having the same problem on both PC and Android phone.  I'm new to this forum.  Does anybody ever help here or do we all just complain?\n",
+      "PostedDate": "2016-06-30T06:46:44.717-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have same problem.",
+      "PostedDate": "2016-07-29T09:21:06.127-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-07-29T09:21:17.653-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-02-27T11:31:24.54-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I can help :)\r\n\r\n[Here's how you copy a ROM file from a calculator.](https://imgur.com/gallery/lHVWR)\n[Here's how you create a ROM file using open source software.](https://imgur.com/gallery/FvELU)",
+      "PostedDate": "2017-03-14T20:07:44.973-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "676971",
+    "ThreadId": "273923",
+    "Html": "\r\n<p>Hi, the previous problem where the emulator would not close is fixed. Thanks for that.<br>\r\nI got a couple of questions regarding the skin and associated options.</p>\r\n<p>The option &quot;Use cutout skin&quot; works. But what does the option &quot;Use screen texture&quot; do, actually?</p>\r\n<p>The option &quot;Use custom Skin&quot; allows one to select a different bitmap (which I don't have and so I receive an error message) and select a different colour. Couldn't these be separated, where you continue to use the ROM bitmap OR select a different bitmap,\r\n and regardless choose your favourite colour AND/OR select &quot;Cutout skin&quot;? I noticed that when &quot;Cutout skin&quot; is disabled, the selection of colour works. Why not also with &quot;Cutout&quot;?</p>\r\n<p>Cheers, <br>\r\nStephan</p>\r\n",
+    "PostedDate": "2011-09-26T22:00:15.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676974",
+    "ThreadId": "273923",
+    "Html": "<p>Good to hear your first issue is fixed.</p>\r\n<p>If you look closely at the lcd you'll notice that there is a shadow texture on it (which is pulled from the skin). If you uncheck use screen texture then it will draw the screen as is, without simulating the look of pixels on a real LCD. As for selecting a custom skin and selecting a different color, they are separate, however in cutout mode changing the skin color does not work. It did at one point, then it just stopped working. Its a long standing issue and unfortunately fixing it is not easy. I'm still searching for a solution, but I have not yet found&nbsp;a way to solve it.</p>",
+    "PostedDate": "2011-09-26T22:07:27.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677206",
+    "ThreadId": "273923",
+    "Html": "Thanks for the explanation.<br>\r\nAs to the 2nd topic: Don't worry about. Nice to have, low prio feature.<br>\r\nCheers, Stephan<br>\r\n<br>\r\nOp 27-9-2011 7:07, BuckeyeDude schreef:\r\n<blockquote type=\"cite\">\r\n<p>From: BuckeyeDude</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Good to hear your first issue is fixed.</p>\r\n<p>If you look closely at the lcd you'll notice that there is a shadow texture on it (which is pulled from the skin). If you uncheck use screen texture then it will draw the screen as is, without simulating the look of pixels on a real LCD. As for selecting\r\n a custom skin and selecting a different color, they are separate, however in cutout mode changing the skin color does not work. It did at one point, then it just stopped working. Its a long standing issue and unfortunately fixing it is not easy. I'm still\r\n searching for a solution, but I have not yet found a way to solve it.</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-09-27T08:22:29.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681978",
+    "ThreadId": "273923",
+    "Html": "<p>Good news, I've managed to fix the issue with the cutout skin no allowing you to choose a faceplate color. If you download the latest version you'll be able to pick your favorite color and enjoy it with the transparenty goodness of cutout mode.</p>",
+    "PostedDate": "2011-10-10T01:35:24.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682109",
+    "ThreadId": "273923",
+    "Html": "<p>Good news indeed.<br />It works quite well. I did receive an error message \"failed to load skin\" a couple of times.<br />But then again, after a couple of colour changes this no longer occured.</p>\r\n<p>Thanks, Stephan</p>",
+    "PostedDate": "2011-10-10T07:22:05.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682175",
+    "ThreadId": "273923",
+    "Html": "<p>Hmm, not sure what would cause that, do you mean 'Custom skin failed to load', or 'Skin and keymap are not the same size'? Also there was a pretty serious memory leak that i fixed this monring. You'll probably want to&nbsp;redownload.</p>",
+    "PostedDate": "2011-10-10T10:05:29.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682180",
+    "ThreadId": "273923",
+    "Html": "Hi,<br>\r\nIt was 'Custom skin failed to load' and it only occured on my Win7-64bit <br>\r\nmachine.<br>\r\n(NB, I do not have a custom skin selected)<br>\r\nThe update on my win7-32bit netbook did not fire any alarms.<br>\r\nStephan",
+    "PostedDate": "2011-10-10T10:11:48.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682185",
+    "ThreadId": "273923",
+    "Html": "<p>Probably just a leftover setting that was fixed when you changed the skin color. Let me know if you have any more issues.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2011-10-10T10:23:03.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I accidently deleted the rom file. So when I reset it it crashes, so i need toreset it.",
+    "LastUpdatedDate": "2017-03-14T20:10:43.09-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-14T11:50:21.447-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Deleted rom.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12267
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "If you can, try clicking Help and then Re-run setup wizard",
+      "PostedDate": "2017-03-14T20:10:43.09-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

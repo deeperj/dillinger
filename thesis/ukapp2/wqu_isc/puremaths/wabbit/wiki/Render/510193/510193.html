@@ -1,0 +1,23 @@
+<div class="wikidoc"><h2>Syntax</h2><span class="codeInline">spasm [-T] [-L] [-O] [-C] [-S] [-I dir] [-A] [-D] [-N] [-V] InputFile [OutputFile]</span><br />
+<h2>Arguments</h2>SPASM has a large number of switches to determine how to assemble your file. With one exception (-V) the switches can come in any order, and can be before or after the input and output file. The input file is the file you wish to assemble. The output file is the file you want to put your assembled code in. If it is omitted SPASM will assemble the file and place the output in a file with the same name and the extension .bin.<br /><br />!!Extensions<br />The extension on your output file determines the linking done by SPASM. An unknown or .bin extension indicates no linking is to be done and straight binary is outputted. Possible extensions are:<br /><b>.8xp</b><br />Links for the TI-83 Plus (SE) and TI-84 Plus (SE). Output is a program.<br /><b>.8xk</b><br />Links for the TI-83 Plus (SE) and TI-84 Plus (SE). Output is a signed application in intel hex format.<br /><b>.rom</b><br />Outputs a binary file but pads to 512KB so it can be loaded as an 83 Plus ROM file.<br /><b>.hex</b><br />Outputs an intel hex file.<br /><b>.86p or .86s</b><br />Links for the TI 86. Output is a program or a string.<br /><b>.85p or .85s</b><br />Links for the TI-85. Output is a program or a string.<br /><b>.82p</b><br />Links for the TI-82. Output is a program.<br /><b>.83p</b><br />Links for the TI-83. Output is a program.<br />
+<h2>Switches</h2>All switches are optional
+<ul><li>-T </li></ul>
+This is used to specify that SPASM should output a listing file. Listing files map lines of the source code you&#39;ve inputted, to binary that SPASM has assembled them to. This is useful to look at how SPASM interpreted lines of assembly, and ensure the outputted code is how you intended. The list file will be named after your input file, with the extension changed to .lst<br />
+<ul><li>-L </li></ul>
+This is used to specify that SPASM should output a label file. Label files are just a listing of what label mapped to what address, one label per line. The label file will be named after your input file, with the extension changed to .lab. You may load these label files into Wabbitemu and use them in the debugger.<br />
+<ul><li>-O</li></ul>
+This switch indicates that no output file should be generated. Internally SPASM does this by not running pass two, which means label references are not resolved. This means that if there are no errors, then your code is syntactically correct, but may contain forward references or missing labels. This is often used in conjunction with -C and -V.<br />
+<ul><li>-C</li></ul>
+This switch puts SPASM in code counter mode. SPASM keeps track of the minimum and maximum amount of time and size of  each instruction costs and adds them as a running total. The times and size will be outputted to the commandline. Typically this is only useful for small routines, and works well with -V.<br />
+<ul><li>-S</li></ul>
+This switch puts SPASM in stats mode. SPASM will keep track of different statistics. The statistics will be outputted to the command line. <br />
+<ul><li>-I dir </li></ul>
+This indicates that you want to include a directory to help resolved external files. You can have multiple include directories using multiple -Is or by separating directories with a semi colon. Directories with spaces must be either be escaped, or uses quotes.<br />
+<ul><li>-A</li></ul>
+This switch indicates SPASM should treat labels as case sensitive. By default SPASM is case insensitive.<br />
+<ul><li>-D</li></ul>
+This is used to include command line defines, same as the <a href="#define">define</a> preprocessor. -D can either be a name or a name and a value. <br />
+<ul><li>-N</li></ul>
+Stops spasm from outputting any colors to the command line.<br />
+<ul><li>-V </li></ul>
+This switch is used avoid using an input file and whatever input you have will be specified on the command line. This is useful if you want to do quick syntax checks, or wish to automate SPASM via an external program but don&#39;t want to write a file to disk. -V assumes that whatever comes after it is input, so it should always be the very last switch.</div><div class="ClearBoth"></div>

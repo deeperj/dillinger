@@ -1,0 +1,14 @@
+<div class="wikidoc">
+<h3><span>Description:</span></h3>
+<p>The .org command is used to change the internal location of SPASM's program counter. This&nbsp;is mostly used when calculating addresses for absolute jumps or calls.
+<strong>Note: </strong>changing pc via .org does NOT change any actual data. If you are at location $8000 and you change to $C000 SPASM does not insert $4000 bytes of data. If you want to add these bytes of data, look at the
+<a href="http://wabbit.codeplex.com/wikipage?title=SPASM Directive: .block">.block</a>&nbsp;or
+<a href="http://wabbit.codeplex.com/wikipage?title=SPASM Directive: .fill">.fill</a>&nbsp;commands.</p>
+<p>Example:</p>
+<pre>;pc = 0<br>Label0:&nbsp;&nbsp;&nbsp; ;pc = 0<br>&nbsp;&nbsp;&nbsp; jp Label3<br>Label3:&nbsp;&nbsp;&nbsp; ;pc = 3<br>.org $2000<br>    jp Label6<br>;when loaded on the device this will be at address $0006<br>;you will need to copy any data between Label6 and Label6End to $2000<br>Label6:&nbsp;&nbsp;&nbsp; ;pc = 2003<br>    ld a,Label3<br>    ret<br>Label6End:<br><br><br><br><br>;this will set the internal pc back to where it normally is<br>;to do this dynamically look at the <a href="http://wabbit.codeplex.com/wikipage?title=SPASM%20Include%20Files&referringTitle=Documentation#x_x_relocate">relocate include file</a><br>.org 9</pre>
+<h3><span>Usage:</span></h3>
+<pre>.org <em>address</em></pre>
+<h3><span>Parameters:</span></h3>
+<h4><span>Address</span></h4>
+<p>The location you want to change SPASM's pc to.</p>
+</div><div class="ClearBoth"></div>

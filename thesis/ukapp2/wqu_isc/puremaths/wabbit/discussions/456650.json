@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1091620",
+    "ThreadId": "456650",
+    "Html": "Using Ti-83 + SE ROM and was curious if there was a way to increase the flash size inside of the rrom/emu?\r<br />\n<br />\nI would like more storage space. I remember having more than 1.5 /2 back in school. Trying to get my Ion setup..and at the time. ..my original calculator is missing batteries...IM trying to use this rom on AlmostTI on my android. also<br />\n",
+    "PostedDate": "2013-09-12T02:13:03.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091626",
+    "ThreadId": "456650",
+    "Html": "Unfortunately there is not. The size of the ROM is pretty deeply tied to the hardware of the calc. Adding more memory is very easily with the emulator but accessing the memory requires serious modification of the OS.\r<br />\nDid you use Wabbitemu to create an open source ROM version? I'm not sure how much of the hardware of the AlmostTI emulates, I haven't done much testing with it, its possible it doesn't emulate something required by the ROM. Very soon I'll be releasing a new version of Wabbitemu for Android that you might be interested.\r<br />\n<br />\nLet me know if there is anything that I can help with.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-12T02:32:04.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092080",
+    "ThreadId": "456650",
+    "Html": "basically what I'm trying to do is using WE. Is, add more programs than the 2048. I did add alot to the archive. then xfering the ROm ont my phone using AlmostTI emulator for android. which has worked. Just was curious about saving the rom with more memory size.<br />\n",
+    "PostedDate": "2013-09-12T21:32:21.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

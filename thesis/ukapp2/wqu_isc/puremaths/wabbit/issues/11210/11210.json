@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, I am not as technical as many of you.  I am a mother trying to help my daughter be prepared for algebra I.  I built an older laptop for her (AMD Athlon 800MHz processor with 600 MB ram, pitiful I know) and have installed XP Professional and updated as far as possible with SP 3.  Whenever I try to install the Wabbitemu.exe I get an error \"Wabbitemu Z80 Emulator has encountered a problem and needs to close.  We are sorry for the inconvenience.\"  I tried reading the technical report which I sent to Microsoft, but it made no sense to me.  The installation process worked fine on my win7 machine, but I want her to be able to use the calculator at her own convenience.  It seems that all of the software/hardware on her machine is running correctly.  Can anyone help?",
+    "LastUpdatedDate": "2013-08-18T13:36:54.393-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-08-18T13:36:54.393-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Issue loading on XP SP3",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11210
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

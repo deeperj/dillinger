@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "534624",
+    "ThreadId": "238071",
+    "Html": "\r\n<p>Please forgive me if this is a ridiculous question, but the site seems to indicate that wabbitemu also works on a Mac, but I can only find exe and dll files in the download section.&nbsp; I'm relatively new to the Mac, but I'm pretty sure that neither of\r\n those formats are for Mac.&nbsp; I did download the exe file and try to run it on my Mac, but it caused my virtual Windows program to start, which is frankly what I am trying to get away from.&nbsp; Thanks!</p>\r\n",
+    "PostedDate": "2010-12-12T06:34:36.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536742",
+    "ThreadId": "238071",
+    "Html": "\r\n<p>Hey cecild,</p>\r\n<p>Sorry about the slow response, I meant to fix this as soon as I saw your post. There is indeed a mac version of wabbitemu and its now in the download section. Will (who does our mac development) was suppose to add his stuff here as well, but never seemed\r\n to have gotten around to it. Go ahead and grab it and see how it works for you. Be sure to post any bugs you find too!</p>\r\n<p>BuckeyeDude</p>\r\n",
+    "PostedDate": "2010-12-16T05:36:53.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536780",
+    "ThreadId": "238071",
+    "Html": "\r\n<p>Sweet! I have gotten the 83 plus to work, so now I will try to get an 84&#43; ROM, as that is what most of my students use. Any chance that you will include the TI-89 in the future? Thanks. I have been looking for this type of program for some time!\r\n<br>\r\n<br>\r\n</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-16T06:52:58.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537059",
+    "ThreadId": "238071",
+    "Html": "\r\n<p>Good to hear its working for you. 84&nbsp;Plus&nbsp;<em>should </em>work fine, however there is the slight possibility of it not, I don't know whether the mac version uses one of the more recent updates to the hardware code we made. Note that this doesn't\r\n effect the 84 Pluse SE, just the 84 Plus. Let me know if it doesn't work and when I have access to my hackintosh I'll recompile the code with the latest change.</p>\r\n<p>As for the 89, I would love to write a new Wabbitemu-68k but its a long ways off. The 89 uses a completely different processor the the 8X series and basically requires redoing the core part of the program. Not to mention I know almost nothing about programming\r\n that type of processor.</p>\r\n",
+    "PostedDate": "2010-12-16T16:36:10.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537110",
+    "ThreadId": "238071",
+    "Html": "Thanks again. After struggling with it for several hours, I finally got a rom for my TI-84PSE and it seems to be working fine.<br>\r\nNo worries on the 89 - it was just one of those &quot;wouldn't it be great if...&quot; things.<br>\r\nI can't tell you how happy I am to have a working emulator on my Mac. I changed to teaching at a school that exclusively uses Macs this fall and I have been using a virtual windows program that makes everything run extremely slowly. Being able to demonstrate\r\n what buttons to push is a big plus in my classroom. Thanks you again!<br>\r\n",
+    "PostedDate": "2010-12-16T20:37:43.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1330597",
+    "ThreadId": "238071",
+    "Html": "Greetings,\r<br />\n<br />\nI'm having a weird problem when Wabbit is not responding.  Installed it on a Mac and the buttons are not responsive.  Not able to do anything.  Do you have any suggestions?\r<br />\n<br />\nThank  you,<br />\n",
+    "PostedDate": "2014-12-10T07:07:54.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

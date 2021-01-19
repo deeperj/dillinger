@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "1089571",
+    "ThreadId": "455917",
+    "Html": "Hi!  I'm a high school math teacher -- I LOVE Wabbit!  Thank you for making it available to us.  I use Windows machines and share with my students instructions to load Wabbit on their computers at home -- are there easy to follow instructions to load Wabbit on a Mac?<br />\n",
+    "PostedDate": "2013-09-07T08:59:32.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091649",
+    "ThreadId": "455917",
+    "Html": "Hello,\r<br />\n<br />\nGlad to hear you like Wabbit! Getting setup from scratch on the Mac is a little bit harder than it is on Windows. I've added some information to the wiki <a href=\"https://wabbit.codeplex.com/wikipage?title=Getting%20a%20ROM%20image#Mac\" rel=\"nofollow\">here</a>. Let me know if need more information, or some part of it isn't clear. I'll be adding more details about how to use the Windows setup wizard and what each of the screens mean soon.\r<br />\n<br />\nIf there's anything else you'd like to see in Wabbit, or things that would be useful for you when teaching, feel free to let me know.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-12T03:19:20.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091655",
+    "ThreadId": "455917",
+    "Html": "\r\n<div>\r\n<p style=\"\">I’m pretty clueless on Macs….it’s been years over 15 years since I’ve used one, so I have no idea how similar/different they are when compared to a Windows-based system.</p>\r\n<p style=\"\">Looking at the info you posted in the wiki (thanks for the link!), I would need to download the Mac version of Wabbitemu from your website and get a ROM image. You recommend using the Windows version to get the ROM – does this just mean follow the\r\n Windows instructions to download the ROM (i.e., download Wabbitemu, run Wabbitemu.exe, and create a ROM image using open source software)?</p>\r\n<p style=\"\">Thanks for your help!</p>\r\n<p style=\"\">Loretta</p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><a name=\"_MailEndCompose\"><span style=\"font-size:11.0pt; font-family:\"></span></a></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\"></span></b></p>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-09-12T03:39:35.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091662",
+    "ThreadId": "455917",
+    "Html": "<strong>lolee624 wrote:</strong><br />\n<blockquote>\nI’m pretty clueless on Macs….it’s been years over 15 years since I’ve used one, so I have no idea how similar/different they are when compared to a Windows-based system. Looking at the info you posted in the wiki (thanks for the link!), I would need to download the Mac version of Wabbitemu from your website and get a ROM image. You recommend using the Windows version to get the ROM – does this just mean follow the Windows instructions to download the ROM (i.e., download Wabbitemu, run Wabbitemu.exe, and create a ROM image using open source software)? Thanks for your help! Loretta<br />\n</blockquote>\nThat's all correct. Wabbitemu will always require a ROM image to emulate the calc. The ROM images created by the Window versions can be used on the Mac and Android versions. I recommend using Windows as its the most user friendly way to get a ROM image. Hopefully we'll be able to add this functionality to other platforms later.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-12T03:52:39.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1094193",
+    "ThreadId": "455917",
+    "Html": "I tried to get the ROM image for the Mac, but when I use the Windows version it will not open saying that it does run on Mac OSX.  What am I missing?<br />\n",
+    "PostedDate": "2013-09-18T13:00:12.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1094194",
+    "ThreadId": "455917",
+    "Html": "You'll need to run the Windows version on a Windows machine, then transfer the ROM file it helps you create to your Mac.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-18T13:01:47.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1097832",
+    "ThreadId": "455917",
+    "Html": "Mind if I jump in?  I also love the PC version of Wabbitemu and my colleagues are grateful that I shared it with them.  I just installed the Mac version on my home machine.  Fortunately, I had saved a copy of the ROM in my dropbox so I was able to get the calculator running.  But unless I'm missing something, the Mac version doesn't open the calculator automatically and seems to be missing all the many options available.  I also wasn't able to drag my TI back up file into the window like I can (and have it saved) in the PC version.  Am I right on all of this or am I missing something?  Also the screen recorder seems to be producing a series of gifs instead of a movie.  Thanks!<br />\n",
+    "PostedDate": "2013-09-22T16:15:16.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1097834",
+    "ThreadId": "455917",
+    "Html": "One other thing, is there any chance of a Wabbitemu for iPad?<br />\n",
+    "PostedDate": "2013-09-22T16:18:22.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098327",
+    "ThreadId": "455917",
+    "Html": "Hello,\r<br />\n<br />\nThe Mac version, is definitely not as fully featured as the Windows version. Part of this is due to me not quite having the latest version of the source code. Unfortunately we lost our Mac developer a while back, and I don't do Apple development. I have two copies of the source and one has more settings than are available here. I may be able to reconcile some of the source and add more of these settings in. \r<br />\n<br />\nYour TI backup file, is that an 8xb file or and 8xg?\r<br />\n<br />\nWhen you say a movie, do you mean an AVI file? If so I wouldn't count on seeing it on the Mac anytime soon. The AVI code is very Windows specific and its unlikely that it will be ported to the Mac.\r<br />\n<br />\nIn regards to an Ipad version, its not going to happen, as the terms of the App Store make in impossible. I know at one point there was a prototype that worked on jailbroken iDevices, but I don't have a copy of it, and its such a small market that I don't have an interest in investing the time to make it work.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-23T20:21:09.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098732",
+    "ThreadId": "455917",
+    "Html": "My TI backup file is referred to as a &quot;TI Group or .tig file&quot; when viewed with Properties on my PC. As for movies, yes, AVI is for PC. I thought perhaps the Mac could produce a quicktime movie.\r<br />\n<br />\nOne way or another, I really appreciate having this program!<br />\n",
+    "PostedDate": "2013-09-24T12:48:08.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098805",
+    "ThreadId": "455917",
+    "Html": "Yes eventually producing a QuickTime movie would be good, but I definitely don't have the time or expertise to do so. As for the tig file, is actually just a zip file. Currently the OS X version doesn't support automatically unzipping files, but you can change the extension and send it manually.\r<br />\n<br />\nThanks for the feedback, let me know if you have any other concerns.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-24T16:55:14.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098974",
+    "ThreadId": "455917",
+    "Html": "Does it matter if I use the 8xb or 8xg extension?  I'm not at home to try it now.  And does manually mean something other than dragging it into the window?<br />\n",
+    "PostedDate": "2013-09-25T05:04:38.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099436",
+    "ThreadId": "455917",
+    "Html": "You can change the extension of the .tig file to a .zip, then extract the zip file as you would with any other zip file. The files you extract from there can then send to Wabbitemu.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-25T17:25:09.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099451",
+    "ThreadId": "455917",
+    "Html": "Hey it worked!  Thanks.  I had to select all of the extracted files and drag them in.  I couldn't drag the folder in.  <br />\n",
+    "PostedDate": "2013-09-25T19:05:34.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

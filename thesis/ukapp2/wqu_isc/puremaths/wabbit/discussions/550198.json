@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1261431",
+    "ThreadId": "550198",
+    "Html": "Since there is an Android version, does this improve the chances of a Windows 8 and Windows 8 RT version of WabbitEMU?<br />\nI know an <a href=\"http://www.windows-arm.com/index.php/desktop-apps-for-windows-rt/729-wabbitemu-for-windows-rt\" rel=\"nofollow\">experimental build</a> was made once to work on jail-broken Surface, but it would be much better if there'd be an official WabbitEMU Windows 8/RT app.<br />\n",
+    "PostedDate": "2014-07-01T00:01:54.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1273814",
+    "ThreadId": "550198",
+    "Html": "I take it, that's a no (?)\r<br />\nToo bad.<br />\n",
+    "PostedDate": "2014-07-17T23:18:12.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1273818",
+    "ThreadId": "550198",
+    "Html": "We'd like to do a Win RT version of Wabbitemu but its a big task. Writing it requires writing a complete new GUI which isn't trivial and we don't have experience writing Win RT apps.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-07-17T23:37:55.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1289498",
+    "ThreadId": "561010",
+    "Html": "I've got a TI-73 ROM file on Wabbitemu for Windows which works just fine.  All I do is File | Open and select TI73.ROM, and I'm in business.\r<br />\n<br />\nI've installed Wabbitemu 1.02 on Android, and copied the TI73.ROM file to a folder (I've tried it on internal and external storage).  When Wabbitemu runs for the first time, I get the Getting Started welcome message and tell it I already have a ROM file.  It then scans and finds the ROM, and as soon as I click it, it takes me back to the start and shows me the Getting Started welcome message again.  I am caught in an infinite loop.<br />\n",
+    "PostedDate": "2014-08-12T16:17:19.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1289500",
+    "ThreadId": "561010",
+    "Html": "Also, the same ROM works with AlmostTI, but I would like to make it work with Wabbitemu if possible.<br />\n",
+    "PostedDate": "2014-08-12T16:25:50.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1294742",
+    "ThreadId": "561010",
+    "Html": "I've just pushed out the 1.04 update that I hope will fix this issue. Give it a try and let me know if you still have the same issue. If so, I'll get ask for some more information about the ROM so we can figure out why exactly it is failing to load.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-08-28T23:57:34.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

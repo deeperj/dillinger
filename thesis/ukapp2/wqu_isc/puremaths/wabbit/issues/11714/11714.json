@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I updated Windows 7 last night (not sure if this is related) when I installed Wabbitemu the emulator shows up and but there is a large window overlapping the calculator.  The buttons do not match up with the image on the screen making the emulator unusable.  I attached an image of what it looks like.",
+    "LastUpdatedDate": "2014-10-16T15:23:24.837-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-05-15T09:17:15.833-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Screen image overlapping calculator",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 11714
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3847,
+      "FileName": "Wabbit capture.JPG",
+      "DownloadUrl": ".\\3847"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Even I had the same issue... how do i fix it?",
+      "PostedDate": "2014-07-03T11:32:57.44-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-07-05T05:58:14.05-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I had the same problem.....just type wabbitemu.ini in your computers file search bar and open it.....scroll to the bottom and change the screen_scale to 1 and the skin_scale to 1.000000\nit should look like this \nscreen_scale=1\nskin_scale=1.000000",
+      "PostedDate": "2014-10-16T15:23:24.837-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1346325",
+    "ThreadId": "578691",
+    "Html": "Hi<br />\n<br />\nEnjoying this very polished and easy to use emulator!  Have spotted a strange issue though, at least on my machine (Window 7 64bit, Intel HD4400 graphics).<br />\n<br />\nAll models appear to fire up and look as expected except the 85 and 86. For that the LCD on the skin is squashed to half the correct height, with the lower half solid black (when on).<br />\n<br />\nDisable the skin or open the detached LCD and those displays appear at the correct height, but the one on the skin is always squashed.<br />\n<br />\nAlso, if the detached LCD is open when you switch models (say from TI-86 to TI-82), it doesn't resize to the right resolution. Closing and re-opening does though.  Going from TI-82 to TI-86 makes the detached LCD half-height!<br />\n<br />\nNot major issues but thought it was worth reporting.<br />\n<br />\nLawrence.<br />\n",
+    "PostedDate": "2015-01-27T07:41:03.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350802",
+    "ThreadId": "578691",
+    "Html": "I am having the same LCD skin problem using TI-86 v1.6 ROM on WIN XP Pro SP3. \r<br />\nAlso, The emulator runs very slow. If I press a key it may take several minutes for the emulator to respond or it will appear to lock up completely.\r<br />\nI did verify the emulator speed is set at 100%<br />\n",
+    "PostedDate": "2015-02-10T20:13:52.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353311",
+    "ThreadId": "578691",
+    "Html": "Known issue with the 85/86, should be fixed in the latest versions. You can verify the fix with this version: <a href=\"http://buckeyedude.com/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\" rel=\"nofollow\">http://buckeyedude.com/Revsoft/Wabbitemu/Beta/Wabbitemu.exe</a><br />\n",
+    "PostedDate": "2015-02-17T01:09:55.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353326",
+    "ThreadId": "578691",
+    "Html": "Yes that version works but it's different from the latest in the downloads area here.\r<br />\n<br />\nBoth claim to be version 1.8.2.26 but the file size is different?<br />\n",
+    "PostedDate": "2015-02-17T01:59:30.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

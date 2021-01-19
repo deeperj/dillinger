@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Yes, either drag and drop the program to the screen, or open it via File-&#62;open",
+    "ClosedDate": "2012-02-19T12:41:46.25-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Is it possible to install programs on Wabbitemu through TI-Connect or another method?",
+    "LastUpdatedDate": "2013-05-16T05:08:19.833-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-02-19T12:10:12.473-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Install programs?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9939
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

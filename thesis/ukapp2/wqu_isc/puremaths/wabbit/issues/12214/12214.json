@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I try to download the ROM, this is what I see (see attachment). Can someone help?\nI use windows 10.",
+    "LastUpdatedDate": "2017-03-14T20:11:26.99-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-09-24T01:57:39.287-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "wabbitmenu setup - OS selection - unable to download file",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 12214
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5018,
+      "FileName": "WABBIT.png",
+      "DownloadUrl": ".\\5018"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "None of my students can download wabbitemu -- they all get the same error.  They are trying to emulate the TI-84 Plus CE.   I downloaded wabbitemu on my tablet last year (Windows 8.1) and it still works fine.  But anybody at my school who tries a new install (Windows 8.1) gets the same error.\r\n\r\n It looks like TI posted a new OS for the Color Edition (CE) -- version 5.   Perhaps that is causing the error?  I can't find the older OS versions for the CE on TI's website.\r\n\r\nAny help would be appreciated -- this program is amazing, and I have my students use it frequently.",
+      "PostedDate": "2015-09-24T05:40:46.69-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am having the same issue!  I cannot download any of the emulators, but I am hoping to get the TI-84 Plus C SE emulator.\r\n\r\nDoes anyone have any advice?  Anything would be greatly appreciated!",
+      "PostedDate": "2015-09-30T18:20:23.927-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-09-30T18:20:33.607-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Go to TI's Education Technology website.  Download the operating system directly from them.  Select Find open source rom when you start the installation and then at the second step, select OS from a file and use the file you downloaded from TI.  Last step, save the export rom as whatever you want to name it.  ",
+      "PostedDate": "2015-10-11T09:05:34.3-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "[Here's how you copy a ROM file from a calculator.](https://imgur.com/gallery/lHVWR)\n[Here's how you create a ROM file using open source software.](https://imgur.com/gallery/FvELU)\r\n\r\nYes it is still possible to use the open source software. Wabbit has a glitch where it does not properly download the OS file from the TI website and you can circumvent that by downloading it directly. Read the Imgur album.",
+      "PostedDate": "2017-03-14T20:11:26.99-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

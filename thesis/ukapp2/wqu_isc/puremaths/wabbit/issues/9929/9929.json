@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Update put out today should fix this issue",
+    "ClosedDate": "2012-02-16T15:13:04.51-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Wabbbitemu does not install. It worked before I had Windows Update install 14 required files. Now when I try it does not go to Rom Selection; instead the rabbit appears in the taskbar without the calculator and nothing else happens.",
+    "LastUpdatedDate": "2013-05-16T05:08:20.13-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-02-16T08:00:17.173-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Install issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9929
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\nThis is a great program! I use the windows version.\nI just installed the android version, and since I want to use the same thing as my PC, I already had a ROM, which I put in my download folder on my android phone. But, when I click \"I already have a ROM file\" when I start the app, it just shows me a blank page and a back button... There's no way to select my ROM file....",
+    "LastUpdatedDate": "2016-03-20T07:19:07.913-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-01-22T02:48:56.58-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"ROM Files\" window is blank",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12333
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Of course there isn't a way.\r\n\r\nI believe the app looks for a .ROM Image saved to a very specific spot, where that is however, I don't know. \r\n\r\nAll I know is I tried putting it in everywhere I could, to no avail. I would just see if you can possibly theoretically 'Trick' it... Where it says 'Create my own .ROM', Ti's website... yada yada. \r\n\r\nBut if it asks for some select file, then I'd try selecting it, \r\n\r\nTry that and tell me how it works.\n",
+      "PostedDate": "2016-03-20T07:19:07.913-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

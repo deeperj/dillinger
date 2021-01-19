@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-09-28T15:29:46.573-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "",
+    "LastUpdatedDate": "2013-09-28T15:29:46.573-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-02-11T03:39:17.37-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Crash on Win8 64 when enabling sound",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 10808
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3531,
+      "FileName": "Thu Feb 07 21_15_58 2013.dmp.gz",
+      "DownloadUrl": ".\\3531"
+    }
+  ],
+  "Comments": []
+}

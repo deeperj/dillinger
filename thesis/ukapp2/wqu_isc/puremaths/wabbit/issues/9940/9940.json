@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Use the save state on exit option",
+    "ClosedDate": "2012-02-19T20:30:25.91-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I close Wabbitemu and restart it programs that I archived no longer appear. Is there a way to keep the programs there?",
+    "LastUpdatedDate": "2013-05-16T05:08:19.667-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-02-19T17:39:52.307-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Programs need reinstallation each restart?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 9940
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

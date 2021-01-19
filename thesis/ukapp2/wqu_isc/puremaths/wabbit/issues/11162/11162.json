@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-10-19T22:58:46.203-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "BreakpointManager.cs:146 TODO",
+    "LastUpdatedDate": "2013-10-19T22:58:46.203-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-07-17T21:03:26.777-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Remove breakpoint highlight logic from TextEditor",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 0,
+    "Id": 11162
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

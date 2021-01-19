@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1265773",
+    "ThreadId": "551564",
+    "Html": "This would make it feasible to actually develop TI-Basic programs on Android, and plus, the touch nature of Android seems to help the feel of the emulator, making it more fun to run programs. <br />\n",
+    "PostedDate": "2014-07-15T01:02:41.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1273819",
+    "ThreadId": "551564",
+    "Html": "Exporting programs for android is currently in the works. Importing programs is already possible:<br />\n<ol>\n<li>Load the file on to the device</li>\n<li>swipe from the left edge of the screen to bring up the menu. </li>\n<li>Select 'Send file'</li>\n<li>\nBrowse for the file<br />\n</li>\n</ol>\nLet me know if you have any other issues or questions\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-07-17T23:40:21.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1274146",
+    "ThreadId": "551564",
+    "Html": "\r\n<div dir=\"ltr\">I already know that importing is possible. I just haven't had a ton of use for it yet, primarily because of the inability to export. And, no, I don't have any more questions at the moment.<br clear=\"all\">\r\n<div><br>\r\n</div>\r\n-- <br>\r\nIsiah Meadows </div>\r\n",
+    "PostedDate": "2014-07-18T15:21:28.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

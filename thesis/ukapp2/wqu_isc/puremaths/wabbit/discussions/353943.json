@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "829876",
+    "ThreadId": "353943",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I don't suppose you created a wabbit android app, have you?&nbsp; I love wabbit and it would be awesome to have it on my tablet (or for my students to have it on their phones) for those times when we don't have a computer with us......</p>\r\n<p>&nbsp;</p>\r\n<p>Loretta</p>\r\n",
+    "PostedDate": "2012-04-29T04:51:26.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829880",
+    "ThreadId": "353943",
+    "Html": "<p>Hi Loretta,</p>\r\n<p>Actually I do have an android app in testing, however its not on the market, so you'll need to be able to sideload apps. It also lacks some of the more helpful features like creating an open source ROM, and focuses more on emulation. However the emulation is spot on and it works almost exactly like the desktop version of Wabbitemu. You can find the download here: <a href=\"http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Wabbitemu.apk\">http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Wabbitemu.apk</a>. Let me know if you have any issues, or requests for it.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-04-29T05:01:13.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "837167",
+    "ThreadId": "353943",
+    "Html": "<p>Hello again!</p>\r\n<p>&nbsp;</p>\r\n<p>I downloaded from the link you gave me, it's on my tablet, but it doesn't work.&nbsp; I know it's because I'm totally clueless with the tablet (only had it a month or so).&nbsp; Are there step-by-step directions like the ones available for PCs (which, by the way, are FABULOUS!)?</p>",
+    "PostedDate": "2012-05-16T05:57:05.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839673",
+    "ThreadId": "353943",
+    "Html": "<p>Unfortunately right now there isn't. I'm working on making a nice setup wizard like the windows version, but I'm not very good at Android development yet. To use it, you need to place the ROM used by Wabbit on the PC on the SD card of your phone. When it pops up the file browser, navigate to that ROM and press and hold to select it. This will load up the ROM, just as if you were using it on windows.</p>",
+    "PostedDate": "2012-05-22T16:43:56.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087454",
+    "ThreadId": "353943",
+    "Html": "Alright so i just tried that android version of this and it works very well so far only thing is that it might be helpful to add some quick features:<br />\n<ol>\n<li>\nAdd an option to disable vibration (my battery dies faster with all that usage)<br />\n</li>\n<li>\nAdd another option to cut the borders like the table and that fancy stuff (with small screens it could be hard to see or hard to push the buttons on the emulator)<br />\n</li>\n</ol>\nIf you have seen andie graph it is good but it does not work with ti 84. I would like to switch over from andie graph to wabbitemu for android. With better navigation system and settings it will surpass all the other Calculator Emulators. Hope to see this app get better.<br />\n<br />\nwong9a<br />\n",
+    "PostedDate": "2013-09-02T14:00:37.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1189769",
+    "ThreadId": "353943",
+    "Html": "For anyone still interested in an Android version of Wabbitemu it has been published on the <a href=\"https://play.google.com/store/apps/details?id=com.Revsoft.Wabbitemu\" rel=\"nofollow\">Google Play Store</a>.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-01-21T23:37:06.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

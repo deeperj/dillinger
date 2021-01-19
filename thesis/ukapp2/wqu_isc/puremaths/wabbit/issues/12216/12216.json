@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\nI am trying to use a TI-84 Plus SE with OS version 2.55 on WabbitEmu. I am currently running the latest release of Yosemite.\n\nWhenever I try to use the calculator, the buttons will not register at all, or on rare occasions will register a different button altogether. For example, attempting to click on the \"clear\" button, registers a \"1\" on the calculator.\n\nMy ROMs have been coming from the Windows version of WabbitEmu, as outlined in the documentation. I have tried using both WabbitEmu's ROM file, and downloading the necessary files from my calculator with the setup wizard. The results on the Mac version are the same, regardless of where the ROM came from.\n\nIs there a way to fix this? Should I wait for a newer version of WabbitEmu to be released?",
+    "LastUpdatedDate": "2016-03-02T15:38:24.05-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-09-25T09:21:37.903-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Mac Version: Calculator buttons do not work",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12216
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have this issue on OSX El Capitan, I'm also trying to use a TI-84 Plus SE rom, OS version 2.43. \nIt seems that the input is offset somehow, the right button registers as the 4 button, the clear button as 1, the X button as 0, somewhere around the Graph button is a 7, cos is the on button.",
+      "PostedDate": "2016-03-02T15:38:24.05-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

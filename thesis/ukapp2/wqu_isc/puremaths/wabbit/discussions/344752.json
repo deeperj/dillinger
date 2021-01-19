@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "799587",
+    "ThreadId": "344752",
+    "Html": "\r\n<p>How do you (or can you) transfer a program to the Wabbitemu TI-84 Plus from either my handheld TI-84 plus or from my TI Connect downloads? My students and I love this emulator because it really allows them to see more than just the screen display!</p>\r\n",
+    "PostedDate": "2012-02-24T12:40:48.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "799592",
+    "ThreadId": "344752",
+    "Html": "<p>Hello,</p>\r\n<p>Its pretty easy to transfer a program to Wabbit, to do so either drag and drop the program on top of the screen, or open it via the file menu. If you need to transfer a file on Wabbitemu to the computer, you can go View-&gt;Variables and then select the program you'd like to export and either drag it off the tree, or select the export button.</p>\r\n<p>Thanks for your feedback. Let me know if you have any other questions, or features that would make it more helpful for you and your students.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-02-24T12:50:30.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

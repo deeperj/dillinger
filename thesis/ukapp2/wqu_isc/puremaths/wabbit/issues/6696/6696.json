@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-09-14T21:40:02.94-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Make it so the calc saves CPU states every x seconds so you can just backtrack in time and catch bugs",
+    "LastUpdatedDate": "2013-05-16T05:08:26.957-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-07-10T20:46:49.153-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Rewinding",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 0,
+    "Id": 6696
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "It'd be even cooler if we had some sort of macro system to describe exactly what happened. Since each step should modify at maximum 2 bytes, you could save just whatever changed and then really step back through time. With some nice C++ classes easily doable.",
+      "PostedDate": "2010-07-10T20:46:49.153-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-01T02:56:36.957-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-01T02:56:51.93-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-10T21:27:42.463-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-14T21:40:02.94-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:24.603-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:26.957-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

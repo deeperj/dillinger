@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1475803",
+    "ThreadId": "655427",
+    "Html": "Is it possible to emulate the Test mode / Exam mode?\r<br />\n<br />\nOn the TI-84 device one can enter into the Test mode menu by switching ON the device while keeping the left- and right-cursor keys pressed.\r<br />\n<br />\nIs there a way to obtain this behavior as well with the emulator?\r<br />\nOr is there another (hacky) way to have the emulator enter into the Test mode menu?\r<br />\n<br />\nI need to take screen shots for an Final Exams guide book.\r<br />\n<br />\nStephan<br />\n",
+    "PostedDate": "2016-06-11T00:48:19.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1479676",
+    "ThreadId": "655427",
+    "Html": "Let me reply my own question with my own answer.<br />\nThe matter is in fact quite simple.<br />\n<ul>\n<li>Start the TI-84 Emulator</li>\n<li>Make sure it is switched off (2nd - Off)</li>\n<li>Press and hold the left- and right- cursor keys on the PC keyboard</li>\n<li>And click &quot;On&quot; on the TI-84 emulator</li>\n<li>\nLo and behold: The Test Mode Menu appears<br />\n</li>\n</ul>\nEasy as Apple pie.<br />\n",
+    "PostedDate": "2016-07-24T00:47:42.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

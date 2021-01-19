@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1316035",
+    "ThreadId": "570512",
+    "Html": "I'm at school and have my Mac and Android and I'd rather use it on my Mac. I can't find the ROM in Android. Where is it?<br />\n",
+    "PostedDate": "2014-10-23T08:33:01.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1316401",
+    "ThreadId": "570512",
+    "Html": "The ROM is stored in the app's data folder. I believe the path resolves to /data/data/com.Revsoft.Wabbitemu/files.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-10-24T21:27:18.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1316799",
+    "ThreadId": "570512",
+    "Html": "I don't see anything there. /data is empty and /sdcard/data has titaniumbackup and nothing else. <br />\n",
+    "PostedDate": "2014-10-27T10:26:42.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1316939",
+    "ThreadId": "570512",
+    "Html": "I believe /data requires root access to read.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-10-28T00:12:20.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1317068",
+    "ThreadId": "570512",
+    "Html": "Ok, got it now. So I just copy the .sav to dropbox, and load it into the Mac version?<br />\n",
+    "PostedDate": "2014-10-28T08:29:37.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1317549",
+    "ThreadId": "570512",
+    "Html": "ok so the .sav crashes the Mac version. I loaded up the ROM from my PC and the buttons are not synchronized to the &quot;hitbox&quot;. clicking Clear inputs a 4, for example. Does this actually work for Mac? :/<br />\n",
+    "PostedDate": "2014-10-29T22:02:38.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

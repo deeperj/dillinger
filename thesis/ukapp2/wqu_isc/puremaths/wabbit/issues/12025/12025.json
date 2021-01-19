@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am running Wabbit on my Windows 8 tablet. The calculator works well but I can't get the window to open where I can access the File View Calculator Debug and Help menus. I need to rerun the setup. Can anyone help me with this issue?",
+    "LastUpdatedDate": "2017-03-14T20:13:39.133-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-02-27T06:52:46.543-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Need to Open the Wabbitemu Window",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12025
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I know that on a desktop you can right click on the LCD screen, maybe there is something similar for the tablet.",
+      "PostedDate": "2017-03-14T20:13:39.133-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

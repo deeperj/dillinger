@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "515475",
+    "ThreadId": "233063",
+    "Html": "\r\n<p>&#65279;I have successfully installed and used wabbitemu.exe (twice) under Windows XP today but can't find where it gets installed. &nbsp;So the only way I can use it is to download it and install it every time I want to use it. &nbsp;Whereabouts is it installed\r\n and what is it called, please? &nbsp;I have searched My Computer for wab* but that didn't find it, either.</p>\r\n<p>I apologise for such a dumb question!</p>\r\n<p>&nbsp;</p>\r\n<p>john Mycroft</p>\r\n",
+    "PostedDate": "2010-11-01T09:42:10.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "515497",
+    "ThreadId": "233063",
+    "Html": "\r\n<p>Hey John,</p>\r\n<p>Wabbitemu is a stand alone executable, meaning that when you download the exe thats the only thing you need to run it. So whenever you want to run wabbit, just run wabbitemu.exe which you downloaded. If you are using IE make sure you save it somewhere, don't\r\n just hit run, since this will only save it as a temporary file.</p>\r\n<p>Thanks for your interest in wabbit,</p>\r\n<p>Chris</p>\r\n",
+    "PostedDate": "2010-11-01T10:11:27.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "515517",
+    "ThreadId": "233063",
+    "Html": "\r\n<p>Well, I said it was a dumb question! &nbsp;I'd merrily clicked all the &quot;OK&quot; boxes without reading the install messages. &nbsp;This time I did it carefully (with Chrome) and I have a working copy. &nbsp;Many thanks.</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers - John Mycroft</p>\r\n",
+    "PostedDate": "2010-11-01T11:01:36.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

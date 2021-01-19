@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1474797",
+    "ThreadId": "655127",
+    "Html": "ive tried downloading the Ti 84 plus c SE and the ti84 plus se but when it downloads there is an error saying error downloading os. Anyone can help?<br />\n",
+    "PostedDate": "2016-06-01T03:36:59.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1475140",
+    "ThreadId": "655127",
+    "Html": "I am having the same problem.  Contacted developer and heard nothing back.  I have gone directly to TI to try to download on my computer and then transfer to phone... Same error regardless.  If you find a fix pls let me know.<br />\n",
+    "PostedDate": "2016-06-05T13:18:45.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1476442",
+    "ThreadId": "655127",
+    "Html": "I have same problem<br />\n",
+    "PostedDate": "2016-06-16T03:00:37.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477968",
+    "ThreadId": "655127",
+    "Html": "I also had this problem when updating my phone (to galaxy S5) and reinstalling ... when I tried to manually download the OS file from the TI website (chrome browser on the S5), I received a message &quot;cannot download to this device&quot;. . Perhaps this is part of the underlying problem?? I then tried the same download on a Win10 machine (turns out there was also a captcha that did not appear on the S5... maybe it didn't get that far).  But, when I transferred the downloaded .8Xu file to the S5 and tried to compile it in the emulator, it still said &quot;error&quot; even though it found and recognized the .8Xu file.<br />\n....<br />\nso, I searched for a &quot;ti84 ROM&quot; image on the internet, transferred it, said &quot;have ROM&quot;, and everything works.  Thanks.<br />\n",
+    "PostedDate": "2016-07-03T03:17:25.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

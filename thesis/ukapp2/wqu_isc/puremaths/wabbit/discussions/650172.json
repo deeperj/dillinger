@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1459686",
+    "ThreadId": "650172",
+    "Html": "Hi all,\r<br />\n<br />\nI downloaded the rom from TI, ran Wabbitemu, selected &quot;Help me create a ROM using open source software&quot;, selected TI-84 Plus SE, I already have an OS, and selected the os.  I get an error at that point.<br />\n\r<br />\nWhat am i doing wrong?  I've tried several variations<br />\n",
+    "PostedDate": "2016-01-18T10:26:44.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1461221",
+    "ThreadId": "650172",
+    "Html": "did you make sure to select the correct version i.e. ti 84 v1.xxx  vs ti. 84 v2.xxxx?<br />\n",
+    "PostedDate": "2016-01-28T22:08:46.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "This was due to a change on TI's side.  It should now be fixed",
+    "ClosedDate": "2016-02-28T00:06:27.483-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\n\nLong time Wabbitemu user here. Today when I tried downloading and installing Wabbitemu from scratch on Windows 7 Home Edition 32 bits, I received the following error message when trying to install the ROM from open source: \"Unable to download file\".\n\nI have never encountered this error message before. Any ideas what it might be or how to resolve it? I have an active functional internet connection and have installed all major Windows updates.\n\nPlease help!\nThanks,\nChris",
+    "LastUpdatedDate": "2016-02-28T00:06:27.483-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-02-26T14:21:36.553-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Unable to download ROM from open source HELP!",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12352
+  },
+  "FileAttachments": [
+    {
+      "FileId": 5062,
+      "FileName": "download failed.png",
+      "DownloadUrl": ".\\5062"
+    }
+  ],
+  "Comments": []
+}

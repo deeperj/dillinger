@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am a sophomore who uses this emulater quite frequently but with the last update whenever i try to use it on my sony vaio running vista and my dell inspiron 6000 running xp it boots and turns on just fine but whenever i try to hit a key it freezes and acts like it is maxing out on cpu (which that is what it is doing on the inspiron) but if i right click or hit any of the tabs uptop it unfreezes. any help is appreciated. i use this thing a lot and it is a great inconvienience when i have to stay after school to use the schools calculators.",
+    "LastUpdatedDate": "2014-09-25T20:10:34.3-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-09-25T20:10:34.3-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "doesn't work with vista?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11884
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

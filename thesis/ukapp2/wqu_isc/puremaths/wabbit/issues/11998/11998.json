@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The emulator originally worked great, but now every time I start it the screen is zoomed in and the \"9\" key clicks \"Window\" and it freezes up.",
+    "LastUpdatedDate": "2015-01-28T07:09:42.677-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-01-28T07:09:40.52-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "The \"9\" key clicks \"Window\"",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11998
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3956,
+      "FileName": "Capture2.JPG",
+      "DownloadUrl": ".\\3956"
+    }
+  ],
+  "Comments": []
+}

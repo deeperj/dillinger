@@ -1,0 +1,10 @@
+<div class="wikidoc">
+<h3><span>Description:</span></h3>
+<p>The .nolist command turns off writing out to the listing file (applicable only if you are running SPASM with the -L switch). Everything in the file after the .nolist command is excluded from the list file, including and files included with via #include.
+ For example</p>
+<pre>.nolist<br>#include &quot;superhuge.inc&quot;<br>#include &quot;ginormous.asm&quot;<br>;no listing output has been written for these two files.&nbsp;</pre>
+<p>This can be useful if you are including large files that define a lot of constants but have no actual code in them. It makes reading a listing file much easier to read and debug. To turn listing back on look at the
+<a href="http://wabbit.codeplex.com/wikipage?title=SPASM Directive: .list">.list</a> command.</p>
+<h3><span>Usage:</span></h3>
+<pre>.nolist</pre>
+</div><div class="ClearBoth"></div>

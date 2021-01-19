@@ -1,0 +1,31 @@
+<div class="wikidoc">
+<h3>Source Files</h3>
+<p>This preprocessor option adds another file at this line in your program. It is exactly the same as taking all the code in the file, removing the #include line and pasting the code in its place. A simple example is show below.</p>
+<p>Main.asm</p>
+<pre>#include &ldquo;header.inc&rdquo;
+.org $9d95
+.db 06Dh, 0BBh
+ ld hl,Source
+ ld de,Destination
+ ld bc,Size
+ ldir
+ ret
+</pre>
+<p>Header.inc</p>
+<pre>Source = $9872
+Destination = $86EC
+Size = 768</pre>
+<p>As you can see Source, Destination, and Size are all defined in the header file, allowing the main.asm code to be streamlined. A common file to include is ti83plus.inc. A SPASM compatible version can be found on the
+<a href="http://wabbit.codeplex.com/wikipage?title=SPASM Include Files&referringTitle=Documentation">
+include files page</a>.</p>
+<h3>Bitmaps:</h3>
+<p>SPASM can also include bitmaps into your source code, converting from 255 level grayscale to whatever options you specify. The options are specified using the
+<a href="http://wabbit.codeplex.com/wikipage?title=SPASM Preprocessor: .option">.option directive</a>. Once you have specified your options they remain constant for the rest of the source file. You can however redefine them by simply using
+<a href="http://wabbit.codeplex.com/wikipage?title=SPASM Preprocessor: .option">.option</a> again. Including bitmaps is exactly like including source files.</p>
+<pre>.option bm_pad = 1                 ;bmp has 1 pixel padding around it
+.option bm_min_w = 16                   ;width of the actual data is 16 pixels
+.option BM_HDR_FMT=&quot;WW,HH,SS&quot;           ;the header will store a word for the width,
+                                        ;a word for the height, and a word for the size
+.option BM_SHD = 4                      ;4 level grayscale
+#include &ldquo;Sprites\MainChar.bmp&rdquo;         ;import the bitmap</pre>
+</div><div class="ClearBoth"></div>

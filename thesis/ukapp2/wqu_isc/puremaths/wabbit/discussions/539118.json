@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1223114",
+    "ThreadId": "539118",
+    "Html": "I have been using this emulator for the past couple of months for my technical math class which focuses on the use of the TI-84.  The problem is today after doing some organizing and moving the emulator to a folder along with it's .rom and my .sav files it suddenly stopped working.  When I went to open the emulator it blew up to a large size(Much larger than it was before) and no longer reconized key clicks.  I tried deleting it and reinstalling it, but that didn't seem to work at all.  I saw in another post to try resizing it and turning it on with debug mode, but this didn't work either.  I just get a blank screen with what looks like a faded grid on it and nothing else.  Also when I click to go into 'cut out' skin the entire emulator disappears and I get some sort of weird black backwards L shape.  Please help as I have a midterm on Monday and I need this calculator to work.<br />\n",
+    "PostedDate": "2014-03-15T11:15:04.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1223118",
+    "ThreadId": "539118",
+    "Html": "A short update.  I now see nothing at all except for the little grey x and minimize buttons.  I cannot get in to change it back form cuttout mode at all now.<br />\n",
+    "PostedDate": "2014-03-15T11:25:29.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1223331",
+    "ThreadId": "539118",
+    "Html": "Hello,\r<br />\n<br />\nThe issue is likely a caused by some bad settings. To figure out what the issue is I’d like to export your Wabbitemu settings. You can do so by:<br />\n<ol>\n<li>Pressing WinKey+R</li>\n<li>\nEntering the following command:\r<br />\nregedit /e &quot;%UserProfile%\\Wabbitemu.reg&quot; HKEY_CURRENT_USER\\Software\\Wabbitemu\r<br />\nThis will export Wabbitemu.reg to your user directory (eg C:\\Users[username]\\Wabbitemu.reg). Can you upload this file somewhere so I can look at it.<br />\n</li>\n</ol>\nThanks,\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-03-16T14:54:20.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1262903",
+    "ThreadId": "539118",
+    "Html": "I have the same issue.  I exported Wabbitemu.reg to my user directory.  Can you fix mine too?<br />\n",
+    "PostedDate": "2014-07-05T07:07:55.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1318662",
+    "ThreadId": "539118",
+    "Html": "Hello,<br />\n<br />\nThe same thing has happened to the emulator I've been running under Windows 7.  Has anyone found a resolution yet?<br />\n<br />\n&lt;edit&gt;<br />\nMy apologies - after more searching, I found directions to clean out the registry on a thread about uninstalling the emulator.  That solved the problem.<br />\n<br />\nThanks for a great piece of software!<br />\n",
+    "PostedDate": "2014-11-03T09:12:19.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

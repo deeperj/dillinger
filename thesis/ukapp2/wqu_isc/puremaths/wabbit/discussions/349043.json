@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "812014",
+    "ThreadId": "349043",
+    "Html": "\r\n<p>When I try to put transfrm.8xk in the Archive of Wabbit I get an error message that there is &quot;Not enough free space on the calculator.&quot; The app is 31k in size.</p>\r\n",
+    "PostedDate": "2012-03-17T18:50:12.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "812716",
+    "ThreadId": "349043",
+    "Html": "<p>Usually this is associated with a bad or corrupted file. Where did you get the file from? It's also possible that you don't have enough archive space left. I'm assuming you check the free archive left (2nd&nbsp;+ \"+\" + 2)?</p>",
+    "PostedDate": "2012-03-19T14:53:03.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "813059",
+    "ThreadId": "349043",
+    "Html": "<font color=\"black\" size=\"2\" face=\"arial\">You are right. I downloaded the file again and now it works. Thanks.<br>\r\n<br>\r\n<br>\r\n<div style=\"font-family:arial,helvetica; font-size:10pt; color:black\">-----Original Message-----<br>\r\nFrom: BuckeyeDude &lt;notifications@codeplex.com&gt;<br>\r\nTo: brucetchr &lt;brucetchr@aol.com&gt;<br>\r\nSent: Mon, Mar 19, 2012 5:53 pm<br>\r\nSubject: Re: Not enough free space [wabbit:349043]<br>\r\n<br>\r\n<div id=\"AOLMsgPart_1_cb8a1d06-f407-41f8-9511-e965a3cab2c1\">\r\n<div>From: BuckeyeDude</div>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<div>Usually this is associated with a bad or corrupted file. Where did you get the file from? It's also possible that you don't have enough archive space left. I'm assuming you check the free archive left (2nd &#43; &quot;&#43;&quot; &#43; 2)?</div>\r\n</div>\r\n<div>To add a post to this discussion, reply to this email (<a href=\"mailto:wabbit@discussions.codeplex.com?subject=[wabbit:349043]\">wabbit@discussions.codeplex.com</a>)</div>\r\n<div>To start a new discussion for this project, email <a href=\"mailto:wabbit@discussions.codeplex.com\">\r\nwabbit@discussions.codeplex.com</a></div>\r\n<div>You are receiving this email because you subscribed to this discussion on CodePlex. You can\r\n<a target=\"_blank\" href=\"https://wabbit.codeplex.com/discussions/349043/unsubscribe/\">\r\nunsubscribe</a> on CodePlex.com.</div>\r\n<div>Please note: Images and attachments will be removed from emails. Any posts to this discussion will also be available online at CodePlex.com</div>\r\n</div>\r\n</div>\r\n<div></div>\r\n</font>",
+    "PostedDate": "2012-03-20T08:18:56.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

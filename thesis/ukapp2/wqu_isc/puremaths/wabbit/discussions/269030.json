@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "657983",
+    "ThreadId": "269030",
+    "Html": "\r\n<p>Love the app!&nbsp; After I found it I used it all the time in my classroom to help students learn to use the the TI-83&#43;.&nbsp; Just wondering if there's any vision to have an iOS version?&nbsp; Would love to have it on my iPad 2.</p>\r\n",
+    "PostedDate": "2011-08-14T07:12:13.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "658087",
+    "ThreadId": "269030",
+    "Html": "<p>Hi timn,</p>\r\n<p>Good to hear you're enjoying the product. Will, our mac expert,&nbsp;was testing an iOS version, but it had some flaws and due to Apple's strict market regulation, we would be unable to release it into the App Store, making it useless for most casual users. I'm still considering ways to get around this, but it looks like there won't be one any time in the forseeable future</p>",
+    "PostedDate": "2011-08-14T12:51:29.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "660967",
+    "ThreadId": "269030",
+    "Html": "<p>That's cool : A ti 83 + on my iphone !</p>",
+    "PostedDate": "2011-08-20T06:53:28.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675620",
+    "ThreadId": "269030",
+    "Html": "<p>Ditto timn comments. Ipad is the perfect vehicle for this app. Current graphing utilities available on the ipad are pretty lame, but the platform and display&nbsp;are so compelling I use Appcylon HD graphing whenever I can (uhg). That means for simple stuff. Of course the biggest issue must be the use of TI's intellectual property (the ROM code). TI would be crazy not to seriously entertain bringing their IP to the ipad/iphone platform.</p>\n<p>A full blown Graphing Calculator application on ipad could easily fetch $100 in the market.</p>",
+    "PostedDate": "2011-09-22T21:14:34.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "675935",
+    "ThreadId": "269030",
+    "Html": "<p>The biggest problem is not actually using TI's code, I've devised a way around that as long as you meet TI's conditions to download the OS. The issue is that Apple doesn't allow anything that has programatic capabilities on the app store. There are precedents for emulators eg: the C64 emulator, which was allowed, but then pulled because there was an easter egg that allowed access to the BASIC interperter. And unfortunately TI has one built into its OS, which I would either have to patch out (a very difficult task) or use a different OS (and no good ones exist). Link to the C64 article <a href=\"http://www.wired.com/gadgetlab/2009/09/iphone-c64-emulator-approved-by-apple-removed-again-for-hiding-banned-feature/\">http://www.wired.com/gadgetlab/2009/09/iphone-c64-emulator-approved-by-apple-removed-again-for-hiding-banned-feature/</a></p>\r\n<p>As for why TI has not brought their stuff to the store I think the main reason is that its not worth the effort. Their main target for these calcs are students who would not be allowed to use an iPad or iPhone in class. They'd have to port their crappy SmartView code to Obj-C which would be a lot of work for not a lot of gain</p>",
+    "PostedDate": "2011-09-23T10:44:28.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705425",
+    "ThreadId": "269030",
+    "Html": "<p>It's too sad to see how many obstacles there are in porting a TI emulator to iPad. As others have pointed out, it would be a great platform for it.</p>",
+    "PostedDate": "2011-11-30T10:50:35.127-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

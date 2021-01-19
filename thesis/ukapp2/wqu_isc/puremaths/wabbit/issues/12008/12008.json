@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have been using the TI-84 Plus C Silver Edition wabbitemu. I was trying to return the columns under the STAT feature back to default, and decided to Reset Calculator under the Debug menu. Now the emulator has a severe lag in all functions. I tried raising the speed of the emulator, and I've deleted and re-downloaded wabbitemu a few times now. I have yet to find a solution. I am hoping someone will help. I am using the Microsoft Surface Pro 2 with Windows 8.1.",
+    "LastUpdatedDate": "2015-02-05T09:03:43.707-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-02-05T09:03:43.707-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Reset Calculator\" Lag",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12008
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

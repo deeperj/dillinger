@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-02-22T04:09:11.397-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Somewhere we have a hardware issue",
+    "LastUpdatedDate": "2014-02-22T04:09:11.397-08:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2011-10-17T12:31:44.37-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Universal flash unlock does not work",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 9326
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "733244",
+    "ThreadId": "288030",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I used wabbitemu long enough, everything worked. (on Windows 32 bit)</p>\r\n<p><span>But last week</span><span>, he had</span><span>&nbsp;</span><span>a</span><span>&nbsp;</span><span>bug,</span><span>&nbsp;</span><span>and now it</span><span>&nbsp;</span><span>no longer works</span><span>:</span><span>&nbsp;</span><span>I can not\r\n see</span><span>&nbsp;</span><span>the window with</span><span>&nbsp;</span><span>the calculator</span><span>&nbsp;</span><span>when I run it</span><span>.&nbsp;</span></p>\r\n<p><span>The window is here a few microseconds, and then disappears.</span></p>\r\n<p><span>I can quit with Alt&#43;F4.</span></p>\r\n<p>&nbsp;</p>\r\n<p>So I tried to delete wabbit files to reinstall later (wabbitemu.exe in a folder, wabbitemu.sav and wabbitemu.gif in AppData/Roaming).</p>\r\n<p>&nbsp;</p>\r\n<p>Then I downloaded wabbitemu.exe again, I launch it, but the problem is still present.</p>\r\n<p>&nbsp;</p>\r\n<p>So I'd like to know how to uninstall it completly, for reinstalling.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks a lot, your emulator is wonderfull.</p>\r\n<p>&nbsp;</p>\r\n<p>persalteas (louis Becquey)</p>\r\n",
+    "PostedDate": "2012-01-31T07:15:10.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "733354",
+    "ThreadId": "288030",
+    "Html": "<p>Hello persalteas,</p>\r\n<p>Sorry about the issues with wabbit. The thing that is likely causing your issues are the settings in the registry. First open up Task manager and check and make sure that no instance of Wabbitemu.exe is running. If it is, end the process. Then goto the start menu. If you're on Vista or 7 you can simply type regedit. If you're on XP click the run dialog and then type regedit. This will open the registry editor. Wabbitemu's settings are in HKEY_CURRENT_USER\\Software\\Wabbitemu. Select that folder then press delete.</p>\r\n<p>Let me know if you have any questions or other issues.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-01-31T10:14:03.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "734305",
+    "ThreadId": "288030",
+    "Html": "<p>Okay, that was what I forgot.</p>\r\n<p>I didn't know that Wabbit &nbsp;uses keys.</p>\r\n<p>&nbsp;</p>\r\n<p>Everything works now :)</p>\r\n<p>Thanks a lot.</p>\r\n<p>&nbsp;</p>\r\n<p>No more questions.</p>\r\n<p>persalteas</p>",
+    "PostedDate": "2012-02-01T02:21:08.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

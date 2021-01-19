@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "744257",
+    "ThreadId": "296517",
+    "Html": "\r\n<p>Hi there. A couple of days ago, my wabbitemu quit working. I deleted all files associated with it and downloaded it again. It worked again. But then the next day, the same thing. I followed the directions in another post of this website that I found:</p>\r\n<p>&quot;This will open the registry editor. Wabbitemu's settings are in HKEY_CURRENT_USER\\Software\\Wabbitemu. Select that folder then press delete.&quot;</p>\r\n<p>Once I did that and reinstalled wabbitemu, it worked fine. Today, problems again. When I try to open the wabbitemu executable file, all I get is the rabbit on the task bar, not the one standing up by a calculator, just a bunny.</p>\r\n<p>Any ideas how I can fix this?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-02-06T19:21:37.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "748093",
+    "ThreadId": "296517",
+    "Html": "<p>I had the exact same issue! I think I even went to the same website as you! Still no luck with a solution.&nbsp;</p>",
+    "PostedDate": "2012-02-08T17:56:26.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "749240",
+    "ThreadId": "296517",
+    "Html": "<p>Hi guys,</p>\r\n<p>Sorry about the issues, I've had some other reports of it, but I've had no time to fix it. Quick check what OS are you guys on? I've only seen it happen on XP, but its possible it happens on Win7 as well.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-02-09T10:45:07.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "749596",
+    "ThreadId": "296517",
+    "Html": "<p>Win7 for me</p>",
+    "PostedDate": "2012-02-09T12:13:40.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "749993",
+    "ThreadId": "296517",
+    "Html": "<p>Win 7 64 bit and also Win 7 32 bit. any other specs needed?</p>",
+    "PostedDate": "2012-02-09T14:15:22.27-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "759490",
+    "ThreadId": "296517",
+    "Html": "<p>Ok so I've had some time this weekend and I've been looking into what is causing this, and frankly i'm stumped. I have a couple of theories, but I can't actually cause it myself, so if you guys could do a little testing, that'd be helpful. When it happens, first open up task manager and see if Wabbitemu.exe is still running. Theres a bug in the current release that can crash when it exits, but&nbsp;its possible its not crashing and staying open for a while. Second, if you could export me your registry entries, I have a feeling it might be related to a setting. To do so, navigate the the Wabbitemu folder in regedit and right click and say export. Save it somewhere, then send it to me, either via email, or by using Wabbitemu's report a bug feature in the help menu.</p>\r\n<p>Thanks,</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-02-12T16:09:26.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "771412",
+    "ThreadId": "296517",
+    "Html": "<p>Alright I believe I found the issue. I was improperly saving the window position when Wabbit was minimized and then closed. Download the latest update and see if it fixes the issue.</p>",
+    "PostedDate": "2012-02-16T15:14:32.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "786077",
+    "ThreadId": "296517",
+    "Html": "<p>After this happened several times and I messaged you, I couldn't get it to do it again. I've downloaded the latest update now though.</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2012-02-20T15:17:08.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "786104",
+    "ThreadId": "296517",
+    "Html": "<p>Good to hear, let me know if it starts happening again and I'll take another look at it.</p>\r\n<p>Thanks again for the feedback, keep it coming.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-02-20T15:23:22.17-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

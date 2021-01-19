@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I have already many apps installed the installation of additional apps sometimes fails without any error message.\n![Install app fails](https://i.imgur.com/ZVznGtt.gif)\n\nFYI MB is wrong, of course the file is only 36 KB large.\nThis is what I tried to install: http://www.ticalc.org/archives/files/fileinfo/277/27719.html\n\nWabbitemu 1.9.5.20 x64\nWindows 7 x64",
+    "LastUpdatedDate": "2015-11-23T09:17:18.507-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-23T09:15:09.903-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Sometimes does not install app",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12287
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Okay, maybe the file is too large, but in this case it should at least show an error message - whcih I already saw, but which is not shown in this example.",
+      "PostedDate": "2015-11-23T09:17:18.507-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

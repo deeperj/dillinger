@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi, a week ago I downloaded the wabbitemu software and I have to say it is very well done. I'd had a pleasant experience until yesterday, when screenshots started saving in a low resolution format. I'm not sure what went wrong, I'd been using the screenshots option and had no problems at all, full 192x128 pictures, now I'm getting a resolution of 96x64. I haven't been able to find a way around this, is there anything I can do to fix it? I'm using the latest version of the software and the TI 84 Plus SE rom.",
+    "LastUpdatedDate": "2014-10-03T12:43:03.627-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-10-03T12:43:03.627-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Low resolution screenshots",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11888
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

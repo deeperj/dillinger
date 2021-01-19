@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "660978",
+    "ThreadId": "269809",
+    "Html": "<p>I tried putting MirageOS on a downloaded ROM for the TI84+SE 2.43. When I go to run it, it starts to defragment but then it says ERR:VALIDATION.</p>\n<p>EDIT: Same with Celtic III and TI's&nbsp;periodic table&nbsp;app.</p>",
+    "PostedDate": "2011-08-20T08:57:43.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661015",
+    "ThreadId": "269809",
+    "Html": "<p>Did you create a rom using wabbitemu's open source boot page option? If so you'll probably need to do so again with the latest version. I found there was a part of it that was not yet coded that was required by the OS to run apps on the the 84s. You can do so by going help-&gt;rerun setup wizard and overwriting your old rom file. If you're using a real rom can i get the boot code number? You can find it by pressing mode alpha+s</p>",
+    "PostedDate": "2011-08-20T11:22:31.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661524",
+    "ThreadId": "269809",
+    "Html": "<p>Well, as you know from Omni, I did use the open source boot page and I got that error. I just made a ROM from rom8x, however, and it won't even install the OS. Here's what I get:</p>\n<p>&nbsp;<img src=\"http://img717.imageshack.us/img717/4442/error1ek.png\" alt=\"error\" /> (If the picture doesn't show up, <a href=\"http://img717.imageshack.us/img717/4442/error1ek.png\">here it is</a>)</p>\n<p>Boot code 1.02, base code 2.43.</p>\n<p>I reran the setup using the&nbsp;latest version, and apps now work, however the error with my \"real\" ROM still persists.</p>",
+    "PostedDate": "2011-08-22T06:25:53.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661902",
+    "ThreadId": "269809",
+    "Html": "<p>Once you got your two boot page appvars what did you do? Also did you try sending an OS to wabbitemu then doing a Debug-&gt;reset? Its possible you didn't include the OS upgrade when creating your ROM</p>",
+    "PostedDate": "2011-08-22T22:59:01.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662312",
+    "ThreadId": "269809",
+    "Html": "<p>When I got them I opened up the command prompt, went to my rom8x directory, and entered \"rom8x 84PBE -1 D84PBE1.8xv&nbsp;-2 D84PBE2.8xv\" (just now). I've also tried many other variations but they all got the same result. The ROM itself is exactly 1MB in size, but the ROMs from open-source software are 2MB. rom8x also seems to think&nbsp;that I'm making an 83+ ROM.</p>",
+    "PostedDate": "2011-08-23T13:08:10.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662435",
+    "ThreadId": "269809",
+    "Html": "<p>IIRC rom8x also takes an OS file which you are missing. Did you try dragging the OS file onto the screen and resetting the calc as I suggested before? You can also try using rom8x via wabbitemu startup wizard. Select the option to&nbsp;create a&nbsp;ROM from your calculator and ignore the step about sending&nbsp;the file to your calculator.&nbsp;When you created an open source did you select 84P or 84PSE? Its possible I don't create the ROM size possible but I didn't&nbsp;think so&nbsp;</p>",
+    "PostedDate": "2011-08-23T19:19:26.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "662704",
+    "ThreadId": "269809",
+    "Html": "<p>The only 2.43OS I've found is TI's one for Singapore, so I tried sending that to Wabbit and the apps work fine (they worked when I updated Wabbit, too). I used that OS to make the ROM, too, and that's works now as well.</p>\r\n<p>TI84+/SE ROMs from open-source now&nbsp;both work with apps, too.</p>",
+    "PostedDate": "2011-08-24T08:09:46.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

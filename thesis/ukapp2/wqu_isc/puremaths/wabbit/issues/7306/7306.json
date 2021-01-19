@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Thanks for the feedback, keep it coming &#58;D",
+    "ClosedDate": "2010-09-29T13:19:39.893-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Say, this a sweet program.\n \nOn the TI-86 (and TI-85), clicking the + key triggers the Down Arrow key.\n \n(Do you need a scan of an 85?  I've got a calculator that looks almost new.)",
+    "LastUpdatedDate": "2013-05-16T05:08:22.243-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-09-29T09:12:55.17-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TI-86",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7306
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This is an excellent catch, thanks. I don't think I will need an 85 photo, although it could be useful. our skins our made in photoshop and 85 support was just recently added thus the lack of a skin. If i get time this weekend, i'll see if i can work on a decent looking one.",
+      "PostedDate": "2010-09-29T13:14:56.06-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-29T13:15:17.613-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-29T13:19:39.893-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "How does this look?\r\nhttp://www.revsoft.org/phpBB2/viewtopic.php?p=21147#21147",
+      "PostedDate": "2010-09-30T02:34:09.26-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:18.2-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:22.243-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

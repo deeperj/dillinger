@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1126194",
+    "ThreadId": "470361",
+    "Html": "I'm currently running Ubuntu 12.04 and would really like a build for Linux. (Either stand-alone or .deb). This or at least clear directions on how to compile manually.<br />\n",
+    "PostedDate": "2013-11-18T12:23:07.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126205",
+    "ThreadId": "470361",
+    "Html": "Hello,\r<br />\n<br />\nYour best bet for getting a version running on linux is to check out from <a href=\"https://code.google.com/p/wxwabbitemu/source/checkout\" rel=\"nofollow\">here</a>. The only requirement to build should be that you will need the wxWidgets dev lib (at least version 2.8). Let me know if you have any issues building. If I have time I might try and create a package for you.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-11-18T13:00:55.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1128068",
+    "ThreadId": "470361",
+    "Html": "Would you please? I can't get it right.<br />\n",
+    "PostedDate": "2013-11-22T12:59:09.28-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453585",
+    "ThreadId": "470361",
+    "Html": "I would also like to see Linux builds directly downloadable.\r<br />\n<br />\nIssue asking for Linux builds: <a href=\"https://wabbit.codeplex.com/workitem/12275\" rel=\"nofollow\">https://wabbit.codeplex.com/workitem/12275</a><br />\n",
+    "PostedDate": "2015-11-23T09:04:17.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

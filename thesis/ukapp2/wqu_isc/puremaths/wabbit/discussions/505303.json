@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1174767",
+    "ThreadId": "505303",
+    "Html": "I am unable to get various apps for the TI-84 Plus Silver to install in the wabbit emulator, I try dragging and dropping but I can't seem to figure out the procedure to do so, or it just isn't working.  Can someone help please?<br />\n<br />\nI get an error when I try to drag and drop apps to the wabbitemu. I choose second... Link... Recieve... 1:Recieve... and then drag and drop and get the error &quot;a problem with wabbitemu prevented the file from getting sent&quot;. I've tried a few different apps with the same problem. Emu is set to run as TI-84+ Silver (non color) in Windows 8.1 64. The error prevents me from even getting to where I could &quot;save&quot; it.<br />\n",
+    "PostedDate": "2014-01-17T12:26:45.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311360",
+    "ThreadId": "505303",
+    "Html": "up ! thanks<br />\n",
+    "PostedDate": "2014-10-07T16:01:03.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1311420",
+    "ThreadId": "505303",
+    "Html": "Download the app you want to install, then drag and drop the file on to the lcd.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-10-07T22:13:52.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "So I actually have a couple of issues.  First of all my emulator just randomly stopped working.  It wouldn't turn on or anything and secondly after messing around in options I accidentally turned on cut out and now the entire skin is gone.  It's just a transparent box with the little gray x and minimize button up in the corner and nothing else.  I really need help on getting this to work again as I've been authorized by my professor to use it in place of a real Ti-84 on my midterm on monday.",
+    "LastUpdatedDate": "2014-06-27T23:27:09.443-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-03-15T11:46:33.853-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Cut Out Completely Transparent",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 11631
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I'm having the exact same problem, it would be really helpful is someone could figure out a way to solve this.",
+      "PostedDate": "2014-04-22T19:55:42.76-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "okay, so i actually found something that works now. just download wabbit portable and it works perfectly.",
+      "PostedDate": "2014-04-22T20:32:54.58-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Not sure exactly what causes this issue, so it would be helpful if you could export and send me your settings. You can do so by:\n1.\tPressing WinKey+R\n2.\tregedit\n3.\tIn the tree view on the left, navigate to HKEY_CURRENT_USER\\Software\\Wabbitemu\n4.\tRight click on the Wabbitemu folder and select export. Save the file somewhere, but make sure you change the extension to .txt (email and most sites will block uploading .reg extensions)\r\n\r\nCan you either email the file to me, or upload it somewhere so I can download it and find out what the issue is?\r\n\r\nOnce you do this, you can delete your settings, which should fix the issue. Simply right click on the folder and select delete.\r\n\r\nThanks,\nBuckeyeDude\n",
+      "PostedDate": "2014-04-22T20:41:28.353-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-06-27T23:27:09.443-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

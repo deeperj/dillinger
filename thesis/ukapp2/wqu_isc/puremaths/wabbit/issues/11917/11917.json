@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Does anyone have a solution to the TI Emulators? The Mac version downloads fine and opening is alright. When I open the .zip file, I'm prompted by a notification that asks me if I want to open it. I click yes and then it creates the WabbitEmu calculator app and then when I double click on the app, it doesn't open. It shows up on my dock but it's constantly blank. I can inspect the contents and all that but it's just not showing up on my screen. If any of you guys know how to troubleshoot and fix this, I would really appreciate that. Thank you!",
+    "LastUpdatedDate": "2015-05-20T14:33:05.823-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-11-16T19:38:22.77-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "EmuCalculator not opening on Mac OS Yosemite",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 11917
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

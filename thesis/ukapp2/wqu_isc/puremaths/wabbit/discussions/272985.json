@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "673383",
+    "ThreadId": "272985",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I just installed the new 1.5.7.7 version of wabbitemu on my Win7/64bit PC an I ran into some odd behaviour.</p>\r\n<p>First, the emulator did not show up on screen. The icon appeared on the taskbar alright, but nothing could be seen on screen. Possibly it was residing somewhere outside the screen boundaries. Eventually I decided to remove the wabbitemu registry entries\r\n to make a fresh start.</p>\r\n<p>That worked. After having set up everything, I got the TI-84 skin on screen. I quickly configured the cutout-skin which I prefer. But when I clicked the skin's Close button, wabbitemu would not shut down. It just disappeared from the screen. The taskbar\r\n icon remained and when clicked upon, the skin reappeared. This did not happen with previous versions when the close button would shut down the application all together. With the cutout-skin disabled, the close button on the window bar works as expected: it\r\n shuts down the application. The exact same behaviour occurs with the TI-83 rom and skin.</p>\r\n<p>Something to look into?</p>\r\n<p>Stephan</p>\r\n",
+    "PostedDate": "2011-09-18T13:04:13.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673432",
+    "ThreadId": "272985",
+    "Html": "<div dir=\"ltr\">\n<div style=\"font-family: 'Arial'; color: #000000; font-size: 10pt;\">\n<div>Hi StephanP,</div>\n<div>Good find, I&rsquo;ve got a fix for this bug. Should have an update for it in the next couple days. In regards to the emulator not first working, did you have a previous version of Wabbitemu installed? There seems to be an issue upgrading between a version released around December 27th and any current version, which has the same sort of symptoms as the problem you saw. However if you can cause it without an older version installed the problem might be more serious then that.</div>\n<div>Thanks,</div>\n<div>BuckeyeDude</div>\n<div style=\"font-style: normal; display: inline; font-family: 'Calibri'; color: #000000; font-size: small; font-weight: normal; text-decoration: none;\">\n<div style=\"font: 10pt tahoma;\">\n<div style=\"background: #f5f5f5;\"><strong>&nbsp;</strong></div>\n</div>\n</div>\n</div>\n</div>",
+    "PostedDate": "2011-09-18T18:07:26.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "673482",
+    "ThreadId": "272985",
+    "Html": "<p>Hullo Buckeye,</p>\n<p>The first problem did indeed occur with an update of a previous installation, but not as long back as you're suggesting. The existing install was the one from last may.</p>\n<p>The difference with the december version I already experienced before. I believe this is when a switch was made from a config-file to (more) registry entries. That didn't hurt much at the time, other than that I had to reconfigure the emulator once again.</p>\n<p>Cheers, Stephan</p>",
+    "PostedDate": "2011-09-18T22:22:06.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "676824",
+    "ThreadId": "272985",
+    "Html": "<p>Hmm I'll have to look into these broken registry entries more. I dont remember what I changed that caused issues upgrading but I do need to detect and fix them. I've released a new version that fixes your issue with closing the cutout skin. Let me know if you find any other issues.</p>\r\n<p>Thanks,</p>\r\n<p>BuckeyeuDude</p>",
+    "PostedDate": "2011-09-26T12:24:31.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

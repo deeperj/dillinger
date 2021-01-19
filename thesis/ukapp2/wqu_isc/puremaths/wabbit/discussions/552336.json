@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1274842",
+    "ThreadId": "552336",
+    "Html": "There is a java emulator of these texas calculators here\r<br />\n<a href=\"http://xandrean.free.fr/T4X/\" rel=\"nofollow\">http://xandrean.free.fr/T4X/</a>\r<br />\n<br />\nThe roms can be dumped from ti-smartview official emulator.\r<br />\n<br />\nIt would be great if we could use these calculators in wabbitemu for android!\r<br />\n<br />\nAn unrelated question: I have ti-81 v2.0v rom and it doesn't seem to work in wabbitemu for android.  Which version of ti-81 is supported? (when I choose this rom the emulator restarts and ask again for a rom)\r<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-07-21T10:28:32.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1294266",
+    "ThreadId": "552336",
+    "Html": "hello anyone?<br />\n",
+    "PostedDate": "2014-08-28T06:16:30.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1294743",
+    "ThreadId": "552336",
+    "Html": "Unfortunately, TI-30XS, 34 and College-Plus use a different CPU than the 83 series of calculators. Wabbit currently is only a Z80 emulator, so to support the calculators requires a lot of reverse engineering.\r<br />\n<br />\nAs for your issue with the TI-81v2 rom, all known versions of the TI-81 should work. I've tested with a 1.1, 1.5, 1.6, 1.8, and 2.0. Give the 1.04 update a shot and see if it fixes the issue.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-08-29T00:02:21.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

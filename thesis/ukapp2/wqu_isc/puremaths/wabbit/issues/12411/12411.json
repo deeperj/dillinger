@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I downloaded the android app on my phone but everytime I try to install the os it says it cannot be installed I had this app be before and it worked fine so I don't understand what is the problem now please help.",
+    "LastUpdatedDate": "2016-09-07T20:36:13.493-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-08-17T03:52:23.92-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Trouble downloading os on android app",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 12411
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I am having the same exact problem",
+      "PostedDate": "2016-09-04T08:07:55.14-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-09-07T20:36:13.493-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

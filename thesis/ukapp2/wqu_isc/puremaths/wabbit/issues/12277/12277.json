@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "1. When I save ROMs as `.rom` or `.bin` Wabbitemu does not show me a dialog for author, comments, compression and read-only. I think this is related to 2.\n2. When I save a file as  `.rom` or `.bin`  and open it later it shows me \"RAM cleaned\". But not only my RAM was cleaned, but also some apps saved in the archive were deleted.\nIn contrast: When I save it as `.sav` and open it later it shows exactly the state where I left off.",
+    "LastUpdatedDate": "2015-11-22T10:49:14.493-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-22T10:49:14.493-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ROM saving: Losses app, different to .sav save",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12277
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

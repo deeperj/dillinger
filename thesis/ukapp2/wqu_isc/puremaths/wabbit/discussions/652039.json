@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1465426",
+    "ThreadId": "652039",
+    "Html": "With the previous version as well as with the latest, WabbitEMU doesn't save its configuration anymore. As a result at each start it asks me to select a ROM image.<br />\nI've removed the folder &quot;ApData\\Roaming|WabbitEmu&quot; as well as registry key HKEY_CURRENT_USER\\SOFTWARE\\Wabbitemu, but this didn't help.<br />\n<br />\nMy PC is W10 Home 64-bit and I'm using the latest 64-bit version of WabbitEMU.<br />\n<br />\nWhat can I do to fix this?<br />\n",
+    "PostedDate": "2016-03-03T08:53:44.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465427",
+    "ThreadId": "652039",
+    "Html": "Ah, I may have found something.<br />\nI once again removed the folder &quot;ApData\\Roaming|WabbitEmu&quot; as well as registry key HKEY_USERS\\S-1-XXXXX\\SOFTWARE\\Wabbitemu (instead of HKEY_CURRENT_USER...).<br />\nAnd I've replaced the 64-bit wabbitEMU with the 32-bit version.<br />\n<br />\nAfter initial selection of the ROM image, wabbitEMU restarts normally without any further questions.<br />\nSo, is it the 64-bit version or is it that other registry key, or is it both?<br />\n",
+    "PostedDate": "2016-03-03T09:01:05.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

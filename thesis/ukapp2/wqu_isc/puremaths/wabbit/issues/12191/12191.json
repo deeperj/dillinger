@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I specifically tested TI-84 Plus CE. Can't grab the ROM, and now I can't set up the app on new devices. Gonna have to dig up the ROM file from my tablet or something.",
+    "LastUpdatedDate": "2015-11-22T09:05:55.87-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-08-24T20:46:45.54-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Issue downloading ROMs",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12191
+  },
+  "FileAttachments": [
+    {
+      "FileId": 4015,
+      "FileName": "Run as Admin.png",
+      "DownloadUrl": ".\\4015"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I can't download it either.  Not sure what has to be done.  I had the product installed once, then got a new PC running Win10.  Maybe that's the issue.  But, cannot download it!  SIGH",
+      "PostedDate": "2015-09-03T12:41:06.543-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-09-15T09:13:59.947-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Run the installer as Admin (Right click... Down the list... \"Run as Administrator)",
+      "PostedDate": "2015-09-15T09:14:00.943-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "See https://wabbit.codeplex.com/workitem/12214",
+      "PostedDate": "2015-11-22T09:05:55.87-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

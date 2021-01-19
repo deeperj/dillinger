@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I've have used wabbitemu for a while now and just downloaded the emulator onto my laptop. I have a habit of putting the task bar on top, but Wabbitemu seems to not play well with that. When I launch the application, the title bar seems to be overlapped by the task bar, as shown [here](http://puu.sh/bD7iQ/648365886e.jpg). Is there anyway to change the position of where the application launches? It seems to re-position where it launches every time I open it.",
+    "LastUpdatedDate": "2014-09-25T20:12:35.72-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-09-17T13:43:32.513-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Taskbar blocking title bar",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 11866
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

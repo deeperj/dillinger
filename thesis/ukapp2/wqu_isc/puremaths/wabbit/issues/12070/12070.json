@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I'm trying to create a custom skin with changeable faceplate color.\nBut it only turns out greyscale (or transparent in cutout mode), \neven when just selecting an unmodified skin from the source\n(...\\wabbit\\WabbitStudio\\Source\\Wabbitemu\\gui\\ti-84+cse.png)\n\nWhat am I doing wrong?",
+    "LastUpdatedDate": "2015-04-12T09:41:29.65-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-04-12T03:55:03.023-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Custom skin with changeable faceplate colors",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12070
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-02-27T12:19:29.9-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Today I updated Wabbitemu TI-84 Plus Silver Edition on Windows 7, 64 bit. The calculator immediately stopped working (screen is blank and will not turn on). I tried uninstalling and reinstalling and the calculator does not work. I love Wabbitemu and would really appreciate if anyone could help me get it working again!",
+    "LastUpdatedDate": "2014-02-27T12:19:29.9-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-02-27T01:36:10.753-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Calculator will not turn on",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11600
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\r\n\r\nThank you to tech support who helped me resolve this issue so rapidly! Here is what they suggested I try doing:\r\n\r\n\"Try resizing Wabbitemu. You can do so by dragging from any corner of the window. If that does not work, try turning on Wabbitemu from the debug menu.\"\r\n\r\nI was able to resolve this issue by resizing the Wabbitemu window. Thank you tech support!",
+      "PostedDate": "2014-02-27T09:08:04.327-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-02-27T12:19:29.9-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

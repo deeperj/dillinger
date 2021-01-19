@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-09-13T16:14:36.877-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Whenever gui_frame_update() is called with GDI+ stuff SelectObject on the HBITMAP handle cause a memory leak. DeleteObject does not remove. Commenting out the SelectObject causes no leak. annoying as hell",
+    "LastUpdatedDate": "2013-05-16T05:08:24.513-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-09-10T21:58:51.003-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "GDI+ memory leak",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 7159
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 57166.",
+      "PostedDate": "2010-09-13T16:14:36.877-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:21.13-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:24.513-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

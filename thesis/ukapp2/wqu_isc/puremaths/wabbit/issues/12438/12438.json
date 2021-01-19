@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I feel like I've searched everywhere and tried everything, but I can't find any solution to this issue. Whenever I open up WabbitEmu it doesn't show up on screen. The strange part is that it DOES show up in the task bar and task manager, and you can even see it when you hover over the icon in task bar. Below is a screen shot.\n\n![Image](http://i.imgur.com/MmPZHNQ.jpg)\n\nI've tried seemingly everything. I've downloaded multiple WabbitEmu.exe files from multiple sources, trying to see if an older version will work, but that didn't help. I've searched through my hard drive for anything and everything relating to WabbitEmu (found some in AppData and some logs somewhere), deleted all of it, and downloaded another copy from this website, still to no avail. When I delete the AppData folder it will show up with the prompt asking for a ROM, but when I direct it to a ROM it disappears, going back to the state of the screen shot. I've tried both a downloaded ROM and one dumped from my own calculator, still no good.\n\nAny ideas?",
+    "LastUpdatedDate": "2017-03-02T19:44:26.733-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-12-09T12:55:32.487-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WabbitEmu won't show up on screen - Windows 10",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12438
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I am also having this problem.  I've tried everything -- multiple ROMs.  The funny thing is, the problem is only on my laptop.  My work desktop, also running Windows 10 (though not the Home version) has no problems using the same ROM.",
+      "PostedDate": "2017-02-27T11:28:00.8-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "It's not the ROM, I know for sure.  It has something to do with display.  I can communicate with the calculator, even though I can't see it, by putting the focus on it and typing in numbers.  Also, hitting ALT  + F gives me the calculator's menus, and on the Display tab of the Options menu, I can see what I typed...I just can't get the skin to show up.",
+      "PostedDate": "2017-02-27T11:53:39.113-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The window is probably way off screen. Hold down shift + right click on the task bar Icon. Select move. This should bring it back on screen and you can move the arrow keys or click and drag the mouse to move it around if its only partially on screen.",
+      "PostedDate": "2017-03-02T19:44:26.733-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

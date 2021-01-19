@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I was trying to work a bit on my Z80 skills as i encountered a weird thing. For a few months i was happy to get stuff working with Wabbitcode. So i just loaded my code again, did assemble it and wanted to run it with Wabbitmenu z80+ emulator.\n\nAssembling went well, but the emulator just says: ERR:SYNTAX\n\nEven a simple program like this does not work anymore. All is well during assembly. It gives the same error on a real device by the way.\n\nDo i miss anything? I have no clue where to look/start.\n\n```\n.nolist\n#include \"../ti84plus.inc\"\n#define    ProgStart    $9D95\n.list\n.org    ProgStart - 2\n\t.db    t2ByteTok, tAsmCmp\n\tbcall(_ClrLCDFull)\n    \n\tld a, 12\n\tbcall(_PutC); \n\n\trlca\n\tbcall(_PutC); \n\n\tRET\n    \n.end\n.end\n```",
+    "LastUpdatedDate": "2014-12-10T09:45:39.047-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-12-10T09:45:39.047-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wabbitcode - TI84plus - suddenly stopped working",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11939
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

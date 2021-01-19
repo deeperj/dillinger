@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "643140",
+    "ThreadId": "265363",
+    "Html": "\r\n<p>im just putting this up here if you guys have trouble like i did.<br>\r\n<br>\r\nfor some reason the latest version would not work at all i had to use the version 1.5.6.20 so it could finally work with windows 7.it worked both on my x86 system and x64<br>\r\n<br>\r\ni tried safe mode running the very basics. tried adding the dll to system.<br>\r\n<br>\r\nthe other thing i wanted to ask if somebody knows and i saw that question being asked but not answered.<br>\r\nhow can i get when&nbsp; i tap in the screen respond like a mouse click. if i use the mouse works perfect but if i use pen i have to double tap so it works<br>\r\n<br>\r\nanybody knows anything about it.<br>\r\n<br>\r\nand i hope someone answers the latest post seen to be from 2010</p>\r\n",
+    "PostedDate": "2011-07-15T14:19:00.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "643209",
+    "ThreadId": "265363",
+    "Html": "<p>You're going to have to provide&nbsp;a little more detail for me to help you. When you launch the latest version what happens? Does wabbitemu crash, or just never appear. Also what ROM are you trying to run? Its possible that deleting your registry entries related to wabbitemu may fix. I've a couple people have startup issues from bad registry entries. If you run regedit32 and navigate to HKCU\\Software\\Wabbitemu and delete that folder it may fix it (you may want to right click and export it to save it first). The dll is unecessary and only useful for developers, so you can delete that. As for running it on a touchscreen i still have no touchscreen and no way to test and reproduce this issue. The documentation says that single tap should send the same thing as a single click.</p>",
+    "PostedDate": "2011-07-15T21:13:16.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "643221",
+    "ThreadId": "265363",
+    "Html": "<p>Found another person having this issue and think I fixed the problem. Download a new version and tell me if it works</p>",
+    "PostedDate": "2011-07-15T23:33:57.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646631",
+    "ThreadId": "265363",
+    "Html": "<p>seems to be working perfectly now i think you got it. =D<br /> <br /> not to bother too much but are you planning on fixing the tablet issue? is a pain because when im doing calculus and im writing in journal i have to unflip tablet so i can use normal mouse to input stuff in the calculator. <br /> <br /> <br /> let me know if i can help somehow<br /><br /><br />EDIT:my mistake i missed the part that you have no way of reproducing it. i saw one of the old messages that if you had someone to test it you could fix issue.<br />i wouldn't mind doing a remote session to see if you can fix it or test it out.</p>",
+    "PostedDate": "2011-07-23T17:34:02.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1451412",
+    "ThreadId": "647127",
+    "Html": "I was using this app just fine and then one day it says I need to create a ROM.  When I choose Help Me Create, nothing happens. The green dot is in the circle, but no new options show up.  My student just installed as well and same thing is happening to her.  Thoughts?<br />\n",
+    "PostedDate": "2015-11-09T05:07:22.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453573",
+    "ThreadId": "647127",
+    "Html": "Yes this is what it looks like. There seems to be a bug with the colour of the buttons, so you actually cannot see them very good. They are at the bottom.<br />\n<img src=\"https://i.imgur.com/vKsTvDd.png\" alt=\"Wabbitemu_ButtonBug\" /><br />\n<br />\nWould be great if this bug could be fixed.<br />\n<br />\nMy test device:<br />\nSamsung Galaxy S4<br />\nAndroid 5.0.1<br />\n",
+    "PostedDate": "2015-11-23T08:10:24.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453574",
+    "ThreadId": "647127",
+    "Html": "I've opened an issue: <a href=\"https://wabbit.codeplex.com/workitem/12281\" rel=\"nofollow\">https://wabbit.codeplex.com/workitem/12281</a><br />\n",
+    "PostedDate": "2015-11-23T08:12:19.067-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

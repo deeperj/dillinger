@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2011-03-12T14:00:22.45-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "How am i suppose to get my still screenshots if there is no dragging?!?!?\nAlso it might be good to have some other way to generate stills, as most people aren't smart enought to figure out that this works",
+    "LastUpdatedDate": "2017-12-16T14:45:38.373-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-07-10T18:20:56.543-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Screenshot dragging doesn't work",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 0,
+    "Id": 6692
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Record a animated gif of one frame if you need one really bad",
+      "PostedDate": "2010-07-15T20:26:43.323-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Because I can totally set how many frames i want in my gif...\r\nbesides being able to drag that it is way more badass than having to use a file dialog or having it autosaved",
+      "PostedDate": "2010-07-16T02:14:16.217-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-10T21:56:07.62-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 64527.",
+      "PostedDate": "2011-03-12T14:00:22.45-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:25.313-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:27.383-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-16T14:45:38.373-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

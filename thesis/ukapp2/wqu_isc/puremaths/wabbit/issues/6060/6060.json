@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2010-07-11T16:10:20.97-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The current method is not safe in XP so it has been commented out.",
+    "LastUpdatedDate": "2013-05-16T05:08:27.943-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-05-17T16:38:19.367-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Re-disable window transitions for all overlapped window children",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6060
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Your code right now works fine in Vista.  Is the method\n\nCreateWindow\nDisable transitions\nShowWindow\nthe right way to do it?",
+      "PostedDate": "2010-05-17T16:40:18.987-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-05-17T16:44:29.263-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-05-17T16:46:23.307-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Brought back the method that we had in eclipse, should work fine",
+      "PostedDate": "2010-07-10T17:19:29.503-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Resolved with changeset 54477.",
+      "PostedDate": "2010-07-11T16:10:20.97-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:26.03-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:27.943-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

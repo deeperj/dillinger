@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1296586",
+    "ThreadId": "564053",
+    "Html": "I'm using Wabbitemu 2.1(1) on Mac 10.9.4.  I pulled a ROM from my TI84 CSE, and it works fine in the current Windows version of Wabbitemu, but on Mac OS it fails with a message that &quot;The rom or savestate located at ~/Desktop/Wabbitemu/84CSE_v42.rom was not recognized.&quot;\r<br />\n<br />\nIs this just due to a version difference between the Mac version and the Windows version, or am I doing something silly?\r<br />\n<br />\nThanks in advance for the help, and for your hard work on this project.  It looks like a heck of a good way to keep from having to buy <em>quite</em> so many of these pricy calculators for my kids!<br />\n",
+    "PostedDate": "2014-08-30T12:18:02.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1301930",
+    "ThreadId": "564053",
+    "Html": "Unfortunately the Mac version doesn't currently have CSE support. We lost our Mac developer a while back, so that has not been maintained to the same feature set as the Windows  and Android versions. I'm glad to hear you like Wabbit. Let me know if you have any other questions or suggestions.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-09-07T02:09:17.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\neverytime I start the application, a window pops up saying \"There is a an update for Wabbitemu would you like update?\" (Those aren't typos, that's exactly what it says).\n\nWhen I click yes it runs through what looks like a quick command prompt that doesn't really accomplish anything, and then asks again.\n\nHow do I actually update and/or get it to quit asking about the updates?",
+    "LastUpdatedDate": "2014-08-15T10:33:30.773-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-08-15T10:33:30.773-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TI-84 Always Asking to Update",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11828
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

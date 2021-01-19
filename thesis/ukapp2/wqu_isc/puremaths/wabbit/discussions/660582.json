@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1490857",
+    "ThreadId": "660582",
+    "Html": "When I attempt this, TI connect does not recognize the device.  The emulator works fine but TI connect fails to find the device.  I have WabbitEmu installed on an LGK10 running Android 6.0.1 Software version K42810f.  Also I've installed WabbitEmu on a friend's Android device, a tablet that's a few years old.  Not sure of the OS on that one as I don't have it with me right now.\r<br />\n<br />\nAnyone else experience problems running TI Connect with WabbitEmu installed on Android Devices?  Any suggestions?\r<br />\n<br />\nThanks -- Joni\r<br />\nI<br />\n",
+    "PostedDate": "2017-01-09T08:46:05.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

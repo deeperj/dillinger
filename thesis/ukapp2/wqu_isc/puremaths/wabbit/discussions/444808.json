@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1047925",
+    "ThreadId": "444808",
+    "Html": "There is a large possibility that many people have transferred over programs and applications to Wabbitemu and they did not save. I am going to give a very simple solution for this problem.<br />\n<ul>\n<li>Right click on the Wabbitemu</li>\n<li>Go to File</li>\n<li>Go to save...</li>\n<li>\nSave it as a .sav (save state) and make sure it is in the folder for the Wabbitemu.<br />\n</li>\n</ul>\nThis should keep the programs and applications placed in Wabbitemu in the emulator. Thank you for reading my post and I hope it helps you. May the force be with you.<br />\n",
+    "PostedDate": "2013-05-23T12:45:54.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1174794",
+    "ThreadId": "444808",
+    "Html": "I get an error when I try to drag and drop apps to the wabbitemu.  I choose second...  Link...  Recieve...  1:Recieve... and then drag and drop and get the error &quot;a problem with wabbitemu prevented the file from getting sent&quot;.  I've tried a few different apps with the same problem.  Emu is set to run as TI-84+ Silver (non color) in Windows 8.1 64.  The error prevents me from even getting to where I could &quot;save&quot; it.<br />\n",
+    "PostedDate": "2014-01-17T12:37:04.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

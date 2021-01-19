@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I downloaded Wabbitemu, and when I try to enter numbers it did nothing even if I clicked \"on\" many times, it just sits there... Like the picture... Maybe I installed it the way wrong? IDK",
+    "LastUpdatedDate": "2015-02-05T14:10:31.687-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-02-05T14:10:30.67-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "I don't know what kind issue is this, but look...",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12010
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3961,
+      "FileName": "Capture1.PNG",
+      "DownloadUrl": ".\\3961"
+    }
+  ],
+  "Comments": []
+}

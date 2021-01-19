@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "564049",
+    "ThreadId": "245477",
+    "Html": "\r\n<p>What is needed to compile Wabbitemu from source?</p>\r\n",
+    "PostedDate": "2011-02-10T09:06:06.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564318",
+    "ThreadId": "245477",
+    "Html": "<p>Visual Studio. 2010 is perferred but 2008&nbsp;can work if you're willing to stick with it and play aournd a little more to get it to work. I can help you get it working if you need.</p>",
+    "PostedDate": "2011-02-10T17:33:39.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564934",
+    "ThreadId": "245477",
+    "Html": "<p>I got the 2010 Professional evaluation version. I downloaded the snapshot wabbit-63269.</p>\n<p>Errors when opened:</p>\n<p>1.</p>\n<p>Error&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp; Metadata file 'C:\\Documents and Settings\\XXXXX\\Desktop\\tmp\\wabbit-63269\\WabbitStudio\\Source\\Wabbitcode\\WinFormsUI\\bin\\SPASM Debug DLL\\Revsoft.Docking.dll' could not be found&nbsp;&nbsp;&nbsp; Revsoft.Wabbitcode</p>\n<p>2.</p>\n<p>Error&nbsp;&nbsp;&nbsp; 3&nbsp;&nbsp;&nbsp; Metadata file 'C:\\Documents and Settings\\XXXXXX\\Desktop\\tmp\\wabbit-63269\\WabbitStudio\\Source\\Wabbitcode\\ICSharpCode.TextEditor\\Project\\bin\\SPASM Debug DLL\\Revsoft.TextEditor.dll' could not be found&nbsp;&nbsp;&nbsp; Revsoft.Wabbitcode</p>\n<p>&nbsp;</p>\n<p>Continue to build:</p>\n<p>Change target to \"Wabbitemu Debug\". Change architecture to \"Win32\". Play. Build all out of date projects.</p>\n<p>Fatal errors: \"gmp.h\" not found. I'll have to learn where to put the GMP library, maybe next week.</p>",
+    "PostedDate": "2011-02-11T14:55:51.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564936",
+    "ThreadId": "245477",
+    "Html": "<p>You should be able to ignore those errors. I'm not exactly sure what caused them.Make sure you set the build configuration to wabbitemu debug (the combo box in the toolbar). Then try to build by pressing F6 or control+shift+b</p>",
+    "PostedDate": "2011-02-11T15:02:38.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564939",
+    "ThreadId": "245477",
+    "Html": "<p>Other errors. (I don't know if these are related to earlier failures.) Obviously the first one is no big deal, but weird that I would see it.</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 28&nbsp;&nbsp;&nbsp; error RC2135: file not found: ti-81.png&nbsp;&nbsp;&nbsp; C:\\Documents and Settings\\XXX\\Desktop\\tmp\\wabbit-63269\\WabbitStudio\\Source\\Wabbitemu\\gui\\Wabbitemu.rc&nbsp;&nbsp;&nbsp; 870&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; Wabbitemu</p>\r\n<p>&nbsp;</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 29&nbsp;&nbsp;&nbsp; error RC2135: file not found: ..\\..\\..\\Release\\Revsoft.AutoUpdater.exe&nbsp;&nbsp;&nbsp; C:\\Documents and Settings\\XXX\\Desktop\\tmp\\wabbit-63269\\WabbitStudio\\Source\\Wabbitemu\\gui\\Wabbitemu.rc&nbsp;&nbsp;&nbsp; 884&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp; Wabbitemu</p>\r\n<p>&nbsp;</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 31&nbsp;&nbsp;&nbsp; error C1083: Cannot open source file: '..\\SPASM\\hash.c': No such file or directory&nbsp;&nbsp;&nbsp; C:\\Documents and Settings\\XXX\\Desktop\\tmp\\wabbit-63269\\WabbitStudio\\Source\\Z80MapEditor\\c1&nbsp;&nbsp;&nbsp; Z80MapEditor</p>",
+    "PostedDate": "2011-02-11T15:14:09.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564942",
+    "ThreadId": "245477",
+    "Html": "<p>Haha sorry Spencer is busy reordering some of how this is layed out so its causing issues. For the ti-81.png, goto C:\\Documents and Settings\\XXX\\Desktop\\tmp\\wabbit-63269\\WabbitStudio\\Source\\Wabbitemu\\gui and copy ti-82.png and rename it to ti-81.png. For the second error, double click the line. Then delete the line that looks like this:</p>\r\n<p>\r\n<p>\r\n<div><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">\r\n<p>IDR_UPDATER UPDATER <span style=\"font-family: Consolas; color: #a31515; font-size: x-small;\"><span style=\"font-family: Consolas; color: #a31515; font-size: x-small;\"><span style=\"font-family: Consolas; color: #a31515; font-size: x-small;\">&quot;..\\\\..\\\\..\\\\Release\\\\Revsoft.AutoUpdater.exe&quot;</span></span></span></p>\r\n</span></span></span></div>\r\n</p>\r\n<span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"></span></span></p>\r\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">\r\n<p>Finally, goto the the configuration manager at the bottom of the combo box you used to change early. Uncheck all projects except wabbitemu.</p>\r\n</span></span></span></p>",
+    "PostedDate": "2011-02-11T15:23:25.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "572372",
+    "ThreadId": "245477",
+    "Html": "<p>Thanks. Now I don't have zlibstat.lib, but I see it in the tree? Sorry for asking again. (Updated to latest build.)</p>\r\n<p>Error&nbsp;&nbsp;&nbsp; 7&nbsp;&nbsp;&nbsp; error LNK1104: cannot open file 'zlibstat.lib'&nbsp;&nbsp;&nbsp; C:\\Documents and Settings\\XXX\\Desktop\\tmp\\wabbit-63512\\WabbitStudio\\Source\\Wabbitemu\\LINK&nbsp;&nbsp;&nbsp; Wabbitemu</p>",
+    "PostedDate": "2011-02-25T14:32:30.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "A nice to have feature would be to be able to create gifs of the whole calculator including the skin and the pressed keys so you can not only see the screen, but also the other part.\n\nE.g. I did it [here](https://wabbit.codeplex.com/workitem/12287), but to do this I used an extra program.\nHowever IMO in your gif the mouse should not be added to the gif.",
+    "LastUpdatedDate": "2015-11-23T09:31:42.45-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-23T09:31:42.45-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Gif with skin",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12290
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

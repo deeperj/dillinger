@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1256377",
+    "ThreadId": "548668",
+    "Html": "Hey BuckeyeDude,<br />\ni was wondering if it'd be possible to allow instructions that are larger than 4 bytes with the .addinstr directive. Now it seems like the limit is 4 (which makes sense, since there aren't any instructions larger than 4 bytes), but sometimes it's much neater to use the .addinstr directive than to add a macro and when you're working with registers you can't really use macros. For example:<br />\n #define kld(to, from)    rst rkcall \\    ld to, from<br />\n..won't work but:<br />\n.addinstr kld hl,*\t21CF 4 nop 1<br />\n.addinstr kld de,*\t11CF 4 nop 1<br />\n.addinstr kld bc,*\t01CF 4 nop 1<br />\n..will. The problem is that &quot;kld ix,*&quot; would be 5 bytes instead of 4.<br />\n<br />\nI know it's not a huge issue, but i was just hoping it was a small simple change. Thanks :)<br />\n",
+    "PostedDate": "2014-06-14T20:01:41.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1265198",
+    "ThreadId": "548668",
+    "Html": "No change should be required SPASM supports up to 8 byte instructions:\r<br />\n<br />\n.addinstr kld ix,* 21DDCF 5 nop 1\r<br />\n<br />\nWorks just fine for me<br />\n",
+    "PostedDate": "2014-07-12T20:02:46.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

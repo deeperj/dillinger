@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "679216",
+    "ThreadId": "274557",
+    "Html": "\r\n<p>I'm trying to create an emulator for a TI-94 Silver Edition calculator that I own. I think I successfully download the ROM (the D84PSE1.8xv and D84PSE2.8xv and obtianed a copy of the OS TI84Plus_OS.8Xu. But in the final step, WabbitEmu &quot;crashes&quot; with the\r\n &quot;Do you want to send a notice to MicroSoft&quot; message.</p>\r\n<p>Any way to find out what is causing the crash, e.g. perhaps my D84 variables are wrong, or the OS is incorrect?</p>\r\n<p>Thanks.</p>\r\n<p>Carl.</p>\r\n",
+    "PostedDate": "2011-10-02T21:59:24.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679510",
+    "ThreadId": "274557",
+    "Html": "<p>Hi Carl,</p>\r\n<p>I've investigated the crash and fixed an issue related to creating ROMs. I also&nbsp;added a couple more error checks so hopefully it will be a little bit more descriptive in its errors.&nbsp;Download the latest version and let me know how it goes.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2011-10-03T14:36:44.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679592",
+    "ThreadId": "274557",
+    "Html": "<p>Thanks - yes, the new version created the TI-84SE and it runs fine.</p>\r\n<p>I can't seem to find any documentation on how to \"link\" this emulator to something like TI Connect to upload lists and matrices and programs. Is this possible with the emulator?</p>\r\n<p>&nbsp;</p>\r\n<p>Carl.</p>",
+    "PostedDate": "2011-10-03T19:18:49.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679635",
+    "ThreadId": "274557",
+    "Html": "<p>Glad you got it working. Yes, the emulator wouldn't be much good without some sort of way to transfer files. Even better it doesnt require TI Connect or any other linking software. Just send whatever files you want via drag and drop to the screen, or open them via the menu File-&gt;open</p>",
+    "PostedDate": "2011-10-03T22:39:55.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680098",
+    "ThreadId": "274557",
+    "Html": "<p>Hmmm... I must be doing something wrong. I have some data files (data.8xl - contains a list). When I drag and drop this on the screen it \"flashes\", but when I try to access the list, it doesn't seem to be there. If I try File -&gt; Open, the list of known file  types does not include variables (lists or matrices etc).</p>\n<p>Carl</p>",
+    "PostedDate": "2011-10-04T19:40:55.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680103",
+    "ThreadId": "274557",
+    "Html": "<p>For sending via the File-&gt;open you can change the filter to view all files. When you drag and drop you should get a overlay on the screen that say RAM or Archive yes? If not the file youre trying to send is probably not a valid file. Wabbitemu reads the header of the file and determines whether it can read the data inside. When you drag it make sure you drag to RAM. Where did you check for the variable existence, in the list menu or the mem management screen?</p>",
+    "PostedDate": "2011-10-04T20:24:29.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680123",
+    "ThreadId": "274557",
+    "Html": "<p>Oops... I wasn't paying attention when I dragged and dropped and put the list into the Archive rather than RAM. Works fine when I pay attention to what I'm doing!</p>\r\n<p>I'm very pleased with the Wabbit Emulator -- just what I was looking for. I'm writing solutions for problems and need to show screen shots etc. Much easier than using TI connect to attach to my TI calculator and working with their interface ... thanks very much for all your work on this project and your help to my queries.</p>\r\n<p>I have one ,more (final?) question about the interface ... pressing the numbers clicks the button on the calculator, but pressing - or + or / doesn't click the corresponding keys on the emulator. Is there a reason why this doesn't happen? I can see that trying to allow full keyboard input is a pain (e.g. cos for the cos function) but why not the basic arithmetic operations? Is there an underlying design consideration of why this happens?</p>\r\n<p>Once again thanks for all your work on this project.</p>\r\n<p>Carl.</p>",
+    "PostedDate": "2011-10-04T22:03:02.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680159",
+    "ThreadId": "274557",
+    "Html": "<p>Glad to hear youre pleased with it and you've got it working for you. The issue with keys is mostly a legacy thing. Before wabbitemu there was an emulator called PindurTI that we adopted most of the keystrokes from. So many of the keys were not chose by us and simply used for years this way. I've considered switching but there is a problem. Currently + is the only way to access the X,T, Theta, n key. If&nbsp;I were to change that I'd need a new key to access it, and I don't think we have an open key available. The - sign doesnt have this issue as it can also be accessed via the question mark.</p>\n<p>I agree with you though it doesn't make sense not to have the + and - keys mapped to keys other than their functions on the calc. The other issue is that&nbsp;+ requires you to use the numeric keypad which not everybody (especially on&nbsp;older laptops) have. So I'm torn between having + mapped to a key not&nbsp;everybody has, or Xt0n not being mapped at all. I'll take a look at the keys again and see if I can&nbsp;find a way to make it work.</p>\n<p>Let me know if you find any other issues or have ideas for features that would be useful when youre using it.</p>\n<p>Thanks,</p>\n<p>BuckeyeDude</p>",
+    "PostedDate": "2011-10-05T00:52:40.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

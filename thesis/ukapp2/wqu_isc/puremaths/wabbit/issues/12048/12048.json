@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Issue with Jellybean",
+    "ClosedDate": "2015-03-21T02:13:11.837-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "My wabbit was working great on my Kyocera android phone until this weekend.  When I start the app all looks normal but when I touch the screen, the bottom menu bar with the back button, home button, and task manager button pops up, covering the bottom row of calculator keys.  The calculator keys all work but I cant get to the bottom row.  This renders it useless.  Any fix for this or a reason as to why it is happening?",
+    "LastUpdatedDate": "2015-03-21T02:13:11.837-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-03-16T12:43:00.27-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Bottom menu bar on android covers calculator keys",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12048
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi,\nI noticed that the latest version of WabbitEMU is consuming a lot of CPU-power.\nNot immediately, but definitely after a few minutes, CPU-usage of WabbitEMU jumps up to the range of 50%.\nIs anyone else experiencing this as well?\n\nWhat can I do to provide more information concerning this issue?\n* Log-files, which, how?\n* Settings, which, how?\n\nMy system:\n* W8 Professional\n* TI-84 ROM v2.55\n\nCheers,\nStephan",
+    "LastUpdatedDate": "2017-12-16T14:44:52.95-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-09-08T09:15:49.73-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WabbitEmu 1.7.2.11 50% CPU usage",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 11260
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3697,
+      "FileName": "2013-9-8-WC-(164).png",
+      "DownloadUrl": ".\\3697"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Additional information:\nIt'd seem that the increased CPU-usage occurs on my 32-bit W8-Pro notebook and NOT on my 64-bit W8-Pro desktop PC. Maybe this could be of help narrowing down the issue.\nStephan\n",
+      "PostedDate": "2013-09-14T11:11:33.147-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've done some quick tests and haven't been able to reproduce the issue, so I'll need to narrow it down. I don't have a 32-bit machine, so I can't test on one but I'm curious if you are using the 32 bit or 64 bit version of Wabbit on your 64 bit machine. If you are using the 64 bit version can you try the 32 and see if you can reproduce the issue that way?\nAlso, is there anything specific you need to do to create the issue. For example if you close all instances of Wabbit, then reopen a new one and let it sit does the CPU just jump up after a few minutes? If I had to guess, I would say that the root cause is related to keypresses. When using Wabbit do you normally press the keys or click on the skin? Let me know if you can reproduce the issue without doing anything, and if not, what are the simplest steps you can go through to recreate it.\nAnother thing to check would be to turn off the cutout mode (the borderless window). It is known to use more CPU on lower end systems and may be exacerbating the issue. Try seeing if you can recreate the issue without it.\r\n\r\nThanks for the report,\nBuckeyeDude",
+      "PostedDate": "2013-09-14T14:57:37.78-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-09-14T14:58:07.937-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I use the 32-bit version of WabbitEmu on both the 64-bit Desktop and the 32-bit Notebook, as well as a PortableApps USB-stick which I use at school.\r\n\r\nFurther info on the problem (on my W8-32bit Notebook):\n* CPU-usage climbs quite rapidly immediately after startup, without any user interaction\n* high CPU-usage occurs with Cutout Skin (my default View)\n* high CPU-usage occurs with Windowed Skin\n* high CPU-usage occurs in the same way without Skin\r\n\r\nNotebook specs - Summary:\n\t\tOperating System\n\t\t\tWindows 8 Pro 32-bit\n\t\tCPU\n\t\t\tIntel Mobile Core 2 Solo SU3500 @ 1.40GHz\t47 °C\n\t\t\tPenryn 45nm Technology\n\t\tRAM\n\t\t\t2,00GB Single-Channel DDR2 @ 399MHz (6-6-6-18)\n\t\tMotherboard\n\t\t\tMicro-Star International MS-1242 (CPU 1)\t52 °C\n\t\tGraphics\n\t\t\tHSD121PHW1 (1366x768@60Hz)\n\t\t\tIntel Mobile Intel serie 4 Express Chipset Family (MSI)\n\t\t\tIntel Mobile Intel serie 4 Express Chipset Family (MSI)\n\t\tHard Drives\n\t\t\t298GB Western Digital WDC WD3200BEVT-22ZCT0 (SATA)\t35 °C\n\t\tOptical Drives\n\t\t\tNo optical disk drives detected\n\t\tAudio\n\t\t\tHigh Definition Audio-device\n",
+      "PostedDate": "2013-09-15T00:27:04.613-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2017-12-16T14:44:52.95-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

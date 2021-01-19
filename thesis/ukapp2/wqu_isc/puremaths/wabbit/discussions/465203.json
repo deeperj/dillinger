@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1116885",
+    "ThreadId": "465203",
+    "Html": "I have been using Wabbitemu for a long time without any problems. It works like a charm. All of a sudden, it doesn't even open. Would this be due to a Windows 8 update? I downloaded the new 32 bit version with the same result and the 64 version with the same result. Any hints? Thanks<br />\n",
+    "PostedDate": "2013-11-02T19:16:21.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1118250",
+    "ThreadId": "465203",
+    "Html": "Hello,<br />\n<br />\nSorry to hear you're having issues with Wabbit. I doubt that the issues is due to a Win8 update, most likely its associated with corrupt settings . I'd like you to export your Wabbitemu settings to back them up. You can do so by:<br />\nPressing WinKey+R<br />\nEntering the following command:<br />\n<blockquote>\nregedit /e &quot;%UserProfile%\\Wabbitemu.reg&quot; HKEY_CURRENT_USER\\Software\\Wabbitemu<br />\n</blockquote>\nThis will export Wabbitemu.reg to your user directory (eg C:\\Users[username]\\Wabbitemu.reg). Can you upload this file so I can look at your settings? Hopefully I'll be able to recreate the issue keeping Wabbit from opening and fix it for future versions.<br />\n<br />\nThe next step is to clear these settings. You can do so by:<br />\nPressing WinKey+R<br />\nEnter:<br />\n<blockquote>\nreg delete HKCU\\Software\\Wabbitemu<br />\n</blockquote>\nThis will bring up a command prompt asking you if you are sure you want to delete these settings. Keep in mind that all your Wabbitemu settings will be lost. If you have exported the settings in the first step you can always re-add them. You can enter yes then enter to delete them.<br />\n<br />\nLet me know if this allows you to open Wabbitemu you again. In theory, it should. These are the only pieces of information Wabbit permanently stores on your computer, so deleting them is like starting fresh. If this does not fix the issue I have a couple other things for you to try. <br />\n<br />\nThanks,<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-11-05T13:58:02.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1118900",
+    "ThreadId": "465203",
+    "Html": "\r\n<div dir=\"ltr\">Thank you very much.<br>\r\n<br>\r\nFor some reason the command you told me to do to export Wabbitemu from the register didn't work but I got in and right clicked the wabbitemu key to export it. I have it on my desktop now. How do I upload it to you? I tried attaching it to thsi email but hotmail\r\n said that type of attachement is not allowed. <br>\r\n<br>\r\nAfter downloading wabbitemu.exe to my desktop, I removed it from the register editor and now Wabbitemu is as good as new.<br>\r\n<br>\r\nI have a question. Can I use Wabbitemu to have two emulators: one for the TI-83 and another for the TI-84?<br>\r\n<br>\r\nThanks again!<br>\r\n<br>\r\n<div><br>\r\n</div>\r\n<div>1) Subscribe to the Free Math Videos in my webpage to be notified about the latest videos:\r\n</div>\r\n<div>Go to: <a href=\"http://www.professorserna.com/Free-Videos\" target=\"_blank\">http://www.professorserna.com/Free-Videos</a>\r\n<div>fill out your Name, Email, Course, and click &quot;Sign-Up&quot;.</div>\r\n<div><br>\r\n</div>\r\n<div>2) LIKE my Facebook page: <a href=\"http://www.facebook.com/professorserna\" target=\"_blank\" style=\"font-size:10pt\">\r\nhttp://www.facebook.com/professorsernamath</a> <br>\r\n</div>\r\n<div><br>\r\n</div>\r\n<div>3) Subscribe to my videos in YouTube: <a href=\"http://www.youtube.com/subscription_center?add_user=professorserna\" target=\"_blank\">\r\nhttp://www.youtube.com/subscription_center?add_user=professorserna</a></div>\r\n<div><br>\r\n</div>\r\n<div><br>\r\n</div>\r\n<div>Professor Serna</div>\r\n<div>Cell 786-290-9100</div>\r\n<div>www.professorserna.com</div>\r\n<div>www.facebook.com/professorserna</div>\r\n<div>www.youtube.com/professorserna</div>\r\n<div>twitter: @professorserna</div>\r\n<br>\r\n</div>\r\n<br>\r\n<br>\r\n<div>\r\n<hr id=\"stopSpelling\">\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-11-06T07:09:47.47-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1118905",
+    "ThreadId": "465203",
+    "Html": "Sorry for the email signature. I didn't intend to advertise my services.<br />\n",
+    "PostedDate": "2013-11-06T07:14:40.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1119442",
+    "ThreadId": "465203",
+    "Html": "Good to hear its working again. You can send me the .reg file if you first zip it. Thanks again for the help.\r<br />\n<br />\nIn regards to using Wabbit for both the 83 and 84 yes, you definitely can. If you go File-&gt;New you can create a new version of the current calculator. You can then open your other ROM file and use the 83 and 84 at the same time. Keep in mind Wabbit will save the last open calculator, so if you want Wabbit to open a specific calculator, make sure you close that one last.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-11-06T15:42:29.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1120042",
+    "ThreadId": "465203",
+    "Html": "\r\n<div dir=\"ltr\">Ok.Let's see if it works this time. Otherwise, I think we can do it using my DROPBOX account<br>\r\n<br>\r\n<div>\r\n<hr id=\"stopSpelling\">\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-11-07T14:40:31.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

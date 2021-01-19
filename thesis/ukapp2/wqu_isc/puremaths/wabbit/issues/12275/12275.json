@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "It would be nice if there would also be some Linux downloads.\n\nI think it would be possible to compile Wabbitemu for it.",
+    "LastUpdatedDate": "2015-11-23T09:05:30.797-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-22T04:20:24.14-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Linux downloads?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12275
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Previous discussions:\n* https://wabbit.codeplex.com/discussions/569590\n* https://wabbit.codeplex.com/discussions/470361\n* https://wabbit.codeplex.com/discussions/277128",
+      "PostedDate": "2015-11-23T09:05:30.797-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

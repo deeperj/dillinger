@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The Rom downloads sadly are still not working on the paid version of wabbitemu on google play.\nIt works fine in the non-paid version though.\nIt seems that you forgot to update the paid version as it is still on 1.04 while the non-paid version is now on 1.05.16 where downloads are fixed.\n\nAlso manually adding a rom file is not working at least for me.\nIt always just show a black screen when tapping on Load File :/\n\nAndroid 6.0.1\nWabbitemu 1.04 Paid-Version Google Play",
+    "LastUpdatedDate": "2016-11-22T06:26:30.627-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-11-22T06:24:39.89-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Outdated Paid-Version in Google Play Store",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12435
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

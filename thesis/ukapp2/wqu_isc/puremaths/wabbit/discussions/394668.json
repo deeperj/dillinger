@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "909260",
+    "ThreadId": "394668",
+    "Html": "\r\n<p>I think it would be really great if you would pull the AvalonEdit additions you made out into there own repo, or at least project or something. Honestly, just that in itself would make a worthy repo without any calculator emulator.</p>\r\n",
+    "PostedDate": "2012-09-06T10:05:04.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909440",
+    "ThreadId": "394668",
+    "Html": "<p>Maybe when I finish with all the changes I'll submit a patch to AvalonEdit. I haven't made many changes to the core, mostly just helpful fixes for me that may or may not be what the developers want. If you check out the Wabbitcode project, the AvalonEdit project is in there. All the changes are there, although its several iterations behind at this point.</p>",
+    "PostedDate": "2012-09-06T21:24:15.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

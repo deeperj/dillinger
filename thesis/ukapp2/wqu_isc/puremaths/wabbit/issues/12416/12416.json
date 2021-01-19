@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have a Windows 10 PC. I have a feeling that the calculator emulator does not work on Windows 10. I think that I did everything else right. Any help/suggestions?",
+    "LastUpdatedDate": "2017-11-08T03:06:14-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-08-26T08:25:50.947-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Buttons don't work.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 12416
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the same problem. ",
+      "PostedDate": "2016-09-15T15:33:48.34-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-09-15T15:33:59.67-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have the same problems on my macOS Sierra. :(",
+      "PostedDate": "2016-10-17T17:14:11.657-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I wish they could fix it.",
+      "PostedDate": "2016-10-17T17:14:48.467-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-10-17T17:14:54.47-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I fixed it somehow.  I think what fixed it was that I clicked \"View\" and unchecked \"Enable Skin.\" What matters is that it works now.",
+      "PostedDate": "2016-10-20T12:09:04.117-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I am using Windows 10.  When I use wabbitemu to calculate the mean and standard deviation for a probability distribution and use 1-Var Stats, List, I enter L1, then try to enter a comma, then L2, but the software doesn't let me enter the comma.  Thus I can't enter L1, L2.\nI watched a YouTube video and these were the instructions for calculating the mean and standard deviation for a probability distribution.",
+      "PostedDate": "2017-03-15T23:54:51.857-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Same problem - mouse offsets are totally off.",
+      "PostedDate": "2017-11-08T03:06:14-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

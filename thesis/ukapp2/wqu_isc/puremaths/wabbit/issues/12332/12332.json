@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Every time i try to download the os it fails what could be causing this",
+    "LastUpdatedDate": "2016-05-25T19:41:42.09-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-01-21T17:53:05.56-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Android problem with ti 84 plus ce",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 4,
+    "Id": 12332
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "texas instruments took down the download pages for the os's, thats where this program pulls from. try downloading on windows and youll see it doesnt work there either anymore",
+      "PostedDate": "2016-01-28T22:04:28.943-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-05-15T06:57:36.46-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2016-05-25T19:40:41.41-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "So is this App completely worthless now?",
+      "PostedDate": "2016-05-25T19:41:42.09-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

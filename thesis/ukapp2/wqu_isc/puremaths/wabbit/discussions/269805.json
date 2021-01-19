@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "660968",
+    "ThreadId": "269805",
+    "Html": "\r\n<p>It would be cool to have a spasm disassembler !</p>\r\n<p>&nbsp;</p>\r\n<p>Another thing is :</p>\r\n<p>It would be awesome if you add an option to compile asm code into app. The pages will be managed by the compiler and so no need of understanding these pages and others stuff of app !</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for these awesome projects !</p>\r\n",
+    "PostedDate": "2011-08-20T06:59:04.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661013",
+    "ThreadId": "269805",
+    "Html": "<p>For a disassembler you can use the on built into wabbitemu (press F11 to enter the debugger). Its not horribly fancy but it does get the job done and does a pretty good job.</p>\r\n<p>As for assembling apps, you absolutely can. You'll want to download app.inc from <a href=\"http://wabbit.codeplex.com/wikipage?title=SPASM%20Include%20Files&amp;referringTitle=Documentation\">http://wabbit.codeplex.com/wikipage?title=SPASM%20Include%20Files&amp;referringTitle=Documentation</a>, and just follow the instructions on how to set up your code.&nbsp;When you assemble it, simply make&nbsp;sure your output file has the .8xk eg: spasm input.asm output.8xk&nbsp;</p>",
+    "PostedDate": "2011-08-20T11:19:44.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-10-19T22:59:54.797-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "During install at link to read TI terms of use the following error occured:\n\" Server Error   404 - File or Directory not found\"\nProgressing on with the install, the installer could not locate the OS files from TI.  Consequently I cannot enable the skin or have the emulator respond to input.\n\nHas TI changes its location or authorization of file use?",
+    "LastUpdatedDate": "2013-10-19T22:59:54.797-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-02-11T16:57:35.187-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Fail to Install - Vista",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10811
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Indeed, TI recently redid their downloads section. I updated the program earlier today, if you download the latest version, the OS file should be properly downloaded (although I neglected to update the EULA link). Let me know if you have any other issues.",
+      "PostedDate": "2013-02-11T17:23:09.603-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I do actually. I deleted all instances of the .exe file from my computer and checked the uninstall program list. But with the partial install previously, launching the file brings up the emulator without going through the install process. Is there a way to force a re-install? Or possibly direct me to the OS files on TI to manually download?",
+      "PostedDate": "2013-02-11T20:14:14.38-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "You can download just the regular OS files like you would for the calculator [here](http://education.ti.com/us/product/apps/84pos.html), or to restart the setup, you can go to Help->Rerun Setup Wizard. If you download the OS file manually, just drag it on to the screen (or open via the menu) and before you close, save the file over your old ROM so your changes will stick.",
+      "PostedDate": "2013-02-11T22:22:24.447-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "The \"Restart Set Up Wizard\" put things right. A little trouble naming the ROM during save but a 4 charactor name worked. Could be a twist with my system. Persistance pays off. Wabbit is working perfectly now. Thanks for all the help.",
+      "PostedDate": "2013-02-13T05:39:46.63-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:11.89-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-10-19T22:59:54.797-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

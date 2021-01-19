@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "This is likely a silly question, but all KnightOS ROMs (http://www.ticalc.org/pub/84pluscse/os/) seem to only have a Home Screen but can't be used as a calculator.\n\nHas anybody actually used these as an actual calculator?...ie. Get out of the Home Screen\n\nThanks",
+    "LastUpdatedDate": "2016-07-12T12:30:38.527-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-07-06T18:21:49.847-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Anyone had success with KnightOS ROMs",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12401
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "hi I actually found one but its only for the TI-83plus and its actually on the website you provided go to Archives>>File Archives>>83plus>>os>>baos.zip \nhttp://www.ticalc.org/pub/83plus/os/baos.zip   << or you can just click on this link to do it directly its from the website",
+      "PostedDate": "2016-07-12T12:30:38.527-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

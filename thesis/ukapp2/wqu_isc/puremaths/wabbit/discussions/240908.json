@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "545692",
+    "ThreadId": "240908",
+    "Html": "\r\n<p>Does anyone have a &quot;double size&quot; skin made? Or is there a way to adjust the skin size?</p>\r\n<p>When my screen is set at too high of a resolution, the emulator window stays very small.</p>\r\n<p>Thanks for any tips.</p>\r\n",
+    "PostedDate": "2011-01-07T14:58:57.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "545698",
+    "ThreadId": "240908",
+    "Html": "\r\n<p>I could make it so you could scale the skin, just as you can in skinless mode. The only reason its not allowed now is that it would be almost impossible to fit on the screen. The skins are 350x725px which fills pretty much all standard resolutions. You must\r\n have a goregously huge resolution to make the skin look small...</p>\r\n",
+    "PostedDate": "2011-01-07T15:10:53.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "545711",
+    "ThreadId": "240908",
+    "Html": "\r\n<p>Oh... I think that means that I need to figure out why that one machine is set to such a @! high resolution and just make it lower resolution. Thanks a lot!</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-07T15:34:18.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

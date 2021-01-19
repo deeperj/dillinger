@@ -1,0 +1,103 @@
+
+<h2>Include Files</h2>
+<div class="wikidoc">
+<ul>
+<li><a href="#x_x_app">app.inc</a> </li><li><a href="#x_x_arrays">arrays.inc</a> </li><li><a href="#x_x_fcreate">fcreate.inc</a> </li><li><a href="#x_x_relocate">relocate.inc</a> </li><li><a href="#x_x_ti83plus">ti83plus.inc</a> </li><li><a href="#x_x_z80ext">z80ext.inc</a> </li></ul>
+</div>
+<p><a name="x_x_app"></a></p>
+<h3>app.inc</h3>
+<p>This include provides a very easy way to correctly format an TI-83 Plus application. Note that you must also ensure the resulting application is signed. SPASM can do this for you, simply make sure your output file extension is
+<em>.8xk.</em></p>
+<p><strong>Example:</strong></p>
+<pre>defpage(0, &ldquo;Zelda&rdquo;)
+;all code on page one goes here
+defpage(1)
+;all code on page 2 goes here
+validate()
+;does size checks on the final page </pre>
+<p><strong>Download: </strong><a href="http://download.codeplex.com/download?ProjectName=wabbit&DownloadId=149616">app.inc</a></p>
+<p><a name="x_x_arrays"></a></p>
+<h3>arrays.inc</h3>
+<p>Allows you to simulate create an array to store and recall constants</p>
+<p><strong>Example:</strong></p>
+<pre>;create a new array for the width of each map
+new_array( map_widths )
+;set a new index Route1Width to 0
+array_set(map_widths, 0, Route1Width)
+;recall the width
+ld hl,map_widths(Route1Width)</pre>
+<p><strong>Download: </strong><a href="http://download.codeplex.com/download?ProjectName=wabbit&DownloadId=149615">arrays.inc</a></p>
+<h3><a name="x_x_fcreate"></a></h3>
+<h3>fcreate.inc</h3>
+<p>Allows writing to an internal text buffer which can then be assembled. fcreate.inc functions are now built into SPASM2. This is left for educational purposes only.
+<br>
+<br>
+</p>
+<table>
+<tbody>
+<tr>
+<td><strong>clr()</strong></td>
+<td>Clear the internal text buffer.</td>
+</tr>
+<tr>
+<td><strong>wr(arg1[, arg2]...) </strong></td>
+<td>Write a string to the internal text buffer. Uses the same format as .echo.</td>
+</tr>
+<tr>
+<td><strong>run()</strong></td>
+<td>Assemble the contents of the internal text buffer.</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+<strong>Example</strong>:</p>
+<pre>; Create a label called &quot;label20&quot;
+  clr()
+  wr(&quot;label&quot;, 20,&quot;:&quot;)
+  run()</pre>
+<p><br>
+Originally this was done through the fcreate.inc file: <br>
+<strong>Download (Obsolete):</strong> <a href="http://www.codeplex.com/download?ProjectName=wabbit&DownloadId=121312">
+fcreate.inc</a></p>
+<p><a name="x_x_relocate"></a></p>
+<h3>relocate.inc</h3>
+<p>Relocate.inc is a handy macro that helps you correctly address routines to different parts of memory. For example if you have an app that needs to run code from RAM to use SMC, then you can use relocate to make sure any absolute jumps go to the correct location
+ in RAM rather than the place it is stored in flash. Using the relocate macro simply changes SPASM&rsquo;s internal program counter to the location you specify, it does not actually copy the data to RAM.</p>
+<pre>;relocate SMC to appbackupscreen
+RamCodeStart:
+ relocate(appbackupscreen)
+IncrementHL:
+Number = $&#43;1
+ ld hl,0
+ inc hl
+ ld (Number),hl
+ ret
+ endrelocate()
+RamCodeEnd:
+;elsewhere in your app
+;you need to call copy the routine to ram
+ ld hl,RamCodeStart
+ ld de,Appbackupscreen
+ ld bc,RamCodeEnd-RamCodeStart
+ ldir			;copy code
+;now you can increment hl
+ call IncrementHL</pre>
+<p>Download: <a title="relocate.inc" href="http://download.codeplex.com/download?ProjectName=wabbit&DownloadId=162152">
+relocate.inc</a></p>
+<p><a name="x_x_ti83plus"></a></p>
+<h3>ti83plus.inc</h3>
+<p>The official ti83plus.inc made SPASM compatible.</p>
+<p>Download: <a href="http://download.codeplex.com/download?ProjectName=wabbit&DownloadId=149617">
+ti83plus.inc</a></p>
+<p><a name="x_x_z80ext"></a></p>
+<h3>z80ext.inc</h3>
+<p>Provides z80 macro instructions. Useful for many pseudo-instructions that you use all the time.</p>
+<p><strong>Example:</strong></p>
+<pre>;same as the instructions ld a,(hl) \ inc hl \ ld h,(hl) \ ld l,a
+ ld hl,a,(hl)
+;same as ld b,(hl) \ inc hl
+ ld b,(hl&#43;)
+;same as ld d,h \ ld e,l
+ ld de,hl</pre>
+<p><strong>Download:</strong> <a href="http://www.codeplex.com/download?ProjectName=wabbit&DownloadId=121313">
+z80ext.inc</a></p>

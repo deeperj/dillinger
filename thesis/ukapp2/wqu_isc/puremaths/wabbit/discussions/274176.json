@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "677929",
+    "ThreadId": "274176",
+    "Html": "\r\n<p>I use the wabbitemu while teaching with a pen pad. It seems an update (sometime over the summer maybe?) has made using my Wacom Bamboo tablet difficult when using in conjunction with the calculator. You must touch directly in the center of the buttons for\r\n it to actually register. Any idea how to change some settings to make the pen pad work with the wabbitemu again?</p>\r\n",
+    "PostedDate": "2011-09-28T16:25:39.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677933",
+    "ThreadId": "274176",
+    "Html": "<p>I haven't messed with the button stuff in quite a while, but its certainly possible an update broken it. You're running under the latest version (1.5.9.27) of wabbitemu correct? Are you in cutout mode or windowed? Tablets are hard, as it may just be that the button press is being sent to a place that is slightly off, and theres not a lot I can do about that.</p>",
+    "PostedDate": "2011-09-28T16:35:48.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677934",
+    "ThreadId": "274176",
+    "Html": "<p>It doesn't work in either mode. Button presses work when you double click, but not single click.</p>",
+    "PostedDate": "2011-09-28T16:37:07.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677935",
+    "ThreadId": "274176",
+    "Html": "<p>Oh, sorry! And yes, I'm running the latest version.</p>",
+    "PostedDate": "2011-09-28T16:37:42.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677936",
+    "ThreadId": "274176",
+    "Html": "<p>ah ok so its that issue again. If you're willing to do some testing for me I'll revisit the issue</p>",
+    "PostedDate": "2011-09-28T16:37:57.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677939",
+    "ThreadId": "274176",
+    "Html": "<p>Are you aware that the buttons don't \"highlight\" if you're in cutout mode?</p>",
+    "PostedDate": "2011-09-28T16:39:16.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677940",
+    "ThreadId": "274176",
+    "Html": "<p>You know, I was just clicking around on some things. One thing people can do is to go into their computer's control panel ---&gt; hardware ---&gt; Bamboo ---&gt; and then reset a lower button click (it's a toggle-type button on the pen) to be a double click. Then you can lower-click on the button for a double click and get it to register. I'll keep looking for other ways too.</p>",
+    "PostedDate": "2011-09-28T16:44:24.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "716804",
+    "ThreadId": "274176",
+    "Html": "<p>Thanks SO much for fixing it so I can use it with my pen pad!!</p>",
+    "PostedDate": "2011-12-23T17:17:17.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "716805",
+    "ThreadId": "274176",
+    "Html": "<p>No problem. Thanks for your assistance in solving the problem.</p>",
+    "PostedDate": "2011-12-23T17:18:41.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

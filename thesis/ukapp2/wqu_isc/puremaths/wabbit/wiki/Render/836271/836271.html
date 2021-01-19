@@ -1,0 +1,59 @@
+<div class="wikidoc"><h1>Wabbitemu Options</h1><h2>General</h2><h3>Startup</h3><ul><li>Load files passed in arguments in a new calculator</li></ul>
+Any time you load files in via the command line (see <a href="https://wabbit.codeplex.com/wikipage?title=Commandline%20Arguments&referringTitle=Wabbitemu%20Options">Commandline Arguments</a>), these new files are loaded into a brand new calculator. This means that you will not overwrite any data saved on the current calculator, but instead have a fresh calculator with the files sent. The new calculator will use whatever ROM was last saved.
+<ul><li>Turn calc on automatically</li></ul>
+Any time you create or open a new calculator, Wabbitemu will attempt to turn it on automatically by pressing the ON key
+<ul><li>Automatically check for updates</li></ul>
+At startup, automatically check for a new version of Wabbitemu, and prompt to upgrade if there is one.
+<ul><li>Show what&#39;s new on upgrade</li></ul>
+After upgrading, show a list of what&#39;s changed from the previous version.
+<h3>Debugger</h3><ul><li>Enable code rewinding</li></ul>
+Allows you to rewind your code in the debugger (i.e. step .25 seconds backwards in time)
+<ul><li>Open debugger on execution violation</li></ul>
+If the CPU ever tries to execute on a protected page (normally RAM 0), the debugger will open rather than crashing. Useful for catching where a violation is occuring.
+<ul><li>Open debugger on invalid flash commands</li></ul>
+If a programmer attempts to write to flash, but uses an incorrect or invalid sequence, open the debugger where the violation occurred. This is good for testing flash write routines as well as ensuring that you don&#39;t accidentally try write to flash.
+<ul><li>Disable TIOS features in disassembly</li></ul>
+By default, the debugger disassembles and adds TIOS specific features, such as bcalls, bjumps and flags. By disabling these, you&#39;ll see pure z80 code. Useful for people writing other OSes.
+<h3>General</h3><ul><li>Automatically save and restore state</li></ul>
+By default when closing Wabbitemu, any changes made during that session are lost. This is because no information is stored in the .rom file. When this option is enabled, Wabbitemu will automatically save state information (e.g. what files you had on the calculator, what you last entered, etc) when you exit, and automatically restore it when you start Wabbitemu again. Note that this will not transfer from machine to machine.
+<ul><li>Always show Wabbitemu on top of other windows</li></ul>
+When checked, this option ensures that Wabbitemu flows above all other windows, even when it loses focus and you click on another application. This is useful for teachers who want to switch focus to problems or other resources, but still have Wabbitemu readily available.
+<ul><li>Portable Mode</li></ul>
+By default Wabbitemu stores its settings in the Windows Registry, meaning your settings are saved on the computer you are currently working on. With this option enabled, your settings will be stored in an ini file in the same directory as Wabbitemu. This means if you save Wabbitemu somewhere like a flash drive, you won&#39;t have to reset your settings on different machines.<br />
+<h2>Screen Capture</h2><h3>Autosave</h3>Enabling autosave means that when ever you start a GIF capture there will be no dialog box prompting you to enter a save location. Instead, Wabbitemu will use the path specified in the Autosave Path box. If you want to take multiple GIFs in succession, you can check the Use increasing numbers checkbox to have Wabbitemu append a number to each screenshot. Note that this numbering restarts when you close Wabbitemu.
+<h3>Animated GIF options</h3><ul><li>Output framerate</li></ul>
+This allows you to configure the frame rate of the animated GIF that is captured. 33 FPS will result in much smoother animation, but will display incorrectly in IE 8 and lower.
+<ul><li>Double size</li></ul>
+Checking this box will capture gifs that are 2x the actual size of the screen (the default size of the Wabbitemu display).
+<ul><li>Colors</li></ul>
+This will allow you to change the colors of the animated GIF. Screen palette will use the light green color that Wabbitemu uses to display the screen. Grayscale will disable this green and capture black and white GIFs.
+<h2>Display</h2>This tab allows you to set the mode of grayscale emulation, and adjust how those modes display gray. There is a preview of what display looks like with different types of animations and shades of gray.
+<ul><li>Mode</li>
+<li>Perfect gray</li></ul>
+This is the default option for Wabbitemu. Given the number of shades, Wabbitemu will automatically calculate the gray values based on how often the screen is written to. This will look the best on the computer, but may not accurately represent how the real calculator looks.
+<ol><li>Game gray</li></ol>
+This option is very similar to perfect gray, however it better handles if a portion of the screen is not in grayscale and not updating very often.
+<ol><li>Steady Frequency</li></ol>
+This option is the close option to simulating how grayscale actually works on the calculator. It simply updates the LCD at the frequency specified by the user, using the specified number of shades.
+<ul><li>Shades</li></ul>
+This option is the number of shades of gray to allow the LCD to distinctly display. Wabbitemu offers 2-12 shades, although for most real calculators a maximum of 8 shades are easily discernible.
+<ul><li>Frequency</li></ul>
+This option is only used for the steady frequency option, and allows you to specify the frequency at which to update the display. Measured in Hz.
+<h2>ROM</h2><h3>Current ROM Attributes</h3>Displays information about the currently loaded ROM.
+<h3>Hardware</h3><ul><li>Emulate missing RAM pages</li></ul>
+Newer version of the 84 plus series only have 48 KB of RAM (as opposed to the 128 KB of the original hardware). This means that attempting to access extra RAM pages will fail, and overwrite data on other pages. By default Wabbitemu emulates all 128 KB of RAM. Checking this option will limit the RAM to only 48 KB.
+<ul><li>Emulate 20 MHz and 25 MHz calculators</li></ul>
+Setting speed options 2 and 3 on the 84 Plus series and 83 Plus SE do not change anything about the speed of the calculator, but it has been speculated that they were options for 20 MHz and 25 MHz calculators. Checking this option will allow you to run the calculator at these speeds, by setting the speed as such.
+<ul><li>Emulate the original 83+ hardware</li></ul>
+The original 83 Plus hardware had different flash chip installed that had different effects. Checking this option will emulate this older flash hardware.
+<ul><li>LCD Delay (6 Mhz)</li></ul>
+This text box is used to set the number of clock cycles required to wait between writing to the LCD ports when running at 6 MHz.
+<h2>Skin</h2><h3>Skin Options</h3><ul><li>Use cutout skin</li></ul>
+When showing the calculator skin, remove the windows borders and make it seamless with the rest of the windows.
+<ul><li>Use screen texture</li></ul>
+By default, Wabbitemu has a texture over the screen to simulate the look of the large pixels used on the real calculator display. Checking this box will disable that texture and just display the image.
+<ul><li>Use custom skin</li></ul>
+You can create customs skin to make Wabbitemu look exactly like your real calculator. To do so you need two files, a skin file and a keymap file. These files can be in either a 32-bit bitmap or PNG format. The skin file is just a the image you want displayed. It can (and should) be transparent (for cutout mode). The keymap file is a file that tells Wabbitemu where the keys are located on your skin file. Wabbitemu expects to find a region for the screen in this file specified by the color red (0xFF0000). Each key is then referred to by a color composed by the port and mask used to output the read they keyboard input. The bit is specified in the green color, and the mask in the blue. Refer to the Wabbitemu skins for how to create your own.
+<ul><li>Faceplate color</li></ul>
+If you are emulating a TI-84 Plus SE, the default Wabbitemu skin allows you to change the color of the faceplate. To do so, simply click on one of the colors in the box, and click apply.
+<h2>Keys</h2>This allows to remap any of the menu shortcuts, or emulator keys. To do so, simply find the command you want to remap, and click on it. Then in the Press new shortcut dialog, then press assign. To remove, select the command you want to change, and then in the box to the right click the existing command. Then click remove, and the command is removed.</div><div class="ClearBoth"></div>

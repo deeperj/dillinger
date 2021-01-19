@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "650259",
+    "ThreadId": "267215",
+    "Html": "\r\n<p>Hello! I downloaded Wabbit and during the setup wizard I used the option to download a ROM from the TI site. Now, whenever I load those ROMs (I got 2.43 and 2.55MP for TI-84&#43;), the calculator does not turn on. Also, whenever I try to open a program, I get\r\n a virtual link error.</p>\r\n",
+    "PostedDate": "2011-07-31T10:48:21.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650997",
+    "ThreadId": "267215",
+    "Html": "<p>Ah yes good find. Long story short there have been new discoveries about how the hardware of the actual calculator works, and changes to the wabbitemu core to emulate that. The option you used to create a ROM means that the open source boot page we are using doesnt work with these hardware changes. I've modified it and it will go out in the next release, which should be in the next couple days. For a quick work around you can create an 84+SE which will work just fine</p>",
+    "PostedDate": "2011-08-02T01:09:35.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

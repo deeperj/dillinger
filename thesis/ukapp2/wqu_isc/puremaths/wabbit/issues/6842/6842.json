@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Not as cool as premultiplication, but allowing people to use a custom key would be nice to keep people using spasm for their custom OSes. -K switch anyone?\nAlso we should build in the 0004 key and maybe 010A and 000A keys?",
+    "LastUpdatedDate": "2013-02-21T17:44:22.687-08:00",
+    "PlannedForRelease": "SPASM2",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-07-27T04:00:02.093-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Allow signing with custom key files",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 0,
+    "Id": 6842
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

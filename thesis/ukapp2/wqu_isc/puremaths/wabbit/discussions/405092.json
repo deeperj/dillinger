@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "949324",
+    "ThreadId": "405092",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am trying out your wabbitemu dll, but when I add it as a reference in Visual Basic 2010 Express it gives the following error:</p>\r\n<p><em>A reference to 'C\\...\\Wabbitemu.dll' could not be added. Please make sure that the file is accessible, and that it is a valid assembly or COM component.</em></p>\r\n<p>I am running Windows 7, 64 bit. This error occurs both with the 32 bit and 64 bit version of the wabbitemu dll. I am running Visual Basic 2010 Express as Administrator and all user groups have full permissions to the dll file. This error also happens on\r\n my Vista 32 bit computer.</p>\r\n<p>Any idea how to solve this?</p>\r\n",
+    "PostedDate": "2012-11-29T20:11:43.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949724",
+    "ThreadId": "405092",
+    "Html": "\r\n<p><span>Hello delay9,</span></p>\r\n<p><span>&nbsp;</span></p>\r\n<p><span>The Wabbitemu.dll uses COM to communicate back with your host application. This means that you must register it so that your application knows how to create an instance of the Wabbitemu COM object. Doing so is very simple, just run regsvr32 Wabbitemu.dll\r\n from an admin command prompt. I suggest taking a look at this <a href=\"http://wabbit.codeplex.com/wikipage?title=Wabbitemu%20COM%20Interface&referringTitle=Documentation\" target=\"_blank\">\r\npage</a> on the wiki, which provides some samples in C# and VB and talks a little more about how to use the DLL.</span><span>&nbsp;</span></p>\r\n<p><span>Let me know if you have any other questions, or run into any other issues with the DLL.</span></p>\r\n<p><span>BuckeyeDude</span></p>\r\n",
+    "PostedDate": "2012-11-30T14:30:53.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949970",
+    "ThreadId": "405092",
+    "Html": "\r\n<p>Hi,<br>\r\n<br>\r\nI registered Wabbitemu.dll with an admin instance of cmd using regsvr32 Wabbitemu.dll and recieve the message DllRegisterServer in Wabbitemu.dll succeeded.<br>\r\nHowever when I try to add a reference to the same DLL I just registered&nbsp; it gives exactly the same error message as before. I also tried registering it with a normal cmd (not ran as admin) but it doesn't help either. Could it have to do with the settings\r\n in Visual Basic 2010? It's a clean install btw.</p>\r\n<p>Thanks for your help</p>\r\n",
+    "PostedDate": "2012-12-01T09:01:50.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

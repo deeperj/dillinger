@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1464761",
+    "ThreadId": "651817",
+    "Html": "Hi,<br />\n<br />\nLong time Wabbitemu user here. Today when I tried downloading and installing Wabbitemu from scratch on Windows 7 Home Edition 32 bits, I received the following error message when trying to install the ROM from open source: &quot;Unable to download file&quot;.<br />\n<br />\nI have never encountered this error message before. Any ideas what it might be or how to resolve it? I have an active functional internet connection and have installed all major Windows updates.<br />\n<br />\nPlease help!<br />\nThanks,<br />\nChris<br />\n",
+    "PostedDate": "2016-02-26T14:20:52.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1464848",
+    "ThreadId": "651817",
+    "Html": "Hi,\r<br />\nI think the problem is not the ROM, the problem is downloading the operation system from ti's website. I downloaded the os manually: ttps://education.ti.com/en/us/software/details/en/B7DADA7FD4AA40CE9D7911B004B8C460/ti84plusoperatingsystem (select &quot;continue as guest&quot; when asked to login). Now when running setup wizard you select &quot;browse for os files on my computer&quot; and select the downloaded file. This resolved the problem in my case...\r<br />\nAnna<br />\n",
+    "PostedDate": "2016-02-27T16:24:52.367-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1464865",
+    "ThreadId": "651817",
+    "Html": "Hello all, this should be fixed in the new version<br />\n",
+    "PostedDate": "2016-02-28T00:02:01.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

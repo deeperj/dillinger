@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2013-09-21T12:56:30.993-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi - I am trying to get Wabbitemu running on a Macbook (32 bit platform) - running 10.6.8. \nWhen I try to start it, I get a message that it is not supported on this type of Mac. \nDo I need a later version Macbook? \nThank you for your help. \n(Have Wabbitemu on a PC laptop - need to move onto a Mac. Wabbitemu is awesome - I teach Math and it truly helps!.)",
+    "LastUpdatedDate": "2013-09-21T12:56:30.993-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-09-20T16:37:45.3-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Wabbitemu on Macbook 10.6 - does not start",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11288
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hello,\r\n\r\nQuick disclaimer, I'm not a Mac person and I don't have much knowledge about some of the detail of programming on them. From the sound of it, I would guess that the version of Wabbitemu for the Mac I uploaded is 64 bit only. I've built a version that I believe should be good for both 32-bit and 64 bit. I've tested it, it definitely works on 10.6.8, but I don't have access to a 32 bit Mac. Can you download it from [http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/WabbitEmu.zip](http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/WabbitEmu.zip) and tell me if that works for you?\r\n\r\nBuckeyeDude",
+      "PostedDate": "2013-09-21T04:25:26.963-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi BuckeyeDude - Thank you!!  (I'm on a different Macbook right now - also running 10.6.8. )\nI just downloaded the file - and I am up and running !!!\nI will try the other Macbook later and see if it also works there. (That one is the first version of Macbook.)\r\n\r\nI cannot say Thank you! enough! for the great tool - and for saving me from buying a Windows system just so I may run it.\r\n\r\nvmf152k ",
+      "PostedDate": "2013-09-21T07:09:38.787-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-09-21T12:56:30.993-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

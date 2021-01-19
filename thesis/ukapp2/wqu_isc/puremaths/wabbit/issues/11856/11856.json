@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Whenever I try to open my new calculator, it always has a black screen, and it can't seem to turn on.\nHelp?",
+    "LastUpdatedDate": "2014-09-08T15:15:55.977-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-09-08T15:15:54.807-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TI-84 Plus C Silver Edition blank screen",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11856
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3894,
+      "FileName": "Capto.PNG",
+      "DownloadUrl": ".\\3894"
+    }
+  ],
+  "Comments": []
+}

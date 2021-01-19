@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello, \nCan you remove the restriction on the max screen size?\nI have a very Large screen size and I am unable to resize this app beyond a point.\nFurthermore, I have noticed that the skin is very pixelated on the default version for some reason. There is a beta built here which fixes it. http://buckeyedude.com/Revsoft/Wabbitemu/Beta/ (I believe the source is here http://buckeyedude.com/Revsoft/Wabbitcode/)\nIf you could fix those two issues that would be great!!",
+    "LastUpdatedDate": "2015-12-23T22:29:58.883-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-03-16T23:46:45.89-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Scaling on Hi DPI Screen (max window size)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12049
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Yes, if you could fix this that would be great! Also on high dpi screens, scaling is really weird in the key press history, calculator variables, report a bug, teacher view, and debugger. While it does scale to the display, buttons overlap and text is cut off, making these features unusable. \r\n\r\nAll of these issues exist in the most recent beta version. Please fix this. Thanks!",
+      "PostedDate": "2015-03-17T23:29:13.937-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Would be nice to see this application more touch friendly; On Windows, I have seen that on hi DPI with transparent window (just the skin) the minimize and close buttons do not scale which is a problem on 2 in 1 systems, unless you have a pen input. Additionally, there is no way to get to the application window without a keyboard, so basically can't go back to windowed mode or change configurations.",
+      "PostedDate": "2015-12-23T22:29:58.883-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

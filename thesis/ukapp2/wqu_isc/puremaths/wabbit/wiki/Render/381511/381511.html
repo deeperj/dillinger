@@ -1,0 +1,74 @@
+<div class="wikidoc">
+<h4>SE001: File not found - <em>Could not find the file ‘filename’</em></h4>
+<p>A file at the path given to #include, .echo, or getc() cannot be found.</p>
+<h4>SE002: File no access - <em>Could not access the file ‘filename’</em></h4>
+<p>A file at the path given to #include, .echo, or getc() cannot be accessed due to permission or other availability problems.</p>
+<h4>SE100: Local label forward ref - <em>Reference to a local label which does not exist</em></h4>
+<p>The local label used in the expression was never defined and cannot be resolved. This means a local label “_” has been used in an expression, but a corresponding local label was never defined. This can happen most easily in expressions that contain multiple
+ local labels using the “skip” syntax of preceding “&#43;” signs. For example, “&#43;&#43;_” would require at least two local labels to be defined after the usage of the expression.</p>
+<p><font size="2" face="Consolas">&#160;<font color="#0000ff">ld</font> <font color="#ff0000">
+a</font>,(variable) <br>
+&#160;<font color="#0000ff">cp</font> 20 <br>
+&#160;<font color="#0000ff">jr</font> <font color="#0000ff">c</font>,&#43;_<font color="#008000">&#160;&#160;&#160;&#160;&#160; ; Error SE100&#160;
+<br>
+</font>&#160;<font color="#0000ff">ld</font> <font color="#ff0000">a</font>,20</font></p>
+<h4>SE101: Local label syntax - <em>Error in local label's syntax (had leading &#43;/- but no _)</em></h4>
+<p>A local label expression uses “&#43;” and “-“ to select which local label definition’s value to use. Multiple “&#43;”s or “-“s in a row move sequentially forward or backward, respectively. A problem with a local label expression can cause this error.</p>
+<p><font size="2" face="Consolas">&#160;<font color="#0000ff">jr</font> <font color="#0000ff">
+c</font>,&#43;&#43;<font color="#008000">&#160;&#160;&#160;&#160;&#160; ; Error SE101 <br>
+</font></font><font size="2" face="Consolas">&#160;<font color="#0000ff">jr</font>
+<font color="#0000ff">c</font>,&#43;&#43;<font color="#008000">_</font></font></p>
+<h4>SE102: Arg used without value - <em>Argument 'arg' used without value</em></h4>
+<p>A argument to a macro was used inside of the macro without having a value passed in. This behavior is allowed to enable optional arguments. To check for an argument that does not have a value, use “#ifndef&quot;.</p>
+<p><font color="#ffc000"><font face="Consolas"><font size="2">#define Test(x) x <br>
+<font color="#000000">Test()</font></font></font></font><font color="#008000" size="2" face="Consolas">&#160;&#160;&#160;&#160;&#160;&#160; ; Error SE102</font></p>
+<h4>SE103: Operator expected - <em>Expecting an operator, found ‘char’ instead</em></h4>
+<p>An arithmetic operator was expected in an expression, but an unexpected character was found instead.</p>
+<font color="#008000" size="2" face="Consolas">
+<p><font face="Consolas"><font color="#000000" size="2">&#160;<font color="#ffc000">.db</font> 10 a</font></font><font color="#008000" size="2" face="Consolas"><font color="#000000"> 20&#160;
+</font>; Error SE103 <br>
+</font><font face="Consolas"><font color="#000000" size="2">&#160;<font color="#ffc000">.db</font> 10 &#43;</font></font><font color="#008000" size="2" face="Consolas"><font color="#000000"> 20</font></font></p>
+</font><font color="#008000" size="2" face="Consolas"><font color="#008000" size="2" face="Consolas"><font color="#000000"></font></font></font>
+<h4>SE104: Value expected - <em>Expecting a value, expression ended early</em></h4>
+<p>A value was expected, but was not provided.</p>
+<p><font face="Consolas"><font size="2"><font color="#0000ff">cp</font> 20 &#43;&#160;&#160;&#160;&#160;&#160;
+</font></font><font size="2"><font face="Consolas"><font color="#008000">; Error SE104
+<br>
+</font>&#160;<font color="#ffc000">.db</font></font><font face="Consolas">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+</font></font><font color="#008000"><font size="2" face="Consolas">; Error SE104 <br>
+</font></font><font size="2"><font face="Consolas">&#160;<font color="#ffc000">.db</font><font color="#000000"> 10,</font></font><font face="Consolas">&#160;&#160;&#160;&#160;&#160;
+</font></font><font color="#008000"><font size="2" face="Consolas">; Error SE104</font>
+<br>
+</font></p>
+<h4><font color="#008000"><font size="2" face="Consolas"></font></font></h4>
+<font color="#008000"></font>
+<h4>SE105: Bad Value Prefix – <em>Unrecognized value prefix ‘char’</em></h4>
+<p>A value prefix was given that was not recognized.</p>
+<h4>SE106: Label Not Found – <em>Could not find label or macro ‘string’</em></h4>
+<p>Specified label or macro could not be found.</p>
+<h4>SE107: Invalid Address – <em>The value ‘string’ is not a valid Z80 address</em></h4>
+<p>The given address is not a valid Z80 address.</p>
+<h4></h4>
+<h4>SE108: Size Must Be Positive – <em>The value ‘string’ is a size and must be positive</em></h4>
+<p>The given value was not positive.</p>
+<h4>SE109: Filename Expected – <em>Expecting a filename, none was provided</em></h4>
+<p>A filename was expected, but was not provided.</p>
+<h4>SE110: Invalid Operands – <em>The opcode ‘string’ was given invalid operands</em></h4>
+<p>Invalid operands were provided.</p>
+<h4>SE111: Unknown Preop – <em>Unknown preprocessor command</em></h4>
+<p>An unknown preprocessor command was given.</p>
+<h4>SE112: Unknown Directive – <em>Unknown assembler directive ‘string’</em></h4>
+<p>An unknown assemble directive was given.</p>
+<h4>SE113: Unknown Opcode – <em>Unknown opcode ‘string’</em></h4>
+<p>An unknown opcode was given.</p>
+<h4>SE114: Equate Missing Label – <em>Equate is missing corresponding label</em></h4>
+<p>A label was not provided.</p>
+<h4>SE115: Exceeded Recursion Limit – <em>Recursion depth limit exceeded</em></h4>
+<p>Recursion limit exceeded.</p>
+<h4>SE200: Invalid Decimal Digit – <em>Invalid digit ‘char’ in the decimal number ‘string’</em></h4>
+<p>An invalid digit was provided in the decimal number.</p>
+<h4>SE201: Invalid Hex Digit – <em>Invalid digit ‘char’ in the hexadecimal number ‘string’</em></h4>
+<p>An invalid digit was provided in the hexadecimal number.</p>
+<h4>SE202: Invalid Binary Digit – <em>Invalid digit ‘char’ in the binary number ‘string’</em></h4>
+<p>An invalid digit was provided in the binary number.</p>
+</div><div class="ClearBoth"></div>

@@ -1,0 +1,730 @@
+[
+  {
+    "Id": 6045,
+    "Title": "Add small buttons to cutout view"
+  },
+  {
+    "Id": 6059,
+    "Title": "Apply button does not get enabled when \"Use cutout skin\" is changed"
+  },
+  {
+    "Id": 6060,
+    "Title": "Re-disable window transitions for all overlapped window children"
+  },
+  {
+    "Id": 6689,
+    "Title": "Move to GDI+"
+  },
+  {
+    "Id": 6690,
+    "Title": "Allow keys to be remapped"
+  },
+  {
+    "Id": 6691,
+    "Title": "Cutout buttons improperly handle multiple cutout changes"
+  },
+  {
+    "Id": 6692,
+    "Title": "Screenshot dragging doesn't work"
+  },
+  {
+    "Id": 6693,
+    "Title": "No choice where to send on drag and drop"
+  },
+  {
+    "Id": 6694,
+    "Title": "Fix app deletion on forceloading"
+  },
+  {
+    "Id": 6695,
+    "Title": "Multicalc linking"
+  },
+  {
+    "Id": 6696,
+    "Title": "Rewinding"
+  },
+  {
+    "Id": 6697,
+    "Title": "Dump memory to a text file"
+  },
+  {
+    "Id": 6698,
+    "Title": "Profiler"
+  },
+  {
+    "Id": 6704,
+    "Title": "View memory by pixels"
+  },
+  {
+    "Id": 6705,
+    "Title": "24 bit memory viewer"
+  },
+  {
+    "Id": 6706,
+    "Title": "Custom skins and keymaps"
+  },
+  {
+    "Id": 6707,
+    "Title": "Find byte"
+  },
+  {
+    "Id": 6708,
+    "Title": "Port monitor"
+  },
+  {
+    "Id": 6709,
+    "Title": "LCD update delay"
+  },
+  {
+    "Id": 6710,
+    "Title": "App force loading fails after loading one app"
+  },
+  {
+    "Id": 6779,
+    "Title": "Recursive macros leak memory"
+  },
+  {
+    "Id": 6842,
+    "Title": "Allow signing with custom key files"
+  },
+  {
+    "Id": 6843,
+    "Title": "Macro manager"
+  },
+  {
+    "Id": 6844,
+    "Title": "Make it so templates support file extensions"
+  },
+  {
+    "Id": 6845,
+    "Title": "Code completion"
+  },
+  {
+    "Id": 7128,
+    "Title": "Drag and drop from zip files fails"
+  },
+  {
+    "Id": 7132,
+    "Title": "Changing the faceplate color in GDI+"
+  },
+  {
+    "Id": 7140,
+    "Title": "App fails on sending same app new size"
+  },
+  {
+    "Id": 7156,
+    "Title": "Re-add compression to savestates"
+  },
+  {
+    "Id": 7158,
+    "Title": "Forceloading an app of a different size already on calc"
+  },
+  {
+    "Id": 7159,
+    "Title": "GDI+ memory leak"
+  },
+  {
+    "Id": 7160,
+    "Title": "Disabling cutout causes skinless to appear with no status bar"
+  },
+  {
+    "Id": 7161,
+    "Title": "Screenshot always captures the last core open"
+  },
+  {
+    "Id": 7162,
+    "Title": "Screenshot multiple cores at once"
+  },
+  {
+    "Id": 7163,
+    "Title": "Possible to close top level windows in cutout mode"
+  },
+  {
+    "Id": 7164,
+    "Title": "Finish rom wizard"
+  },
+  {
+    "Id": 7165,
+    "Title": "allow user to choose link between calcs"
+  },
+  {
+    "Id": 7166,
+    "Title": "Scrollbar in the debugger does not reset correctly when changing eps"
+  },
+  {
+    "Id": 7167,
+    "Title": "EPs do not draw properly with scrollbar"
+  },
+  {
+    "Id": 7170,
+    "Title": "Finish mem and disasm tabs"
+  },
+  {
+    "Id": 7171,
+    "Title": "Add im value to the interrupt display in the debugger"
+  },
+  {
+    "Id": 7182,
+    "Title": "If you've opened a new core linking to the computer fails"
+  },
+  {
+    "Id": 7186,
+    "Title": "Allow labels to be entered in the goto box"
+  },
+  {
+    "Id": 7188,
+    "Title": "Seethrough cutout 84pse skin"
+  },
+  {
+    "Id": 7206,
+    "Title": "Bring back darkening circles on keypresses"
+  },
+  {
+    "Id": 7207,
+    "Title": "cutout mode keypresses are not always handled"
+  },
+  {
+    "Id": 7237,
+    "Title": "Memory leak in release build"
+  },
+  {
+    "Id": 7306,
+    "Title": "TI-86"
+  },
+  {
+    "Id": 7312,
+    "Title": "Rewrite importvar"
+  },
+  {
+    "Id": 7315,
+    "Title": "keyboard mapping for 86"
+  },
+  {
+    "Id": 7328,
+    "Title": "Run button in the debugger does not provide visual feedback"
+  },
+  {
+    "Id": 7747,
+    "Title": "calc memory cleared each time program is run"
+  },
+  {
+    "Id": 8232,
+    "Title": "Bracer does not correctly brace IF ELSE expressions"
+  },
+  {
+    "Id": 8233,
+    "Title": "Switch tokenizer to a static class"
+  },
+  {
+    "Id": 9009,
+    "Title": "WabbitCode Crashes on Startup"
+  },
+  {
+    "Id": 9224,
+    "Title": "Mem viewer shows incorrect memory location"
+  },
+  {
+    "Id": 9225,
+    "Title": "Shortcuts activate in incorrect locations"
+  },
+  {
+    "Id": 9227,
+    "Title": "Tooltips for memory only show once when focused till mouse is move outside data section"
+  },
+  {
+    "Id": 9232,
+    "Title": "Finish disasm tabs"
+  },
+  {
+    "Id": 9233,
+    "Title": "Add more string functions to spasm"
+  },
+  {
+    "Id": 9234,
+    "Title": "Fix literal macro args"
+  },
+  {
+    "Id": 9323,
+    "Title": "Teacher view"
+  },
+  {
+    "Id": 9324,
+    "Title": "Var tree labels dont move when window is resized"
+  },
+  {
+    "Id": 9325,
+    "Title": "Clean up options dialog"
+  },
+  {
+    "Id": 9326,
+    "Title": "Universal flash unlock does not work"
+  },
+  {
+    "Id": 9565,
+    "Title": "View --> detached LCD"
+  },
+  {
+    "Id": 9771,
+    "Title": "Improve performance of cutout darkening keypresses in cutout mode"
+  },
+  {
+    "Id": 9772,
+    "Title": "Cache and speed up rendering keys for keypress list"
+  },
+  {
+    "Id": 9773,
+    "Title": "Copy answer only works for 83+ and above"
+  },
+  {
+    "Id": 9774,
+    "Title": "Var list only works for 83+ and above, and 86"
+  },
+  {
+    "Id": 9775,
+    "Title": "Better support for AVI files"
+  },
+  {
+    "Id": 9776,
+    "Title": "86 save state lcd in openfiledialog is the wrong size"
+  },
+  {
+    "Id": 9777,
+    "Title": "Add horizontal scrollbar to the disassembly when needed"
+  },
+  {
+    "Id": 9791,
+    "Title": "Fix flash sector erase commands"
+  },
+  {
+    "Id": 9928,
+    "Title": "Install issue"
+  },
+  {
+    "Id": 9929,
+    "Title": "Install issue"
+  },
+  {
+    "Id": 9938,
+    "Title": "Install programs?"
+  },
+  {
+    "Id": 9939,
+    "Title": "Install programs?"
+  },
+  {
+    "Id": 9940,
+    "Title": "Programs need reinstallation each restart?"
+  },
+  {
+    "Id": 10264,
+    "Title": "TI-84+ Groups"
+  },
+  {
+    "Id": 10571,
+    "Title": "Problem with mouse and key on Mac"
+  },
+  {
+    "Id": 10623,
+    "Title": "32 bit Wabbitemu.exe 1.6.11.19"
+  },
+  {
+    "Id": 10754,
+    "Title": "Mac problem"
+  },
+  {
+    "Id": 10798,
+    "Title": "TI-84 Won't Turn On"
+  },
+  {
+    "Id": 10808,
+    "Title": "Crash on Win8 64 when enabling sound"
+  },
+  {
+    "Id": 10811,
+    "Title": "Fail to Install - Vista"
+  },
+  {
+    "Id": 10819,
+    "Title": "Wabbitemu cutout skin becomes transparent..."
+  },
+  {
+    "Id": 11162,
+    "Title": "Remove breakpoint highlight logic from TextEditor"
+  },
+  {
+    "Id": 11210,
+    "Title": "Issue loading on XP SP3"
+  },
+  {
+    "Id": 11260,
+    "Title": "WabbitEmu 1.7.2.11 50% CPU usage"
+  },
+  {
+    "Id": 11288,
+    "Title": "Wabbitemu on Macbook 10.6 - does not start"
+  },
+  {
+    "Id": 11381,
+    "Title": "TI-83 does not resize"
+  },
+  {
+    "Id": 11439,
+    "Title": "Save State in OSX Mavericks"
+  },
+  {
+    "Id": 11461,
+    "Title": "TI84+ skin not resizeable"
+  },
+  {
+    "Id": 11600,
+    "Title": "Calculator will not turn on"
+  },
+  {
+    "Id": 11631,
+    "Title": "Cut Out Completely Transparent"
+  },
+  {
+    "Id": 11645,
+    "Title": "Auto-Load ROM in Windows 7"
+  },
+  {
+    "Id": 11650,
+    "Title": "Not working on macbook"
+  },
+  {
+    "Id": 11670,
+    "Title": "The document \"Graphing Calculator\" could not be opened."
+  },
+  {
+    "Id": 11688,
+    "Title": "TI emulator will not work on motorola xoom tablet"
+  },
+  {
+    "Id": 11689,
+    "Title": "TI emulator will not work on motorola xoom tablet"
+  },
+  {
+    "Id": 11712,
+    "Title": "How to access settings in cut out view?"
+  },
+  {
+    "Id": 11713,
+    "Title": "RESOLVED"
+  },
+  {
+    "Id": 11714,
+    "Title": "Screen image overlapping calculator"
+  },
+  {
+    "Id": 11716,
+    "Title": "TI-86 screen is vertically squeezed in skin mode on Windows 7"
+  },
+  {
+    "Id": 11828,
+    "Title": "TI-84 Always Asking to Update"
+  },
+  {
+    "Id": 11856,
+    "Title": "TI-84 Plus C Silver Edition blank screen"
+  },
+  {
+    "Id": 11866,
+    "Title": "Taskbar blocking title bar"
+  },
+  {
+    "Id": 11875,
+    "Title": "Wabbitemu crashing after a few mins"
+  },
+  {
+    "Id": 11884,
+    "Title": "doesn't work with vista?"
+  },
+  {
+    "Id": 11888,
+    "Title": "Low resolution screenshots"
+  },
+  {
+    "Id": 11917,
+    "Title": "EmuCalculator not opening on Mac OS Yosemite"
+  },
+  {
+    "Id": 11939,
+    "Title": "Wabbitcode - TI84plus - suddenly stopped working"
+  },
+  {
+    "Id": 11945,
+    "Title": "spasm: Hang with large numbers of labels"
+  },
+  {
+    "Id": 11998,
+    "Title": "The \"9\" key clicks \"Window\""
+  },
+  {
+    "Id": 12008,
+    "Title": "\"Reset Calculator\" Lag"
+  },
+  {
+    "Id": 12010,
+    "Title": "I don't know what kind issue is this, but look..."
+  },
+  {
+    "Id": 12011,
+    "Title": "Not working for Mac"
+  },
+  {
+    "Id": 12014,
+    "Title": "Apps on Android"
+  },
+  {
+    "Id": 12018,
+    "Title": "Wabbitemu Lags in Windows 7"
+  },
+  {
+    "Id": 12025,
+    "Title": "Need to Open the Wabbitemu Window"
+  },
+  {
+    "Id": 12038,
+    "Title": "Calculators Not Turning On"
+  },
+  {
+    "Id": 12048,
+    "Title": "Bottom menu bar on android covers calculator keys"
+  },
+  {
+    "Id": 12049,
+    "Title": "Scaling on Hi DPI Screen (max window size)"
+  },
+  {
+    "Id": 12068,
+    "Title": "Problem when using cutout skin"
+  },
+  {
+    "Id": 12069,
+    "Title": "Custom skins on Android version"
+  },
+  {
+    "Id": 12070,
+    "Title": "Custom skin with changeable faceplate colors"
+  },
+  {
+    "Id": 12071,
+    "Title": "Keys does not invert in cutout mode"
+  },
+  {
+    "Id": 12072,
+    "Title": "Specify where minimize and close buttons are placed"
+  },
+  {
+    "Id": 12091,
+    "Title": "Wabbitemu crashes during install"
+  },
+  {
+    "Id": 12110,
+    "Title": "Mac OSX Beta v10.10.4"
+  },
+  {
+    "Id": 12124,
+    "Title": "Profiler disassembly output shows <block size> instructions, not bytes"
+  },
+  {
+    "Id": 12126,
+    "Title": "inc (iy+ofs8) counted as 19 cycles instead of 23"
+  },
+  {
+    "Id": 12145,
+    "Title": "TI Emulator on Mac"
+  },
+  {
+    "Id": 12191,
+    "Title": "Issue downloading ROMs"
+  },
+  {
+    "Id": 12195,
+    "Title": "Can't download OS on Android"
+  },
+  {
+    "Id": 12200,
+    "Title": "Where are the programs that I create in the app saved?"
+  },
+  {
+    "Id": 12214,
+    "Title": "wabbitmenu setup - OS selection - unable to download file"
+  },
+  {
+    "Id": 12216,
+    "Title": "Mac Version: Calculator buttons do not work"
+  },
+  {
+    "Id": 12267,
+    "Title": "Deleted rom."
+  },
+  {
+    "Id": 12275,
+    "Title": "Linux downloads?"
+  },
+  {
+    "Id": 12276,
+    "Title": "Change size of flash memory of ROM?"
+  },
+  {
+    "Id": 12277,
+    "Title": "ROM saving: Losses app, different to .sav save"
+  },
+  {
+    "Id": 12281,
+    "Title": "Buttons on Android not visible"
+  },
+  {
+    "Id": 12282,
+    "Title": "Move away from Codeplex"
+  },
+  {
+    "Id": 12283,
+    "Title": "Android: Suggestions"
+  },
+  {
+    "Id": 12284,
+    "Title": "Sound emulation"
+  },
+  {
+    "Id": 12285,
+    "Title": "Time sync"
+  },
+  {
+    "Id": 12286,
+    "Title": "Freezes when defragging"
+  },
+  {
+    "Id": 12287,
+    "Title": "Sometimes does not install app"
+  },
+  {
+    "Id": 12288,
+    "Title": "Writing mode"
+  },
+  {
+    "Id": 12289,
+    "Title": "Export app/variables"
+  },
+  {
+    "Id": 12290,
+    "Title": "Gif with skin"
+  },
+  {
+    "Id": 12323,
+    "Title": "RAM Cleared"
+  },
+  {
+    "Id": 12330,
+    "Title": "Just get loading circle when trying to download OS on Galaxy Note 5"
+  },
+  {
+    "Id": 12332,
+    "Title": "Android problem with ti 84 plus ce"
+  },
+  {
+    "Id": 12333,
+    "Title": "\"ROM Files\" window is blank"
+  },
+  {
+    "Id": 12338,
+    "Title": "Autosave Bug"
+  },
+  {
+    "Id": 12343,
+    "Title": "Ram clears every time on Android?"
+  },
+  {
+    "Id": 12344,
+    "Title": "Unable to set clipboard data"
+  },
+  {
+    "Id": 12349,
+    "Title": "Mobile application crashes"
+  },
+  {
+    "Id": 12352,
+    "Title": "Unable to download ROM from open source HELP!"
+  },
+  {
+    "Id": 12357,
+    "Title": "Solved Issue"
+  },
+  {
+    "Id": 12358,
+    "Title": "...Now other issues."
+  },
+  {
+    "Id": 12378,
+    "Title": "I am not able to change my calculator to newer model?"
+  },
+  {
+    "Id": 12384,
+    "Title": "Preferences on Mac not saving"
+  },
+  {
+    "Id": 12390,
+    "Title": "OS file is corrupted or invalid"
+  },
+  {
+    "Id": 12393,
+    "Title": "Cant download any of the os's from android app"
+  },
+  {
+    "Id": 12395,
+    "Title": "Error downloading OS on Android"
+  },
+  {
+    "Id": 12401,
+    "Title": "Anyone had success with KnightOS ROMs"
+  },
+  {
+    "Id": 12405,
+    "Title": "works with XP SP3?"
+  },
+  {
+    "Id": 12406,
+    "Title": "cant use"
+  },
+  {
+    "Id": 12411,
+    "Title": "Trouble downloading os on android app"
+  },
+  {
+    "Id": 12413,
+    "Title": "The calculator does not let me use my mouse to control it."
+  },
+  {
+    "Id": 12415,
+    "Title": "Completely transparent; no options"
+  },
+  {
+    "Id": 12416,
+    "Title": "Buttons don't work."
+  },
+  {
+    "Id": 12430,
+    "Title": "Defragmentation Causes Calculator to Freeze"
+  },
+  {
+    "Id": 12435,
+    "Title": "Outdated Paid-Version in Google Play Store"
+  },
+  {
+    "Id": 12437,
+    "Title": "OS File Corruption Error for Laptop Download"
+  },
+  {
+    "Id": 12438,
+    "Title": "WabbitEmu won't show up on screen - Windows 10"
+  },
+  {
+    "Id": 12445,
+    "Title": "TI-85 ROM crashes on Android"
+  },
+  {
+    "Id": 12453,
+    "Title": "Installing Alternate File-Types on Android"
+  }
+]

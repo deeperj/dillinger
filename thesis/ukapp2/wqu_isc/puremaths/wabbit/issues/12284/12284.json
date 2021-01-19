@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Some programs can output audio. It would be nice if this could (optionally - so that it can be deactivated) be emulated too. Especially on Android this may be fun.",
+    "LastUpdatedDate": "2015-11-23T08:38:34.787-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-23T08:38:34.787-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Sound emulation",
+    "Type": {
+      "Name": "",
+      "Id": 0
+    },
+    "VoteCount": 1,
+    "Id": 12284
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-10-27T17:28:09.197-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If you create a TI-84+ Group in Wabbitemu then export and transfer it to a real calculator, the contents of the Group will be corrupted on the real calculator.",
+    "LastUpdatedDate": "2013-05-16T05:08:19.523-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-06-27T04:10:59.46-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TI-84+ Groups",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10264
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved with changeset 80750: Cleaned up some warnings\nFixed an issue with step over when sp was 0\nFixed a bug with goto dialog box\nRenamed newimportvar to importvar\nFixed reading bad data on 86 hw init\nFixed a bug loading 8xg files\nFixed a bug in the symbol83p_t struct\nFixed exporting groups",
+      "PostedDate": "2012-10-27T17:28:09.197-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:12.8-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:19.523-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

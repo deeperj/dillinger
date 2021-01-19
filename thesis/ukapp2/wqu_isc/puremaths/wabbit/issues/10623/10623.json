@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2012-12-10T17:34:17.103-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Running the 32 bit version of Wabbitemu.exe 1.6.11.19 (Mon Nov 19, 2012) in 32 bit Windows-XP Home Edition SP3 brings up the message: \"Wabbitemu.exe is not a valid Win32 application.\"  Both the 32 bit and 64 bit executables run in 64 bit Windows-7.",
+    "LastUpdatedDate": "2013-05-16T05:08:19.023-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-11-24T09:25:34.013-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "32 bit Wabbitemu.exe 1.6.11.19",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10623
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

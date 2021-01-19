@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1238290",
+    "ThreadId": "543407",
+    "Html": "I have two roms on my xoom. One for TI84 plus SE v2.55 which I extracted from my TI 84 Plus SE calculator with rom8x and one for TI83plus which I got from my TI83plus calculator a long time ago.  Both are found by wabbitemu when wabbit searches for roms on my xoom running android v4.12, but when I click on either rom, the emulator will not load.  When clicking on rom to use xoom rotates to portrait mode with a dark screen and then immediately closes and rotates back to a landscape mode to home screen where ICONS are on xoom.  I know TI83plus rom is good because ANDIE graph uses it and emulates the TI83plus on xoom.  I have no emulator to test the TI84plusSEv255 rom on but I have to assume it is OK since rom8x just created it from my calculator.  Please advise me what to try.<br />\n",
+    "PostedDate": "2014-04-26T05:33:03.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

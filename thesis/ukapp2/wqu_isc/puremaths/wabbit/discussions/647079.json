@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1451227",
+    "ThreadId": "647079",
+    "Html": "Hi!\r<br />\n<br />\nSomthing is awfully wrong with my wabbitemu. I hade downloaded the rom from ti website so i suppose that should not be the problem. Tried two different ones aswell to be shure. \r<br />\n<br />\nNow to my problem. \r<br />\nWhen i try to use the sinus it gives me totally wrong output! For example sin(30) that should give me .5 put out -.9880316241. The same problem occurs on both my android devices..\r<br />\n<br />\nIt would be much appreciated if someone could help me with this. Im shure i have made some stupid mistake thats easy to correct for someone with the right kind of nowledge.\r<br />\n<br />\nSorry for my bad english but im no englishman u now :)<br />\n",
+    "PostedDate": "2015-11-06T16:02:08.72-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453577",
+    "ThreadId": "647079",
+    "Html": "<blockquote>\nWhen i try to use the sinus it gives me totally wrong output! For example sin(30) that should give me .5 put out -.9880316241. The same problem occurs on both my android devices.. <br />\n</blockquote>\nJust switch between radian/degree... :)\r<br />\n<img src=\"https://i.imgur.com/NiEk82b.gif\" alt=\"TI84+ Switch Radian/Degree\" /><br />\n",
+    "PostedDate": "2015-11-23T08:44:58.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The hash table implementation backing labels and preprocessor replacements is unable to resize the table after creation, and gets stuck in entry insertion when there are no longer any free table entries.\n\nThis problem has been observed in practice. A simple workaround would be to increase the value of MAX_LABELS beyond its current 7919, or a proper fix would be to implement rehashing at some particular load factor.\n\nSee also, https://bitbucket.org/tari/spasm-emscripten/issue/1/hang-with-large-numbers-of-labels",
+    "LastUpdatedDate": "2014-12-20T00:00:43.97-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-12-19T22:38:50.64-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "spasm: Hang with large numbers of labels",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11945
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "The hash implementation in hash.c is deprecated. I'd recommend using the new hash implementation in hashmap.cpp. It will use an unordered_map to implement the hash functions used by spasm, thus bypassing your current issue. I believe its #ifdef'd on line 17 of hash.h",
+      "PostedDate": "2014-12-20T00:00:43.97-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

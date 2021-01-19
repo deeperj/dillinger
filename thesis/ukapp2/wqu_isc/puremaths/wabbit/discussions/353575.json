@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "828521",
+    "ThreadId": "353575",
+    "Html": "\r\n<p>Hi there,</p>\r\n<p>Can someone explain to me what the virtual link does. I click on it but do not seem to notice any change. Also, (if this isn't what the virtual link does) is there a way to somehow link your actual ti84 to the emulator, where whatever you do on the calculator\r\n is seen on the computer?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-04-25T10:18:52.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "829806",
+    "ThreadId": "353575",
+    "Html": "<p>Hello,</p>\r\n<p>The virtual link option is used to connect Wabbitemu cores together, so if you are running two emulated calculators, you can test linking between them. There is currently no way to connect the emulator to the real calculator, I've been looking for a nice way to do this, but haven't found one so far.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-04-28T20:14:45.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "903755",
+    "ThreadId": "353575",
+    "Html": "<p>Do you know of anyway to easily send programs from a real calculator to the virtual one?</p>",
+    "PostedDate": "2012-08-24T13:04:30.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926008",
+    "ThreadId": "353575",
+    "Html": "<p>If the programs are on your computer already (using TI Connect ...) simply drag &amp; drop the file into the calculator display</p>",
+    "PostedDate": "2012-10-12T14:07:15.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926023",
+    "ThreadId": "353575",
+    "Html": "<blockquote style=\"padding-bottom: 0px; font-style: italic; margin: 0.25em 1em 0px; padding-left: 0.25em; padding-right: 0.25em; padding-top: 0px; border: #ccc 0.1em solid;\"><strong>BuckeyeDude wrote:</strong><br />\r\n<p>Hello,</p>\r\n<p>The virtual link option is used to connect Wabbitemu cores together, so if you are running two emulated calculators, you can test linking between them. There is currently no way to connect the emulator to the real calculator, I've been looking for a nice way to do this, but haven't found one so far.</p>\r\n<p>BuckeyeDude</p>\r\n</blockquote>\r\n<p><br />Hi BuckeyeDude ... thank you for your work - it is a great help in my math-classes ... how does the linking work? <br />I started wabbitemu.exe ... Ctrl-N ... so I have two on my screen ... can I link those together? ... if yes: How do I do that?<br />Thx<br />mzeindl</p>",
+    "PostedDate": "2012-10-12T14:49:25.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

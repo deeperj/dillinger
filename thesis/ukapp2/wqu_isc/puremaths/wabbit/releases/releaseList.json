@@ -1,0 +1,133 @@
+[
+  {
+    "Id": "0",
+    "Name": "WabbitCode Mac 2.2",
+    "DevelopmentStatus": "Beta",
+    "Description": "WabbitCode for the Mac version 2.2. You need 10.7 (Lion) to run this. There won't be any further releases for older versions of OS X.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2012-04-29T01:39:18.93-07:00",
+    "Files": [
+      {
+        "Id": "85337812-d6d1-43bd-b248-f4d7e6c1d177",
+        "FileName": "WabbitCode-2.2.app.zip",
+        "Url": "./0/85337812-d6d1-43bd-b248-f4d7e6c1d177",
+        "Type": "Application",
+        "UploadDate": "2012-04-29T01:39:18.443-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "1",
+    "Name": "Wabbitcode",
+    "DevelopmentStatus": "Alpha",
+    "Description": "Wabbitcode is an Z80 Assembly IDE for Windows, OS X, and Linux. Built to take full advantage of the features of SPASM and Wabbitemu, Wabbitcode has many useful features for both new and veteran programmers, such as syntax highlighting, project support, and the ability do debug assembled files.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2011-06-16T00:11:33.183-07:00",
+    "Files": [
+      {
+        "Id": "faff6c63-4b1d-4067-b277-d8b4c7d28e7e",
+        "FileName": "Wabbitcode.msi",
+        "Url": "./1/faff6c63-4b1d-4067-b277-d8b4c7d28e7e",
+        "Type": "Application",
+        "UploadDate": "2011-06-16T00:11:32.7-07:00"
+      },
+      {
+        "Id": "1e067638-7085-4302-8823-8c806ff0024b",
+        "FileName": "Revsoft.Wabbitcode.application",
+        "Url": "./1/1e067638-7085-4302-8823-8c806ff0024b",
+        "Type": "Application",
+        "UploadDate": "2011-06-15T22:43:50.15-07:00"
+      },
+      {
+        "Id": "2b19d5dc-1f4a-411f-a15f-b8a007f8dea0",
+        "FileName": "wabbitcode-1.0.tar.gz",
+        "Url": "./1/2b19d5dc-1f4a-411f-a15f-b8a007f8dea0",
+        "Type": "Source Code",
+        "UploadDate": "2010-05-13T17:44:22.677-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "2",
+    "Name": "SPASM2",
+    "DevelopmentStatus": "Stable",
+    "Description": "A test release for SPASM2. Linux users can check out of the SVN at [url:https://wabbit.svn.codeplex.com/svn/Wabbitstudio/Source/SPASM]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2011-10-24T19:09:21.65-07:00",
+    "Files": [
+      {
+        "Id": "5f8ada79-2fc4-470b-9018-ce4c60c266ef",
+        "FileName": "SPASM.exe",
+        "Url": "./2/5f8ada79-2fc4-470b-9018-ce4c60c266ef",
+        "Type": "Application",
+        "UploadDate": "2012-09-27T14:16:09.717-07:00"
+      },
+      {
+        "Id": "20cfa6dc-8f4b-4a5e-8c82-a5934bb39bbd",
+        "FileName": "SPASM.exe",
+        "Url": "./2/20cfa6dc-8f4b-4a5e-8c82-a5934bb39bbd",
+        "Type": "Application",
+        "UploadDate": "2012-09-27T14:16:09.763-07:00"
+      },
+      {
+        "Id": "255a1c23-48de-45b6-8b5c-18dd77cd5a14",
+        "FileName": "spasm",
+        "Url": "./2/255a1c23-48de-45b6-8b5c-18dd77cd5a14",
+        "Type": "Application",
+        "UploadDate": "2011-07-02T23:14:45.707-07:00"
+      },
+      {
+        "Id": "30b03577-5b09-4810-8d25-fb21f86ebdb1",
+        "FileName": "spasm",
+        "Url": "./2/30b03577-5b09-4810-8d25-fb21f86ebdb1",
+        "Type": "Application",
+        "UploadDate": "2011-10-24T10:37:13.767-07:00"
+      },
+      {
+        "Id": "99f423a2-537e-4669-9131-9662ea19f1c0",
+        "FileName": "spasm",
+        "Url": "./2/99f423a2-537e-4669-9131-9662ea19f1c0",
+        "Type": "Application",
+        "UploadDate": "2011-10-24T10:36:35.027-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "3",
+    "Name": "Wabbitemu",
+    "DevelopmentStatus": "Stable",
+    "Description": "Wabbitemu, the best Z80 TI emulator available. For regular users all that is required is the exe file (either 32 or 64 bits depending on your OS). The DLL is used to provide a COM interface into the wabbitemu core allowing developers to use it in their own applications.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2016-02-27T23:46:43.943-08:00",
+    "Files": [
+      {
+        "Id": "e3be3245-885e-408a-99e7-0681e4fd5f5b",
+        "FileName": "Wabbitemu.exe",
+        "Url": "./3/e3be3245-885e-408a-99e7-0681e4fd5f5b",
+        "Type": "Application",
+        "UploadDate": "2016-02-27T23:45:29.143-08:00"
+      },
+      {
+        "Id": "23be2f65-ccff-405c-9f6f-f8f97defaac6",
+        "FileName": "Wabbitemu.exe",
+        "Url": "./3/23be2f65-ccff-405c-9f6f-f8f97defaac6",
+        "Type": "Application",
+        "UploadDate": "2016-02-27T23:46:37.11-08:00"
+      },
+      {
+        "Id": "685347b5-1aea-42de-9424-e7cbcf5b38af",
+        "FileName": "WabbitEmu.zip",
+        "Url": "./3/685347b5-1aea-42de-9424-e7cbcf5b38af",
+        "Type": "Application",
+        "UploadDate": "2013-09-21T12:59:13.06-07:00"
+      },
+      {
+        "Id": "ae2f43b2-d7f6-4222-979c-f5b107af64e6",
+        "FileName": "Wabbitemu-release.apk",
+        "Url": "./3/ae2f43b2-d7f6-4222-979c-f5b107af64e6",
+        "Type": "Application",
+        "UploadDate": "2016-02-27T23:45:04.25-08:00"
+      }
+    ]
+  }
+]

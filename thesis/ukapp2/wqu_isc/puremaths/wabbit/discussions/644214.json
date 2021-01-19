@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1441923",
+    "ThreadId": "644214",
+    "Html": "I downloaded on windows 7 and it worked perfectly.  I got a new computer with windows 10 on it and during the setup a dialogue box appears that says &quot;unable to download&quot;.  Does this have anything to do with my OS on my computer?  Could you make a windows 10 compatible version if possible?<br />\n",
+    "PostedDate": "2015-08-25T20:24:57.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1443064",
+    "ThreadId": "644214",
+    "Html": "I had the same problem w/Win10 on my new PC.  Hope they release a version for Win10.<br />\n",
+    "PostedDate": "2015-09-03T12:59:42.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1443128",
+    "ThreadId": "644214",
+    "Html": "I have had a same problem since upgrading to Windows 10. I've also noticed that it now asks you to set up the calculator every time you start Wabbitemu. Hopefully this will be fixed soon.\r<br />\n<br />\nCould anyone verify if the issue persists after doing a clean install of Windows?<br />\n",
+    "PostedDate": "2015-09-03T23:34:44.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444186",
+    "ThreadId": "644214",
+    "Html": "I have two pcs, one running windows 7 64bit and the other windows 10 64bit. I first installed this on the windows 7 pc and it was fine but the windows 10 pc has the same issue listed above, where it's trying to browse the rom image from my windows 10 pc, <br />\n<br />\nI first selected &quot;Create a ROM image using open source software&quot; Next&gt; <br />\nI selected &quot;TI-84 Plus C SE&quot; emulator then I selected Next&gt; <br />\n&quot;OS Selection <br />\nA calculator OS file is required in addition to a ROM image to emulate TI calculators. How do you want to obtain an OS for Wabbitemu?&quot; <br />\nI selected &quot;Download OS files from TI's website (By downloading you agree to TI's terms) <br />\nTI OS version: OS 4.2&quot;<br />\nthen I clicked Finished<br />\nbut it opened a new window and told me to save, but there was nothing for me to save so I exited out then it says &quot;Unable to download file.&quot;<br />\n<br />\nI tried the other option with no luck.<br />\n",
+    "PostedDate": "2015-09-12T22:50:17.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444187",
+    "ThreadId": "644214",
+    "Html": "If anyone is able to find a solution, please post any ideas here or try contacting the staff of wabbitemu.<br />\n",
+    "PostedDate": "2015-09-12T22:53:14.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444199",
+    "ThreadId": "644214",
+    "Html": "I have my wabbitemu working perfectly in W10 with OS 4.2.<br />\nCan'r remember completely, but maybe I had to run wabbitemu &quot;As Administrator&quot; once to make sure the setting remained as desired.<br />\n<br />\nI started the &quot;Rerun setup wizard&quot; procedure and ended u at the same dead end street as you.<br />\nIt'd appear to me that the OS-file is no longer available through from TI, at least not the location wabbitemu is checking.<br />\nYou'll need to find another source for the desired OS file.<br />\n",
+    "PostedDate": "2015-09-13T03:28:24.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1444212",
+    "ThreadId": "644214",
+    "Html": "I also have it running on Win10 with the slight inconvenience that i sometimes have to select the ROM each time that the calculator starts. Here's what I did:<br />\n<ol>\n<li>\nManually download the OS from the TI website. The TI-84 Plus C Silver Edition can be downloaded from <a href=\"http://bit.ly/1MktYJq\" rel=\"nofollow\">http://bit.ly/1MktYJq</a>.  For anything else, start at <a href=\"https://education.ti.com/en/us/software/search\" rel=\"nofollow\">https://education.ti.com/en/us/software/search</a>.<br />\n</li>\n<li>\nRun the setup and select 'Create a ROM image using open source software'<br />\n</li>\n<li>I selected TI-84 Plus C SE</li>\n<li>On the next page, select 'Browse for OS files on my computer' and use the browse button to select the file that you downloaded. TI84PlusC_OS-4.20.8Cu in the case of the TI-84 Plus C SE</li>\n<li>\nClicking Finish will prompt you to save the ROM image. <br />\n</li>\n</ol>\nAt this point, I have a running emulator.\r<br />\n<br />\n-Mike<br />\n",
+    "PostedDate": "2015-09-13T07:36:03.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1445207",
+    "ThreadId": "644214",
+    "Html": "I tried MALEVY's approach but still no success on Win10.<br />\n",
+    "PostedDate": "2015-09-21T08:39:00.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

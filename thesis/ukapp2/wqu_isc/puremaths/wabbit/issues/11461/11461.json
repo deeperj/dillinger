@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed as of 1.8.2.26 release",
+    "ClosedDate": "2014-03-11T13:06:01.85-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Saw the comment about the TI83+; same deal with the TI84+. Looking forward to being able to resize. \n\nAlso, it took me an hour of clicking before I realized you have to right-click inside the LCD window to bring up the menu - I kept clicking in non-button areas of the skin. Perhaps you could make it so that right-clicking in non-button areas of the skin could bring up the menu?\n\nThanks!",
+    "LastUpdatedDate": "2014-03-11T13:06:01.85-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-12-12T06:50:33.803-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "TI84+ skin not resizeable",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11461
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

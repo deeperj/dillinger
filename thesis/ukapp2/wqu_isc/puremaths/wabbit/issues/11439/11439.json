@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Can someone help me out with saving state in OSx (Mavericks)? No matter what options I select or deselect I cannot get it to open the last state or save it at all. I know this used to work with older versions, but it seems the option is not even there now. Any help would be great!\n\n-Patt3r",
+    "LastUpdatedDate": "2013-12-02T08:27:47.657-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-12-02T08:27:47.657-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Save State in OSX Mavericks",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11439
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

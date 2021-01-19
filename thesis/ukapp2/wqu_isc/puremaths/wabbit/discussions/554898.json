@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1280142",
+    "ThreadId": "554898",
+    "Html": "Hello.<br />\n<br />\nI was able to run Wabbitemu successfully on my ZTE V967S smartphone with Android 4.2.1, but these days I'm unable to run it. The virtual LCD shows nothing, despite I push the ON and other keys. I even checked the ROMs and reinstalled Wabbitemu, no luck at all.<br />\n<br />\nPlease, how to fix it? Ask me any questions or feedback procedure necessary to solve this issue.<br />\n<br />\nKind regards.<br />\n",
+    "PostedDate": "2014-08-01T13:05:25.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1294744",
+    "ThreadId": "554898",
+    "Html": "Hello,\r<br />\n<br />\nI've pushed out a new update for Wabbit that I hope will solve your issue. If it doesn't can you say which type of calc you are trying to emulate?\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-08-29T00:03:52.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

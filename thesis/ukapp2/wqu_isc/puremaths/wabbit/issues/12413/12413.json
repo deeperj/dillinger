@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I downloaded the emualtor recently on my mac.  But for some reason my mouse isn't synced up with the buttons nor is it allowing me to click on or cotnrol the calculator in any way.  If anyone knows a solution for this issue, that'd be great.",
+    "LastUpdatedDate": "2016-09-05T03:20:38.347-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-08-22T07:42:16.727-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "The calculator does not let me use my mouse to control it.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12413
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the same problem on my Mac to, would be really great to get it working again since I use it to teach my classes!",
+      "PostedDate": "2016-09-05T03:20:38.347-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

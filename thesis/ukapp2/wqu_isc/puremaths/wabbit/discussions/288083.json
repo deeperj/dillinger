@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "733480",
+    "ThreadId": "288083",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>Could one of&nbsp; you explain me how I can use Wabbitemu's debuguer to follow the assembling functions executed by an Basic OS rutine ?</p>\r\n<p>My principal problem is that I don't know how I can silmuate the pressing on Enter from the debuguer?</p>\r\n<p><span id=\"result_box\" lang=\"en\"><span>Thank you in advance</span> <span>for your answers.</span></span></p>\r\n<p><span lang=\"en\"><span>Sandro</span></span></p>\r\n<p><span lang=\"en\"><span>&nbsp;</span></span></p>\r\n<p><span lang=\"en\"><span>PS :Sorry for my bad English, I am French</span></span></p>\r\n",
+    "PostedDate": "2012-01-31T13:35:12.81-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "733490",
+    "ThreadId": "288083",
+    "Html": "<p>Hello Sandro,</p>\r\n<p>Your issue is you've written a TI BASIC program and you have a bug with it an you want to use a debugger to find the issue? The problem is that the interperted BASIC code is pretty convoluted. If your intention is to actually disassemble the OS then I reccomend getting a separate disassembly program.</p>\r\n<p>As for&nbsp;fixing your BASIC program I don't know of any BASIC debuggers, but if you post your code here I might be able to help you.</p>\r\n<p>BuckeyeDude&nbsp;</p>",
+    "PostedDate": "2012-01-31T13:50:11.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735055",
+    "ThreadId": "288083",
+    "Html": "<p>Hello,</p>\r\n<p><span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">thank you for</span> <span class=\"hps\">your answer.</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">&nbsp;</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">My intension is intestand one OS rutine : the writing at flash memory. Therefore I am trying to disasemble the archiving routine (the function Archive).</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">All this is to intend intestand why it isn't possible to modify dhe Rom of a TI82stats, or find how it is possible do it.</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">&nbsp;</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">Sandro</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">&nbsp;</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">PS : the Archive function don't can be use in a TI-BASIC programm, so I have to start it from the home screen.</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">&nbsp;</span></span></p>",
+    "PostedDate": "2012-02-01T10:38:09.903-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735140",
+    "ThreadId": "288083",
+    "Html": "<p>Hello again,</p>\r\n<p>Unfortunately the reason you can't modify the ROM of the 82 stats is because the memory isn't flash memory, its ROM (Read only memory).&nbsp; This means theres no such thing as 'Archive', you have to store everything in RAM. If all you need to do is modify the memory in the emulator then you can simply open the debugger and use the memory view at the bottom to edit byte by byte, but this is no good for doing something like writing a&nbsp;program.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-02-01T11:24:47.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735167",
+    "ThreadId": "288083",
+    "Html": "<p>I know that normal, a TI82stats.fr couldn't write on ROM, but next <a href=\"http://datamath.org/\">http://datamath.org/</a>&nbsp;for example, a TI82stats.fr have the same flash-ROM that an TI83+ (exept that we have to make a litel hardware modification to have <span id=\"result_box\" class=\"short_text\" lang=\"en\"><span class=\"hps\">theoretically acc&egrave;s on the second half of flash-ROM and ther are not Boot-Code). The problem is that despite the hardware modification, next Critor (cf TI-Planet), the calculator do not accept write in the Flash-ROM, and I would intestand why?</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">Therfore, I would intestand how the TI83+ make to write at archive, to intent make the same on a TI82stats.fr.</span></span></p>\r\n<p><span class=\"short_text\" lang=\"en\"><span class=\"hps\">&nbsp;</span></span></p>\r\n<p><span id=\"result_box\" lang=\"en\"><span>Thank you in advance</span> <span>for your answers.</span></span></p>\r\n<p><span lang=\"en\"><span>Sandro</span></span></p>",
+    "PostedDate": "2012-02-01T11:41:11.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735177",
+    "ThreadId": "288083",
+    "Html": "<p>Ah I see. If you're looking for the bare minimum for writing to flash, I suggest looking at this code: <a href=\"http://pastebin.com/a8VYDpum\">http://pastebin.com/a8VYDpum</a>. These routines are the bare minimum to write to flash on the 83+ and 84+ series. It may be slightly different for the chip in the 82 stats.fr so I reccomend googling the data sheet for the flash chip. They're usually provided by the manufacturer and will explain exactly how to write to flash.</p>",
+    "PostedDate": "2012-02-01T11:48:43.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "735246",
+    "ThreadId": "288083",
+    "Html": "<p>Thanks for this code, I will look what I can entestand of this.</p>\r\n<p>&nbsp;</p>\r\n<p>Sandro</p>",
+    "PostedDate": "2012-02-01T12:32:01.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1477317",
+    "ThreadId": "655900",
+    "Html": "Hello,<br />\n<br />\nDoes the Wabbitemu TI Calculator Emulator support the TI 84 Plus CE calculator?  We currently own one.  TI offers that expensive program, SmartView CE, which allows us to connect our calculator to the PC and control it via the PC or have whatever we do on the calculator show up on the screen on the PC.   We don't really have 150$ to spend on the program and was hoping this Wabbitemu emulator would do the same as the SmartView CE application.<br />\n<br />\nWe downloaded Wabbitemu.  I couldn't find a way to dump the ROM off this calculator nor could I find a copy of the ROM on the internet.  Is this because the TI 84 Plus CE isn't supported yet or are we doing something wrong?   We can download the OS directly from TI's website.   We're just not sure how to get a copy of the actual ROM.   We've tried rom8x with no success.   The program won't run.  We've tried running it through PRGM and with the asm() function.   Any help is greatly appreciated.<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2016-06-26T19:16:27.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1480223",
+    "ThreadId": "655900",
+    "Html": "There actually is one at <a href=\"https://github.com/CE-Programming/CEmu\" rel=\"nofollow\">https://github.com/CE-Programming/CEmu</a>\r<br />\n<br />\nIT may have complicated your efforts due to CEmu also being the name of a game console emulator, which this is not\r<br />\n<br />\nHappy emulating!,\r<br />\n<br />\nLucas<br />\n",
+    "PostedDate": "2016-08-01T20:43:12.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

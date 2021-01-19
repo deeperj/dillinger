@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1441207",
+    "ThreadId": "643991",
+    "Html": "I have been trying to download the Wabbitemu program. I get to the step of creating a ROM, and I pick a location, but then it tells me &quot;unable to download.&quot; It is insanely frustrating!! Does anyone know how to fix this problem?? PLEASE HELP!<br />\n",
+    "PostedDate": "2015-08-20T17:38:03.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1441888",
+    "ThreadId": "643991",
+    "Html": "My students have the same problem, does somebody know what the problem may be?<br />\n",
+    "PostedDate": "2015-08-25T12:15:47.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1441924",
+    "ThreadId": "643991",
+    "Html": "It seems that the problem is trying to download the rom from TI.  I had an old rom file and it works with it.  Any ideas why TI would block us from downloading this?<br />\n",
+    "PostedDate": "2015-08-25T20:59:53.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1441932",
+    "ThreadId": "643991",
+    "Html": "Okay,  It looks like you need to download the OS from TI to your computer first.  When you run the setup wizard, you need to select &quot;Create a ROM image using open source software&quot;.    Select the calculator type for the OS you downloaded and click &quot;Next&quot;.  On the OS Selection screen, click the button for &quot;Browse for OS files on my computer&quot;.  Navigate to where you saved the OS.  Click &quot;Finish&quot;.<br />\n",
+    "PostedDate": "2015-08-25T22:31:25.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1442588",
+    "ThreadId": "643991",
+    "Html": "On the Android app, it will not download the ROM, and I don't know where to put the ROM in order for the app to find it. When I get to OS Selection, there is a blank screen. I have ROMs to use, but I can't use them because the app doesn't find them.<br />\n",
+    "PostedDate": "2015-08-31T12:59:01.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1442593",
+    "ThreadId": "643991",
+    "Html": "I see what you mean mkesselman, but were do I find th OS, can you please send a link?<br />\n",
+    "PostedDate": "2015-08-31T13:14:17.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1442765",
+    "ThreadId": "643991",
+    "Html": "KerstinS\r<br />\n<br />\n<a href=\"https://education.ti.com/en/us/software/search/ti-84-plus-c-silver-edition#view=handheld-operating-system\" rel=\"nofollow\">https://education.ti.com/en/us/software/search/ti-84-plus-c-silver-edition#view=handheld-operating-system</a>\r<br />\n<br />\nEvilBigHead--can't help with Android.  My son downloaded it last year.  None of my students have mentioned having problems yet this year.<br />\n",
+    "PostedDate": "2015-09-01T21:35:49.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

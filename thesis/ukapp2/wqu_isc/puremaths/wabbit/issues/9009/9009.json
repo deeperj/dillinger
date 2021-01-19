@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "It started when I was editing a file.  Every time I typed \"#define\", WabbitCode crashed.  Later, I typed in \"#define\" and hit \"Save\".  The program crashed once again.  Now, the program just crashes upon startup.  I tried rebooting and deleting temporary files, but nothing seems to work.\n \nWabbitcode Version: Updated today (7/31/11) via in-program update.  \nSystem: Windows 7 (64 bit)",
+    "LastUpdatedDate": "2013-02-21T17:44:17.137-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2011-07-31T00:02:56.353-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WabbitCode Crashes on Startup",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 9009
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Wabbitcode windows has ma,ny bugs, that's why buckeydude said he is rewritting a new version that will work like a charm ! :)",
+      "PostedDate": "2012-01-20T08:18:31.69-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2012-06-23T07:33:53.35-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T09:58:38.423-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T09:59:20.227-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T10:00:00.477-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T10:00:10.77-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T10:00:50.633-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-19T10:01:00.593-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:17.137-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

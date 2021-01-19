@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "533523",
+    "ThreadId": "237766",
+    "Html": "\r\n<p>I'm a teacher new to graphics calculators, trying to work out how to get pupils to use their Ti84s while I demonstrate on a pc linked screen with the emulator.</p>\r\n<p>&nbsp;</p>\r\n<p>The options I get with the keys Alpha, then F1 (or F2...) are different on the emulator to my actual TI84 (which works in line with the actual instruction book).</p>\r\n<p>&nbsp;</p>\r\n<p>I see this is a new update. &nbsp;Am I being silly (wrong mode or something) or is there an issue here?</p>\r\n<p>&nbsp;</p>\r\n<p>so for Alpha followed by F1, the real ti84 gives a menu tab called FRAC and options 1- 5 al about entering fractions.</p>\r\n<p>The Wabbitemu gives plot1, plot2, plot3, and asks for values for Y1, Y2... Y7.</p>\r\n",
+    "PostedDate": "2010-12-09T10:03:16.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534244",
+    "ThreadId": "237766",
+    "Html": "\r\n<p>Hey Mickey,</p>\r\n<p>The issue you have is that the real calculator is using OS 2.53 MP (the latest TI OS) and the rom you are using for the calculator is using something lower (probably 2.43). To fix this you should be able to go grab the newest OS from TI's website and load\r\n it into Wabbitemu.</p>\r\n<p>Let me know if that fixes your issue and keep me updated on how well wabbit works for you in the classroom.</p>\r\n",
+    "PostedDate": "2010-12-10T18:17:36.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536902",
+    "ThreadId": "237766",
+    "Html": "\r\n<p>&gt; keep me updated on how well wabbit works for you in the classroom.</p>\r\n<p>It works very well!&nbsp; I appreciate the nice sharp image, especially when projected onto a screen.&nbsp; Can't wait to try it with a smartboard.</p>\r\n<p>If you're looking for ideas to make it better/easier to use, here are a few:</p>\r\n<p>- When demonstrating something to students on the screen, it would be nice for students to be able to see what keys were pressed to do some task.&nbsp; Wabbitemu has a good visual feedback when pressing a key, but no way for a student to know what was hit\r\n if they weren't looking at that moment.&nbsp; An option to show a list of recent keys pressed would be great, or perhaps even just an optional indicator like a yellow outline of the last key pressed.</p>\r\n<p>- Make &quot;Enable Skin&quot; the default.</p>\r\n<p>- In the ROM Setup Wizard: Most school users are not familiar with running assembly programs.&nbsp; Could you also send a 1 line BASIC wrapper program containing Asm(prgmROM8X) and instruct users to run that one instead.&nbsp; Since there's the option of\r\n auto-sending ROM8X via TI-Connect, would it be possible to auto-receive D84PSE1.8xv and D84PSE2.8xv in the same way?&nbsp; If not, it would be easier to transfer these two files manually if they were both Archived so that they'd both be in the same place in\r\n TI-Connect (not to mention saving ram if users don't know to go back and delete D84PSE2.8xv).</p>\r\n<p>- I'm looking forward to the key assignment option working. (My habit of hitting Backspace for editing is hard to break.)</p>\r\n<p>You've got a sweet program here.&nbsp; Keep up the great work.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-16T10:59:54.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537056",
+    "ThreadId": "237766",
+    "Html": "\r\n<p>- When demonstrating something to students on the screen, it would be nice for students to be able to see what keys were pressed to do some task.&nbsp; Wabbitemu has a good visual feedback when pressing a key, but no way for a student to know what was hit\r\n if they weren't looking at that moment.&nbsp; An option to show a list of recent keys pressed would be great, or perhaps even just an optional indicator like a yellow outline of the last key pressed.</p>\r\n<p>Hmm this is a tricky one. Keeping a list of keys is doable, although there is a difference between the keys you press and the input the calculator receives (I'm not sure which one is more important to you). Another possibility is to make it so that you can\r\n specify a period of time for the key highlight to appear for (say 2 seconds of highlighting that key). This has the advantage of working nicely with the existing stuff but isn't as clear as a list. I'll play with a couple things and see how it turns out.</p>\r\n<p>- Make &quot;Enable Skin&quot; the default.</p>\r\n<p>Eh. Spencer and I personally perfer the skinless mode (which is why its like this), and its not hard to change. This along with the option to save your state on exit by default is the two I hear about often. And since it really just comes down to preference\r\n I'm just going to keep it how it is for now, sorry.</p>\r\n<p>- In the ROM Setup Wizard: Most school users are not familiar with running assembly programs.&nbsp; Could you also send a 1 line BASIC wrapper program containing Asm(prgmROM8X) and instruct users to run that one instead.&nbsp; Since there's the option of\r\n auto-sending ROM8X via TI-Connect, would it be possible to auto-receive D84PSE1.8xv and D84PSE2.8xv in the same way?&nbsp; If not, it would be easier to transfer these two files manually if they were both Archived so that they'd both be in the same place in\r\n TI-Connect (not to mention saving ram if users don't know to go back and delete D84PSE2.8xv).</p>\r\n<p>Haha how did I know this was going to come up. I suppose I could write&nbsp;a wrapper program, I was just hoping to avoid it. I rewrote rom8x (it used to require running two programs and different programs depending on the model calcuator you were dumping),\r\n and added my awesome graphic showing how to do it, but I guess you're right, a BASIC program would be best. Also for auto-receiving the appvars I don't think this is possible. I haven't found a nice way to talk to TIConnect so all I do is just load the program\r\n into the sender. I could probably open the program you use to grab the app vars from but thats about it. As for not putting the second var in flash, its because I don't like killing your flash chip. I forget that TI doesn't list them in the same place, I can\r\n fix that.</p>\r\n<p>- I'm looking forward to the key assignment option working. (My habit of hitting Backspace for editing is hard to break.)</p>\r\n<p>Oh yeah, that. Should probably finish that :P. It actually was working, it just wasn't persistent after you closed wabbit. And then I forgot about it and it broke itself.</p>\r\n<p>Thanks for all your feedback I'll see if I can get your issues fixed and upload a new build sometime tonight.</p>\r\n",
+    "PostedDate": "2010-12-16T16:24:39.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564375",
+    "ThreadId": "237766",
+    "Html": "<p>Just a little update on this, I did get around to adding a list of the keys that have been pressed and finished allowing custom key assignments. If you haven't already this might make it a worthwhile update for some of you teachers out there.</p>",
+    "PostedDate": "2011-02-10T21:24:04.837-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

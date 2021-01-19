@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "781712",
+    "ThreadId": "329058",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>How do I set wabbitEMU to NOT check for updates?</p>\r\n<p>&nbsp;</p>\r\n<p>There is no option in the menus that I can see.</p>\r\n<p>&nbsp;</p>\r\n<p>I've tried adding 'groups.revsoft.org' to the host file to block checking, but that didn't work.</p>\r\n",
+    "PostedDate": "2012-02-19T15:32:46.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "782885",
+    "ThreadId": "329058",
+    "Html": "<p>Currently there is no option to disable checking for updates. Often I will use the update to patch certain issues and ensure I don't receive reports for bugs that have been fixed several versions ago. Wha treason do you have for not wanting to use the updater?</p>",
+    "PostedDate": "2012-02-19T20:32:04.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "786309",
+    "ThreadId": "329058",
+    "Html": "<p>I&nbsp; have just started using wabbitEMU and installed it on several computers around the house... thinking this was a better solution than the VTI program I had been using.</p>\r\n<p>It really should have an option to shutoff automatically chekcing for  updates - on a dialup connection it takes quite awhile for the download  to complete.</p>\r\n<p>The program works just fine as is and if I find a bug I'll manually update the program as needed. The only problem I've seen so fa is when the 'cutout' skin is used the button presses don't flash... the solution is simple; don't use the 'cutout' skin! :)</p>\r\n<p>It's annoying to have to either download or click 'no' when all I want to do is use the calculator for 5-seconds!&nbsp; Clicking 'no' still asks next time program is launched.</p>\r\n<p>Turning off updating needs to be a user option.</p>",
+    "PostedDate": "2012-02-20T16:14:40.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "786567",
+    "ThreadId": "329058",
+    "Html": "<p>Fair enough I'll put it in the next build. Unfortunately I'm in the middle of ripping apart the debugger, so it'll be another day or so.</p>\r\n<p>As for the cutout skin not highlighting keys, its a technical limitation. Lower end machines were seeing a lot of slowdown when pressing several keys at once, so I disabled it.</p>",
+    "PostedDate": "2012-02-20T17:18:16.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "797588",
+    "ThreadId": "329058",
+    "Html": "<p>Hi BuckeyeDude,</p>\r\n<p>I've just tried your last WabbitEmu version from yesterday,<br />and this release works great - and it's really fantastic<br />that it now also emulates the TI-81! :-)</p>\r\n<p>There's only one small problem I've found:<br />If I turn on the option &quot;Automatically turn on calculator&quot;,<br />then this feature works when I start WabbitEmu or when I<br />use 'File&gt;New', but it does not work when I switch to an other<br />emulation with 'File&gt;Open'.<br />The new opened calculator does not automatically turn on,<br />and it can't even be turned on manually in the Debug menu<br />when this option is activated.<br />Not a big deal, but maybe you can try to fix it.</p>\r\n<p>Thanks again for your great work,<br />Franz</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-02-23T06:15:04.263-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "798949",
+    "ThreadId": "329058",
+    "Html": "<p>&nbsp;</p>\r\n<p>Thanks for adding the option to turn off updates!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-02-23T22:32:53.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

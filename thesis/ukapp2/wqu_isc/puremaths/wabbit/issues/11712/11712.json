@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-06-09T00:53:39.053-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I accidentally set my emulator to cut out mode and now I can't find a way to switch it back to non cut out mode or to even change the settings for that matter. Is there a keyboard shortcut or another way to access the settings or change it back?",
+    "LastUpdatedDate": "2014-06-09T00:53:39.053-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-05-13T18:20:57.817-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "How to access settings in cut out view?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11712
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hello,\r\n\r\nYou can access the normal Wabbitemu menus by right clicking on the LCD.\r\n\r\nLet me know if you have any other questions or issues.\r\n\r\nBuckeyeDude",
+      "PostedDate": "2014-05-17T04:28:01.147-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-06-09T00:53:39.053-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

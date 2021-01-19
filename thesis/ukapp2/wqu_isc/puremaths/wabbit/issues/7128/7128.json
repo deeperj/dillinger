@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Done",
+    "ClosedDate": "2010-09-13T20:50:39.27-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Probably never got carried over from the old COM stuff",
+    "LastUpdatedDate": "2013-05-16T05:08:25.293-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-09-04T20:57:28.493-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Drag and drop from zip files fails",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7128
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

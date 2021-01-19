@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1348079",
+    "ThreadId": "579184",
+    "Html": "I have the T-84 Plus C SE emulator on my PC but would also like to have the Ti-83 Plus emulator as well. But every time I open the wabbitemu.exe file, it only opens the Ti-84 Plus C SE calculator. How do I get the other emulator installed?<br />\n",
+    "PostedDate": "2015-02-01T19:31:47.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1348395",
+    "ThreadId": "579184",
+    "Html": "If you have the rom image for both calculators on you pc then right click on the screen area of the calculator then select help click on rerun the setup wizard when the wizard comes then browse for the rom image of the calculator you wish to use then click finish<br />\n",
+    "PostedDate": "2015-02-02T13:07:14.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1348429",
+    "ThreadId": "579184",
+    "Html": "Thanks for your reply milford. But will doing that replace my Ti-84 emulator with the Ti-83? Or would I have both versions installed and be able to run both simultaneously? <br />\n",
+    "PostedDate": "2015-02-02T15:15:36.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1351440",
+    "ThreadId": "579184",
+    "Html": "I'd like the answer to the exact same question. Can I have two separate calcs running simultaneously with different ROM ? This would be very helpful when students have different calcs and you need to show the procedure for the 83 vs the 84. Thanks.\r<br />\n<br />\nP.S. This is a wonderful tool. Thanks for developing it.<br />\n",
+    "PostedDate": "2015-02-11T08:45:54.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353309",
+    "ThreadId": "579184",
+    "Html": "Answer is yes. You can run up to 8 calcs simultaneously. File-&gt;New will create a new instance of the current file. This means if you created a rom file it will open the rom file again. If you loaded a savestate it will reload that. You can then open a new rom or continue running the same rom file. If you're using a savestate with auto save, remember that the last closed calc will be the state that is saved.<br />\n",
+    "PostedDate": "2015-02-17T01:07:51.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

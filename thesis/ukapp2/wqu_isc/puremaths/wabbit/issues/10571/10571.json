@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I downloaded WabbitEmu 2.1 on my Mac OSX 10.8.2.\n\nWhen I start WabbitEmu, I choose File -> Open and choose my ROM (ti82, ti83, etc).\n\nAfter that, if I click with my mouse on the calculators buttons, the mapping is all weird. On my TI82, when I click on Graph, it input log(...\n\nMany buttons simply do not produce anything. My roms are good because they work fine in Tilem in Linux.\n\nDo you have any idea?",
+    "LastUpdatedDate": "2014-03-28T06:07:07.813-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-11-01T09:52:06.86-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Problem with mouse and key on Mac",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10571
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "i had the same issue. are you using the retina display macbook? if so, its the high dpi resolutions/retina resolution mode that i guess wabbitemu does not support. i use an app called quickres to switch to the standard res mode like on a regular macbook and it now works perfectly at 1920x1200 standard resolution. ",
+      "PostedDate": "2014-03-26T21:54:58.35-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Maybe this can solve the problem but I think it would be better to fix wabbit to work with Retina display. I don't think that in the long term, always changing the screen resolution to go back to non-retina is the solution.\r\n\r\nBut thank you for the fix for now!",
+      "PostedDate": "2014-03-28T06:07:07.813-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

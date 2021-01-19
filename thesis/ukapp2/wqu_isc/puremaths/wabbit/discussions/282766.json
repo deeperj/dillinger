@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "711373",
+    "ThreadId": "282766",
+    "Html": "\r\n<p>Hi, I got some problems with TI-86 emulation.</p>\r\n<p><strong>Bug #1:</strong> it seems like uploading programs (*.86p files), and possibly other variable types too, to TI-86 does not work correctly. The variable name in the calculator is wrong (last character missing), and it's not possible to access it in\r\n anyway. The &quot;Open&quot; command doesn't recognize any TI-86 variable files either (I have to choose &quot;All files&quot;).</p>\r\n<p><strong>Bug #2:</strong> pressing Debug -&gt; Reset calculator doesn't work. If I press it, the calculator shuts down, and when I press On, the calculator crashes with some random garbage pixels on the screen. Pressing &quot;Reset calculator&quot; won't solve the\r\n problem. I have to restart WabbitEmu to get it reset correctly.</p>\r\n<p>It would be nice if TI-86 support was added, because there's really no other Windows emulators except for the old VTI 2.5 beta 5.</p>\r\n<p>For TI-86 variable format, see&nbsp;http://www.ticalc.org/pub/text/calcinfo/tixx_guide.zip (I guess you know this already though).</p>\r\n<p><strong>Bug #3:</strong>&nbsp;The pixels on the screen are not drawn correctly. I mean, look at this picture:&nbsp;<a href=\"http://users.jyu.fi/~mikkalle/wabbit_pixelbug.png\"></a><a href=\"http://i.imgur.com/reKz8.png\">http://i.imgur.com/reKz8.png</a>&nbsp;You\r\n can clearly&nbsp;see some pixels are wider than others.</p>\r\n<p>I'm using TI-86 ROM version 1.6. My OS is Windows 7 SP1 32-bit.</p>\r\n",
+    "PostedDate": "2011-12-13T04:21:02.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711399",
+    "ThreadId": "282766",
+    "Html": "<p>Hello,</p>\r\n<p>Thanks for the feedback on the 86. We don't have very many users of it so emulation is a little poorer than it is for the 83+ family.</p>\r\n<p>1. I tested a couple programs and strings&nbsp;on 1.3 and 1.6 and they seemed to send fine (ie sent properly and no characters cut off). Can you link me to some specific programs that you tried to trasfer and failed?</p>\r\n<p>2. Fixed this one. You can get it from the downloads page.</p>\r\n<p>3. Unfortunately there's not a lot I can do here. This is the best rendering mode Windows has without moving to DirectX, which is not something I want to require for a little program like this. The problem is that the 86 has rectangular pixels and your computer does not. So I'm fitting 256 pixels into a ~200 pixel area. I've made the screen as wide as I can without making the skin look too distorted, unfortunately there just isn't enough real estate to fit it all in.</p>",
+    "PostedDate": "2011-12-13T05:17:36.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "711416",
+    "ThreadId": "282766",
+    "Html": "<p>After some investigation, it seems that upload works only for some files. I failed with this game called FreeCell:&nbsp;<a href=\"http://www.ticalc.org/pub/86/asm/games/freecell.zip\">http://www.ticalc.org/pub/86/asm/games/freecell.zip</a> but on the other hand, I succeeded to upload Advanced Text Editor:&nbsp;<a href=\"http://www.ticalc.org/pub/86/asm/programs/ate.zip\">http://www.ticalc.org/pub/86/asm/programs/ate.zip</a>&nbsp;so there must be some bug somewhere.</p>\r\n<p>This is what was in calculator after uploading FreeCell:&nbsp;<a href=\"http://imgur.com/5rbj9\">http://imgur.com/5rbj9</a>&nbsp;(invalid last character, and thus not accessible).</p>\r\n<p><strong>Another bug: </strong>View -&gt; Variables doesn't work (if it is supposed to view all variables in the calculator). The window is just empty. Refresh and Export buttons don't do anything.</p>\r\n<p>Thanks for fixing the resetting bug quickly!</p>\r\n<p>About the pixel bug - would it be possible to let the emulator assume that the pixels are squares? I mean could it be an option in the menu, for example?</p>",
+    "PostedDate": "2011-12-13T05:41:46.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712373",
+    "ThreadId": "282766",
+    "Html": "<p>Thanks for fixing the upload bug, I can upload FreeCell fine now! And variables window works now too, except that it claims that those fStat, xStat and yStat are strings, but they are actually lists.</p>\r\n<p>I found a couple of more problems, I'll summarize them here:</p>\r\n<ol>\r\n<li>Keyboard mapping is broken. For example, when pressing 'A' on keyboard, it toggles the 'GRAPH' button on calculator.</li>\r\n<li>In Menu-&gt;Open, the filter \"Known File Types\" doesn't recognize any TI-86 files.</li>\r\n<li>I guess the \"Target memory\" option (in Menu-&gt;Open dialog) in the case of TI-86 emulation should be restricted to \"RAM\".</li>\r\n<li>\"Detached LCD\" window is buggy. For me it shows a white (or sometimes black) vertical stripe on the right side of it.</li>\r\n<li>When pressing \"Clear keypresses\" in Keypress history window, WabbitEmu crashes. I also noted that it takes an unusual long amount of time to open this window.</li>\r\n<li>\"Save keypresses\" opens the Save dialog, but it doesn't save anything when I click Save.</li>\r\n<li>When \"Use cutout skin\" is enabled, the keypresses are not animated in the calculator window.</li>\r\n<li>\"Copy last answer\" doesn't work (if it's supposed to copy the \"Ans\" variable to clipboard).</li>\r\n</ol>\r\n<p>Small feature request: \"Automatically turn on calculator at startup\" -option.</p>",
+    "PostedDate": "2011-12-14T14:01:19.707-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712453",
+    "ThreadId": "282766",
+    "Html": "<p>Yeah wasn't quite done with the vars yet. Now I am. I think</p>\n<p>1. Fixed</p>\n<p>2. Fixed</p>\n<p>3. Fixed</p>\n<p>4. Fixed</p>\n<p>5. Fixed. Tell me if it still takes a long time to open</p>\n<p>6. Its not intended to yet. Still working on a file format that saves what I need.</p>\n<p>7. Its a technical limitation. I did write the code for it, but it performs too poorly on low end computers. I'm investigating a better way to do this currently.</p>\n<p>8. Yeah I need to do more research on this. Should be done by tomorrow</p>\n<p>I've also implemented this new feature request.&nbsp;You&nbsp;might&nbsp;like the 'reload savestate' option more. This will save the entire calculator state on&nbsp;exit&nbsp;and reload it so its like you never closed the application.</p>",
+    "PostedDate": "2011-12-14T18:44:17.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "712602",
+    "ThreadId": "282766",
+    "Html": "<p>Thanks again for quick fixes and reply! I tested some more things and list them again:</p>\r\n<ol>\r\n<li>It still takes relatively long time to open Keypress history -window (about 1 second after clicking the menu item).</li>\r\n<li>If Keypress history is non-empty, pressing \"Save Keypresses\" and then \"Cancel\" crashes WabbitEmu.</li>\r\n<li>It seems like WabbitEmu messes up save states and ROM images somehow. I mean, I saved a state with name \"test.sav\", and then in Options-&gt;ROM it said that the ROM filename is \"test.sav\" although it was \"TI86_16.ROM\" before saving state. It also seems that the \"Reload last savestate\" -option has no effect (it always loads the last savestate regardless of whether this is checked or not). And when I delete the save state file, WabbitEmu asks for a ROM image at startup.</li>\r\n<li>There might be something wrong with save state loading - sometimes the calculator doesn't work after loading state, and the variables window is always empty. Even resetting calculator doesn't work in this case, so I have to delete the save state file.</li>\r\n<li>When a ROM image is loaded and the emulator is started for the first time, there's something wrong with the skin. The emulator starts without skin but when I click the window border, the skin suddenly appears, although View-&gt;Enable skin appears to be not checked.</li>\r\n<li>\"Detached LCD\" screen can only be enlarged by dragging from the window corner (should be possible to enlarge from window sides too). Shrinking works from sides too.</li>\r\n<li>\"Detached LCD\" window doesn't accept keypresses from keyboard (I must activate the main window).</li>\r\n<li>File-&gt;Close -option is a bit misleading because it only minimizes the calculator. I'd say it's a useless option anyway.</li>\r\n<li>AVI file recording is a bit inefficient, a 5 second clip takes 12mb of space. Also, there seems to be some wrong pixels at the bottom-left corner of the video:&nbsp;<a href=\"http://i.imgur.com/jUYgE.png\">http://i.imgur.com/jUYgE.png</a></li>\r\n</ol>\r\n<p>Another small feature request: Would be cool to be able to drag-n-drop files to calculator window straight from Windows Explorer. Possibly many at a time.</p>",
+    "PostedDate": "2011-12-15T02:13:03.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "713088",
+    "ThreadId": "282766",
+    "Html": "<p>1. I've found the cause and I'm working on a way around this.</p>\n<p>2. Fixed</p>\n<p>3. This is how save states work. They replace your ROM, as they contain all the information of the ROM and then some. A save state is handy as it saves both RAM and ROM, whereas the ROM file is just that. Also the reload last savestate option is poorly named, it means a save state is created and restored automatically on exit, meaning nothing is ever lost.</p>\n<p>4. If you come across a savestate that doesn't work, I'd like to test it. I did some tests and I never reproduced the issue.</p>\n<p>5. Fixed.</p>\n<p>6. This is as designed. You're not allowed to resize it from the sides because we make sure the scale stays the same. To keep consistent actions consistent, we only allow resizing by the corner.</p>\n<p>7. Again as designed. However a number of people have asked why this is so I'm changing it.&nbsp;Hopefully it&nbsp;will avoid confusion.</p>\n<p>8.&nbsp;Excellent catch. Apparently the CloseWindow function in windows doesn't close the window.</p>\n<p>9.&nbsp;A known issue, and a technical limitation.&nbsp;The avi is&nbsp;uncompressed (thus the large size) and I've yet to figure out&nbsp;how to setup a proper codec to&nbsp;compress it. I'll check out the bottom 8 pixels or so, its probably an issue copying it.</p>\n<p>Drag and drop is already implemented, just drag on to the screen. Also I'm testing out a new way to render the 86 screen tell me if you like it better or worse.</p>\n<p>Thank you very much for all your feedback, you've been a huge help. It's always nice to get feedback, but you've gone above and beyond, providing good details&nbsp;and finding lots of uncaught bugs. One of the hardest things to do is get people to give helpful reports and you've done an amazing job, thanks again.</p>",
+    "PostedDate": "2011-12-16T00:11:15.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "713167",
+    "ThreadId": "282766",
+    "Html": "<p>Comments on previous ones:</p>\n<p>4. After some testing, I'm 99% sure that the bug is not in save state file, but with the \"Turn calc on automatically\" -option. Probably the emulator tries to adjust the instruction pointer somehow, which causes a crash (or weird errors) when loading a state (when using File-&gt;Open command).  Well, at least I never got the bug when that option was disabled.</p>\n<p>6. Ok, so I guess the bug is: It is possible to shrink the Detached LCD window from the sides, although it shouldn't be (only corner allowed).</p>\n<p>I didn't notice that the area for drag-n-drop was the LCD area, nice! And about the new screen rendering style - I think it's slightly better than the old one.</p>\n<p>I was a bit unsure when I posted the first message because there was a chance that no one would care about my minor problems. But once you replied, I knew it would make sense to continue finding and posting every possible bug/problem. Hence, thanks to you  too!</p>\n<p>Next bugs that I found, more or less serious ones:</p>\n<ol>\n<li>The icon in Calculator Variables -window is wrong (it's the default Windows icon). </li>\n<li>Variables of type Vector or Constant are not recognized by the Calculator Variables -window. </li>\n<li>For TI-86, I guess the \"In RAM\" info in Calculator Variables -window is useless (because it's always True). </li>\n<li>Resizing Calculator Variables -window doesn't work well. The texts at the bottom stay in the same position relative to the top-left corner of the window. </li>\n<li>Keypress history -window doesn't have any icon. The window is not visible in taskbar either. </li>\n<li>Delete key is mapped to \"MORE\" key on calculator, but it would be better to map it to \"DEL\" by default (and End key would then map to \"MORE\"). </li>\n<li>When calculator is turned on, the \"Debug-&gt;Turn on calculator\" should either be disabled/hidden or changed to \"Turn off calculator\". </li>\n<li>The preview panel in File-&gt;Open dialog has wrong size for TI-86. This can be noticed by previewing some save state file. </li>\n<li>If default keys are modified for the menus, they are not updated to the menu texts. </li>\n<li>The names of keys in Options-&gt;Keys are given in the same language as the system locale. I'd prefer them in English. </li>\n<li>When I pause the calculator (Calculator-&gt;Speed-&gt;Pause) and then try to press some button with mouse, the button stays down, and after that I cannot open any menus. Plus, if I try to move the calculator window, it jumps to the left side of the screen, and  I cannot move it. </li>\n<li>When WabbitEmu is started, there is no selection in Calculator-&gt;Speed menu (although 100% should be selected by default I guess). </li>\n<li>In the custom speed setting window, the label and tooltip text for the lowest speed are different (1% and 5%). </li>\n<li>If you press Cancel in the custom speed setting window, the selection is still updated to \"Custom\" in the Calculator-&gt;Speed menu. </li>\n</ol>\n<p>One more feature request that would be extremely useful:</p>\n<p>Ability to emulate a sequence of calculator keypresses with a single key on keyboard. For example, if I pressed Backspace on keyboard, it would send [Left arrow] + [Del] to calculator. Maybe this could be implemented with the help of Keypress history window  (select a number of consecutive keypresses, then assign that sequence to some key on keyboard).</p>",
+    "PostedDate": "2011-12-16T03:56:34.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "713580",
+    "ThreadId": "282766",
+    "Html": "<p>I've changed it so that it doesn't try to turn on&nbsp;if its loading a save state. Also I fixed the issue with resizing from the sides.</p>\r\n<p>1. Fixed</p>\r\n<p>2. Fixed. I put constants under real, and vectors under matrices. I know its not perfect but I don't have icons for any new types.</p>\r\n<p>3. I'm keeping this for consistency. It doesn't hurt to have and its consistent with using the var tree for other calculators.</p>\r\n<p>4. Fixed. I've been meaning to do this for a while.</p>\r\n<p>5. Fixed</p>\r\n<p>6. Fixed</p>\r\n<p>7. As designed. Its primarily for debugging things, not meant for turning the calc on and off.</p>\r\n<p>8. Still working on a fix for this</p>\r\n<p>9. Fixed</p>\r\n<p>10. Not sure what you're talking about here. I don't localize anything, so anything not in English is Windows not me.</p>\r\n<p>11. Fixed</p>\r\n<p>12. Fixed</p>\r\n<p>13. Fixed</p>\r\n<p>14. Fixed</p>\r\n<p>This feature is something I've been working towards for a while. This is one of the major reasons for having the key history. You'll be able to save, load, record and playback keys. Its a good idea to be able to assign these macros to a key. So yes its coming, but not immediately.</p>",
+    "PostedDate": "2011-12-17T05:02:49.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "713685",
+    "ThreadId": "282766",
+    "Html": "<p>Nice fixes, except that number 9 still doesn't seem to work for me. Menu texts are not getting updated if I change shortcut keys. And I'm happy you've thought about the same feature too.</p>\r\n<p>New:</p>\r\n<ol>\r\n<li>If I check \"Use custom skin\" but if the filename is invalid and try to apply options, it displays the messagebox \"Custom skin failed to load\" and after pressing OK, Wabbitemu crashes. Also, the messagebox should be modal - now it's possible to ignore the messagebox. If you leave it open and try to close Options window, you get a new messagebox. And so on.</li>\r\n<li>Small bug in skin:&nbsp;<a href=\"http://imgur.com/2MQuo\">http://imgur.com/2MQuo</a></li>\r\n<li>(The following ones are about the debugger.)&nbsp;Flash tabs should be hidden for TI-86. And I'm not totally sure what the difference between \"Mem\" and \"RAM\" views is.</li>\r\n<li>Adding/removing memory views is buggy. Sometimes I get duplicate tabs (2 x \"Flash 1\" for example).</li>\r\n<li>Adding a new disassembly window crashes Wabbitemu.</li>\r\n<li>Trying to open Breakpoints window crashes Wabbitemu.</li>\r\n<li>If I close Port monitor from File-&gt;Exit, I cannot open it again.</li>\r\n<li>There is no horizontal scrollbar in the upper tab view even if the contents didn't fit there completely.</li>\r\n<li>Clicking \"Run\" command in the menu behaves differently than clicking \"Run\" from the toolbar (the text \"Run\" should change to \"Stop\" in the toolbar and in menu too).</li>\r\n<li>Toggling a breakpoint/watchpoint causes sometimes Wabbitemu to crash (for example when scrolling all the way down in \"Flash 1\" window and trying to set a breakpoint there).</li>\r\n<li>\"Step back\" doesn't do anything. At least it doesn't seem so.</li>\r\n</ol>\r\n<p>Small feature suggestions for the debugger:</p>\r\n<p>-Ability to choose how many bytes there are in memory view per row.</p>\r\n<p>-Ability to see bytes and their character representations in memory view at the same time (with a new column \"Characters\", for example).</p>",
+    "PostedDate": "2011-12-17T14:09:40.983-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "713807",
+    "ThreadId": "282766",
+    "Html": "<p>1. Fixed</p>\r\n<p>2. Fixed. When I remapped the keys I was wondering why TI didn't label that as the space key. Guess it was my fault.</p>\r\n<p>3. Flash shouldn't be hidden, but I have changed the name to ROM. Mem is what is mapped into the 4 banks. RAM is the 8 pages in sequetial order.</p>\r\n<p>4. Hopefully&nbsp;fixed.</p>\r\n<p>5. Again hopefully fixed.</p>\r\n<p>6. Fixed</p>\r\n<p>7. Fixed</p>\r\n<p>8. Scrolling is tricky, I'll see what I can do about this.</p>\r\n<p>9. Fixed</p>\r\n<p>10. Hopefully I fixed this. Tell me if you get any more crashes</p>\r\n<p>11. No it doesn't right now. I've removed it for the time being.</p>\r\n<p>For your suggestions, what are your use case scenarios for them? I ask because you can already view characaters, just not at the same time. The problem is that they are useful to have alongside the hex bytes, but not if you are view memory as words or in decimal. To have them only on the byte hex view would mean its inconsistent with the other ones.</p>\r\n<p>Also I can pretty easily set the number of columns, but I'm not sure why you would want to. The debugger already adjust the columns to the size of the window, but having less than that means a lot of whitespace somewhere, having more means scrollbars which are a pain.</p>",
+    "PostedDate": "2011-12-18T05:58:09.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "713876",
+    "ThreadId": "282766",
+    "Html": "<p>Hm ok, you're right about the char+hex view and column thing. I don't have any specific use cases for them.</p>\r\n<p>Anyway, it's more important to get all bugs fixed, so here we go:</p>\r\n<ol>\r\n<li>Keypress history -window should probably be resizable (or not?).</li>\r\n<li>Holding down 2 buttons (or more) at the same time freezes the calculator (or emulation). It doesn't freeze immediately, but after 0.5 seconds or so. When I release the buttons, the freeze ends.</li>\r\n<li>Resizing Calculator Variables -window too fast (vertically) messes up \"Address\" and \"Page\" texts. See this picture:&nbsp;<a href=\"http://imgur.com/3eSij\">http://imgur.com/3eSij</a></li>\r\n<li>If I minimize and then maximize the \"Interrupts\" panel, the \"iff2\" checkbox is invisible until I hover mouse over it.</li>\r\n<li>The time that is next to \"Next Timer2\" label is not fully visible (it goes off the window border).</li>\r\n<li>If I add and remove a mem view and then resize the debugger window, the lower tab pages are not drawn correctly. See&nbsp;<a href=\"http://imgur.com/mar36\">http://imgur.com/mar36</a></li>\r\n<li>There is some kind of infinite loop in Breakpoints window that occurs when there is at least 1 breakpoint/watchpoint. The list of breakpoints keeps flashing all the time.</li>\r\n<li>Options window doesn't have icon and is not visible in taskbar.</li>\r\n<li>Changes in Options-&gt;Skin are applied even if I press Cancel.</li>\r\n<li>The parent window for the \"Custom skin failed to load\" -messagebox is wrong. The options window is still accessible (so you can create as many messageboxes as you want by trying to close Options window).</li>\r\n<li>The ROM filename in Options-&gt;ROM is partially hidden if the path is long (for me it's like \"C:\\Users\\[username]\\AppData\\Roaming\\wabbitemu.sav\").</li>\r\n<li>If I select \"Display\" tab from Options and then close and open Options window, it moves a bit towards the bottom-right corner. If I do this many times (open, close, open, ...), I can move the Options window off the screen so that it's unreachable.</li>\r\n<li>Hmm... something went wrong with the save state file because Wabbitemu crashes immediately at startup. Here's the state file:&nbsp;<a href=\"http://dl.dropbox.com/u/53800011/wabbitemu.sav\">http://dl.dropbox.com/u/53800011/wabbitemu.sav</a></li>\r\n</ol>",
+    "PostedDate": "2011-12-18T09:44:10.683-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714245",
+    "ThreadId": "282766",
+    "Html": "<p>1. I agree. Its resizable now.</p>\r\n<p>2. Fixed</p>\r\n<p>3. Fixed</p>\r\n<p>4. Fixed</p>\r\n<p>5. Fixed. The 86 doesn't have a 2nd timer so I just got rid of it for the 85 and 86.</p>\r\n<p>6. Fixed</p>\r\n<p>7. Fixed</p>\r\n<p>8. And its not supposed to be.</p>\r\n<p>9. Fixed</p>\r\n<p>10. There's not anything I can really do anything about it. The messagebox is created by the main window not by the options dialog and isn't aware that its being called from the options dialog.</p>\r\n<p>11. Fixed</p>\r\n<p>12. Fixed</p>\r\n<p>13. Fixed. Although&nbsp;there may be more crashes on invalid savestates.</p>",
+    "PostedDate": "2011-12-19T07:10:31.827-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714404",
+    "ThreadId": "282766",
+    "Html": "\r\n<p>Thanks once again for the fixes. I believe there's not so many bugs/problems left anymore. Here's next ones:</p>\r\n<ol>\r\n<li>If I resize the debugger window vertically, the height of the lower tab view is not saved correctly. If I open and close the debugger window many times, the height of the lower tab view keeps increasing/decreasing.\r\n</li><li>If I scroll all the way up in Disasm window (or ROM/RAM), select the topmost instruction and press Page Up, the addresses &quot;wrap around&quot;. If I then press Page Down a few times, the scrollbar disappears. I get the same bug by scrolling all the way down and\r\n pressing Page Down a few times. </li><li>I think toggling a breakpoint/watchpoint definitely needs shortcut keys. Or do they exist already?\r\n</li><li>If I scroll the Disasm/ROM/RAM view with Page Up/Down, the selection is always updated to the topmost visible instruction. The same happens when I'm stepping the code. Not sure if it's a bug, but it's a bit disturbing anyway.\r\n</li><li>I guess the &quot;Find in Memory&quot; reverses the byte order when searching? For example, if I search for &quot;2305&quot;, it finds &quot;0523&quot;. Maybe it could be added as an option. Furthermore, &quot;Find next&quot; finds only one (it doesn't search more if I click more).\r\n</li><li>Tools-&gt;Rewind doesn't do anything. </li><li>If I toggle a breakpoint/watchpoint in the upper tab view, the breakpoint doesn't appear in the lower tab view until I click it, and vice versa.\r\n</li><li>If I scroll the views with mouse wheel, it scrolls only one row per notch, which feels quite slow. It would be better if it scrolled like 2-4 rows/notch.\r\n</li><li>Page Up and Page Down scroll different amount of rows. </li><li>In Breakpoints window, if I click &quot;Remove&quot; without any breakpoints selected, Wabbitemu crashes (sometimes I have to click twice to make it crash).\r\n</li><li>The real TI-86 has this bug called &quot;down-left bug&quot; which causes the calculator to hang when down and left arrows are pressed at the same time. But it seems the emulator does not have this bug (the calculator doesn't hang when pressing down&#43;left arrows).\r\n</li></ol>\r\n",
+    "PostedDate": "2011-12-19T11:48:17.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714782",
+    "ThreadId": "282766",
+    "Html": "<p>1. Its not a fixed height, but rather a ratio. The only time the height is fixed is when the mem view is hidden</p>\r\n<p>2. Fixed</p>\r\n<p>3. F2 is exectution, F3 is write, and F4 is read</p>\r\n<p>4. Paging is a little funky. Because the disassembly is recalculated each time, so if you're paging up its never known beyond one page the size of the page.</p>\r\n<p>5. Yes it searches by big endian. Memory is stored little endian, meaning the number 0xFF00 is stored as 00FF. I'm working on overhauling the search, so yes there will be an option but not immediately.</p>\r\n<p>6. Fixed. It did at one point</p>\r\n<p>7. Fixed</p>\r\n<p>8. I've changed this, but tentatively.</p>\r\n<p>9. Due to the funkiness described above</p>\r\n<p>10. Fixed</p>\r\n<p>11. Do you have technical details? I did some quick searching, but the most I've uncovered is that its related to the ISR and the 2,(iy+$12) flag. I'll disassemble it more but if you have any info on it, that'd be helpful.</p>",
+    "PostedDate": "2011-12-20T05:21:45.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "714887",
+    "ThreadId": "282766",
+    "Html": "<p>Comments on previous ones:</p>\r\n<p>1. What I meant is this: If you resize the debugger window, the tab panels are resized and everything is ok so far. Now close the debugger window and open it again. You can see that the debugger window has the same size before closing, but the tab panels not. If you repeat this open&amp;close&amp;open many times, the lower tab panel either eventually gets hidden or fully maximized.</p>\r\n<p>2. I can still get the bug like this: I scroll all the way down, resize the debugger window vertically (make it bigger) and then press Page Down.</p>\r\n<p>7. Still not working for me. Proof:&nbsp;<a href=\"http://imgur.com/aW60j\">http://imgur.com/aW60j</a></p>\r\n<p>11. Sorry, I don't know any more about the bug than what is told on this page:&nbsp;<a href=\"http://guide.ticalc.org/intermediate/down.htm\">http://guide.ticalc.org/intermediate/down.htm</a></p>\r\n<p>New bugs (I continue numbering from 12 for clarity):</p>\r\n<p>12. In lower tab view, if I select \"Watch\", click the empty area (without selecting the \"New label\" row) and then press Delete, Wabbitemu crashes.</p>\r\n<p>13. I can't rename watches in \"Watch\" tab (double-clicking \"New Label\" column doesn't do anything).</p>\r\n<p>14. If I select a breakpoint in the list in \"Breakpoints\" window and click \"Update\" twice, Wabbitemu crashes.</p>",
+    "PostedDate": "2011-12-20T08:14:35.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715252",
+    "ThreadId": "282766",
+    "Html": "<p>1. Fixed. Sorry didn't read that closely enough. There still seems to be some fluctuation but its nothing very noticeable.</p>\r\n<p>2. I've fixed it. As you drag the pane down it'll move the disassembly down too.</p>\r\n<p>7. Fixed. For real this time.</p>\r\n<p>11. Yeah I saw that. Guess&nbsp;I'll have to&nbsp;do some disassembly and maybe see if&nbsp;I can get a cheap 86&nbsp;off ebay or something.</p>\r\n<p>12. Fixed</p>\r\n<p>13. The label is weird. I let Windows handle it, which means the you can't double click, you click then click again, same as you rename things in explorer.</p>\r\n<p>14. Fixed</p>",
+    "PostedDate": "2011-12-20T21:38:20.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715377",
+    "ThreadId": "282766",
+    "Html": "<p>Nice, but I guess you didn't upload the exe yet? At least I'm seeing the same bugs in the current version.</p>\r\n<p>Anyway I decided to download the sources (using SVN) to see if I could compile Wabbitemu myself. Well I got \"Build succeeded\", but Wabbitemu crashes when I try to open the debugger (started the exe from windows explorer). And if I try to debug it in VS, I get the error \"Unable to start program Z80MapEditor.exe\".</p>\r\n<p>And when I try to compile this Z80MapEditor, I get these errors:&nbsp;<a href=\"http://i.imgur.com/1ccOE.png\">http://i.imgur.com/1ccOE.png</a></p>",
+    "PostedDate": "2011-12-21T03:13:57.21-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715812",
+    "ThreadId": "282766",
+    "Html": "<p>Yeah I forgot to upload it last night, latest is up now. If you want to compile wabbit, make sure the configuration manager is set to Wabbitemu Debug or Wabbitemu Release. Then in the Solution Explorer make sure the bolded project is Wabbitemu. If its not, you can change it by rght clicking on the project and selecting 'set as startup project'. Z80MapEditor is old, you can unload it by right clicking and saying unload project. This will get rid of any errors there.</p>",
+    "PostedDate": "2011-12-21T16:20:49.52-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715908",
+    "ThreadId": "282766",
+    "Html": "<p>Ok, I managed to build and run it now. Some bugs I noticed:</p>\n<p>1. I get a crash when opening the debugger.</p>\n<p>2. If I delete all registry keys related to Wabbitemu and run it for the first time, it opens 2 calculator windows.</p>\n<p>3. If I try to press some key when calculator is on, it opens the debugger (this seems to be related with the \"Open debugger on invalid flash commands\" -option). Sometimes the debugger looks pretty weird:&nbsp;<a href=\"http://i.imgur.com/JeQHb.png\">http://i.imgur.com/JeQHb.png</a></p>\n<p>I think it would be nicer if Wabbitemu saved all its stuff in the same directory where the exe is (autosave, settings in INI file).</p>",
+    "PostedDate": "2011-12-22T00:25:38.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715931",
+    "ThreadId": "282766",
+    "Html": "<p>1. What line in what file does the debugger crash on? Also how are you building this, what configuration? You can either run it via Visual Studio, and it will automatically goto the line it crashes on. Or you can run it from explorer normally, then in Visual Studio attach it to the process via the debug menu. Alternatively you can dump it via Task Manager (right click and choose Create Dump File). Zip this and upload it somewhere I can grab it. If you do this last method I need the exe and the debug symbols as well (the PDB file in the same directory as the EXE).</p>\r\n<p>2. Fixed</p>\r\n<p>3. Yes, the OS is trying to write to&nbsp;ROM.</p>\r\n<p>I'll see what I can do about exporting your settings somehow, but INI files are leftovers from the Windows 3.0 days. Its generally frowned upon to use them to save settings. It also means that Wabbitemu is tied to a directory which I don't like.</p>\r\n<p>I'll release this shortly, I appear to have introduced a very serious bug that breaks the emulator completely.</p>",
+    "PostedDate": "2011-12-22T01:26:59.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "715969",
+    "ThreadId": "282766",
+    "Html": "<p>I get the crash with your exe too. In VS the configuration is \"Wabbitemu Debug\" and platform Win32 (it crashed with \"Wabbitemu Release\" config too). There's a stack overflow when opening the debugger, here's the call stack:&nbsp;<a href=\"http://pastebin.com/NQqvmgtA\">http://pastebin.com/NQqvmgtA</a></p>",
+    "PostedDate": "2011-12-22T02:52:35.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "724980",
+    "ThreadId": "282766",
+    "Html": "<p>Thanks for fixing this. I also noticed some new features there, such as the bug report window. I complained about the debugger opening on a keypress but then I remembered that I only needed to uncheck the checkbox (open dbg on invalid flash commands). Btw, are the sent bug reports visible to others anywhere?</p>",
+    "PostedDate": "2012-01-13T13:29:18.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "725003",
+    "ThreadId": "282766",
+    "Html": "<p>Yep, sorry it took a while, I was distracted over the holidays. In the new version there's three major things, automatic checking for updates, automatic crash reporting, and the ability to file a bug report (as you already know). As of now the bug report is just a text file uploaded to my computer. Its the simplest way and works well with the crash dump (which works in much the same way).</p>\r\n<p>As for resizing the bug report window I'll work on it, it requires manually fixing the textboxes as the window changes sizes.</p>",
+    "PostedDate": "2012-01-13T14:13:25.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

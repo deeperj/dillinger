@@ -1,0 +1,85 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Here's a [video](http://www.screencast.com/t/jIuwGWol) of the problem\n\nI'm using a TI-84+ 2.55 MP ROM running with Wabbitemu 1.7.2.11 in cutout mode, Windows 7 Home Premium 64 bit.\n\nThe skin becomes transparent when opened, and the buttons become misaligned... I have to click above the bottons to have them register. \n\nNo issues when not in cutout mode. Bug?",
+    "LastUpdatedDate": "2014-03-20T02:30:37.583-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-02-15T04:38:44.033-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wabbitemu cutout skin becomes transparent...",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10819
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have the exact same issue.\nSure, it can be \"fixed\" by not using the cutout skin, but it's so much nicer looking with the cutout.",
+      "PostedDate": "2013-09-18T09:54:40.37-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I believe I fixed this issue, but I'm not quite sure how to reproduce it. Can you test this new Wabbitemu and tell me if the issue still occurs? http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\r\n\r\nThanks,\nBuckeyeDude",
+      "PostedDate": "2013-09-18T12:46:59.7-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi,\r\n\r\nthanks for the update. Unfortunately, the behavior hasn't changed.\nOn startup, everything is fine, but after two seconds, the skin drops exactly 20 pixels.\r\n\r\nThe close and minimize button remain the same, screen stays stationary, and the place to click a button also stays the same.\nBut since the skin is now dropped 20 pix, you have to click above the buttons to activate them.\r\n\r\n![Image](http://i39.tinypic.com/2m78aro.jpg)",
+      "PostedDate": "2013-09-18T23:18:27.94-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Interesting. Since it is exactly 20 pixels, that tells me its related to the menu bar (which isn't show in cutout mode), but appears to be affect the sizing. I've uploaded another version of Wabbit with some changes that might fix this, try downloading it again from the same link.\r\n\r\nMore importantly, I'd like to understand why I can't reproduce this issue. If you could, I'd like to export your Wabbitemu settings. You can do so by:\n1. Pressing WinKey+R\n2. Entering the following command:\n```\nregedit /e \"%UserProfile%\\Wabbitemu.reg\" HKEY_CURRENT_USER\\Software\\Wabbitemu\n```\nThis will export Wabbitemu.reg to your user directory (eg C:\\Users\\\\[username]\\Wabbitemu.reg). Can you upload this file so I can look at your settings? I'd also like to know any settings in Windows you're using that may affect the menu bar. This means settings such as theme, language options, accessibility settings, etc, ways you may have customized Windows that would effect Wabbitemu. In the mean time I'll continue to test and look for ways to cause and fix this.",
+      "PostedDate": "2013-09-20T00:48:43.383-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "[TEXT](http://speedy.sh/nMJTB/Wabbitemu.reg)\r\n\r\nIs the file you requested. This is extracted prior to the installation of the new version you just posted.\nWin 7 64 ultimate, running pretty much stock as far as themes and visualisation go....\r\n\r\nI7 processor, 16GB ram, Running on SSD and ramdisk. (wabbit is installed on SSD, ramdisk is for autocad)",
+      "PostedDate": "2013-09-20T02:55:40-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "deleted .exe and .rom; cleaned registry manually for any traces of wabbitemu, and downloaded the new version.\r\n\r\nSame thing :-(",
+      "PostedDate": "2013-09-20T03:01:09.643-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I've updated the exe on [http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe](http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe), can anyone tell me if this still has this issue?\r\n\r\nBuckeyeDude",
+      "PostedDate": "2013-09-30T02:01:19.88-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "deleted old exe, replaced with new one. Same behavior. Do I need to clean the registry?",
+      "PostedDate": "2013-09-30T08:12:37.203-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "hey! thanks :) this fixed my problem, this is how my screen looked http://imgur.com/wr01JFE\nmaximising it fixes it now.",
+      "PostedDate": "2014-03-20T02:30:37.583-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

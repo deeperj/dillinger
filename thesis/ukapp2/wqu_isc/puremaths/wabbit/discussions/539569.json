@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1224703",
+    "ThreadId": "539569",
+    "Html": "it worked for few days but since last two days it has started showing the calculators like this: <a href=\"http://imgur.com/wr01JFE\" rel=\"nofollow\">http://imgur.com/wr01JFE</a> . It doesn't matter if i use a different rom.<br />\n",
+    "PostedDate": "2014-03-20T02:12:50.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1339407",
+    "ThreadId": "539569",
+    "Html": "Same problem here... Is there a solution?<br />\n<br />\nProblem found and solved. I deleted all files, cleared the register and installed the application again. Works fine now...<br />\n",
+    "PostedDate": "2015-01-06T07:35:09.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

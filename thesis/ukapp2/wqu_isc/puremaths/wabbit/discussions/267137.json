@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "649904",
+    "ThreadId": "267137",
+    "Html": "\r\n<p>Just downloaded and installed this program. After monkeying around for a few minutes, I now have the ti84 skin showing in cutout mode. How can I get it back to window mode in order to access the menus?</p>\r\n",
+    "PostedDate": "2011-07-30T01:23:10.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651001",
+    "ThreadId": "267137",
+    "Html": "<p>To access the menus you can simply right click on the screen</p>",
+    "PostedDate": "2011-08-02T01:17:29.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677927",
+    "ThreadId": "267137",
+    "Html": "<p>I'd still like to know how to get the emulator back into window mode instead of cutout mode.</p>",
+    "PostedDate": "2011-09-28T16:23:14.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677930",
+    "ThreadId": "267137",
+    "Html": "<p>I'm guessing you didn't put it in to cutout mode then? Regardless, in the goto the menu and go Calculator-&gt;options. Under the skin tab uncheck use cutout mode</p>",
+    "PostedDate": "2011-09-28T16:31:32.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "677932",
+    "ThreadId": "267137",
+    "Html": "<p>Thanks! I knew I had changed it back before but couldn't remember how.</p>",
+    "PostedDate": "2011-09-28T16:35:19.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

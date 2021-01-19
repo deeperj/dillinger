@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "From https://wabbit.codeplex.com/discussions/647127\n\nThere seems to be a bug with the colour of the buttons, so you actually cannot see them very good.\n![Wabbitemu_ButtonBug](https://i.imgur.com/vKsTvDd.png)",
+    "LastUpdatedDate": "2015-11-23T08:12:05.08-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-23T08:12:05.08-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Buttons on Android not visible",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12281
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

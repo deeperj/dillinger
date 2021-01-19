@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "824748",
+    "ThreadId": "352529",
+    "Html": "I'm trying the COM interface but one question came in my mind: The release date of Wabbitemu and Wabbitemu dll are not the same. Does this mean that the dll is outdated and that it can't be used with the latest version of wabbitemu ? Is the wiki documentation\r\n about the COM interface outdated ? Thanks for answers.",
+    "PostedDate": "2012-04-17T02:39:35.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824752",
+    "ThreadId": "352529",
+    "Html": "<p>The DLL contains the same code as the EXE only provided as a link library. This means you can use it without the EXE. It also means the code is slightly out of date, but since most of the changes have been to the GUI, there is no reason to release a new DLL. The wiki is probably a little out of date, but the basics are all there. The sample project should contain plenty to get you started.</p>",
+    "PostedDate": "2012-04-17T02:45:43.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "824917",
+    "ThreadId": "352529",
+    "Html": "<p>&nbsp;</p>\n<p><span>Thanks for the answer.</span><br /> <span>My will is to do the following:</span><br /> <span>[no admin rights]</span><br /> <span>--&gt; Load a rom into WabbitEmu</span><br /> <span>--&gt; Wait for the ROM to be loaded</span><br /> <span>--&gt; Load an assembly program in WabbitEmu</span><br /> <span>--&gt; Wait for the asm prgm to be loaded</span><br /> <span>--&gt; Type the following depending on calculator: Asm( or Send(9</span><br /> <span>--&gt; Optional: Type the program's name</span><br /> <span>--&gt; Let the user do what he wants to do</span><br /> <br /> <span>Does your COM interface support all of these actions ? If yes, what dll call should I do to do the following ?</span><br /> <br /> <span>How can I make sure ROM/program loading is finished before trying to simulate a keypress ?</span><br /> <br /> <span>Is there a function to simulate a keypress without manually virtualy press/release the key ?</span><br /> <br /> <span>Currently, I'm using the command line to directly send a file to the calculator but I need the COM interface for steps 1, 3 and 4.</span><br /> <br /> <span>Thanks for answer.</span><br /> <br /> <span>Btw: Is it possible to update Wabbitemu/dll to add an action in COM interface allowing to create a rom \"Using an open-source software\" and save it with the name we want. Thanks.</span><br /> <br /> <span>Ps: Tell me if I'm wrong but the dll is actually the same as the exe (GUI etc) but we can do dll calls on it ?</span></p>\n<p>&nbsp;</p>\n<p><span>EDIT: For test purpose, I added the dll to COM objects using regsvr32 WabbitEmu.dll</span></p>\n<p><span>Now, I opened \"Object browser\", a software designed to browse through registred COM functions.</span></p>\n<p><span>The only one I can find is Wabbit.Wabbitemu and this doesn't hold any function :/</span></p>\n<p><span>How can I get the functions and be sure that they are up-to-date ?</span></p>",
+    "PostedDate": "2012-04-17T08:12:42.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "825384",
+    "ThreadId": "352529",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>lesolutionneur120 wrote:</strong><br />\r\n<p>&nbsp;</p>\r\n<p><span>Thanks for the answer.</span><br /> <span>My will is to do the following:</span><br /> <span>[no admin rights]</span><br /> <span>--&gt; Load a rom into WabbitEmu</span><br /> <span>--&gt; Wait for the ROM to be loaded</span><br /> <span>--&gt; Load an assembly program in WabbitEmu</span><br /> <span>--&gt; Wait for the asm prgm to be loaded</span><br /> <span>--&gt; Type the following depending on calculator: Asm( or Send(9</span><br /> <span>--&gt; Optional: Type the program's name</span><br /> <span>--&gt; Let the user do what he wants to do</span><br /> <br /> <span>Does your COM interface support all of these actions ? If yes, what dll call should I do to do the following ?</span><br /> <br /> <span>How can I make sure ROM/program loading is finished before trying to simulate a keypress ?</span><br /> <br /> <span>Is there a function to simulate a keypress without manually virtualy press/release the key ?</span><br /> <br /> <span>Currently, I'm using the command line to directly send a file to the calculator but I need the COM interface for steps 1, 3 and 4.</span><br /> <br /> <span>Thanks for answer.</span><br /> <br /> <span>Btw: Is it possible to update Wabbitemu/dll to add an action in COM interface allowing to create a rom \"Using an open-source software\" and save it with the name we want. Thanks.</span><br /> <br /> <span>Ps: Tell me if I'm wrong but the dll is actually the same as the exe (GUI etc) but we can do dll calls on it ?</span></p>\r\n<p>&nbsp;</p>\r\n<p><span>EDIT: For test purpose, I added the dll to COM objects using regsvr32 WabbitEmu.dll</span></p>\r\n<p><span>Now, I opened \"Object browser\", a software designed to browse through registred COM functions.</span></p>\r\n<p><span>The only one I can find is Wabbit.Wabbitemu and this doesn't hold any function :/</span></p>\r\n<p><span>How can I get the functions and be sure that they are up-to-date ?</span></p>\r\n</blockquote>\r\n<p>I tried to not use the COM interface simulating key presses like \"c\" to open programs etc. The problem is that each computer doesn't have the same speed that means that the waiting time between key presses change between computers...</p>\r\n<p>So I need to use the COM interface to avoid problems so please answer to my questions in the quote.</p>\r\n<p>Many thanks for your support.</p>",
+    "PostedDate": "2012-04-18T05:41:18.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

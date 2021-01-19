@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "698529",
+    "ThreadId": "279541",
+    "Html": "\r\n<p>I think it'a a bug :</p>\r\n<p>I launch 2 wabbitemu windows : on both of them, I click on connect virtual link.</p>\r\n<p>Trying to send something using 2nd --&gt; LINK, I've have an error XMIT.</p>\r\n",
+    "PostedDate": "2011-11-15T09:52:02.22-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "699067",
+    "ThreadId": "279541",
+    "Html": "<p>Linking is currently broken I think, I seem to remember commenting some necessary code out while I was working on getting 4 calc linking working</p>",
+    "PostedDate": "2011-11-16T09:28:43.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

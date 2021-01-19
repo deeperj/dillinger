@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "786416",
+    "ThreadId": "333326",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Just tried the 32-bit version (1.6.2.17) on a Windows-2000 machine and it says &quot;Wabbitemu.exe is not a valid Win32 application.&quot;</p>\r\n<p>I suspect that this build is compiled with Visual Studio 2010 and it seems that it cannot compile Windows 2000 compatible binaries anymore - this is as of about a year and a half ago - and it doesn't seem as if Microsoft is going to fix the issue since win2k\r\n isn't a supported platform anymore.</p>\r\n",
+    "PostedDate": "2012-02-20T16:42:03.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "786555",
+    "ThreadId": "333326",
+    "Html": "<p>Yeah windows 2000 isnt supported, but I believe most things should work. The build is indeed compiled with vs2010, the way to fix the issue is to be up to date on your service packs, I think you need SP4. Same thing with XP, you need at least SP2 to run.</p>",
+    "PostedDate": "2012-02-20T17:16:44.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "798947",
+    "ThreadId": "333326",
+    "Html": "<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>I'm pretty sure my Win2k install has the latest service pack... I've run into this problem with some other programs and as far as&nbsp; know there is no workaround.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-02-23T22:32:18.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

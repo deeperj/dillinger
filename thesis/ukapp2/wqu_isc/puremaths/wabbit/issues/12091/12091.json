@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am trying to install the March 25 version on an older PC running Windows 7 Pro.  The PC has 2GB of PC3200 RAM, an Anthlon XP 3200+ CPU, and an nVidia FX5500 AGP card.  Are there hardware minimum requirements for the install?  I keep getting \"Wabbitemu Z80 Emulator has stopped working\" and problem details show \"Appcrash\".  Any advice would be appreciated.",
+    "LastUpdatedDate": "2015-08-11T01:45:53.277-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-04-24T13:26:46.83-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wabbitemu crashes during install",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 12091
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I also can't install Wabbitemu. I create a ROM image using open source software, I choose the TI-84 SE, I select the download OS files from IT's website. When I click on finish I am asked to save the file. I chose the file name given and it goes back to the OS Selection window and then I get a \"program not responding\" message. I have Windows 8.2 and 8.00 GB of RAM with an Intel Core i5 Processor. It should work.",
+      "PostedDate": "2015-05-04T06:14:59.917-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-08-11T01:45:53.277-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

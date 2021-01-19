@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "535988",
+    "ThreadId": "238430",
+    "Html": "\r\n<p>Hi. I downloaded Wabbitemu and Wabbitcode. I thought I could create and edit TI BASIC programs in here, but it looks like it's only designed for assembly programming. Am I right or am I missing something? Do you have (or know) a good editor for doing TI\r\n BASIC on my computer? Right now I'm using something called Tokens, but it doesn't quite cut the mustard.</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2010-12-15T00:59:51.113-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536410",
+    "ThreadId": "238430",
+    "Html": "\r\n<p>Hey,</p>\r\n<p>Wabbitcode is indeed only for assembly development unfortunately. I did a long time ago write&nbsp;a little TI BASIC editor, but never really did much with it. It just opens and save files. However for BASIC programming there are a couple other options.\r\n One is TokenIDE (which may be what you're refering to) found here: <a href=\"http://www.ticalc.org/archives/files/fileinfo/433/43315.html\">\r\nhttp://www.ticalc.org/archives/files/fileinfo/433/43315.html</a>. Second is an online option, SourceCoder here:\r\n<a href=\"http://www.cemetech.net/projects/basicelite/sourcecoder2.php\">http://www.cemetech.net/projects/basicelite/sourcecoder2.php</a>. Both should work fine for your dev needs. If you're looking for other features let me know and I'll ask around and see if\r\n anybody has some useful stuff for you.</p>\r\n<p>BuckeyeDude</p>\r\n",
+    "PostedDate": "2010-12-15T13:57:15.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536897",
+    "ThreadId": "238430",
+    "Html": "\r\n<p>Hi BD. Thanks for the reply.</p>\r\n<p>Yes, I was refering to TokenIDE. It downloads in a .zip file named tokens.zip, and I called it by that name. I've also tried sourcecoder2. Neither of them are quite what I'm looking for. They let me type directly, using my PC and keyboard, but I want something\r\n that will recognize tokens as I type.</p>\r\n<p>If I make a typo, or I don't know the right syntax for something, it doesn't get &quot;tokenized&quot; right. For example, if I want to augment to matrices, I should use &quot;augment(&quot;. If I type &quot;augmnt(&quot;, I don't find out about it until I download to the calculator\r\n (or emulator), where I can then fix it, and then upload the file back to my PC. Too many steps, too much effort.&nbsp;</p>\r\n<p>Also, TokenIDE doesn't open .83p files correctly (it misses the first few characters). I have to send the .83p to my caculator, then use TIConnect to pull it off as a .8xp.</p>\r\n<p>Since you seem very helpful&nbsp;- have you ever heard the expression &quot;no good deed goes unpunished&quot;? - I have a completely separate (and more important) question:&nbsp;I can't get the PC side of TI's NoteFolio working on my 64bit Windows. TI gave up trying\r\n to help. They said I had to have .Net Framework 1.1 installed and to contact MS to get it installed right. MS hasn't been able to help so far. I would like to get both of these problems resolved before next semester starts in mid-Jan (if possible). Any ideas\r\n how (or who can help me) to fix that problem?</p>\r\n<p>Again, thanks.</p>\r\n",
+    "PostedDate": "2010-12-16T10:47:13.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

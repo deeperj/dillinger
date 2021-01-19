@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1345556",
+    "ThreadId": "578504",
+    "Html": "I am running the latest release of Wabbitemu for 32-bit Windows on a computer running Windows 7 Home Premium Service Pack 1, 32-bit. I am using Wabbitemu to emulate a TI-86. The TI-86 ROM I am using is Version 1.2 and occupies 256 KBytes.<br />\nI have a large number of TI-86 programs that I have written on a real TI-86 over the years. These programs are stored as .86p files on the Windows computer. When I attempt to load one of these programs to the Wabbitemu emulator by dragging and dropping it onto the LCD screen of the emulator, the program appears to transfer. The program also appears in the program list that appears at the bottom of the screen after pressing the &quot;PRGM&quot; key and then the &quot;F1&quot; key. However, any attempt to run the program results in an &quot;ERROR 14 UNDEFINED&quot; error message. Any attempt to edit the program shows that the program name is the only thing that made it into the emulator memory. The program itself is completely blank.<br />\nMy questions are simple. What, if anything, am I doing wrong? If I am doing something wrong, then please explain the right way to do it. If I am not doing anything wrong, then what is the problem with the emulator? I have not seen any mention of this problem in either the discussion boards or the issues section.<br />\nThanks, in advance, for any help. I would like to use wabbitemu, but if I can't load the programs I need into it, then its usefulness is sort of limited.<br />\n",
+    "PostedDate": "2015-01-24T13:22:40.043-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350806",
+    "ThreadId": "578504",
+    "Html": "I'm having the same issue with TI-86 v1.6 ROM on both Win XP pro SP3 and Android 4.0.3 (HTC EVO V 3D).\r<br />\n<br />\nWhen I load programs only the first program loads correctly, every program after is empty.<br />\n",
+    "PostedDate": "2015-02-10T20:43:56.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1352941",
+    "ThreadId": "578504",
+    "Html": "To bishb25\r<br />\nYou seem to be having a little bit better luck than I am. At least you get one program to load. Theoretically, you could load any number of programs, one at a time.\r<br />\nIn my case, no program loads. The only thing that appears to load is the name of the program. Not one, single, line of the program loads.\r<br />\n<br />\nDoes anyone out there have any idea what is causing this problem. Is it a problem with wabbitemu, or is it a problem with the old ROM versions?<br />\n",
+    "PostedDate": "2015-02-15T13:47:28.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353308",
+    "ThreadId": "578504",
+    "Html": "This is my bad, I introduced this a long time ago (circa 2012). I think I fixed it, download the beta here: <a href=\"http://buckeyedude.com/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\" rel=\"nofollow\">http://buckeyedude.com/Revsoft/Wabbitemu/Beta/Wabbitemu.exe</a><br />\n",
+    "PostedDate": "2015-02-17T01:05:25.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353582",
+    "ThreadId": "578504",
+    "Html": "To BuckeyeDude\r<br />\nOK. The beta listed in the preceding entry fixed the program load problem. Programs now load separately or as a group by simply dropping the file to be loaded on the emulator screen.\r<br />\nHowever, I have discovered another anomaly: the cutout skin for the TI-86 has problems. When in cutout skin mode, sometimes the keys don't work at all, and other times they are off by a row. That is, if I press the &quot;8&quot; key, a &quot;(&quot; appears on the screen. This problem certainly isn't in the same league as the program load problem, but it is annoying.\r<br />\nBy the way, I would advise that, if you publish the beta referenced above, please sign it or verify yours or its identity in some way. When I downloaded the beta, my anti-virus-cum-firewall had a fit and immediately quarantined it. I had to go get it out of the quarantine folder and run a separate anti-virus check on it.\r<br />\nI do have one other question. Has the Android version been fixed so that it will load programs properly?<br />\n",
+    "PostedDate": "2015-02-17T17:54:52.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353856",
+    "ThreadId": "578504",
+    "Html": "To Buckeye Dude\r<br />\nI just tried the Android version 1.05.04, dated Dec. 15, 2014. It has the same problem. TI programs won't load into the emulator. The only thing that loads is the program name. My device is a Samsung Galaxy Tab 7 Plus running Android 4.0.4. The TI rom is the same as before, Ver. 1.2.<br />\n",
+    "PostedDate": "2015-02-18T17:50:46.283-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

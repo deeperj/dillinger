@@ -1,0 +1,75 @@
+<div class="wikidoc"><h2>SPASM General Info</h2>
+<div class=wikidoc>SPASM is a z80 assembler with extra features to support development for TI calculators.&nbsp; SPASM was written not to add another generic tool to the oversaturated assembler &quot;marketplace,&quot; but to actually do something different. I needed a fast assembler. TASM wasn't cutting it. When you're impatient, you debug often, or are writing too much code for other assemblers to handle, this assembler is your new best friend.</div>
+<h3><span>Labels:</span></h3>
+<p>Labels in SPASM are much like TASM 3.2. The preferred style of label is the colon terminated, like this:</p>
+<pre>Label:
+	ld a,30
+	ret
+
+;With labels, you can use this syntax:
+
+Label2:	ld a,25 \ ret</pre>
+<p>Also permitted is the non-colon terminated line label.</p>
+<pre>label
+	xor a
+	ld (ram_loc),a
+	ret
+
+;Like above, the following is acceptable:
+
+label2	inc a
+	ld (ram_loc+1),a
+	ret<span> <br></span></pre>
+<h3><span>Arithmetic:</span></h3>
+<p>SPASM uses no-questions-asked order of operations: left-to-right. This is prefered for speed reasons as well as ambiguity between operators -- who really knows which of these operators <em>should</em> come first? <strong>%</strong> or <strong>&amp;</strong>?</p>
+<p>The operators available are as follows: <strong>* / - + % ^ &amp; | &lt;&lt; &gt;&gt;</strong></p>
+<pre> ld a,10*15		;= 150  multiply
+ ld b,254/12		;= 12   integer divide (it truncates)
+ ld c,10-30		;= -20  subtract
+ ld d,-(10-23)		;= 13   negate
+ ld e,10+10		;= 20   addition
+ ld h,10^3		;= 9    bitwise exclusive or
+ ld l,17 &amp; 1		;= 1    bitwise and
+ .db 10 | 5		;= 15   bitwise or
+ .dw 1&lt;&lt;4		;= 16   arithmetic left shift
+ ld hl,16&gt;&gt;4		;= 1    arithmetic right shift
+
+;Example of order of operations:
+
+ ld hl,25*256+10	;h = 25, l = 10
+ ld hl,10+25*256	;h = 350,l = 0
+ ld hl,10+(25*256)	;h = 25, l = 10</pre>
+<h3><span>Macros:</span></h3>
+<p>SPASM macros were built to be fast, more than anything else. I generally preserve the functionality of other assemblers while keeping it simple. There are three types of macros, invoked by the preprocess keyword #define or in the case of argumented macros #macro. Refer to the #macro documentation for more info.</p>
+<ul>
+<li>Dimensionless Macros (Boolean Defines) </li>
+<li>Replacement Macros (Defines) </li>
+<li>Argumented Replacement Macros</li>
+</ul>
+<p><em>Dimensionless:</em> <br>Macros of this nature are not defined explicitly by the programmer, rather they are set to an arbitrary default. SPASM uses these as a quick <em>Boolean Define</em> for the #IFDEF preprocess.</p>
+<pre>#define on_emulator
+
+#ifdef on_emulator
+	push de
+	pop ix
+#else
+	ld ixl,e
+	ld ixh,d
+#endif</pre>
+<p><br><em>Replacement:</em> Replacement macros are the equivalent of a &quot;named&quot; copy and paste. They are not parsed until they are substituted, so they're ideal for making forward label references. Keep in mind that they can only make forward references to other defines as long as the define does not reference them in return.</p>
+<pre>#define value 56
+#define other_value value+10
+
+;Defines like these can be used in the #IF preprocess:
+#if other_value &gt; value
+	.dw other_value
+#else
+	.dw value
+#endif</pre>
+<p><br><em>Argumented Replacement:</em> <br>The most complex of the macros, argumented replacement macros allows certain values of replacement macro to be changed before parsing. This allows the same macro to be used under multiple circumstances.</p>
+<pre>#macro my_modulo(base, mod)
+ base - (base*(base/mod))
+#endmacro
+#define llo(val) (val &amp; $FF)
+ .db llo( my_modulo(10,3))
+ .db my_modulo(10,3)</pre></div><div class="ClearBoth"></div>

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1055557",
+    "ThreadId": "446726",
+    "Html": "Hi all.\r<br />\nToday I installed the emulator under Windows 7 and started to try some ROMs.\r<br />\nWith both TI-82 and TI_85, the first I tried, I have a big problem in reading the screen, because the contrast is very low. I also tried tha various options in the Display tab, but with no succcess. \r<br />\nWith other TI emulator for Windows I don't have this problem, so I would like to know if there is a way to overcome it.\r<br />\nThanks.<br />\n",
+    "PostedDate": "2013-06-11T13:03:27.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055561",
+    "ThreadId": "446726",
+    "Html": "Hi Antlab,\r<br />\n<br />\nSorry to hear about the issues with contrast. Some ROM versions look very washed out on the default contrast Wabbit uses. You can adjust it just like you would on a normal calculator, using 2nd+arrow up or 2nd+arrow down. I also recommend saving the ROM's state before you exit, so you don't have to adjust it every time you start Wabbitemu. \r<br />\n<br />\nLet me know if you have any other issues or questions.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-06-11T13:25:02.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055920",
+    "ThreadId": "446726",
+    "Html": "Hi BuckeyDude,\r<br />\n<br />\nthanks a lot for your reply.\r<br />\nFollowing your suggestion I have been able to almost completely solve the problem. By regulating the contrast, how you indicated, I found that there a very small region, around about the value &quot;4&quot;, that makes the situation better, also if not optimal. \r<br />\nI also noticed, by trying other roms, that the problem is not present in the TI-83 and TI-84 series, where the screen is immediately well redable after pressing ON.\r<br />\nThanks again for the help.<br />\n",
+    "PostedDate": "2013-06-12T09:01:36.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

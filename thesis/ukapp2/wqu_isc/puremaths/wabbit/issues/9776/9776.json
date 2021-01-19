@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Still 96 pixels but image is properly scaled",
+    "ClosedDate": "2014-02-22T04:12:56.373-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "1. Save state for 86\n2. File->Open\n3. Navigate to savestate\n4. Click on the state\n \nExpected: LCD is 128*n pixels\nActual: LCD is 96*n pixels",
+    "LastUpdatedDate": "2014-02-22T04:12:56.373-08:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2012-01-04T15:29:53.32-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "86 save state lcd in openfiledialog is the wrong size",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 0,
+    "Id": 9776
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

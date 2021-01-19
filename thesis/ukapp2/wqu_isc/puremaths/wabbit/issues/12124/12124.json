@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Title explains it.\n\nExample output where block size is set to 16 bytes, but you get 16 instructions instead:\n```\n7F: $08D0 - $08DF:\t6.665875%\t5358366 tstates\n  ld b,(hl)\n  inc hl\n  ld de,$8100\n  push de\n  ldir\n  pop ix\n  pop hl\n  pop de\n  pop bc\n  call $48EB\n  push af\n  ld a,($82A2)\n  bit 2,a\n  jr z,$08D3\n  ei\n  pop af\n```\n\nWhile you're examining the profiler, it would also be neat if the \"Cancel\" button was wired up.",
+    "LastUpdatedDate": "2015-06-10T09:54:48.39-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-06-10T09:54:48.39-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Profiler disassembly output shows <block size> instructions, not bytes",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12124
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

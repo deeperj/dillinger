@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "559049",
+    "ThreadId": "244218",
+    "Html": "\r\n<p>How do I copy a screen shot from the emulator and paste it into another file?</p>\r\n",
+    "PostedDate": "2011-02-01T15:47:49.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563594",
+    "ThreadId": "244218",
+    "Html": "\r\n<p>You'll need to take a screenshot (press backspace to start and end), save it and load it into your other file. If you're running the latest version, you can try dragging the screen to generate a screenshot and dropping it into your other file. This may or\r\n may not work depending on whether your application supports drag and drop</p>\r\n",
+    "PostedDate": "2011-02-09T14:13:56.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

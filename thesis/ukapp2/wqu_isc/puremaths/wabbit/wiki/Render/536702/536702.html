@@ -1,0 +1,58 @@
+
+<p><strong><span style="font-size:medium">Shortcuts:</span></strong></p>
+<p>F2 = Set a breakpoint</p>
+<p>F3 = Set a memory breakpoint (break on write)</p>
+<p>F5 = Step, set running, and close debugger</p>
+<p>F7 = Step</p>
+<p>F8 = Step Over</p>
+<p>G = Goto memory address</p>
+<p>F = Find byte</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size:medium">Features:</span></strong></p>
+<p><strong>Breakpoints:</strong></p>
+<p>Execution and memory breakpoints are supported. Execution breakpoints trigger whenever PC reaches that address. These are good for stepping through specific code and watching how the code affects things like registers and memory. Memory breakpoints occur
+ either when the CPU tries to read or write to the address specified. These are very handy for catching things like buffer overruns or code changing values that it should not.</p>
+<p><strong>Goto Address:</strong></p>
+<p>This will jump to the address in whatever pane you&rsquo;ve selected. If you&rsquo;re in the disassembly section, the address will change there. If you&rsquo;re focused on the memory view and press G than the address will change there.</p>
+<p><strong>Find Byte:</strong></p>
+<p>This allows you to easily search through memory for a specified byte. You can search either forward or backward through memory.</p>
+<p><strong>Memory Pane:</strong></p>
+<p>The memory pane is the actual hex of the current map of memory. You can scroll through and double click to edit values. If you would like to monitor two sections of memory at once, you can use tabs. To add a new tab simply go View-&gt;Memory View-&gt;Add
+ Mem View. WARNING: any change you make to memory is semi-permanent , meaning it will stay until you reload a ROM or save state. Be careful when editing memory!</p>
+<p><strong>Watch Pane:</strong></p>
+<p><strong>&nbsp;</strong>This panel allows you to monitor specific locations in memory. To monitor memory, enter a valid address,&nbsp;the number of bytes to watch, the&nbsp;page the&nbsp;address is on, and whether or not the address is in&nbsp;RAM.&nbsp;With
+ these 4 pieces of information, the debugger will show you the memory at this location as you step. This makes it easy to define or monitor variables you have set up in your code, such as watching coordinates or tracking write back to settings.</p>
+<p>In addition to allowing you to view memory, this pane will also allow you to view monochrome images. To do so simply enter a size as AxB, where A is the width and B is the height. To view the buffer at plotsscreen, you would enter $9340, 96x64, 1, False.
+ This will then allow you to open up a new window that displays the buffer and updates as it is written to, with no delay. Note that this does not have any impact with what is sent to the LCD, it just allows viewing a location in memory as an image.</p>
+<p><strong>Side Panel:</strong></p>
+<p>The panel on the right of the debugger provides basic info about the core of the emulator. Each section is editable, simply double click a number or click a check box to change. The current panes are:</p>
+<div class="wikidoc">
+<ul>
+<li>Registers: These are the main operators of the CPU, these store 16 bit numbers.
+</li><li>Flags: The based on the contents of the F register, this provides nice checkboxes to easily change a flag.
+</li><li>CPU Status: Miscellaneous info about the CPU, such as the bus and HALT state.
+</li><li>Memory Map: What page is currently mapped into each section of memory. </li><li>Interrupts: Information about each interrupt timer and the IFFs </li><li>Display: Information about the LCD such as contrast and addressing mode </li></ul>
+</div>
+<p><strong>Rewinding:</strong></p>
+<p>If you&rsquo;ve enabled rewinding in the <a href="http://wabbit.codeplex.com/wikipage?title=Wabbitemu Options&referringTitle=Documentation">
+options</a>, then you can use the rewind button in the tool bar to jump back in time. The Wabbitemu core uses a snapshot journaling system to save the system&rsquo;s state ever half second, allowing you to go back up to 5 seconds in time. This is very handy
+ if your app crashes unexpectedly, quickly open the debugger and move back however long you think you need. If you move back any snapshots after are discarded, but previous snapshots are saved, so you can continue to move back up to the full 5 seconds.</p>
+<p><strong>Profiling:</strong></p>
+<p>The Wabbitemu debugger has a very basic profiler built in, which records the number of T-States run within predefined blocks of memory. Located in Tools-&gt;Profiler&hellip; it requires you to specify the granularity of the profiling, called the block size.
+ When recording the profiler keeps track of cycles between sets of address a minimum of 16 bytes in size. Changing this allows you to focus your profiling to a specific section of code, or look at your application as a whole.</p>
+<p>Once you&rsquo;ve entered these options and press OK, the profiler is set as active. It will remain active until you uncheck the Tools-&gt;Profiler&hellip; option. When you&rsquo;ve completed your profile, a file, profile.txt, is written to the current working
+ directory. Here is a sample of the OS on the homescreen:</p>
+<blockquote>
+<p>Total Tstates: 119304190</p>
+<p>&hellip;</p>
+<p>$0226 - $0257: 0.001224% 146030 tstates <br>
+$0352 - $0383: 0.001361% 162417 tstates <br>
+$0384 - $03B5: 0.968884% 115591921 tstates <br>
+$03B6 - $03E7: 0.000806% 96208 tstates <br>
+$03E8 - $0419: 0.000274% 32642 tstates</p>
+<p>&hellip;</p>
+</blockquote>
+<p>As you can see, the profile shows the address range, the number of T-States and percentage of the total time you ran the profiler for. In this instance, the approximately 97% of the time the calculator was running the HALT command.</p>
+<p><strong>Code Counter:</strong></p>
+<p>While SPASM includes a code counter based on the cost of instructions, Wabbitemu allows you to count the actual number of T-States run by a given routine. Simply start the counter (Tools-&gt;Code Counter) at the start of a routine, run the code you want
+ to count, then uncheck the Code Counter item. A dialog box will pop up with the number of T-States run since the counter was started. The counter is persistent, so you can set a breakpoint, exit the debugger, and when it is hit check the counter.</p>

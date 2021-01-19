@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1074836",
+    "ThreadId": "451902",
+    "Html": "First off, thanks for the effort put into this super project.  It's the best TI-84 emulator I've found.  I have two requests.<br />\n<ul>\n<li>some sort of help file or users manual or something to explain what all the Calculator Options mean and what I can use them for.</li>\n<li>\nmake the window resizeable<br />\n</li>\n</ul>\nThanks.<br />\n",
+    "PostedDate": "2013-07-30T13:09:46.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076269",
+    "ThreadId": "451902",
+    "Html": "Hi matheissen,<br />\n<br />\nPer your request I've quickly documented Wabbitemu's options. Let me know if anything is unclear or you need more detail. <a href=\"https://wabbit.codeplex.com/wikipage?title=Wabbitemu%20Options\" rel=\"nofollow\">https://wabbit.codeplex.com/wikipage?title=Wabbitemu%20Options</a><br />\n<br />\nWhen you say you want the window resizable, can you elaborate as to when and why you want to resize the window?<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-08-03T03:26:38.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076371",
+    "ThreadId": "451902",
+    "Html": "Thanks for the options documentation.  Exactly what I was looking for.\r<br />\n<br />\nAs far as a resizable window, on my screen, the window covers a little more than the top 1/2 of the screen vertically (366 x 763 pixels).  I'd like to make it larger.  It's pretty hard to see the small print on the buttons.  When displaying on a projector, I'd like to make it as large as possible.  You can maintain aspect ration if you want when it resizes.  That's what vti does.  Unless I'm missing something, I can't resize the window on any of the computers I've installed it on.\r<br />\nBTW - if I select &quot;Use Cutout Skin&quot; how do I turn that off?  The menu bar disappears and I couldn't get it to come back by any combination of buttons or mouse clicks that I tried.<br />\n",
+    "PostedDate": "2013-08-03T14:05:46.473-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1078315",
+    "ThreadId": "451902",
+    "Html": "One more request - the help file you wrote for Options doesn't mention &quot;Portable Mode&quot;.  Could you add that?  Thanks.<br />\n",
+    "PostedDate": "2013-08-08T09:41:45.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098645",
+    "ThreadId": "451902",
+    "Html": "I have students trying to use the TI-84 emulator.  The Freshman and Sophomore students have no issue.  The Juniors and Seniors have smaller laptops with screens that are smaller and the calculator is unuseable.  You can drag the calc up to use the bottom buttons but as soon as you let it go the calc snaps back below the taskbar and you lose the bottom two rows.  Please make the calculator resizeable.  Thanx for the great emulator.<br />\n",
+    "PostedDate": "2013-09-24T10:37:35.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098753",
+    "ThreadId": "451902",
+    "Html": "Its a known issue, I'm working on a resolution. Unfortunately there is not a good solution for cutout mode yet, I'm still working out the details.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2013-09-24T13:57:30.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1099046",
+    "ThreadId": "451902",
+    "Html": "For cutout mode, how about a control-key or something to turn it off.  I was originally going to suggest putting something on the context menu but I'm sure you thought of that and there must be some issue with it.  How about Ctrl-Shift-F10 or something?  Sure, it's obscure but if there was a hint or documentation somewhere, people could still find it.<br />\n",
+    "PostedDate": "2013-09-25T07:24:56.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1221962",
+    "ThreadId": "451902",
+    "Html": "Thanks for the resizing update.  Works fine so far.  I have a Samsung tablet so I'll be trying the Android version too.  Thanks again for all the effort put into this.<br />\n",
+    "PostedDate": "2014-03-12T09:48:57.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1222080",
+    "ThreadId": "451902",
+    "Html": "BTW - are you looking at doing the new color TI-84?  I'm not really pushing for it but it supposedly runs on a Z-80, although the display hardware is certainly different.<br />\n",
+    "PostedDate": "2014-03-12T13:40:09.37-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1222298",
+    "ThreadId": "451902",
+    "Html": "Glad to hear the update is working for you. Let me know what you think of the Android version. Its still very new, and I'm working on tweaking it with all the feedback I get. As for the new TI-84 Plus Color SE, its supported as of the latest update. It's not perfect, but certainly very usable.\r<br />\n<br />\nAs always if you have any issues or questions feel free to let me know.\r<br />\n<br />\nThanks,\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-03-13T04:36:26.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1102508",
+    "ThreadId": "460867",
+    "Html": "Hello--<br />\nI just installed Wabbit on my MacBook Pro Retina, OS X 10.8.  I used both the ROM image I created for back when I used TILEM, and also made a new ROM image after I found the problem, but no joy in fixing it.<br />\n<br />\nIf I load the ROM, the TI-84 Plus shows up on the screen, looks great.  But using the mouse to try to click the buttons results in nonsense.  The &quot;clear&quot; button inputs 1 on the screen, it doesn't clear it.  Other buttons have similar weird effects.  On the other hand, the same ROM image works fine on Wabbit on a Windows machine.<br />\n<br />\nUpdate 10/2: noticed that when I changed the screen resolution to use a projector, the keys function properly.  Is this perhaps a retina display incompatibility?<br />\n<br />\n<strong>Update #2: okay, fixed my own problem</strong>.  The application needs to be opened in low-resolution mode. See <a href=\"http://support.apple.com/kb/HT5266\" rel=\"nofollow\">http://support.apple.com/kb/HT5266</a> for how to do this<br />\n<br />\nAny help is appreciated,<br />\nJeff<br />\n",
+    "PostedDate": "2013-10-01T16:37:48.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "can't change my calculator to a different model",
+    "LastUpdatedDate": "2017-03-14T20:08:30.673-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-04-21T19:37:39.13-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "I am not able to change my calculator to newer model?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12378
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "[Here's how you copy a ROM file from a calculator.](https://imgur.com/gallery/lHVWR)\n[Here's how you create a ROM file using open source software.](https://imgur.com/gallery/FvELU)",
+      "PostedDate": "2017-03-14T20:08:30.673-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

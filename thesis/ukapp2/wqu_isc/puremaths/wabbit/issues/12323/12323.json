@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Every time i start the calculator, the ram has been cleared. How can i make this not happen every time i turn the emulator on?",
+    "LastUpdatedDate": "2016-01-30T18:00:11.587-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-01-10T11:30:36.697-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "RAM Cleared",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12323
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "open the emulator\nfile>save\nthen rerun setup wizard but select load existing rom and select the file you just saved\nenjoy!\n",
+      "PostedDate": "2016-01-29T20:36:55.87-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "make sure you get passes the ram screen before you save!",
+      "PostedDate": "2016-01-29T20:37:44.38-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "this also makes it so you dont have to load apps at every startup as long as you load them before you save",
+      "PostedDate": "2016-01-30T18:00:11.587-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

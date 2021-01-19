@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "660966",
+    "ThreadId": "269804",
+    "Html": "\r\n<p>I tested this IDE, but there is many many bugs !</p>\r\n<p>First, when we launch WabbitCode :</p>\r\n<p>-http://img851.imageshack.us/img851/2474/sansrevq.png</p>\r\n<p>-If we launch wabbitcode and try to create new program, the program quit. We have to try another time</p>\r\n<p>-If we try to assemble the program before saving it, it make an error instead saying &quot;Where do you wish to save it ?&quot;</p>\r\n<p>-Many others bugs...</p>\r\n<p>&nbsp;</p>\r\n<p>Enhancement :</p>\r\n<p>-The Wabbitemu.exe inside isn't updated : If we change the .exe to the new version, Wabbitcode don't use this ! Please make he uses this one !</p>\r\n<p>-Make the emulator directly launch the program instead sending it and the user have to launch it on emulator itself</p>\r\n<p>&nbsp;</p>\r\n<p>PS: I'm glad to see the emulator coming on cydia for my iphone !</p>\r\n",
+    "PostedDate": "2011-08-20T06:52:55.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661019",
+    "ThreadId": "269804",
+    "Html": "<p>The first error is because revsoft is down and I do a check for updates. Some of the other bugs I've been working on fixes for but I haven't had a lot of time to work with them. As for assembling a program before saving it, you have to save it to disk before spasm can use it. There are some ways around that but they are only for the most basic scenarios. This is true of any assembler or compiler.</p>\n<p>For enhancements I know wabbitemu isn't updated and there is a reason for this. That version has an older COM interface that my code relies on. The new one I haven't quite got working yet. Also I believe there is an option to send directly to the emulator in preferences.</p>\n<p>As for Wabbitemu for cydia don't hold your breath. I don't really do mac development and Will has no desire to do more work on it</p>",
+    "PostedDate": "2011-08-20T11:26:34.033-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

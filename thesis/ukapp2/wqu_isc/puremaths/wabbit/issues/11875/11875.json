@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an issue",
+    "ClosedDate": "2014-09-23T20:36:45.8-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hey,\n\nI like the emulator and all but after a few minutes it seems to crash. The screen of the Ti84 just goes blank and i can't do anything. If i restart the program everything is fine again untill another 5 minutes or so pass and everything crashes again. I really like the idea but an emulator that u can only use for a few minutes isn't really useful. Does anyone have any idea how i canfix this?\n\nThanks!",
+    "LastUpdatedDate": "2014-09-23T20:36:45.8-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-09-19T05:47:12.833-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Wabbitemu crashing after a few mins",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11875
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Turn it back on, and then smack your forehead for forgetting that all calculators are like that.",
+      "PostedDate": "2014-09-23T16:33:20.177-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-09-23T20:36:45.8-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed as part of the 1.05.10 release",
+    "ClosedDate": "2015-09-10T01:34:49.987-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "My Math teacher was recommending this app for our Android phones for our Math class.  After getting to the  \"I'd like to download one\" option for OS Selection OS version: 2.55 MP for the Ti-84 Plus SE, it brings up the progress bar 0/100 for download progress and stays there with no progress even after hours of letting it sit. I've uninstalled, and restarted my phone as well to no avail. This is on my Samsung Galaxy S5.",
+    "LastUpdatedDate": "2015-09-10T01:34:49.987-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-08-31T18:46:14.463-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Can't download OS on Android",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12195
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I had the same issue on my HTC One M8. I tried to download it directly to my phone from the Texas Instruments web site, but it gave the message \"You cannot download this file to this device.\" I ended up going to the TI web site on my PC, downloading the file there -- [here's the link](https://education.ti.com/en/us/software/details/en/C95956E744FB4C0A899F5A63EBEA60DD/83ti83plusoperatingsystemsoftware) -- and emailing it to myself then downloading it to my phone. Then I went back through the setup and chose \"I have an OS.\" The application searched my phone's files and found the file then tried to create the ROM. It seemed to get stuck, so I rebooted after about 30 minutes. I started the app again and it created the ROM successfully the second time.\r\n\r\nHope this helps! I came here to find a solution but didn't see any answers.",
+      "PostedDate": "2015-09-05T09:16:28.543-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-09-10T01:34:49.987-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

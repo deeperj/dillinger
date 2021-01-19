@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have downloaded this on my PC at school, but am trying to get it for my MAC at home. When I click on the one under downloads for MAC it downloads perfectly fine but when you actually open the program nothing comes up. It shows up on my tool bar but it shows no calculator and there isn't even an option for which version of the calculator you want to use. Am I downloading it wrong? Is there a step by step process to downloading this on the  mac?",
+    "LastUpdatedDate": "2015-10-08T17:23:43.2-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-02-06T13:01:31.207-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Not working for Mac",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 12011
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I am having similar issues.  Download fine.  Open program on mac.  Nothing loads.  Option to load ROM is greyed out.  Only options are open and open recent.  Using OPEN does not let me load anything. I am running this on an iMac 21.5\" Late 2012 Yosemite 10.10.2 8GB of RAM.  I downloaded from this website version 2.1 (1)",
+      "PostedDate": "2015-03-13T20:33:31.38-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-05-20T14:32:47.42-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-10-08T17:21:38.527-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Same problem here and I haven't found an answer for it yet. After unzipping the program I can launch the application but nothing displays. All I can see to know it's running is the icon for the app in my program menu bar at the bottom. What in the world is wrong with this thing....\n",
+      "PostedDate": "2015-10-08T17:23:43.2-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

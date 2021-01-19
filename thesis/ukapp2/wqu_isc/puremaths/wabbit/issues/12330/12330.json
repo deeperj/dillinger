@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have downloaded the app on a Galaxy Note 5 and when I try to download ANY OS I just get loading circles on the screen and it never downloads.  I have tried uninstalling and reinstalling the app, downloading on different wifi connections, and downloading over 4G using data...same outcome.  Any ideas?",
+    "LastUpdatedDate": "2016-01-21T15:50:51.79-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-01-18T11:24:32.103-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Just get loading circle when trying to download OS on Galaxy Note 5",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12330
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Texas Instruments pulled the download links for their os's.....",
+      "PostedDate": "2016-01-21T15:50:51.79-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

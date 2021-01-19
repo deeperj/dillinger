@@ -1,0 +1,38 @@
+#ifndef _FCREATE_INC
+#define _FCREATE_INC
+
+#define g_tname "temp.asm"
+
+#macro clr(tname)
+  #ifndef g_tcount
+    #define g_tcount $0
+  #endif
+
+  .echo > "temp.asm" "\n"
+
+#endmacro
+  
+
+#macro wr(exr1,exr2,exr3,exr4)
+#ifndef exr1
+	.error "Provide at least one arg to macro wr"
+#endif
+#ifndef exr2
+	#define exr2 " "
+#endif
+#ifndef exr3
+	#define exr3 " "
+#endif
+#ifndef exr4
+	#define exr4 " "
+#endif
+.echo >> "temp.asm" exr1,exr2,exr3,exr4,"\n"
+#undefine exr1
+#undefine exr2
+#undefine exr3
+#undefine exr4
+#endmacro
+
+#define run() #include temp.asm
+
+#endif

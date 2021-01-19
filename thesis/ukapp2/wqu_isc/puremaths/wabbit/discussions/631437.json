@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1415383",
+    "ThreadId": "631437",
+    "Html": "I was wondering how to be able to switch between different kinds of calculators. I haven't been able to find an option, and Firefox isn't letting me reopen the setup file.<br />\n",
+    "PostedDate": "2015-04-17T15:42:25.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1415817",
+    "ThreadId": "631437",
+    "Html": "In Wabbitemu click on: Help - &gt; Re-run setup wizard\r<br />\n<br />\nThis should allow you to set up a different calculator ROM or model.<br />\n",
+    "PostedDate": "2015-04-19T21:38:50.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

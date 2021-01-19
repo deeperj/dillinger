@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Every time I try to download a calculator on my laptop I keep on getting \"OS file is corrupt or invalid.\" The steps that I do are to first download Wabbitemu and then I go through the setup which included: 1) create a ROM image using open source software, 2) I pick the calculator (I tried all of them), 3) I click download OS files from TI's website (tried both versions of files), 4) gave the file a name and then 5) clicked finish.",
+    "LastUpdatedDate": "2017-03-14T20:06:07.59-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-11-30T13:49:04.7-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "OS File Corruption Error for Laptop Download",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 12437
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "They say that TI shut down the open source capability, but I have tried it \"from a real calculator\" and it still tells me the OS is invalid. I've tried it with a TI-84 running OS 2.40, a TI-84 running OS 2.55, and a TI-84 Plus SE.  ",
+      "PostedDate": "2017-02-27T11:30:14.937-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "[Here's how you create a ROM file from a calculator.](https://imgur.com/gallery/lHVWR)\n[Here's how you create a ROM file using open source software.](https://imgur.com/gallery/FvELU)\r\n\r\nYes it is still possible to use the open source software. Wabbit has a glitch where it does not properly download the OS file from the TI website and you can circumvent that by downloading it directly. Read the Imgur album.",
+      "PostedDate": "2017-03-14T20:06:07.59-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

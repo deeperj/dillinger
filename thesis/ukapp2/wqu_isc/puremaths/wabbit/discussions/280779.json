@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "703172",
+    "ThreadId": "280779",
+    "Html": "<p>I noticed that the latest version of Wabbitemu sometimes (rarely) does and sometimes (mostly) does <strong>not</strong> remember its window position.</p>\n<p>Strange: the behavior seems to depend on having started and closed the previous version of wabbitemu (the version with a direct \"remember window position\"</p>\n<p>EDIT: This effect is reproducable. To rember windows position I have to start the Wabbitemu.exe of&nbsp;april2011, to set the mark in the&nbsp;\"Remember windows position\", close Wabbitemu, start the Wabbitemu version november 2011 and now it remembers its position. <br />But after a change of skin this setting is again lost! And then I have to follow the same procedure.</p>\n<p>Second: the option Always on Top is apparently not stored. I have to mark it again and again.</p>\n<p>Hope this can be repaired since this program is highly useful!</p>",
+    "PostedDate": "2011-11-24T15:28:04.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "704853",
+    "ThreadId": "280779",
+    "Html": "<p>Sorry again for the issues. I have a version that fixes these, just doing some more testing to see if I can fix your unresponsiveness on XP before I release.</p>",
+    "PostedDate": "2011-11-29T09:06:08.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "704875",
+    "ThreadId": "280779",
+    "Html": "&#65279;\r\n<div><font size=\"2\" face=\"Arial\">Hi BuckeyeDude,</font></div>\r\n<div><font size=\"2\" face=\"Arial\"></font></div>\r\n<div><font size=\"2\" face=\"Arial\">Take your time. The lates version offers the interesting colouring of the skin but I must confess that only a few are useful on a smartboard.\r\n</font></div>\r\n<div><font size=\"2\" face=\"Arial\">(But they all look GREAT on a monitor!)</font></div>\r\n<div><font size=\"2\" face=\"Arial\"></font></div>\r\n<div><font size=\"2\" face=\"Arial\">I will wait for your test to be completed. Thanks so much for all efforts. I constantly promote the use of wabbitemu.exe in the Netherlands.\r\n</font></div>\r\n<div><font size=\"2\" face=\"Arial\"></font></div>\r\n<div><font size=\"2\" face=\"Arial\">Paul</font></div>\r\n<blockquote dir=\"ltr\" style=\"border-left:#000000 2px solid; padding-left:5px; padding-right:0px; margin-left:5px; margin-right:0px\">\r\n<div style=\"font:10pt arial\">----- Original Message ----- </div>\r\n<div style=\"font:10pt arial; background:#e4e4e4\"><b>From:</b> [email removed] </div>\r\n<div style=\"font:10pt arial\"><b>To:</b> [email removed] </div>\r\n<div style=\"font:10pt arial\"><b>Sent:</b> Tuesday, November 29, 2011 6:06 PM</div>\r\n<div style=\"font:10pt arial\"><b>Subject:</b> Re: Window position [wabbit:280779]</div>\r\n<div><br>\r\n</div>\r\n<p>From: BuckeyeDude</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Sorry again for the issues. I have a version that fixes these, just doing some more testing to see if I can fix your unresponsiveness on XP before I release.</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-11-29T09:48:43.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Every time I download the TI-83 Plus on my 2008 Mac Pro, it won't open. It \"unexpectedly quit\" every time. \nCan someone help?",
+    "LastUpdatedDate": "2013-02-21T17:44:12.297-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-01-18T07:38:14.76-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Mac problem",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 10754
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Current version of Wabbitemu for the Mac requires 10.6. Can you confirm your OS version is Snow Leopard or better?",
+      "PostedDate": "2013-02-04T02:11:38.99-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:12.297-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

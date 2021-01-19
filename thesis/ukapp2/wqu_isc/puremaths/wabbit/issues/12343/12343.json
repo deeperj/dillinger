@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Every time I launch the app, the ram clears. It's there a way to fix this?",
+    "LastUpdatedDate": "2016-02-16T16:35:05.27-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2016-02-10T14:47:18.537-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Ram clears every time on Android?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12343
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "1) open the app, the ram clear screen should appear, enter past it.\n2) load any apps that you wish to be present when opening the app\n3)file>save, use a name you can remember in a location that is easily accessible\n4)help>re-run setup wizard\n5)Browse for a rom image on my computer>choose the file you just saved\n6)Enjoy :)",
+      "PostedDate": "2016-02-11T18:16:20.91-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "sorry about that, for android you have to create the save on windows then load it onto the phone in an accessible place then rerun the setup wizard and use that file",
+      "PostedDate": "2016-02-11T18:18:29.393-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I followed the instructions and placed the .sav on my phone, however when I re-run the setup wizard, and select I already have a rom, it does not show up. ",
+      "PostedDate": "2016-02-16T16:35:05.27-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

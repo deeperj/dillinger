@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\n\nThe rom or savesite located at ~/Downloads/ GraphingCalculator- 1.rom was not recognized.\n\nI have the app on a 2008 macbook running snow leopard and it opens just fine, the problem is that it cannot recognize my .rom file. I downloaded the app on my PC, that the calculator works on just fine, and emailed the .rom file to my macbook but the .rom file is not recognized by the Wabbit app on my macbook.\n\nAny ideas?",
+    "LastUpdatedDate": "2014-04-14T21:22:18.11-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-04-14T20:47:45.56-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "The document \"Graphing Calculator\" could not be opened.",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11670
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "What type of ROM are you attempting to emulate? If its a CSE ROM, it will not work on the OS X version.\n",
+      "PostedDate": "2014-04-14T21:22:18.11-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

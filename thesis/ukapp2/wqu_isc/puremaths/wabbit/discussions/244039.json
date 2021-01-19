@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "558281",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>I had WabbitEmu working fine on Windows XP Tablet with a TI-83 plus skin and a TI-83p rom.</p>\r\n<p>&nbsp;</p>\r\n<p>Then I messed something up and it won't open.&nbsp; I have tried restarting.&nbsp; I have tried deleting and re-downloading.</p>\r\n<p>&nbsp;</p>\r\n<p>Please help.</p>\r\n",
+    "PostedDate": "2011-01-31T12:58:40.25-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558295",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>Update:</p>\r\n<p>&nbsp;</p>\r\n<p>When I download the exe file two different things happen:</p>\r\n<p>&nbsp;</p>\r\n<p>If I click on the file within the download window of Firefox, it works.</p>\r\n<p>If I click on the file within the folder into which I saved it, it does not work.</p>\r\n<p>&nbsp;</p>\r\n<p>Help!</p>\r\n",
+    "PostedDate": "2011-01-31T13:23:35.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558302",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-16&quot;?&gt;<br>\r\n&lt;DATABASE&gt;<br>\r\n&lt;EXE NAME=&quot;Wabbitemu.exe&quot; FILTER=&quot;GRABMI_FILTER_PRIVACY&quot;&gt;<br>\r\n&nbsp;&nbsp;&nbsp; &lt;MATCHING_FILE NAME=&quot;Wabbitemu.dll&quot; SIZE=&quot;1798144&quot; CHECKSUM=&quot;0xFF09E3CB&quot; BIN_FILE_VERSION=&quot;1.5.0.0&quot; BIN_PRODUCT_VERSION=&quot;1.0.0.1&quot; PRODUCT_VERSION=&quot;1, 0, 0, 1&quot; FILE_DESCRIPTION=&quot;Wabbitemu Z80 Emulator&quot; PRODUCT_NAME=&quot;Wabbitemu&quot; FILE_VERSION=&quot;1,\r\n 5, 0, 0&quot; ORIGINAL_FILENAME=&quot;Wabbitemu.dll&quot; INTERNAL_NAME=&quot;Wabbitemu&quot; LEGAL_COPYRIGHT=&quot;Copyright (C) 2010&quot; VERFILEDATEHI=&quot;0x0&quot; VERFILEDATELO=&quot;0x0&quot; VERFILEOS=&quot;0x4&quot; VERFILETYPE=&quot;0x2&quot; MODULE_TYPE=&quot;WIN32&quot; PE_CHECKSUM=&quot;0x1B8638&quot; LINKER_VERSION=&quot;0x0&quot; UPTO_BIN_FILE_VERSION=&quot;1.5.0.0&quot;\r\n UPTO_BIN_PRODUCT_VERSION=&quot;1.0.0.1&quot; LINK_DATE=&quot;09/07/2010 04:12:13&quot; UPTO_LINK_DATE=&quot;09/07/2010 04:12:13&quot; VER_LANGUAGE=&quot;English (United States) [0x409]&quot; /&gt;<br>\r\n&nbsp;&nbsp;&nbsp; &lt;MATCHING_FILE NAME=&quot;Wabbitemu.exe&quot; SIZE=&quot;2387456&quot; CHECKSUM=&quot;0xAC34336E&quot; BIN_FILE_VERSION=&quot;1.5.1.28&quot; BIN_PRODUCT_VERSION=&quot;1.0.0.1&quot; PRODUCT_VERSION=&quot;1, 0, 0, 1&quot; FILE_DESCRIPTION=&quot;Wabbitemu Z80 Emulator&quot; PRODUCT_NAME=&quot;Wabbitemu&quot; FILE_VERSION=&quot;1.5.1.28&quot;\r\n ORIGINAL_FILENAME=&quot;Wabbitemu.exe&quot; INTERNAL_NAME=&quot;Wabbitemu&quot; LEGAL_COPYRIGHT=&quot;Copyright (C) 2010&quot; VERFILEDATEHI=&quot;0x0&quot; VERFILEDATELO=&quot;0x0&quot; VERFILEOS=&quot;0x4&quot; VERFILETYPE=&quot;0x2&quot; MODULE_TYPE=&quot;WIN32&quot; PE_CHECKSUM=&quot;0x253F35&quot; LINKER_VERSION=&quot;0x0&quot; UPTO_BIN_FILE_VERSION=&quot;1.5.1.28&quot;\r\n UPTO_BIN_PRODUCT_VERSION=&quot;1.0.0.1&quot; LINK_DATE=&quot;01/29/2011 00:00:34&quot; UPTO_LINK_DATE=&quot;01/29/2011 00:00:34&quot; VER_LANGUAGE=&quot;English (United States) [0x409]&quot; /&gt;<br>\r\n&lt;/EXE&gt;<br>\r\n&lt;EXE NAME=&quot;ntdll.dll&quot; FILTER=&quot;GRABMI_FILTER_THISFILEONLY&quot;&gt;<br>\r\n&nbsp;&nbsp;&nbsp; &lt;MATCHING_FILE NAME=&quot;ntdll.dll&quot; SIZE=&quot;714752&quot; CHECKSUM=&quot;0x19DE3F07&quot; BIN_FILE_VERSION=&quot;5.1.2600.3520&quot; BIN_PRODUCT_VERSION=&quot;5.1.2600.3520&quot; PRODUCT_VERSION=&quot;5.1.2600.3520&quot; FILE_DESCRIPTION=&quot;NT Layer DLL&quot; COMPANY_NAME=&quot;Microsoft Corporation&quot;\r\n PRODUCT_NAME=&quot;Microsoft&reg; Windows&reg; Operating System&quot; FILE_VERSION=&quot;5.1.2600.3520 (xpsp_sp2_gdr.090206-1233)&quot; ORIGINAL_FILENAME=&quot;ntdll.dll&quot; INTERNAL_NAME=&quot;ntdll.dll&quot; LEGAL_COPYRIGHT=&quot;&copy; Microsoft Corporation. All rights reserved.&quot; VERFILEDATEHI=&quot;0x0&quot;\r\n VERFILEDATELO=&quot;0x0&quot; VERFILEOS=&quot;0x40004&quot; VERFILETYPE=&quot;0x2&quot; MODULE_TYPE=&quot;WIN32&quot; PE_CHECKSUM=&quot;0xBBA39&quot; LINKER_VERSION=&quot;0x50001&quot; UPTO_BIN_FILE_VERSION=&quot;5.1.2600.3520&quot; UPTO_BIN_PRODUCT_VERSION=&quot;5.1.2600.3520&quot; LINK_DATE=&quot;02/09/2009 10:20:32&quot; UPTO_LINK_DATE=&quot;02/09/2009\r\n 10:20:32&quot; VER_LANGUAGE=&quot;English (United States) [0x409]&quot; /&gt;<br>\r\n&lt;/EXE&gt;<br>\r\n&lt;EXE NAME=&quot;kernel32.dll&quot; FILTER=&quot;GRABMI_FILTER_THISFILEONLY&quot;&gt;<br>\r\n&nbsp;&nbsp;&nbsp; &lt;MATCHING_FILE NAME=&quot;kernel32.dll&quot; SIZE=&quot;986112&quot; CHECKSUM=&quot;0x359DA0B2&quot; BIN_FILE_VERSION=&quot;5.1.2600.3541&quot; BIN_PRODUCT_VERSION=&quot;5.1.2600.3541&quot; PRODUCT_VERSION=&quot;5.1.2600.3541&quot; FILE_DESCRIPTION=&quot;Windows NT BASE API Client DLL&quot; COMPANY_NAME=&quot;Microsoft\r\n Corporation&quot; PRODUCT_NAME=&quot;Microsoft&reg; Windows&reg; Operating System&quot; FILE_VERSION=&quot;5.1.2600.3541 (xpsp_sp2_gdr.090321-1320)&quot; ORIGINAL_FILENAME=&quot;kernel32&quot; INTERNAL_NAME=&quot;kernel32&quot; LEGAL_COPYRIGHT=&quot;&copy; Microsoft Corporation. All rights reserved.&quot; VERFILEDATEHI=&quot;0x0&quot;\r\n VERFILEDATELO=&quot;0x0&quot; VERFILEOS=&quot;0x40004&quot; VERFILETYPE=&quot;0x2&quot; MODULE_TYPE=&quot;WIN32&quot; PE_CHECKSUM=&quot;0xFEAFF&quot; LINKER_VERSION=&quot;0x50001&quot; UPTO_BIN_FILE_VERSION=&quot;5.1.2600.3541&quot; UPTO_BIN_PRODUCT_VERSION=&quot;5.1.2600.3541&quot; LINK_DATE=&quot;03/21/2009 14:18:57&quot; UPTO_LINK_DATE=&quot;03/21/2009\r\n 14:18:57&quot; VER_LANGUAGE=&quot;English (United States) [0x409]&quot; /&gt;<br>\r\n&lt;/EXE&gt;<br>\r\n&lt;/DATABASE&gt;</p>\r\n",
+    "PostedDate": "2011-01-31T13:33:57.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558318",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>Now even that is not working.</p>\r\n",
+    "PostedDate": "2011-01-31T13:55:39.99-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558997",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>FIXED!</p>\r\n<p>I found a file in Windows Prefetch and somewhere else that needed to be deleted.</p>\r\n<p>&nbsp;</p>\r\n<p>Now it works great.&nbsp; I have three versions working now.</p>\r\n<p>&nbsp;</p>\r\n<p>TI-83P with OS 1.12</p>\r\n<p>TI-83PSE with OS 1.19</p>\r\n<p>TI-84PSE with OS 2.53</p>\r\n<p>&nbsp;</p>\r\n<p>Hurray!</p>\r\n",
+    "PostedDate": "2011-02-01T14:12:15.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563598",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>Glad you got this working. I was curious if you knew what you did that caused wabbit to stop working? The xml you pasted didnt help much except that it appeared to be loading Wabbitemu.dll which isn't necessary for wabbit to run (and in theory shouldnt be\r\n loaded at all). If you don't know, it would help if you walked through step by step what you did to run wabbit when you downloaded it.'</p>\r\n<p>Thanks,</p>\r\n<p>BuckeyeDude</p>\r\n",
+    "PostedDate": "2011-02-09T14:22:58.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564048",
+    "ThreadId": "244039",
+    "Html": "\r\n<p>Out of curiousity, because of a problem I have:</p>\r\n<p>When you tap on the buttons only once with the stylus, do they function?&nbsp; Or do you need to double-tap?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-10T09:05:23.05-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569106",
+    "ThreadId": "244039",
+    "Html": "Hi,<br>\r\n<br>\r\nI was experimenting with loading different calculator ROMs, and I loaded a TI-89 ROM image. I had to find that DLL and trash it to get it to work again.<br>\r\n<br>\r\nBeth<br>\r\n<br>\r\n<br>\r\nOn 2/9/2011 4:23 PM, BuckeyeDude wrote:\r\n<blockquote type=\"cite\">\r\n<p>From: BuckeyeDude</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>Glad you got this working. I was curious if you knew what you did that caused wabbit to stop working? The xml you pasted didnt help much except that it appeared to be loading Wabbitemu.dll which isn't necessary for wabbit to run (and in theory shouldnt be\r\n loaded at all). If you don't know, it would help if you walked through step by step what you did to run wabbit when you downloaded it.'</p>\r\n<p>Thanks,</p>\r\n<p>BuckeyeDude</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-02-19T17:22:37.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

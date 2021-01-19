@@ -1,0 +1,52 @@
+<div class="wikidoc">
+<h1>.Option</h1>
+<h3><span>Usage:</span></h3>
+<p><span>&nbsp;</span></p>
+<pre>.option parameters = args</pre>
+<h3><span>Parameters:</span></h3>
+<h4>BM_MSK</h4>
+<p>Whether or not to include a mask in the output bitmap. This should be set to true or false. True means that&nbsp;SPASM will generate a mask based on the color specified in BM_MSK_RGB.</p>
+<h4>BM_MSK_RGB</h4>
+<p>The color used to specify a mask in the bitmap. Otherwise known as a key color. The default value for this is #00FF00</p>
+<h4>BM_INV_RGB</h4>
+<p>Whether or not to invert the mask color specified in BM_MSK_RGB. If true then the RGB values are inverted. By default this is false.</p>
+<h4>BM_MSK_INV</h4>
+<p>Whether or not to invert the mask bits. By default this is set to false. This means that transparent bits are&nbsp;0 and solid bits are 1</p>
+<h4>BM_MSK_1ST</h4>
+<p>Whether or not to include the mask first or second. By default this value is false, meaning that the mask is included after the bitmap data.</p>
+<h4>BM_SHD</h4>
+<p>Number of shades in output bitmaps. When importing grayscale or color bitmaps, SPASM uses this option to determine the number of layers included</p>
+<h4>BM_PAD</h4>
+<p>Padding around each sprite. This is normally used in conjunction with BM_PAD but can be used on its own (if for some you wanted to have bitmaps with extra padding&nbsp;SPASM ignores).&nbsp;</p>
+<h4>BM_MAP</h4>
+<p>This option allows you to specify a series of images in the bitmap file to be treated as seperate bitmap files.&nbsp; This should be defined as [<em>cols</em>]x[<em>rows</em>].&nbsp;You can also prefix this option with a label (see the example below) and
+ SPASM will create defines for each image that allow you easy access to the data. The image are numbered in order starting at&nbsp;1 in the top left column and reading left to right, top to bottom. The bottom right image data could be accessed as label10. A
+ define label_count is created to define the total number of images imported from this bitmap file.</p>
+<p>Example:&nbsp;</p>
+<pre>label .option bm_map = 2x5 ;indicates that the bitmap file has 10 separate images in it, in a table of 2 columns and 5 rows</pre>
+<h4>BM_MIN_W</h4>
+<p>Minimum width for each sprite. When this is defined it applies for all included bitmaps afeter the .option in the current file. The min width means that if your bitmap width is smaller then the value specified here, SPASM will automatically fit the pad the
+ data to fit.</p>
+<h4>BM_HDR_FMT</h4>
+<p>Format the header should be written <br>
+W for width <br>
+H for height <br>
+S for size</p>
+<p>Each letter stands for an 8 bit number to be inserted in the header. So you can combine them eg: WW or HH,&nbsp;if you need a 16 bit size prefixing your data.</p>
+<p>The option should be assigned as a string of letters, with different letters separated by commas. See the example below as to how to define them.</p>
+<h4>BM_HDR</h4>
+<p><span>If this option is specified, then the header will be written to the data. The header contains information about the bitmap being inserted into the program. This allows you to let spasm automatically include any combination of the width, height, or
+ size of the data being inserted.</span></p>
+<p><span>This option should be either true or false. True means a header defined by the BM_HDR_FMT will be inserted. False means that SPASM will only insert the bitmap data.</span></p>
+<p><span>Example:</span></p>
+<p><span>&nbsp;</span></p>
+<pre>.option bm_min_w = 16
+.option bm_hdr = TRUE
+.option bm_hdr_fmt=&quot;WW,HH,SS&quot;
+.option bm_shd = 4
+#include &quot;16x16Sprite.bmp&quot;
+;data included is equivalent to
+.dw 16, 16, 64
+.db data		;...64 bytes of data</pre>
+<p>This would import a bitmap into a 16x16 4 level grayscale sprite (2 layers of data), writing a header that consisted of a word for the width, a word for the height, and a word for the total size.</p>
+</div><div class="ClearBoth"></div>

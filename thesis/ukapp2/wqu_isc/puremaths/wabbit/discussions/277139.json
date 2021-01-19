@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "689057",
+    "ThreadId": "277139",
+    "Html": "\r\n<p>It would be cool when you compile, it asks if you want to compile it as an asm prgm or as a app prgm.</p>\r\n<p>Not sure if it's hard to do, but it would be awesome !</p>\r\n",
+    "PostedDate": "2011-10-25T08:05:30.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "689443",
+    "ThreadId": "277139",
+    "Html": "<p>I assume youre talking about for wabbitcode? If you've created a project, then simply change the file extension to .8xk for an app or .8xp for a program. If you're not using a project, then in options there is an option to set the output file</p>",
+    "PostedDate": "2011-10-26T00:23:01.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

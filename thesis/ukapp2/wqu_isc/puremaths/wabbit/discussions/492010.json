@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1159993",
+    "ThreadId": "492010",
+    "Html": "An option to use a standard monospace font such as Courier New on the regular calculation screen only would be amazing.  I love the detached LCD so the numbers are large, but the pixelated characters are hard to read.  Also, being able to make the background black with white numbers would be nice.<br />\nThanks.<br />\n",
+    "PostedDate": "2014-01-12T22:34:56.977-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1161894",
+    "ThreadId": "492010",
+    "Html": "Hello,\r<br />\n<br />\nUnfortunately because Wabbitemu is an emulator, there is no way from an emulation stand point of modifying it to use different system fonts. Wabbitemu simply displays whatever font the actual calculator uses. The good news is that there is software that can do what you want. Omnicalc is a program that has the ability to load custom fonts, you can download it here: <a href=\"http://www.ticalc.org/archives/files/fileinfo/226/22626.html\" rel=\"nofollow\">http://www.ticalc.org/archives/files/fileinfo/226/22626.html</a>. You'll also want to check out <a href=\"http://www.ticalc.org/pub/83plus/asm/media/fonts/\" rel=\"nofollow\">http://www.ticalc.org/pub/83plus/asm/media/fonts/</a> which contains a whole bunch of user created fonts. They aren't standard fonts, but you may find one that will improve readability. You should also check out <a href=\"http://www.ticalc.org/archives/files/fileinfo/234/23456.html\" rel=\"nofollow\">http://www.ticalc.org/archives/files/fileinfo/234/23456.html</a> for the ability to invert text color. Keep in mind that these programs have the potential to be unstable, cause unexpected or weird looking interactions, or possibly reset the emulator. Make sure you save your state in Wabbitemu to avoid losing anything.\r<br />\n<br />\nThanks,\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-01-13T10:20:16.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

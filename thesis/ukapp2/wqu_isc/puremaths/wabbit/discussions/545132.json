@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1244500",
+    "ThreadId": "545132",
+    "Html": "First of all, thank you for the emulator, it is amazing!\r<br />\n<br />\nIs there a way to obtain the sci tools app on the ti 83 or 84 emulator?  Thanks!\r<br />\nKnelli<br />\n",
+    "PostedDate": "2014-05-12T11:21:40.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244506",
+    "ThreadId": "545132",
+    "Html": "I was able to download the scitools file from wabbitemu drive and upload it to the ti84 SE C emulator. However, when I select it from the apps, the screen goes blank and the emulator locks up. Any suggestions?\r<br />\nThanks!<br />\n",
+    "PostedDate": "2014-05-12T11:34:41.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244662",
+    "ThreadId": "545132",
+    "Html": "Hi Knelli,\r<br />\n<br />\nI'm guessing you used the old version of the SciTools apps, intended for non color editions. These are not compatible with the color version, however there is a bug with Wabbitemu that allows you to load them anyway. The fix is easy:<br />\n<ol>\n<li>Download the correct version here: <a href=\"http://education.ti.com/en/us/software/details/en/9D3F4BCE82714C8591DD2F808CFCACDE/84c-science-tools-app\" rel=\"nofollow\">http://education.ti.com/en/us/software/details/en/9D3F4BCE82714C8591DD2F808CFCACDE/84c-science-tools-app</a></li>\n<li>Open wabbitemu</li>\n<li>If you're still stuck on the blank screen, you can do a Debug-&gt;Reset Calculator</li>\n<li>\nLoad the latest version you downloaded<br />\n</li>\n</ol>\nThis should allow you to use SciTools, just like you do on the normal calc.\r<br />\n<br />\nLet me know if you have anymore questions or issues,\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-05-12T22:35:50.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244837",
+    "ThreadId": "545132",
+    "Html": "Thank you! It worked!<br />\n",
+    "PostedDate": "2014-05-13T07:27:17.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

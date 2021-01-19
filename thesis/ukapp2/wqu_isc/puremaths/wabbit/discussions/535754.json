@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1215514",
+    "ThreadId": "535754",
+    "Html": "Today I updated Wabbitemu. I am using the TI-84 Plus Silver Edition on Windows 7, 64 bit. The calculator immediately stopped working (calculator screen is blank and will not turn on when I click the ON button). I tried uninstalling and reinstalling and the calculator does not work. I love Wabbitemu and would really appreciate if anyone could help me get it working again!<br />\n",
+    "PostedDate": "2014-02-27T01:38:46.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1215714",
+    "ThreadId": "535754",
+    "Html": "Hi,\r<br />\n<br />\nThank you to tech support who helped me resolve this issue so rapidly! Here is what they suggested I try doing:\r<br />\n<br />\n&quot;Try resizing Wabbitemu. You can do so by dragging from any corner of the window. If that does not work, try turning on Wabbitemu from the debug menu.&quot;\r<br />\n<br />\nFollowing their suggestion, I was able to resolve this issue by resizing the Wabbitemu window. Thank you tech support!<br />\n",
+    "PostedDate": "2014-02-27T09:09:19.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1222778",
+    "ThreadId": "535754",
+    "Html": "I am a high school math teacher who has been using Wabbit EMU for years, without issue, to help teach my students.<br />\nToday, when loading Wabbit EMU, it asked if I wanted to download and install the latest version, version 1.8.2.26. I allowed it.<br />\n<br />\nNow, Wabbit EMU runs PAINFULLY slow.  If I ask it to calculate simple things like 9 + 9 it takes forever to show &quot;18.&quot;  I have tried re-downloading the latest TI-83 Plus Silver emulator file from the TI website.  That doesn't work.<br />\n<br />\nHow do I restore normal speed and normal functionality to Wabbit EMU? <br />\nIs there a way I can download the prior version since that worked properly?<br />\n<br />\nI am using the same PC, Windows XP SP 3, with Intel Processor.<br />\n<br />\nI tried contacting Technical Support, but there is no &quot;Technical Support&quot; contact information per se, on this website.  I simply sent an email as explained above to &quot;Contact Us.&quot;  Does that eventually make it to Technical Support?<br />\n<br />\nThanks,<br />\nTodd<br />\n",
+    "PostedDate": "2014-03-14T07:26:45.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1223333",
+    "ThreadId": "535754",
+    "Html": "Hi Todd,\r<br />\n<br />\nSorry for the issue with the update, if you could I'd like you to test this version: <a href=\"http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\" rel=\"nofollow\">http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe</a>. It should fix the issues you described above.\r<br />\n<br />\nThanks,\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-03-16T15:02:30.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1422607",
+    "ThreadId": "535754",
+    "Html": "I tried what you suggested for Todd and am still experiencing problems.  When I want to use the cutout skin it messes up.  I press the 5 and the 8 shows up.  Before the update above, none of the operation keys were working.  It was working great before the update and now I wish I hadn't updated.\r<br />\n<br />\nThanks,\r<br />\nMichelle<br />\n",
+    "PostedDate": "2015-05-03T20:10:17.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

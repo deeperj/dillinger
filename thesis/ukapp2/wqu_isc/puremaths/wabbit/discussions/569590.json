@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1312536",
+    "ThreadId": "569590",
+    "Html": "I can't seem to find a currently-maintained TI calculator emulator anywhere targeting Linux. <a href=\"http://lpg.ticalc.org/prj_tilem/index.html\" rel=\"nofollow\">TilEm</a> has been practically dead since May 2012 and <a href=\"https://github.com/alberthrocks/wxwabbitemu\" rel=\"nofollow\">wxwabbitemu</a> has only had three commits since <a href=\"https://github.com/alberthrocks/wxwabbitemu/commits/master\" rel=\"nofollow\">June 2012</a>, with a combined diff of 7 additions and 5 deletions six days ago between the three.\r<br />\n<br />\nWabbitEmu already happens to have an Android port (clearly NDK looking at the source), which has a Linux backend. I know there are quite a few differences between Android NDK programming and Linux desktop programming, but that shouldn't affect much beyond GUI.<br />\n",
+    "PostedDate": "2014-10-12T00:55:02.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1325845",
+    "ThreadId": "569590",
+    "Html": "If you check out the Sourceforge page for TilEm (<a href=\"http://sourceforge.net/p/tilem/\" rel=\"nofollow\">http://sourceforge.net/p/tilem/</a>), the latest commits were earlier this year (related to the CSE). You can check out the latest source and build it from there. I'm not sure what you really need, but TilEm's emulation is pretty accurate and works well for debugging (apart from perhaps not mimicking the buggy LCDs). I'd love to see WabbitEmu come over to Linux, too, but TilEm in my opinion is an equally good alternative and fine for most people's needs (including assembly programmers). Though i can't comment on the CSE emulation as i don't have a CSE to test it out with.\r<br />\n<br />\nAlso, regarding wxwabbitemu, if you let the folks working on it that you are interested in it, it might give them a bit more motivation.<br />\n",
+    "PostedDate": "2014-11-25T02:25:42.24-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453583",
+    "ThreadId": "569590",
+    "Html": "Issue asking for Linux builds: <a href=\"https://wabbit.codeplex.com/workitem/12275\" rel=\"nofollow\">https://wabbit.codeplex.com/workitem/12275</a><br />\n",
+    "PostedDate": "2015-11-23T09:02:54.997-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

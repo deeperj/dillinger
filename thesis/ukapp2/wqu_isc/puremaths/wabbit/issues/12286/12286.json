@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When the calculator defrags itself (e.g. after deleting many apps) sometimes the emulator of Wabbitemu freezes. You can not even the see the line at the right top, whcih indicates an activity, moving anymore.\n\nHowever Wabbitemu itself still works and does not freeze. You can even drag and drop apps on it (and see the visual RAM/ARCHIVE selection), but it won't do anything.",
+    "LastUpdatedDate": "2015-11-23T09:09:08.087-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-11-23T08:58:50.32-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Freezes when defragging",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12286
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "However",
+      "PostedDate": "2015-11-23T09:00:06.79-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Here you can see it:\n![Wabbitemu Freeze](https://imgur.com/kPx8GPW)",
+      "PostedDate": "2015-11-23T09:08:18.913-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "![Wabbitemu Freeze](https://i.imgur.com/kPx8GPW.gif)\r\n\r\n(wrong URL)",
+      "PostedDate": "2015-11-23T09:09:08.087-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

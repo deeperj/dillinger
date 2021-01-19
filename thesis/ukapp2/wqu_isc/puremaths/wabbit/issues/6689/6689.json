@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "yayz",
+    "ClosedDate": "2010-09-13T16:17:54.85-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Obviously the bitmap file sizes suck, so we should take advantage of the move to vs and start using GDI+ and pngs.",
+    "LastUpdatedDate": "2013-05-16T05:08:27.803-07:00",
+    "PlannedForRelease": "Wabbitemu",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2010-07-10T16:55:14.577-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Move to GDI+",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 0,
+    "Id": 6689
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "God im so close, i just cannot fix this memory leak from SelectObject on the HBITMAP i get from the resource bmp",
+      "PostedDate": "2010-09-06T02:50:36.713-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-13T16:17:41.473-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2010-09-13T16:17:54.85-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:25.857-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-05-16T05:08:27.803-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

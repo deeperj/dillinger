@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "1. Enable use of cutout skin\nThe strange shadows can now be seen to the right and below the window (marked with yellow highlighter on the attached image)\n2. Minimize the calculator windows once, and show it again.\nThe calculator screen is now misplaced (see attached image).",
+    "LastUpdatedDate": "2015-04-12T03:32:41.98-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2015-04-12T03:32:36.487-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Problem when using cutout skin",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 12068
+  },
+  "FileAttachments": [
+    {
+      "FileId": 3980,
+      "FileName": "Cutout problem.png",
+      "DownloadUrl": ".\\3980"
+    }
+  ],
+  "Comments": []
+}

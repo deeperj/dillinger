@@ -1,0 +1,18 @@
+<div class="wikidoc">
+<p><strong>Warning:</strong> If you are thinking about using this command, do not. Using the command can cause serious errors in your program. There are very few, if any, cases in which this directive should be used.</p>
+<h3><span>Description:</span></h3>
+<p>The .seek command is used to change SPASM's internal program counter in the way .org cannot. .seek can be used to change SPASM's pc to any location already written and rewrite existing data.</p>
+<pre>Example:
+.db 0, 1, 2
+.db 3, 4, 5
+.db 6, 7, 8
+.seek 3
+.db &quot;LOL&quot;
+.seek 9<br>;equivalent to<br>.db 0, 1, 2<br>.db &quot;LOL&quot;<br>.db 6, 7, 8</pre>
+<p>This example would create a data 0-8 as the first 9 bytes. The seek command goes the value 3 and replaces 3,4,5 with 'L', 'O', 'L'</p>
+<h3><span>Usage:</span></h3>
+<pre>.seek <em>address</em></pre>
+<h3><span>Parameters:</span></h3>
+<h4><span>Address</span></h4>
+<p>The address of the data you wish to seek to.</p>
+</div><div class="ClearBoth"></div>

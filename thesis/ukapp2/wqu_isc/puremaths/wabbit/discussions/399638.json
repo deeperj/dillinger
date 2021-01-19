@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "927601",
+    "ThreadId": "399638",
+    "Html": "\r\n<p>What do I need to do exactly to get a TI-84&#43; to emulate on my mac with wabbitemu...</p>\r\n<p>What do I need to download? Where do I get it from? &nbsp;How to I do it...???!!!</p>\r\n<p>WabbitEmu Mac won't let me open any z80 files and I'm confused... Someone please help...</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-10-16T12:02:35.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928963",
+    "ThreadId": "399638",
+    "Html": "<p>Hesserter,</p>\r\n<p>I'm no expert, but I am running WabbitEmu on Windows and Mac platforms.&nbsp; To use them you need (aside from the WabbitEmu application) an image of the TI-8[x] Plus [Silver Edition] ROM.&nbsp; My understanding is that there are two ways of doing this: (1) download the OS from a real calculator, or (2) you can get one from the TI-83 Plus System Developers Kit (i.e., there are copies of some of the ROMs (called .CLC files in the EXE subdirectory when you install the SDK)).&nbsp; But they've only included CLC files for the TI-83 Plus (TI83Plus.clc) and the TI-83 Plus Silver Edition (TI83ps.clc).&nbsp; If the \"83 Plus\" versus the \"84 Plus Silver Edition\" (which has the \"MP\" extensions) differences are not important to you, then this should work.&nbsp; I renamed the TI83Plus.clc file to xp.rom, then I start the application.&nbsp; It comes up with a dialog box because it doesn't know where the ROM is, so I just browse to the location and it \"just works!\"</p>\r\n<p>In my case(s), I downloaded the OS from the real calculator (because I want the \"MP\" extensions).&nbsp; If you search for \"How do I create a TI ROM image\" it will come up with a cookbook recipe that uses \"TI Connect\" and a utility called \"rom8x.\"&nbsp; It would be nice if someone could just give you the file, but all that will do is land them in hot water with TI (re: \"Texas Instruments vs. the Calculator Hackers / Hobbyist cracks key to operating system and TI says: Cease and desist!\" (IEEE Spectrum, Dec2009, p14).&nbsp; (Don't get me wrong.. the TI graphing calculators were incredibly cool.. 10 years ago.&nbsp; But it really makes you wonder what kind of \"arrangements\" they had/have with all the high school physics textbook publisher and the ETS (Educational Testing Service) (the folks who bring you the SAT/ACT/AP exams).)</p>\r\n<p>I hope this helps.&nbsp; It's been almost three years since I originally build my 84PSE ROM, so I'll review my journal/log to more accurately \"re-remember\" the specifics if you don't get anywhere with the above comments.</p>\r\n<p>Regards,</p>\r\n<p>SlideRule (aka Tom)</p>",
+    "PostedDate": "2012-10-18T12:24:12.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "928969",
+    "ThreadId": "399638",
+    "Html": "<p>and here is the link to the (imo) best take on building ROMs (from a real calculator)...</p>\r\n<p>http://wiki.theplaz.com/How-to_Create_a_TI-83_Plus_ROM_Image</p>",
+    "PostedDate": "2012-10-18T12:31:58.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929664",
+    "ThreadId": "399638",
+    "Html": "<p>Thats a good guide SlideRule. There's one thing that I should mention, as many people aren't comfortable using the commandline. I've integrated rom8x into the windows version of Wabbitemu, which provides a single .8xp file for all calculator models and provides a dialog to automate the downloading of the OS and lets you browse for the file(s) you need to pull off the calculators. It runs automatically when you start Wabbitemu for the first time, or you can manually run it from (Help-&gt;Rerun setup wizard)</p>",
+    "PostedDate": "2012-10-19T16:25:55.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930449",
+    "ThreadId": "399638",
+    "Html": "<p>BuckeyeDude,</p>\r\n<p>That (integrating rom8x) is REALLY cool.&nbsp; I tried it (on the Windows version) and it worked great. That means you can be \"up and rolling\" simply by getting the .8Xu file (from the web).</p>\r\n<p>I didn't know you were one of the developers.. so I'll shoot this one by you.&nbsp; I would like to be able to quit my TI8# application.. and then have it pick up where I left off the next time I start it up.&nbsp; I tried \"Calculator -&gt; Options -&gt; General/Automatically Save and Retore State,\" but that doesn't seem to do it.&nbsp; It seems that I have to (each time I'm want to quit the emulator) do \"File -&gt; Save.\"&nbsp; Am I missing something?</p>\r\n<p>Thanks,</p>\r\n<p>SlideRule (aka Tom)</p>",
+    "PostedDate": "2012-10-22T06:30:43.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933053",
+    "ThreadId": "399638",
+    "Html": "<p>SlideRule,</p>\r\n<p>I took a look at saving the state on calculator exit and I didn't see anything wrong with it. The option is the Automatically Save and Restore State option (if you have a better name please tell me), if you check this press ok and exit and then reopen it should restore to the same place as you were before. What version of Wabbit are you on? Also what steps are you taking to exit the program? When you exit it should save a file to %APPDATA%/Wabbitemu/Wabbitemu.sav. See if that file exists.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-10-26T09:19:29.187-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933101",
+    "ThreadId": "399638",
+    "Html": "<p>BuckeyeDude,</p>\r\n<p>Thanks for the reply.&nbsp; I'm running WabbitEmu 1.6.2.21 (on a Windows 7 64-bit system).&nbsp; Yes, I do see a wabbitemu.sav file (and its timestamp is consistent with the last time I ran the program).&nbsp; And I exit the program by clicking the \"X in the box\" in the upper right hand corner of the calculator.</p>\r\n<p>Originally, my desktop shortcut properties \"target\" was:</p>\r\n<p>C:\\Tom\\MyDocs\\Software\\WabbitEmu\\Wabbitemu.exe ti84pse.rom ti84pse.sav</p>\r\n<p>When I got rid of the last argument (i.e., the ti84pse.save file), it \"seems\" to try to load the previous state (from the wabbitemu.sav file).&nbsp; That is, I see the last screen for just a fraction of a second.. then the screen (the calculator's virtual LCD screen) goes blank (as though the calculator had been turned off).</p>\r\n<p>Regards,</p>\r\n<p>Tom (SlideRule)</p>",
+    "PostedDate": "2012-10-26T11:25:22.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933128",
+    "ThreadId": "399638",
+    "Html": "<p>Ah I see the issue there. You'll want to get rid of the ti84pse.rom argument as well. Wabbitemu saves the last rom file you loaded and loads that on startup. Then any files passed into the command line are loaded, with ROMs being loaded first. So in this case, it loads the last save state, then loads the rom you specified on the command line.</p>\r\n<p>Let me know if there are any other issues or features you'd like to see.</p>\r\n<p>BuckeyeDude</p>",
+    "PostedDate": "2012-10-26T12:51:17.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "933137",
+    "ThreadId": "399638",
+    "Html": "BuckeyeDude,<br>\r\n<br>\r\nThat did it! Thanks 1e6.<br>\r\n<br>\r\nRegards,<br>\r\n<br>\r\nTom (SlideRule)",
+    "PostedDate": "2012-10-26T13:15:43.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

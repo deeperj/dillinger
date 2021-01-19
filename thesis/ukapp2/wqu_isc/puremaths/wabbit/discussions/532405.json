@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1209701",
+    "ThreadId": "532405",
+    "Html": "Hi,\r<br />\n<br />\nI really like your work on the new Android version of Wabbitemu! A few days ago I tried to take the .sav file that I use on my Windows desktop version of Wabbitemu, and use it as my ROM for the Android version. When this happens, it causes the Wabbitemu to crash.\r<br />\n<br />\nAlso, just wondering: will Wabbitemu (all platforms) ever support the TI-84 Plus C Silver Edition?<br />\n",
+    "PostedDate": "2014-02-17T23:04:07.26-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1210145",
+    "ThreadId": "532405",
+    "Html": "Hello,\r<br />\n<br />\nGlad to hear you like the software. Currently only uncompressed save states from the PC will work on Android. By default, the desktop uses Zlib compression. There is a combobox when saving the state to change this. I'll work on fixing the crash with compressed savestates.\r<br />\n<br />\nAs for the 84PCSE yes, there is currently a beta of Wabbitemu with it supported. If you'd like to try it for the desktop, you can download it from <a href=\"http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\" rel=\"nofollow\">here</a>. If you'd like to try it for Android, you can get the beta by joining the <a href=\"https://groups.google.com/forum/#!forum/wabbitemu-beta\" rel=\"nofollow\">google group</a>, and then opt in <a href=\"https://play.google.com/apps/testing/com.Revsoft.Wabbitemu\" rel=\"nofollow\">here</a>. It may take a little time after joining for Google Play to update Wabbitemu.\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-02-18T15:53:40.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1210216",
+    "ThreadId": "532405",
+    "Html": "Awesome! Thanks.<br />\n<br />\nI tried the 84PCSE on Windows, and it works well. Only thing that I noticed was that the numbers and text on the screen of the 84PCSE are a bit small and harder to read compared to the text on the 84SE. Any timeframe as to when it will be out of beta?<br />\n<br />\nAlso I was wondering how difficult it would be to make the Windows version of Wabbitemu DPI aware. Currently it's being scaled up on high DPI displays in Windows, resulting in a blurry UI. Hopefully this won't be too hard to fix.<br />\n",
+    "PostedDate": "2014-02-18T19:07:44.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1210241",
+    "ThreadId": "532405",
+    "Html": "Screen size is definitely an issue for the 84PCSE, the screen gets scaled down from 320x240 to 230x155. Obviously this is a pretty big discrepancy. To fix this I'm working on making it so you can scale the Wabbitemu skin arbitrarily. With this change, I'll update the skins to double their resolution, which should fix the DPI upscaling problem as well.\r<br />\n<br />\nAs for when this will be released, it should be soon but I'm still working on debugger features for 84PCSE developers. I'm also still working on the skin resizing issue described above. I'm hoping to have it out within the next week.\r<br />\n<br />\nThanks for all your feedback.\r<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-02-18T20:15:47.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1210299",
+    "ThreadId": "532405",
+    "Html": "Wow, that's quite soon! I was expecting a much longer timeframe.<br />\n<br />\nYeah, the screen being scaled down would explain the small text size.<br />\n<br />\nFor the DPI scaling, updating the resolutions of the skins will help, but I'm not sure you completely understood the issue. The application is not declared as DPI-Aware. On lower resolution screens this is not noticeable, but it is noticeable on higher resolution screens. As a result the menu's at the top, and the getting started UI and settings panel for the app are all blurry.<br />\n<br />\nFor more information about this see: <a href=\"http://msdn.microsoft.com/en-us/library/windows/desktop/dn469266(v=vs.85).aspx#comparison_of_dpi_awareness_levels\" rel=\"nofollow\">http://msdn.microsoft.com/en-us/library/windows/desktop/dn469266(v=vs.85).aspx#comparison_of_dpi_awareness_levels</a><br />\n<br />\nLastly, another bug I noticed in the beta version, is that when you have a number ending in 0's such as &quot;120&quot;, and you go to copy it, it only copies &quot;12&quot; and truncates last the 0.<br />\n<br />\nHope this helps.<br />\n",
+    "PostedDate": "2014-02-18T22:47:35.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1214229",
+    "ThreadId": "532405",
+    "Html": "Thanks for the link. Actually making this DPI aware will take some time, but for the mean time I enabled the awareness, so it should look a little better. I've also fixed the bug copying numbers ending in 0. This version does contain skin scaling, so it should be pretty close to release, I just need a couple more days to test it. Available at: <a href=\"http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe\" rel=\"nofollow\">http://buckeyedude.zapto.org/Revsoft/Wabbitemu/Beta/Wabbitemu.exe</a>\r<br />\n<br />\nBuckeyeDude<br />\n",
+    "PostedDate": "2014-02-24T22:44:09.363-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1215757",
+    "ThreadId": "532405",
+    "Html": "I tried the newest version that you just uploaded last night (1.8.2.26), and thought that I would just offer a few comments.<br />\nI'm sure that making the application DPI aware will take some time, but I think that by enabling the awareness as of now may cause some issues for uses. When you attempt to resize the calculator, the buttons no longer work and it looks like this:<br />\n<br />\n<a href=\"https://www.dropbox.com/s/mgac9slwo5ou3co/Untitled.png\" rel=\"nofollow\">https://www.dropbox.com/s/mgac9slwo5ou3co/Untitled.png</a><br />\n<br />\n<br />\nAlso, these are just really small minor bugs, but you may be interested to know about them:<br />\n<ol>\n<li>\nIf you look at the title bar icon in the top left of the screenshot, you may notice that it's not the same updated icon that is in the taskbar of the application<br />\n</li>\n<li>\nIf you look at the properties of the .exe file, the copyright date is still 2013 (once again extremely minor, doesn't affect the app at all)<br />\n</li>\n<li>\nWhen trying to copy a decimal that is less that 1, it does not copy the decimal point. For example, I try to copy &quot;.4&quot; and it only copies &quot;4&quot; without the decimal point. <br />\n</li>\n<li>\nWhen trying to copy a number such as &quot;6.022e23&quot; is copies only &quot;6.022&quot;<br />\n</li>\n<li>\nWhen trying to paste a number with a decimal or a mathematical operation, it omits the operation or/and the decimal. For example trying to paste &quot;3-2&quot; results in &quot;32&quot;<br />\n</li>\n<li>\nAlso, the keyboard shortcut Ctrl V to paste does not work (it gets overridden).<br />\n</li>\n</ol>\nI know that the paste function is new, but I'm not sure why there are all these digressions in the copy algorithm. In the older version, none of these copy issues existed. <br />\n<br />\nAnyways, keep up the good work!<br />\n",
+    "PostedDate": "2014-02-27T10:40:02.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

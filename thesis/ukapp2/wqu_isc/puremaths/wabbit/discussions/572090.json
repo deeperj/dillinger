@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1322168",
+    "ThreadId": "572090",
+    "Html": "Using Wabbitemu with my different Windows 8.1 touchscreen devices it misses and skips almost half of the keypresses.<br />\nFor example: if i type 123456 it will register 1346 , skipping 2 and 5. The button animation is showing every key as pressed but it is not registering and skipping them. <br />\nInitially i thought it was because of a high resource demand on the baytrail tablet but tried it also on a i5 and i7 quad core touchscreen notebooks and it happens the same.<br />\nTried playing around with the fps, shades, etc but still the same.<br />\nTried all the roms compatible but still the same.<br />\n<br />\nWabbitemu its a fantastic ti emulator but this issue makes it quite difficult and problematic to use on touch enabled windows 8.1 devices.<br />\nWould love to have it fixed as it would be a perfect study companion on my tablet and laptop.<br />\n<br />\nIf there is any information i can provide to try to solve this please let me know.<br />\n",
+    "PostedDate": "2014-11-14T05:26:45.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

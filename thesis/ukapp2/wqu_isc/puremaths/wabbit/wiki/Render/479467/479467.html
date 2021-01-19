@@ -1,0 +1,17 @@
+<div class="wikidoc">
+<h2>SPASM&nbsp;Internal Functions</h2>
+<h3>Concat:</h3>
+<p>Usage:</p>
+<pre>concat(string1, string2)</pre>
+<p>This function concatenates two pieces of data, typically strings, together into a single piece of data.</p>
+<p>Example:</p>
+<pre>#define worldString &quot;world&quot;
+#define spaceChar $20
+#define helloString concat(&quot;hello&quot;, spaceChar)
+#define helloWorldString concat(helloString, worldString)
+
+;helloWorldString now holds the data for &quot;hello world&quot;
+;the following two statements are equivalent
+.db helloWorldString,0
+.db &quot;hello world&quot;,0</pre>
+</div><div class="ClearBoth"></div>

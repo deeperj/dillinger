@@ -1,0 +1,12 @@
+<div class="wikidoc">
+<h3><span>Description:</span></h3>
+<p>The .block command is used to quickly insert any amount of data quickly and easily rather than having to use large numbers of the .dw or .db commands. This is very handy if you need to insert a buffer for something like a screen. Rather than having 384 .dw
+ 0 commands you can simply do one command, .block 768</p>
+<p>This command is also useful if you need to actually move the program counter to a certain location, rather than just change SPASM’s internal program counter with .org. For example if you were writing a multi page app and had a routine at $6030 on the first
+ page and wanted the exact same routine at the same place on the second page you could use .block to ensure your routine was located there.</p>
+<h3><span>Usage:</span></h3>
+<pre>.block <em>size</em></pre>
+<h3><span>Parameters:</span></h3>
+<h4><span>Size</span></h4>
+<p>The size of the data you wish to insert. The data is inserted is set to 0. If you want to fill a certain value of data, look at the directive .fill.</p>
+</div><div class="ClearBoth"></div>

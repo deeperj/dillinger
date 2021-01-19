@@ -1,0 +1,106 @@
+[
+  {
+    "Id": "654270",
+    "ThreadId": "268142",
+    "Html": "\r\n<p>Hi there,</p>\r\n<p>Trying to launch WabbitEmu on a MAC, and whatever I do, at startup it prompts me to load a new calculator.</p>\r\n<p>However, I am not able to find the file he is looking for. I thougt it was the calculators ROM, but that doesn't work either.</p>\r\n<p>Thanks a lot for your support...</p>\r\n<p>bgfspeedy</p>\r\n",
+    "PostedDate": "2011-08-07T19:38:03.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659156",
+    "ThreadId": "268142",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>bgfspeedy wrote:</strong><br />\r\n<p>Hi there,</p>\r\n<p>Trying to launch WabbitEmu on a MAC, and whatever I do, at startup it prompts me to load a new calculator.</p>\r\n<p>However, I am not able to find the file he is looking for. I thougt it was the calculators ROM, but that doesn't work either.</p>\r\n<p>Thanks a lot for your support...</p>\r\n<p>bgfspeedy</p>\r\n</blockquote>\r\n<p>It seems that no one is able to help me here.... when the program starts it is prompting me for a file. Which one is it?</p>\r\n<p>Please help... my students need it :-(</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-08-16T18:11:07.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659185",
+    "ThreadId": "268142",
+    "Html": "<p>Hey bgfspeedy,</p>\r\n<p>Sorry for the delayed response, missed your first post. At startup you will want to load a new ROM file, where did you get your ROM from and what version are you trying to load?</p>",
+    "PostedDate": "2011-08-16T20:04:20.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659186",
+    "ThreadId": "268142",
+    "Html": "<blockquote style=\"border: solid .1em #ccc; font-style: italic; margin: .25em 1em 0 1em; padding: 0 .25em 0 .25em;\"><strong>BuckeyeDude wrote:</strong><br />\r\n<p>Hey bgfspeedy,</p>\r\n<p>Sorry for the delayed response, missed your first post. At startup you will want to load a new ROM file, where did you get your ROM from and what version are you trying to load?</p>\r\n</blockquote>\r\n<p>No worries....</p>\r\n<p>I downloaded the rom from&nbsp;<a title=\"TI site\" href=\"http://education.ti.com/calculators/downloads/US/Software/Detail?id=6014\">http://education.ti.com/calculators/downloads/US/Software/Detail?id=6014</a></p>\r\n<p>file is called&nbsp;TI84Plus_OS.8Xu version is 2.55</p>\r\n<p>Is that correct or am I doing something wrong?</p>\r\n<p>Thanks a lot for your support.</p>",
+    "PostedDate": "2011-08-16T20:08:48.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659192",
+    "ThreadId": "268142",
+    "Html": "<p>Unfortuantely accquiring a ROM is more difficult than that. You have an OS file, but there is another part that makes up the ROM file, the boot page. TI has made it illegal to distribute&nbsp;this code, which prevents us from putting&nbsp;it directly in Wabbitemu.&nbsp;If you have access to a windows machine, the windows version has a wizard to help you through the process. The Mac version unfortunately does not have this and you'll have to dump the boot page manually from the calculator. If you dont have access to a windows machine, I'll walk you through the process of accquiring a ROM via dumping it.</p>\r\n<p>Do you have access to a windows machine?</p>",
+    "PostedDate": "2011-08-16T20:20:39.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659194",
+    "ThreadId": "268142",
+    "Html": "<p>unfortunately I do not have a windows machine as we only have macs at school.....&nbsp;</p>\r\n<p>If you can walk me through the process that would be great....</p>\r\n<p>Thanks a lot</p>",
+    "PostedDate": "2011-08-16T20:23:26.133-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "890900",
+    "ThreadId": "268142",
+    "Html": "<p>Sow was this ever resolved?&nbsp; I'm having the same problem and would like to know the solution.</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2012-07-24T22:46:20.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "890911",
+    "ThreadId": "268142",
+    "Html": "<p>Unfortunately not. My advice would still be to follow the setup wizard in the Windows version of Wabbitemu. I'd like to put in some work on both the mac and windows version but I don't currently have the time.</p>",
+    "PostedDate": "2012-07-24T23:33:52.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "909320",
+    "ThreadId": "268142",
+    "Html": "<p>I know this thread is a little old but... bgfspeedy and jermsu.. did you  ever get anything going from this?&nbsp; I've been using WabbitEmu on my PC  for quite a while.&nbsp; But now my son needed it on his Mac (Air-11,  Mountain Lion OS).&nbsp; I downloaded the Mac zip (WabbitEmu.app.zip), and  unzipped it.&nbsp; Then I copied the \"ROM file\" (I call it xp.rom) and the  \"Wabbitemu Save State\" file (which I call xp.sav) from my PC to the same  folder as the app.&nbsp; Then when I double-click the xp.sav file... it just works!</p>",
+    "PostedDate": "2012-09-06T12:24:29.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915614",
+    "ThreadId": "268142",
+    "Html": "<p>I have downloaded Wabbit for Mac, and throuh TiLP and a silverlink cable managed to download the .rom from my TI-84+ SE. When I start WabbitEmu, and then load my dumpTI84+.rom-fil, I get a nice picture of the calculater in a window, and the display prints out: TI-84 Plus Silver Edition; 2.21; RAM cleared. But then I'm stuck. I try to click on the calculator buttons but with no response. I use Lion (OS 10.7.4). Have i missed something?</p>",
+    "PostedDate": "2012-09-21T02:59:24.863-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "915657",
+    "ThreadId": "268142",
+    "Html": "<p>Downloaded Wabbit Emu from emutopia.com, and this time it works! It is version 1.0.4, the former ones were 2.1.</p>",
+    "PostedDate": "2012-09-21T05:10:41.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "919887",
+    "ThreadId": "268142",
+    "Html": "<p>Still stuck... the interface looks fine, but the calculator just won't calculate, it only says \"Done\" and moves on.&nbsp; Won't graph either.&nbsp; I'll just keep using a PC for display I guess.</p>",
+    "PostedDate": "2012-09-30T23:32:50.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "919906",
+    "ThreadId": "268142",
+    "Html": "<p>Jermsu what type of file are you trying to load in the mac version? Is it a ROM file or a save state file and what model are you using? What OS on the ROM and what OS are you running on?</p>",
+    "PostedDate": "2012-10-01T00:50:03.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

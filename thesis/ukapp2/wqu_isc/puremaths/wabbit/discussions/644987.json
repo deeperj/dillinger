@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1444495",
+    "ThreadId": "644987",
+    "Html": "I have the TI-83+ app on my android and have downloaded the program files I want to add.  I can access the menu and choose &quot;load file&quot;, but the only file that comes up is my rom file.  How can I get it to find the programs I want to put on?<br />\n",
+    "PostedDate": "2015-09-15T08:48:37.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1453580",
+    "ThreadId": "644987",
+    "Html": "In my test it works. Do you maybe do not have the right file extension? (like <code>.8xk</code> for applications)<br />\n",
+    "PostedDate": "2015-11-23T08:50:34.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

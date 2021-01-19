@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1497306",
+    "ThreadId": "663367",
+    "Html": "I just downloaded the most recent version of the Mac software and ran the 84Plus Rom. When I click on the &quot;On&quot; key nothing happens, but when I click on the &quot;9&quot; key, the &quot;1&quot; key gets pressed. I loaded the sam ROM on my Windows 10 VM and the key presses are hitting exactly where they should. Any thoughts on this?<br />\n",
+    "PostedDate": "2017-07-04T09:39:37.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1498357",
+    "ThreadId": "663367",
+    "Html": "The problem is related to HiDPI in MacOS. It should be easily solvable by opening the info pane for the Wabbitemu.app file (two-finger or ctrl+click Wabbitemu.app and select &quot;Get Info&quot;) and checking the box for &quot;Open in Low Resolution&quot;. Running Wabbitemu with this setting should fix the button misalignment you describe.\r<br />\n.<br />\n",
+    "PostedDate": "2017-11-04T16:20:07.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

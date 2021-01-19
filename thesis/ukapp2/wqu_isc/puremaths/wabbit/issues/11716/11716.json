@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "To reproduce:\n\n1. Delete Wabbitemu registry key and AppData folder to make sure we get a fresh start.\n2. Start Wabbitemu and select TI-86 ROM version 1.6 in the ROM wizard.\n3. Click View -> Enable skin. The LCD looks like this: http://i.imgur.com/ySoilqf.png",
+    "LastUpdatedDate": "2015-02-10T20:31:44.857-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-05-17T06:56:42.627-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TI-86 screen is vertically squeezed in skin mode on Windows 7",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 6,
+    "Id": 11716
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Same vertically squeezed result with TI-85:\r\n\r\n![TI-85](http://i.imgur.com/j6tgF3k.png)",
+      "PostedDate": "2014-07-12T14:24:28.883-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-08-02T13:57:00.87-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-09-05T16:16:55.613-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-02-09T16:55:41.68-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have the same issue while using the latest emulator and a version 10.0 Rom/Bin ti 85",
+      "PostedDate": "2015-02-09T16:56:58.16-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Same problem with TI-86 v1.6 ROM on WIN XP pro SP3",
+      "PostedDate": "2015-02-10T20:31:25.97-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2015-02-10T20:31:44.857-08:00",
+      "Id": -2147483648
+    }
+  ]
+}

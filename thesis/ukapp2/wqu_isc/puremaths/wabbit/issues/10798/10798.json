@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Working with one of my classes to get graphing calculators onto some new school laptops, I managed to have them load Wabbitemu onto them.  One person is having trouble starting the calculator after it has loaded.  Running Windows 7, 64-bit, we can't determine why it won't turn on.  We've tried Debug > Reset, but  to no avail.  I wwould love some suggestions, thanks!",
+    "LastUpdatedDate": "2014-07-05T06:00:07.04-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-02-05T08:02:49.21-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TI-84 Won't Turn On",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 10798
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hello,\r\n\r\nUsually when the calculator won't turn on its due to issues with the ROM. A quick check for this is to open the debugger (Debug->Open Debugger), and look at the line that is highlighted. If the line is gold and says HALT, then it is good to that point. If it says something else, like rst $38, the ROM is corrupted and you'll need to remake it.\r\n\r\nLet me know what the debugger says when you open it, and I can help you more from there. Its most likely that you'll have to recreate the ROM, so I would suggest doing that too.\r\n\r\nBuckeyeDude",
+      "PostedDate": "2013-02-05T10:41:38.59-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-02-21T17:44:12.117-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "OK we're running windows 7, and I got the skin, BUT I can't get it to do anything.  The screen will say:\nTI-84 Plus\n2.22\nRAM cleared\r\n\r\nBut I can't activate any of the buttons.\r\n\r\nI read the previous thread about Debugging and the following line is (I guess) highlighted in silver/grey\n37 6D60    cb7f                bit   7 , a                                         2            8\r\n\r\nHow do I recreate the ROM?  Is that just redoing the install process or something else?\r\n\r\nThanks\nEric Holmes",
+      "PostedDate": "2013-08-20T19:54:36.89-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Turned it off and then back on this time in GOLD I've got\n00     0B93       c3180a              jp$0A18\r\n\r\nChange anything for you?\n",
+      "PostedDate": "2013-08-20T19:59:37.35-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I have loaded wabbitemu on a classroom of computers, I have one that is not cooperating.  I am using the TI-84 Plus Silver Edition, the skin shows up but it will not turn on.  I went to the debugger and here is the highlighted entry:\nAddr        Data  Disassembly  Size  Clocks\n00 03A2    c9          ret             1       10\r\n\r\nI have loaded and reloaded several times.  Please, any suggestions, thanks so much",
+      "PostedDate": "2014-04-24T11:55:08.047-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "@billr247, it looks like your ROM is valid based on that line. Try doing a Debug->Reset calculator. Then Debug->Turn calculator on. If that doesn't work, rerun the setup wizard (Help->Rerun setup wizard) and recreate the ROM using the same process.\r\n\r\nLet me know, if either of those doesn't fix it, and I'll investigate further.\r\n\r\nBuckeyeDude",
+      "PostedDate": "2014-04-24T22:17:54.44-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-07-05T06:00:07.04-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

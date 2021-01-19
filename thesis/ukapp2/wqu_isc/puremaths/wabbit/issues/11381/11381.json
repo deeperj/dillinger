@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed as of 1.8.2.26 release",
+    "ClosedDate": "2014-03-11T13:06:38.123-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello, I am part of the technical department for a school district and many of our teachers are complaining after we updated to a newer version of TI-83. A feature which was present in the previous version we were using allowed them to resize the calculator window so they could make it bigger on the projector. This allowed all of the students in the classroom to see the buttons which were being pressed on the calculator, even if they were at the back of the room. However, this feature is apparently no longer available in the new version and calculator can not be enlarged.\n\nI understand that there is a detach LCD option and you CAN resize that window, however, the teachers are not happy with the solution because it doesn't make the keys larger so kids can see which keys are being pressed. We would be very happy if there was a solution to making the calculator skin and LCD larger!\n\nI hope to hear from you soon!\n\nThanks!",
+    "LastUpdatedDate": "2014-03-11T13:06:38.123-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2013-11-04T12:41:32.943-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "TI-83 does not resize",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 11381
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hello,\r\n\r\nOne of the features for the next Wabbitemu release will be resizing of the window, which should hopefully solve your issue. I'm hoping to have this out by the end of the month.\r\n\r\nThanks for the feedback,\nBuckeyeDude",
+      "PostedDate": "2013-11-05T15:45:03.687-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Thank you for the quick response! I hope to see the changes soon!\r\n\r\nThanks again!",
+      "PostedDate": "2013-11-06T05:47:23.473-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2013-12-12T06:39:52.057-08:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "",
+      "PostedDate": "2014-03-11T13:06:38.123-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

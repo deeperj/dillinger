@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi\n\nI'm trying to set up wabbitemu so every user that logs in will get the ROM loaded without having to do it manually.  Looking in the registry I see it in HKCU, but, of course, that won't load for everyone.  Is there a registry entry that can be added or modified, or perhaps a command-line entry in the shortcut to load the ROM for every user that logs in?\n\nThanks.\n\nRay",
+    "LastUpdatedDate": "2014-03-27T08:43:19.983-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "wabbit",
+    "ReportedDate": "2014-03-24T14:30:22.847-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Auto-Load ROM in Windows 7",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 11645
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi Ray,\r\n\r\nYou should have a couple options to get things setup how you want. \r\n\r\n1. You can also load a ROM file via the command line, so if you have common shortcut for Wabbitemu you can just pass the ROM path as a parameter and it will be loaded on start up. This will override whatever ROM setting was stored.\r\n\r\n2. You can also use an ini file for settings. If you go to Calculator->Options under General there is a Portable Mode option. Checking this will store all settings (including the ROM file location) in an ini file in the same directory as the Wabbitemu executable. As long as the ini file exists, Wabbitemu will pull settings from it, before it pulls settings from the registry. Failure to write to the settings file will silently fail as well, so you can deny write access to the file as well.\r\n\r\nBuckeyeDude",
+      "PostedDate": "2014-03-24T16:35:57.237-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "I also forgot to mention, if you want to manually set the ROM path in the registry, the key is HKCU\\Software\\Wabbitemu, the value is rom_path, which takes an absolute file path to the rom.\r\n\r\nBuckeyeDude",
+      "PostedDate": "2014-03-24T16:42:26.007-07:00",
+      "Id": -2147483648
+    },
+    {
+      "Message": "Hi Buckeye\r\n\r\nJust wanted to drop a line and say your suggestion of setting it to Portable Mode was perfect.  It keeps the files centralized in one folder and the end user doesn't have rights to modify or delete the .ini file.  Thanks for your help!\r\n\r\nRay",
+      "PostedDate": "2014-03-27T08:43:19.983-07:00",
+      "Id": -2147483648
+    }
+  ]
+}

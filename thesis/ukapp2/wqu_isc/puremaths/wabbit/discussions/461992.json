@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1106778",
+    "ThreadId": "461992",
+    "Html": "Hi,<br />\nI've done about a dozen different key reassignments (Using Calculator-&gt;Options-&gt;Keys-&gt;Emulator) for my computer keyboard, and all of them went smoothly except for a reassignment for the ALPHA key. I did the following:<br />\n<ol>\n<li>Removed Ctrl</li>\n<li>Assigned Right Ctrl,<br />\nand then I found that I could no longer get either my right or left Ctrl to work, even after many attempts at removing/reassigning both Ctrl and Right Ctrl. As a workaround, I then:</li>\n<li>\nAssigned Left for ALPHA<br />\nCurrently, this is working, but I was wondering if it is possible to get back to the original configuration (Ctrl) assignment. Thanks, and everything else in Wabbitemu is working great...it's really amazing software!<br />\n</li>\n</ol>\nUhh...nevermind...I'm a complete moron. I think that I just mentally blocked out that RESET button...Now that I've reset and done the key reassignments again, everything is great!<br />\n",
+    "PostedDate": "2013-10-12T16:23:49.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2013-10-13T10:01:32.28-07:00"
+  }
+]

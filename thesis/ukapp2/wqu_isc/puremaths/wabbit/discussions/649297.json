@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1457148",
+    "ThreadId": "649297",
+    "Html": "Is it possible to set up more than one emulator on a single pc?  I am thinking of using the emulators in class, for instruction and to compare different designs and features.  It appears to be easier and less expensive to connect a pc running emulation to the classroom projection system, than connecting other devices such as Androids, iPhones or calculators.<br />\n\r<br />\nTried placing a copy of the 32 bit wabbitemu software in a separate folder and running the setup again; failed to download the TI84plus SE rom.  Got nowhere.<br />\n",
+    "PostedDate": "2015-12-24T16:41:10.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1464864",
+    "ThreadId": "649297",
+    "Html": "You can actually run Wabbitemu, select the Help menu, and Re-run setup wizard to get a new type of calculator running.  Make sure you use the newest version I just put up, as I fixed the OS download from TI.  After you have a ROM, you can use File -&gt; New to get another type running.  You won't need a second copy of the program.<br />\n",
+    "PostedDate": "2016-02-28T00:01:37.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]
